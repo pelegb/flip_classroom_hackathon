@@ -28,8 +28,8 @@ digraph pipeline {
 		label = "Curriculum";
 		fontsize=25;
 		
-		topic    [shape=Mrecord, 		style=filled, fillcolor=chocolate1, 			label = "{Topic  | Description (e.g. \"Linear Acceleration\") | <review> Reviews}"];
-		item     [shape=Mrecord, 		style=filled, fillcolor=lightyellow1, 		label = "{<title> Item | Textual comment on a video | \[\<video\>, \<video\>, ...\]}"];
+		topic    [shape=Mrecord, 		style=filled, fillcolor=chocolate1, 			label = "{Topic  | General curricular topic without videos| Description (e.g. \"Linear Acceleration\") | <parent> Parents \[\<topic\>, \<topic\>, ...\]}"];
+		item     [shape=Mrecord, 		style=filled, fillcolor=lightyellow1, 	    	label = "{<title> Item | Small topic coverable by a video | Videos \[\<video\>, \<video\>, ...\] | Parents \[\<topic\>, \<topic\>, ...\] }"];
 
 	}
 	
