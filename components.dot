@@ -1,0 +1,29 @@
+digraph pipeline {
+	graph [
+		label="Flipped classroom data model";
+	];
+	
+	node [
+		rankdir = "TB";
+	]
+
+	subgraph cluster_1 { 
+		label = "Content";
+		fontsize=25;
+		
+		video  [shape=Mrecord, 		style=filled, fillcolor=honeydew1, 			label = "{Video  | Fixed metadata (upload date, length,...) | <review> Reviews}"];
+		review [shape=Mrecord, 		style=filled, fillcolor=lightyellow1, 		label = "{<title> Review | Fixed metadata (upload date, length,...) | Reviews}"];
+	}
+
+
+	subgraph cluster_2 { 
+		label = "Users";
+		fontsize=25;
+		
+		user   [shape=Mrecord, 		style=filled, fillcolor=honeydew1, 			label = "{User  | Login data (passwords, auth) | Editable profile data (image, age, ...) | Permissions}"];
+		role   [shape=Mrecord, 		style=filled, fillcolor=lightyellow1, 		label = "{<title> Role | Permissions allowed for this role }"];
+	}
+	
+	
+	video:review							->		review:title		[color="springgreen4", penwidth="4"];
+}
