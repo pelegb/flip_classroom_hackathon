@@ -1,7 +1,6 @@
 digraph pipeline {
-	graph [
-		label="Flipped classroom data model";
-	];
+	fontsize=25;
+	label="Flipped classroom data model";
 	
 	node [
 		rankdir = "TB";
@@ -11,19 +10,31 @@ digraph pipeline {
 		label = "Content";
 		fontsize=25;
 		
-		video  [shape=Mrecord, 		style=filled, fillcolor=honeydew1, 			label = "{Video  | Fixed metadata (upload date, length,...) | <review> Reviews}"];
-		review [shape=Mrecord, 		style=filled, fillcolor=lightyellow1, 		label = "{<title> Review | Fixed metadata (upload date, length,...) | Reviews}"];
+		video    [shape=Mrecord, 		style=filled, fillcolor=honeydew1, 			label = "{Video  | Fixed metadata (upload date, length,...) | <review> Reviews}"];
+		comment  [shape=Mrecord, 		style=filled, fillcolor=lightyellow1, 		label = "{<title> Comment | Textual comment on a video | \<user\>}"];
+		rating   [shape=Mrecord, 		style=filled, fillcolor=lightyellow1, 		label = "{<title> Star rating  | Numerical comment on a video | \<user\>}"];
 	}
 
 
 	subgraph cluster_2 { 
 		label = "Users";
 		fontsize=25;
-		
-		user   [shape=Mrecord, 		style=filled, fillcolor=honeydew1, 			label = "{User  | Login data (passwords, auth) | Editable profile data (image, age, ...) | Permissions}"];
-		role   [shape=Mrecord, 		style=filled, fillcolor=lightyellow1, 		label = "{<title> Role | Permissions allowed for this role }"];
+		user         [shape=Mrecord, 		style=filled, fillcolor=burlywood1, 	label = "{User  | Login data (passwords, auth) | Editable profile data (image, age, ...) | <role> \<role\>}"];
+		role         [shape=Mrecord, 		style=filled, fillcolor=olivedrab2, 	label = "{<title> Role | Description (e.g. \"Teacher\") | <permission> maps \<permission\> to true/false or numerical value }"];
+		permission   [shape=Mrecord, 		style=filled, fillcolor=aquamarine, 	label = "{<title> Permission | Description (e.g: \"rate video\")}"];
 	}
 	
+	subgraph cluster_3 { 
+		label = "Curriculum";
+		fontsize=25;
+		
+		topic    [shape=Mrecord, 		style=filled, fillcolor=chocolate1, 			label = "{Topic  | Description (e.g. \"Linear Acceleration\") | <review> Reviews}"];
+		item     [shape=Mrecord, 		style=filled, fillcolor=lightyellow1, 		label = "{<title> Item | Textual comment on a video | \[\<video\>, \<video\>, ...\]}"];
+
+	}
 	
-	video:review							->		review:title		[color="springgreen4", penwidth="4"];
+	video							->		comment		[color="springgreen4", penwidth="4"];
+	video							->		rating		[color="springgreen4", penwidth="4"];
+	role:permission					-> 		permission  [color="springgreen4", penwidth="4"];
+	user:role						->		role		[color="springgreen4", penwidth="4"];
 }
