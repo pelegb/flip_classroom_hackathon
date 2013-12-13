@@ -1,7 +1,13 @@
 {% load staticfiles %}
 
 <link rel="stylesheet" type="text/css" href="{% static 'core/css/bootstrap-responsive-rtl.min.css' %}" />
+<link rel="stylesheet" type="text/css" href="{% static 'core/css/bootstrap-rtl.min.css' %}" />
+<link rel="stylesheet" type="text/css" href="{% static 'core/css/main.css' %}" />
+<link rel="stylesheet" type="text/css" href="{% static 'core/css/stylesheet.css' %}" />
 
-<h1>It works!</h1>
+<h1>{{ video.video_title }}</h1>
 
-{{ video.youtube_link }}
+
+<iframe width="560" height="315" src="//www.youtube.com/embed/{{ video.youtube_movie_id }}" frameborder="0" allowfullscreen></iframe>
+<iframe width="560" height="315" src="//www.youtube.com/embed/J_XzE70gxbE" frameborder="0" allowfullscreen></iframe>
+
