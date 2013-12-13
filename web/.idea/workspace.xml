@@ -35,7 +35,7 @@
       <file leaf-file-name="admin.py" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/flipped/core/admin.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="4" column="1" selection-start="87" selection-end="87" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="165">
+            <state line="8" column="0" selection-start="181" selection-end="181" vertical-scroll-proportion="0.0" vertical-offset="60" max-vertical-offset="240">
               <folding>
                 <element signature="e#0#32#0" expanded="true" />
               </folding>
@@ -43,11 +43,13 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="models.py" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="models.py" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/flipped/core/models.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="3" column="21" selection-start="65" selection-end="82" vertical-scroll-proportion="-1.8" vertical-offset="0" max-vertical-offset="480">
-              <folding />
+            <state line="8" column="22" selection-start="335" selection-end="335" vertical-scroll-proportion="0.13100436" vertical-offset="0" max-vertical-offset="916">
+              <folding>
+                <element signature="e#0#28#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -85,10 +87,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="video_detail.html" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="video_detail.html" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/flipped/core/templates/core/video_detail.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="11" column="73" selection-start="627" selection-end="638" vertical-scroll-proportion="0.17993458" vertical-offset="0" max-vertical-offset="917">
+            <state line="11" column="73" selection-start="627" selection-end="638" vertical-scroll-proportion="-6.875" vertical-offset="0" max-vertical-offset="285">
               <folding />
             </state>
           </provider>
@@ -110,8 +112,8 @@
         <option value="$PROJECT_DIR$/flipped/core/templates/video_detail.html" />
         <option value="$PROJECT_DIR$/flipped/core/views.py" />
         <option value="$PROJECT_DIR$/flipped/core/urls.py" />
-        <option value="$PROJECT_DIR$/flipped/core/models.py" />
         <option value="$PROJECT_DIR$/flipped/core/templates/core/video_detail.html" />
+        <option value="$PROJECT_DIR$/flipped/core/models.py" />
       </list>
     </option>
   </component>
@@ -475,7 +477,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/flipped/core/admin.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="4" column="1" selection-start="87" selection-end="87" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="165">
+        <state line="8" column="0" selection-start="181" selection-end="181" vertical-scroll-proportion="0.0" vertical-offset="60" max-vertical-offset="240">
           <folding>
             <element signature="e#0#32#0" expanded="true" />
           </folding>
@@ -516,17 +518,19 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/flipped/core/models.py">
+    <entry file="file://$PROJECT_DIR$/flipped/core/templates/core/video_detail.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="3" column="21" selection-start="65" selection-end="82" vertical-scroll-proportion="-1.8" vertical-offset="0" max-vertical-offset="480">
+        <state line="11" column="73" selection-start="627" selection-end="638" vertical-scroll-proportion="-6.875" vertical-offset="0" max-vertical-offset="285">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/flipped/core/templates/core/video_detail.html">
+    <entry file="file://$PROJECT_DIR$/flipped/core/models.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="11" column="73" selection-start="627" selection-end="638" vertical-scroll-proportion="0.17993458" vertical-offset="0" max-vertical-offset="917">
-          <folding />
+        <state line="8" column="22" selection-start="335" selection-end="335" vertical-scroll-proportion="0.13100436" vertical-offset="0" max-vertical-offset="916">
+          <folding>
+            <element signature="e#0#28#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
