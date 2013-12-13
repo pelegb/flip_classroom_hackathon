@@ -8,6 +8,14 @@
             <div class="container-fluid">
 		<h1><a href="../../topic/{{ item.parent.id }}/">{{ item.parent }}</a>
                 <h1>{{ item.title }}</h1>
+	        {% if videos %}	
+	        <ul>
+       		{% for video in videos %}
+	            <li><a href="../../videos/{{ video.id }}/">{{ video }}</a></li>
+        	{% endfor %}
+        	</ul>
+	        {% endif %}
+
         </div> <!-- /container -->
 </div>
 

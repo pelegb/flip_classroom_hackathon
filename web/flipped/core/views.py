@@ -41,5 +41,6 @@ def topic_view(request,topic_id):
 
 def item_view(request,item_id):
     item = get_object_or_404(TeachItem, pk=item_id)
-    return render(request, 'core/item_view.html', {'item': item})
+    videos = VideoPage.objects.filter(teach_item=item)
+    return render(request, 'core/item_view.html', {'item': item, 'videos':videos})
 
