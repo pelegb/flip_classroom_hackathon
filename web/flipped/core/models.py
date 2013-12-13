@@ -6,7 +6,9 @@ class TeachEntity(models.Model):
         abstract = True
     title = models.CharField(max_length=50)
     description = models.TextField()
-    parent = models.ForeignKey('TeachTopic')    
+    parent = models.ForeignKey('TeachTopic')
+    def __unicode__(self):
+        return self.title    
 
 class TeachTopic(models.Model):
     pass
