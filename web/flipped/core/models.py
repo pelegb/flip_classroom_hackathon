@@ -9,12 +9,12 @@ class VideoPage(models.Model):
     def __unicode__(self):
         return self.video_title
 
-class Review():
+class Review(models.Model):
     class Meta:
         abstract=True
     video   = models.ForeignKey(VideoPage)
     
-class RatingReview():
+class RatingReview(Review):
     context_choices = (
         ("rel",      "Relevancy"),
         ("quality",  "Technical quality")
