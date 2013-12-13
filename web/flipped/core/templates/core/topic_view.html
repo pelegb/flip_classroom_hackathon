@@ -1,0 +1,31 @@
+{% load staticfiles %}
+
+{% include "common/top.html" %}
+
+        <div class="container">
+
+            <!-- Main hero unit for a primary marketing message or call to action -->
+            <div class="container-fluid">
+		{% if topic.parent.id != None %}
+		<h2><a href="../../topic/{{ topic.parent.id }}/">{{ topic.parent }}</a><h2>
+		{% endif %}
+        <h1>{{ topic.title }}</h1>
+        {% if topic_children %}
+        <ul>
+            {% for child in topic_children %}
+            <li><a href="../../topic/{{ child.id }}/">{{ child }}</a></li>
+        {% endfor %}
+        </ul>
+        {% endif %}
+        {% if item_children %}
+        <ul>
+            {% for child in item_children %}
+            <li><a href="../../item/{{ child.id }}/">{{ child }}</a></li>
+        {% endfor %}
+        </ul>
+        {% endif %}
+        </div> <!-- /container -->
+</div>
+
+
+

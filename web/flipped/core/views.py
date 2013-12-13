@@ -5,6 +5,10 @@ from django.http.response import HttpResponseRedirect
 import django.contrib.auth
 import common.utils
 from django.contrib.auth.decorators import login_required
+import forms
+from models import TeachTopic
+from models import TeachItem
+from django.db import models
 # Create your views here.
 
 def video_detail(request, video_id):
@@ -14,7 +18,6 @@ def video_detail(request, video_id):
 
 #@login_required
 def add_video(request):
-    import forms
     if request.method == 'GET':
         form = forms.VideoForm()
     elif request.method == 'POST':
@@ -29,4 +32,14 @@ def add_video(request):
             v.save()
         return HttpResponseRedirect(reverse('core:video_detail',kwargs=dict(video_id=v.id)))
     return render(request,'core/add_video.html',dict(form=form))
+
+def topic_view(request,topic_id):
+    topic = get_object_or_404(TeachTopic, pk=topic_id)
+    topic_children = TeachTopic.objects.filter(parent=topic)
+    item_children = TeachItem.objects.filter(parent=topic)
+    return render(request, 'core/topic_view.html', {'topic': topic, 'topic_children':topic_children, 'item_children':item_children})
+
+def item_view(request,item_id):
+    item = get_object_or_404(TeachItem, pk=item_id)
+    return render(request, 'core/item_view.html', {'item': item})
 
