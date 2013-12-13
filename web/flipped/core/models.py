@@ -10,16 +10,16 @@ class VideoPage(models.Model):
         return self.video_title
 
 class Review():
-    video   = models.ForeignKey(VideoPage)
     class Meta:
         abstract=True
-
+    video   = models.ForeignKey(VideoPage)
+    
 class RatingReview():
     context_choices = (
         ("rel",      "Relevancy"),
         ("quality",  "Technical quality")
     )
-    #context = models.CharField(max_length=10)
+    context = models.CharField(max_length=10)
     rate    = models.PositiveSmallIntegerField()
 
 class TextualReview(Review):
