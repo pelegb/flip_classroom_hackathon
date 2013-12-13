@@ -7,8 +7,10 @@ class VideoPage(models.Model):
     content          = models.TextField()
     video_title      = models.CharField(max_length=50)
     user             = models.ForeignKey(django.contrib.auth.get_user_model())
+
     def __unicode__(self):
         return self.video_title
+
 
 class Review(models.Model):
     class Meta:
