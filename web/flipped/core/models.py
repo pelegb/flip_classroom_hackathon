@@ -22,7 +22,7 @@ class VideoPage(models.Model):
     content          = models.TextField()
     video_title      = models.CharField(max_length=50)
     user             = models.ForeignKey(django.contrib.auth.get_user_model())
-    teach_item       = models.ForeignKey(TeachItem)
+    teach_item       = models.ForeignKey(TeachItem, blank=True, null=True)
     def __unicode__(self):
         return self.video_title
 
