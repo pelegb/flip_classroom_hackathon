@@ -6,4 +6,5 @@ urlpatterns = patterns('',
     #url(r'^$', views.index, name='index'),
     # ex: /polls/5/
     url(r'^videos/(?P<video_id>\d+)/$', views.video_detail, name='video_detail'),
+    url(r'^add-video/',views.add_video,name='add_video') 
 )
