@@ -1,12 +1,26 @@
 from django.db import models
 import django.contrib.auth
 
+class TeachEntity(models.Model):
+    class Meta:
+        abstract = True
+    title = models.CharField(max_length=50)
+    description = models.TextField()
+    parent = models.ForeignKey('TeachTopic')    
+
+class TeachTopic(models.Model):
+    pass
+
+class TeachItem(models.Model):
+    pass
+
 class VideoPage(models.Model):
     youtube_movie_id = models.CharField(max_length=25)
     upload_date      = models.DateTimeField('date uploaded to our site',auto_now_add=True)
     content          = models.TextField()
     video_title      = models.CharField(max_length=50)
     user             = models.ForeignKey(django.contrib.auth.get_user_model())
+    teach_item       = models.ForeignKey(TeachItem)
     def __unicode__(self):
         return self.video_title
 
