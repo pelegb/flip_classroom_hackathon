@@ -3,7 +3,7 @@ import django.contrib.auth
 
 class VideoPage(models.Model):
     youtube_movie_id = models.CharField(max_length=25)
-    upload_date      = models.DateTimeField('date uploaded to our site')
+    upload_date      = models.DateTimeField('date uploaded to our site',auto_now_add=True)
     content          = models.TextField()
     video_title      = models.CharField(max_length=50)
     user             = models.ForeignKey(django.contrib.auth.get_user_model())
