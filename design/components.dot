@@ -10,9 +10,9 @@ digraph pipeline {
 		label = "Content";
 		fontsize=25;
 		
-		video    [shape=Mrecord, 		style=filled, fillcolor=honeydew1, 			label = "{Video  | Fixed metadata (upload date, length,...) | <review> Reviews}"];
-		comment  [shape=Mrecord, 		style=filled, fillcolor=lightyellow1, 		label = "{<title> Comment | Textual comment on a video | \<user\>}"];
-		rating   [shape=Mrecord, 		style=filled, fillcolor=lightyellow1, 		label = "{<title> Star rating  | Numerical comment on a video | \<user\>}"];
+		video    [shape=Mrecord, 		style=filled, fillcolor=honeydew1, 			label = "{Video  | youtube link | Rich HTML | <review> Reviews | <item> \<item\> | <user> \<user\>}"];
+		comment  [shape=Mrecord, 		style=filled, fillcolor=lightyellow1, 		label = "{<title> Comment | Textual comment on a video | Context (quality, relevance, ...)| \<user\>}"];
+		rating   [shape=Mrecord, 		style=filled, fillcolor=lightyellow1, 		label = "{<title> Star rating  | Numerical comment on a video | Context (quality, relevance, ...) | \<user\>}"];
 	}
 
 
@@ -33,8 +33,10 @@ digraph pipeline {
 
 	}
 	
-	video							->		comment		[color="springgreen4", penwidth="4"];
-	video							->		rating		[color="springgreen4", penwidth="4"];
+	video:review					->		comment		[color="springgreen4", penwidth="4"];
+	video:review					->		rating		[color="springgreen4", penwidth="4"];
+	video:user						-> 		user        [color="springgreen4", penwidth="4"];
+	video:item						-> 		item        [color="springgreen4", penwidth="4"];
 	role:permission					-> 		permission  [color="springgreen4", penwidth="4"];
 	user:role						->		role		[color="springgreen4", penwidth="4"];
 }
