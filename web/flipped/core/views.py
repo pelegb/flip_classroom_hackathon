@@ -38,10 +38,13 @@ def topic_view(request,topic_id):
     topic = get_object_or_404(TeachTopic, pk=topic_id)
     topic_children = TeachTopic.objects.filter(parent=topic)
     item_children = TeachItem.objects.filter(parent=topic)
-    return render(request, 'core/topic_view.html', {'topic': topic, 'topic_children':topic_children, 'item_children':item_children})
+    return render_to_response('core/topic_view.html', {'topic': topic, 'topic_children':topic_children, 'item_children':item_children},
+                              context_instance=RequestContext(request))
 
 def item_view(request,item_id):
     item = get_object_or_404(TeachItem, pk=item_id)
     videos = VideoPage.objects.filter(teach_item=item)
-    return render(request, 'core/item_view.html', {'item': item, 'videos':videos})
+    return render_to_response(request, 'core/item_view.html',
+                              {'item': item, 'videos':videos},
+                              context_instance=RequestContext(request)))
 
