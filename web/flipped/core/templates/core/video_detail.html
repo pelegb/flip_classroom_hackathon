@@ -24,7 +24,7 @@
 				<p>
 			            {% if ancestors %}
 			            {% for ancestor in ancestors %}
-			            <a href="../../topic/{{ ancestor.id }}/">{{ ancestor }}</a> >>
+			            {% if forloop.first %} {% else %} >> {% endif %}<a href="../../topic/{{ ancestor.id }}/">{{ ancestor }}</a> 
 			            {% endfor %}
 			            {% endif %}
 				</p>
