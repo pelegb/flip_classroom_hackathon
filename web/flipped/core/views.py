@@ -28,6 +28,7 @@ def add_video(request,video_id=None):
             initial['tags'] = Tag.objects.filter(id__in=video.tagvideo_set.all().values_list('tag')) 
             initial['title'] = video.video_title
             initial['link'] = 'http://www.youtube.com/watch?v=%s' % (video.youtube_movie_id)
+            initial['item'] = video.teach_item
             form = forms.VideoForm(initial=initial)
     elif request.method == 'POST':
         form = forms.VideoForm(request.POST)
@@ -42,7 +43,7 @@ def add_video(request,video_id=None):
             for t in form.cleaned_data['tags']:
                 vt = TagVideo(video=v,tag=t)
                 vt.save()
-        return HttpResponseRedirect(reverse('core:video_detail',kwargs=dict(video_id=v.id)))
+            return HttpResponseRedirect(reverse('core:video_detail',kwargs=dict(video_id=v.id)))
     return render_to_response('core/add_video.html',dict(form=form),context_instance=RequestContext(request))
 
 def topic_view(request,topic_id):
