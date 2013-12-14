@@ -1,8 +1,7 @@
 from django.shortcuts import render, get_object_or_404, render_to_response
-from models import VideoPage
+from models import VideoPage,TagVideo
 from django.core.urlresolvers import reverse
 from django.http.response import HttpResponseRedirect
-import django.contrib.auth
 import common.utils
 from django.contrib.auth.decorators import login_required
 import forms
@@ -30,6 +29,9 @@ def add_video(request):
             v.teach_item = form.cleaned_data['item']
             v.user = request.user
             v.save()
+            for t in form.cleaned_data['tags']:
+                vt = TagVideo(video=v,tag=t)
+                vt.save()
         return HttpResponseRedirect(reverse('core:video_detail',kwargs=dict(video_id=v.id)))
     return render_to_response('core/add_video.html',dict(form=form),context_instance=RequestContext(request))
 

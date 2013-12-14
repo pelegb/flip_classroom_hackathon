@@ -21,4 +21,10 @@ INSERT INTO "core_videopage" VALUES(2,'Te_WEj4nuYo','2013-12-14 10:59:39.350030'
 השלמות פיזיקה','פיזיקה - דוד לניאדו - אפקה - תנועה מעגלית',1,1);
 INSERT INTO "core_videopage" VALUES(3,'K82rEtPECe8','2013-12-14 11:00:07.664072','הקלטה של שיעור חי מתאריך 12.06.2013
 מנחה - גיל קרסיק','פיזיקה מכניקה- תנועה מעגלית',1,2);
+INSERT INTO "core_tag" VALUES(1,"שיעור מצולם");
+INSERT INTO "core_tag" VALUES(2,"צילום מסך");
+INSERT INTO "core_tag" VALUES(3,"ניסוי");
+INSERT INTO "core_tag" VALUES(4,"מעשי");
+INSERT INTO "core_tag" VALUES(5,"העשרה");
 COMMIT;
+
