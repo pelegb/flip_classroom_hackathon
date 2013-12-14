@@ -29,7 +29,9 @@
 			            {% endif %}
 				</p>
 
-				<iframe width="560" height="315" src="//www.youtube.com/embed/{{ video.youtube_movie_id }}" frameborder="0" allowfullscreen></iframe>
+				<iframe width="800" height="500" src="//www.youtube.com/embed/{{ video.youtube_movie_id }}" frameborder="0" allowfullscreen></iframe>
+
+                {{ video.content | safe }}
 
 			</div>
 		</div>
