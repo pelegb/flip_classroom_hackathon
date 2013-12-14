@@ -1,5 +1,6 @@
 from django.db import models
 import django.contrib.auth
+from wysihtml5.fields import Wysihtml5TextField
 
 class TeachEntity(models.Model):
     class Meta:

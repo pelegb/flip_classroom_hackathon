@@ -38,7 +38,8 @@ INSTALLED_APPS = (
     'django.contrib.staticfiles',
     'core',
     'common',
-    'fc_user'
+    'fc_user',
+    'wysihtml5',
 )
 
 MIDDLEWARE_CLASSES = (
@@ -83,6 +84,7 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/1.6/howto/static-files/
 
 STATIC_URL = '/static/'
+STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 
 LOGIN_URL = '/fc_user/login/'
 LOGIN_REDIRECT_URL = '/common/home/'
