@@ -35,7 +35,7 @@
       <file leaf-file-name="add_video.html" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/flipped/core/templates/core/add_video.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="36" column="0" selection-start="1007" selection-end="1035" vertical-scroll-proportion="-22.5" vertical-offset="0" max-vertical-offset="660">
+            <state line="37" column="0" selection-start="1021" selection-end="1049" vertical-scroll-proportion="-22.5" vertical-offset="15" max-vertical-offset="660">
               <folding />
             </state>
           </provider>
@@ -72,10 +72,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="admin.py" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="admin.py" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/flipped/core/admin.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="9" column="35" selection-start="323" selection-end="323" vertical-scroll-proportion="0.2170418" vertical-offset="0" max-vertical-offset="622">
+            <state line="9" column="35" selection-start="323" selection-end="323" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="330">
               <folding>
                 <element signature="e#0#32#0" expanded="true" />
               </folding>
@@ -83,10 +83,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="video_detail.html" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="video_detail.html" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/flipped/core/templates/core/video_detail.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="4" column="0" selection-start="78" selection-end="78" vertical-scroll-proportion="-1.25" vertical-offset="30" max-vertical-offset="690">
+            <state line="31" column="47" selection-start="1103" selection-end="1103" vertical-scroll-proportion="0.72742474" vertical-offset="30" max-vertical-offset="720">
               <folding />
             </state>
           </provider>
@@ -149,9 +149,9 @@
         <option value="$PROJECT_DIR$/flipped/core/templates/core/add_video.html" />
         <option value="$PROJECT_DIR$/flipped/flipped/settings.py" />
         <option value="$PROJECT_DIR$/flipped/core/forms.py" />
-        <option value="$PROJECT_DIR$/flipped/core/templates/core/video_detail.html" />
         <option value="$PROJECT_DIR$/flipped/common/templates/common/incl_bottom.html" />
         <option value="$PROJECT_DIR$/flipped/core/admin.py" />
+        <option value="$PROJECT_DIR$/flipped/core/templates/core/video_detail.html" />
       </list>
     </option>
   </component>
@@ -671,14 +671,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/flipped/core/templates/core/add_video.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="36" column="0" selection-start="1007" selection-end="1035" vertical-scroll-proportion="-22.5" vertical-offset="0" max-vertical-offset="660">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/flipped/core/templates/core/video_detail.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="4" column="0" selection-start="78" selection-end="78" vertical-scroll-proportion="-1.25" vertical-offset="30" max-vertical-offset="690">
+        <state line="37" column="0" selection-start="1021" selection-end="1049" vertical-scroll-proportion="-22.5" vertical-offset="15" max-vertical-offset="660">
           <folding />
         </state>
       </provider>
@@ -701,10 +694,17 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/flipped/core/admin.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="9" column="35" selection-start="323" selection-end="323" vertical-scroll-proportion="0.2170418" vertical-offset="0" max-vertical-offset="622">
+        <state line="9" column="35" selection-start="323" selection-end="323" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="330">
           <folding>
             <element signature="e#0#32#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/flipped/core/templates/core/video_detail.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="31" column="47" selection-start="1103" selection-end="1103" vertical-scroll-proportion="0.72742474" vertical-offset="30" max-vertical-offset="720">
+          <folding />
         </state>
       </provider>
     </entry>
