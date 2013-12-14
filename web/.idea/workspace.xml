@@ -73,10 +73,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="video_detail.html" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="video_detail.html" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/flipped/core/templates/core/video_detail.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="35" column="28" selection-start="1302" selection-end="1302" vertical-scroll-proportion="0.8026756" vertical-offset="45" max-vertical-offset="780">
+            <state line="35" column="28" selection-start="1302" selection-end="1302" vertical-scroll-proportion="-20.0" vertical-offset="45" max-vertical-offset="780">
               <folding />
             </state>
           </provider>
@@ -102,10 +102,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="stylesheet.css" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="stylesheet.css" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/flipped/static/wysihtml5/css/stylesheet.css">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="3" column="18" selection-start="81" selection-end="81" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="675">
+            <state line="10" column="39" selection-start="271" selection-end="271" vertical-scroll-proportion="0.24115756" vertical-offset="0" max-vertical-offset="645">
               <folding />
             </state>
           </provider>
@@ -140,8 +140,8 @@
         <option value="$PROJECT_DIR$/flipped/common/templates/common/incl_bottom.html" />
         <option value="$PROJECT_DIR$/flipped/core/admin.py" />
         <option value="$PROJECT_DIR$/flipped/common/static/common/css/style.css" />
-        <option value="$PROJECT_DIR$/flipped/static/wysihtml5/css/stylesheet.css" />
         <option value="$PROJECT_DIR$/flipped/core/templates/core/video_detail.html" />
+        <option value="$PROJECT_DIR$/flipped/static/wysihtml5/css/stylesheet.css" />
       </list>
     </option>
   </component>
@@ -739,13 +739,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/flipped/static/wysihtml5/css/stylesheet.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="3" column="18" selection-start="81" selection-end="81" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="675">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/flipped/common/static/common/css/style.css">
       <provider selected="true" editor-type-id="text-editor">
         <state line="5" column="18" selection-start="77" selection-end="77" vertical-scroll-proportion="0.12057878" vertical-offset="0" max-vertical-offset="622">
@@ -764,7 +757,14 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/flipped/core/templates/core/video_detail.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="35" column="28" selection-start="1302" selection-end="1302" vertical-scroll-proportion="0.8026756" vertical-offset="45" max-vertical-offset="780">
+        <state line="35" column="28" selection-start="1302" selection-end="1302" vertical-scroll-proportion="-20.0" vertical-offset="45" max-vertical-offset="780">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/flipped/static/wysihtml5/css/stylesheet.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="10" column="39" selection-start="271" selection-end="271" vertical-scroll-proportion="0.24115756" vertical-offset="0" max-vertical-offset="645">
           <folding />
         </state>
       </provider>
