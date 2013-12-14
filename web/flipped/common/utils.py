@@ -17,7 +17,7 @@ def get_ancestry_from_entity(entity):
     while entity:
         ancestors.insert(0,entity)
         entity = entity.parent
-    return ancestors[:-1]
+    return ancestors
 
 def get_subtree_from_topic(topic):
 #gets a topic and returns a map, mapping each topic to its children, which are in turn similar maps. Terminal topics map to None, and items map to their count
