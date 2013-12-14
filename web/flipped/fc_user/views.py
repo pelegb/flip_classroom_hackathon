@@ -14,6 +14,9 @@ def register(request):
             from django.contrib.auth.models import User
             cd = form.cleaned_data;
             user = User.objects.create_user(cd['username'],cd['email'],cd['password'])
+            user.first_name = cd['first_name']
+            user.last_name = cd['last_name']
+            user.save()
             user = authenticate(username=cd['username'],password=cd['password'])
             login(request,user)
             return HttpResponseRedirect('/common/home/')

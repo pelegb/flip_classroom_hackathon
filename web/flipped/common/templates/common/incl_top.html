@@ -81,7 +81,7 @@
 						<a href="#contact">העמוד שלי</a>
 					</li>
 					{% if request.user.is_active %}
-					<li dir="ltr"><a>שלום {{request.user.username}}</a></li>
+					<li dir="ltr"><a>שלום {{request.user.first_name}}</a></li>
 					<li dir="ltr"><a href="{% url 'fc_user:logout' %}">התנתק</a></li>
 					{% else %}
 					<li dir="ltr"><a href="{% url 'fc_user:login' %}">התחבר</a></li>
