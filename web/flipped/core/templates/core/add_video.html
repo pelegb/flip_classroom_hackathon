@@ -24,7 +24,13 @@
 			</div>
 			{% endfor %}
 			<p>
-				<input type="submit" value="הוסף" />
+				<input type="submit" value=
+				{% if form.edited_id.value %}
+				"שנה"
+				 {% else %}
+				  "הוסף"
+				 {% endif %}
+				/>
 			</p>
 		</form>
 	</div>

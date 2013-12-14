@@ -29,21 +29,28 @@ def add_video(request,video_id=None):
             initial['title'] = video.video_title
             initial['link'] = 'http://www.youtube.com/watch?v=%s' % (video.youtube_movie_id)
             initial['item'] = video.teach_item
+            initial['edited_id'] = video.id
             form = forms.VideoForm(initial=initial)
     elif request.method == 'POST':
         form = forms.VideoForm(request.POST)
         if form.is_valid():
-            v = VideoPage()
+            if form.cleaned_data['edited_id']:
+                v = VideoPage.objects.get(id=form.cleaned_data['edited_id'])
+            else:
+                v = VideoPage()
             v.content = form.cleaned_data['content']
             v.youtube_movie_id = common.utils.parse_video_id_from_link(form.cleaned_data['link'])
             v.video_title = form.cleaned_data['title']
             v.teach_item = form.cleaned_data['item']
             v.user = request.user
             v.save()
+            TagVideo.objects.filter(video=v).delete()
             for t in form.cleaned_data['tags']:
-                vt = TagVideo(video=v,tag=t)
-                vt.save()
+                TagVideo.objects.get_or_create(video=v,tag=t)
+        
             return HttpResponseRedirect(reverse('core:video_detail',kwargs=dict(video_id=v.id)))
+        else:
+            print form.errors
     return render_to_response('core/add_video.html',dict(form=form),context_instance=RequestContext(request))
 
 def topic_view(request,topic_id):
