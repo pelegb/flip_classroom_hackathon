@@ -1,4 +1,5 @@
 {% extends "common/base.html" %}
+{% load flip_filters %}
 {% block content %}
 
 <div class="container">
@@ -18,7 +19,8 @@
 			<div class="span10 mini-layout-body">
 
 				<h1>{{ video.video_title }}</h1>
-				<p>הועלה על ידי <a href="/fc_user/users/{{video.user.id}}">{{video.user.first_name}} {{video.user.last_name}}</a>  בתאריך {{video.upload_date}}</p>
+				<p>הועלה על ידי <a href="/fc_user/users/{{video.user.id}}">{{video.user.first_name}} {{video.user.last_name}}</a>
+					  בתאריך {{video.upload_date.day}} ל{{video.upload_date.month | heb_month }} {{video.upload_date.year}}</p>
 				<p>
 					<a href="http://example.com">מדעי המחשב</a> >> <a href="http://example.com">תכנות מתקדם</a> >> <a href="http://example.com">מציאת ערך קיצון במבני נתונים</a> >> <a href="http://example.com">{{ video.video_title }}</a>
 				</p>
