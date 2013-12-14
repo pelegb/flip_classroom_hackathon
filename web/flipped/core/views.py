@@ -1,4 +1,4 @@
-from django.shortcuts import render, get_object_or_404
+from django.shortcuts import render, get_object_or_404, render_to_response
 from models import VideoPage
 from django.core.urlresolvers import reverse
 from django.http.response import HttpResponseRedirect
@@ -9,6 +9,7 @@ import forms
 from models import TeachTopic
 from models import TeachItem
 from django.db import models
+from django.template.context import RequestContext
 # Create your views here.
 
 def video_detail(request, video_id):
@@ -31,7 +32,7 @@ def add_video(request):
             v.user = django.contrib.auth.get_user_model().objects.all()[0]
             v.save()
         return HttpResponseRedirect(reverse('core:video_detail',kwargs=dict(video_id=v.id)))
-    return render(request,'core/add_video.html',dict(form=form))
+    return render_to_response('core/add_video.html',dict(form=form),context_instance=RequestContext(request))
 
 def topic_view(request,topic_id):
     topic = get_object_or_404(TeachTopic, pk=topic_id)
