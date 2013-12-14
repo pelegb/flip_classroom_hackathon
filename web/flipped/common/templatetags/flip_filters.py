@@ -4,7 +4,8 @@ register = template.Library()
 
 @register.filter(name="heb_date")
 def heb_date(dt):
-    return unicode(dt)
+    return "HEB" + unicode(dt)
+
 
 
 
