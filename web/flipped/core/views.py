@@ -1,5 +1,5 @@
 from django.shortcuts import render, get_object_or_404, render_to_response
-from models import VideoPage,TagVideo
+from models import VideoPage,TagVideo,Tag
 from django.core.urlresolvers import reverse
 from django.http.response import HttpResponseRedirect
 import common.utils
@@ -17,9 +17,18 @@ def video_detail(request, video_id):
 
 
 @login_required
-def add_video(request):
+def add_video(request,video_id=None):
     if request.method == 'GET':
-        form = forms.VideoForm()
+        if not video_id:
+            form = forms.VideoForm()
+        else:
+            initial = dict()
+            video = VideoPage.objects.get(id=video_id)
+            initial['content'] = video.content
+            initial['tags'] = Tag.objects.filter(id__in=video.tagvideo_set.all().values_list('tag')) 
+            initial['title'] = video.video_title
+            initial['link'] = 'http://www.youtube.com/watch?v=%s' % (video.youtube_movie_id)
+            form = forms.VideoForm(initial=initial)
     elif request.method == 'POST':
         form = forms.VideoForm(request.POST)
         if form.is_valid():
