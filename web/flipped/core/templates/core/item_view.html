@@ -5,7 +5,12 @@
 
             <!-- Main hero unit for a primary marketing message or call to action -->
             <div class="container-fluid">
-		<h1><a href="../../topic/{{ item.parent.id }}/">{{ item.parent }}</a>
+            {% if ancestors %}
+            {% for ancestor in ancestors %}
+            <a href="../../topic/{{ ancestor.id }}/">{{ ancestor }}</a> >>
+            {% endfor %}
+            {% endif %}
+
                 <h1>{{ item.title }}</h1>
 	        {% if videos %}	
 	        <ul>

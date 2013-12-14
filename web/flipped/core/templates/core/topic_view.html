@@ -4,21 +4,37 @@
 
             <!-- Main hero unit for a primary marketing message or call to action -->
             <div class="container-fluid">
-		{% if topic.parent.id != None %}
-		<h2><a href="../../topic/{{ topic.parent.id }}/">{{ topic.parent }}</a><h2>
-		{% endif %}
+        {% if ancestors %}
+        {% for ancestor in ancestors %}
+        <a href="../../topic/{{ ancestor.id }}/">{{ ancestor }}</a> >>
+        {% endfor %}
+        {% endif %}
+
         <h1>{{ topic.title }}</h1>
-        {% if topic_children %}
         <ul>
-            {% for child in topic_children %}
-            <li><a href="../../topic/{{ child.id }}/">{{ child }}</a></li>
+        {% for key, value in subtree.items %}
+            <li><a href="../../topic/{{ key.id }}/">{{ key }}</a></li>
+            {% if value.items %}            
+            <ul>
+            {% for key, value in value.items %}
+                <li><a href="../../topic/{{ key.id }}/">{{ key }}</a></li>
+                {% if value.items %}            
+                <ul>
+                {% for key, value in value.items %}
+                    <li><a href="../../topic/{{ key.id }}/">{{ key }}</a></li>
+                {% endfor %}
+                </ul>
+                {% endif %}
+            {% endfor %}
+            </ul>
+            {% endif %}
         {% endfor %}
         </ul>
-        {% endif %}
-        {% if item_children %}
+        {% if item_list %}
+        <h2>פריטים בנושא זה</h2>
         <ul>
-            {% for child in item_children %}
-            <li><a href="../../item/{{ child.id }}/">{{ child }}</a></li>
+        {% for item in item_list %}
+            <li><a href="../../item/{{ item.id }}/">{{ item }}</a></li>
         {% endfor %}
         </ul>
         {% endif %}
