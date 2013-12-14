@@ -1,0 +1,29 @@
+{% load staticfiles %}
+{% load i18n %}
+{% include "common/top.html" %}
+
+<div class="container">
+
+	<!-- Main hero unit for a primary marketing message or call to action -->
+	<div class="container-fluid">
+		<form action="/fc_user/register/" method="post">
+			{% csrf_token %}
+			{# Include the hidden fields #}
+			{% for hidden in form.hidden_fields %}
+			{{ hidden }}
+			{% endfor %}
+			{# Include the visible fields #}
+			{% for field in form.visible_fields %}
+			<div class="fieldWrapper">
+				{{ field.errors }}
+				{% trans field.label_tag %} {{ field }}
+			</div>
+			{% endfor %}
+			<p>
+				<input type="submit" value="הרשם" />
+			</p>
+		</form>
+	</div>
+	<!-- /container -->
+</div>
+
