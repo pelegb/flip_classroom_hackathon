@@ -8,7 +8,6 @@ from django.contrib.auth.decorators import login_required
 import forms
 from models import TeachTopic
 from models import TeachItem
-from django.db import models
 from django.template.context import RequestContext
 # Create your views here.
 
@@ -17,7 +16,7 @@ def video_detail(request, video_id):
     return render(request, 'core/video_detail.html', {'video': video})
 
 
-#@login_required
+@login_required
 def add_video(request):
     if request.method == 'GET':
         form = forms.VideoForm()
@@ -29,7 +28,7 @@ def add_video(request):
             v.youtube_movie_id = common.utils.parse_video_id_from_link(form.cleaned_data['link'])
             v.video_title = form.cleaned_data['title']
             v.teach_item = form.cleaned_data['item']
-            v.user = django.contrib.auth.get_user_model().objects.all()[0]
+            v.user = request.user
             v.save()
         return HttpResponseRedirect(reverse('core:video_detail',kwargs=dict(video_id=v.id)))
     return render_to_response('core/add_video.html',dict(form=form),context_instance=RequestContext(request))

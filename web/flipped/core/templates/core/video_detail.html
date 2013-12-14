@@ -1,65 +1,45 @@
 {% extends "common/base.html" %}
+
 {% block content %}
 
-        <div class="container">
+<div class="container">
 
-            <!-- Main hero unit for a primary marketing message or call to action -->
-            <div class="container-fluid">
-			<div class="row-fluid">
-				 <div class="span2">
-					<h4>תגיות</h4>
+	<!-- Main hero unit for a primary marketing message or call to action -->
+	<div class="container-fluid">
+		<div class="row-fluid">
+			<div class="span2">
+				<h4>תגיות</h4>
 
-					<div class="topic_button"> 
-						<a class="btn btn-info btn-medium">רשימה מקושרת (10)</a>
-					</div>
-
-					<div class="topic_button"> 					
-						<a class="btn btn-info btn-medium">מבני נתונים (25)</a>
-					</div>
-					
-					<div class="topic_button"> 					
-						<a class="btn btn-info btn-medium">מצביעים (17)</a>
-					</div>					
-
-					<div class="topic_button"> 					
-						<a class="btn btn-info btn-medium">מדעי המחשב (17)</a>
-					</div>					
+				<div class="topic_button">
+					<a class="btn btn-info btn-medium">רשימה מקושרת (10)</a>
 				</div>
 
-				<div class="span10 mini-layout-body">
-				
-				
-                <h1>{{ video.video_title }}</h1>
-                <p>
-                    <a href="http://example.com">מדעי המחשב</a> >>
-                    <a href="http://example.com">תכנות מתקדם</a> >>
-                    <a href="http://example.com">מציאת ערך קיצון במבני נתונים</a> >>
-                    <a href="http://example.com">{{ video.video_title }}</a>
-                </p>
-                
-				
+				<div class="topic_button">
+					<a class="btn btn-info btn-medium">מבני נתונים (25)</a>
+				</div>
+
+				<div class="topic_button">
+					<a class="btn btn-info btn-medium">מצביעים (17)</a>
+				</div>
+
+				<div class="topic_button">
+					<a class="btn btn-info btn-medium">מדעי המחשב (17)</a>
+				</div>
+			</div>
+
+			<div class="span10 mini-layout-body">
+
+				<h1>{{ video.video_title }}</h1>
+				<p>
+					<a href="http://example.com">מדעי המחשב</a> >> <a href="http://example.com">תכנות מתקדם</a> >> <a href="http://example.com">מציאת ערך קיצון במבני נתונים</a> >> <a href="http://example.com">{{ video.video_title }}</a>
+				</p>
+
 				<iframe width="560" height="315" src="//www.youtube.com/embed/{{ video.youtube_movie_id }}" frameborder="0" allowfullscreen></iframe>
-                    
-                
-                    
-                    
-				
 
-
-				<h4>קישורים:</h4>
-				<ol>
-					<li>ויקיפדיה, <a href="http://he.wikipedia.org/wiki/%D7%A8%D7%A9%D7%99%D7%9E%D7%94_%D7%9E%D7%A7%D7%95%D7%A9%D7%A8%D7%AA">רשימה מקושרת</a></li>
-				</ol>
-
-            </div>
-
-{% include "common/bottom.html" %}
-
-
-        </div> <!-- /container -->
+			</div>
+		</div>
+		<!-- /container -->
+	</div>
 </div>
-
 {% endblock %}
-
-
 
