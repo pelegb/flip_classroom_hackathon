@@ -23,10 +23,19 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="settings.py" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="settings.py" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/flipped/flipped/settings.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="90" column="0" selection-start="2148" selection-end="2148" vertical-scroll-proportion="0.63826364" vertical-offset="953" max-vertical-offset="1605">
+            <state line="100" column="0" selection-start="2553" selection-end="2553" vertical-scroll-proportion="0.0" vertical-offset="968" max-vertical-offset="1590">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="add_video.html" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/flipped/core/templates/core/add_video.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="36" column="0" selection-start="1007" selection-end="1035" vertical-scroll-proportion="-22.5" vertical-offset="0" max-vertical-offset="660">
               <folding />
             </state>
           </provider>
@@ -35,7 +44,7 @@
       <file leaf-file-name="forms.py" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/flipped/core/forms.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="3" column="13" selection-start="125" selection-end="125" vertical-scroll-proportion="-1.7307693" vertical-offset="0" max-vertical-offset="315">
+            <state line="6" column="27" selection-start="183" selection-end="183" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="270">
               <folding>
                 <element signature="e#0#24#0" expanded="true" />
               </folding>
@@ -70,6 +79,24 @@
               <folding>
                 <element signature="e#0#32#0" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="video_detail.html" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/flipped/core/templates/core/video_detail.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="3" column="0" selection-start="54" selection-end="77" vertical-scroll-proportion="-1.25" vertical-offset="15" max-vertical-offset="600">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="incl_bottom.html" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/flipped/common/templates/common/incl_bottom.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="1" column="8" selection-start="32" selection-end="32" vertical-scroll-proportion="0.025641026" vertical-offset="0" max-vertical-offset="675">
+              <folding />
             </state>
           </provider>
         </entry>
@@ -109,9 +136,6 @@
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
       <list>
-        <option value="$PROJECT_DIR$/flipped/core/templates/core/top.html" />
-        <option value="$PROJECT_DIR$/flipped/common/static/common/css/style.css" />
-        <option value="$PROJECT_DIR$/flipped/core/templates/core/video_detail.html" />
         <option value="$PROJECT_DIR$/flipped/common/static/common/css/bootstrap-rtl.min.css" />
         <option value="$PROJECT_DIR$/flipped/common/templates/common/top.html" />
         <option value="$PROJECT_DIR$/flipped/common/templates/common/bottom.html" />
@@ -123,8 +147,11 @@
         <option value="$PROJECT_DIR$/flipped/core/views.py" />
         <option value="$PROJECT_DIR$/flipped/core/urls.py" />
         <option value="$PROJECT_DIR$/flipped/core/models.py" />
-        <option value="$PROJECT_DIR$/flipped/core/forms.py" />
+        <option value="$PROJECT_DIR$/flipped/core/templates/core/add_video.html" />
         <option value="$PROJECT_DIR$/flipped/flipped/settings.py" />
+        <option value="$PROJECT_DIR$/flipped/core/forms.py" />
+        <option value="$PROJECT_DIR$/flipped/core/templates/core/video_detail.html" />
+        <option value="$PROJECT_DIR$/flipped/common/templates/common/incl_bottom.html" />
       </list>
     </option>
   </component>
@@ -220,6 +247,32 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="flipped" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="core" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="web" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="web" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="flipped" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="core" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="templates" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
@@ -535,25 +588,6 @@
     <breakpoint-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/flipped/common/static/common/css/bootstrap-responsive-rtl.min.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="920" selection-start="919" selection-end="920" vertical-scroll-proportion="0.08196721" vertical-offset="0" max-vertical-offset="1485" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/flipped/core/templates/core/video_detail.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="58" column="0" selection-start="1692" selection-end="1692" vertical-scroll-proportion="0.0" vertical-offset="133" max-vertical-offset="1050">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/flipped/populate.sh">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="6" column="65" selection-start="141" selection-end="141" vertical-scroll-proportion="0.14469454" vertical-offset="0" max-vertical-offset="622">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/flipped/populate.sql">
       <provider selected="true" editor-type-id="text-editor">
         <state line="2" column="0" selection-start="44" selection-end="44" vertical-scroll-proportion="0.049261082" vertical-offset="0" max-vertical-offset="609">
@@ -637,18 +671,39 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/flipped/flipped/settings.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="100" column="0" selection-start="2553" selection-end="2553" vertical-scroll-proportion="0.0" vertical-offset="968" max-vertical-offset="1590">
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/flipped/core/forms.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="3" column="13" selection-start="125" selection-end="125" vertical-scroll-proportion="-1.7307693" vertical-offset="0" max-vertical-offset="315">
+        <state line="6" column="27" selection-start="183" selection-end="183" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="270">
           <folding>
             <element signature="e#0#24#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/flipped/flipped/settings.py">
+    <entry file="file://$PROJECT_DIR$/flipped/core/templates/core/add_video.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="90" column="0" selection-start="2148" selection-end="2148" vertical-scroll-proportion="0.63826364" vertical-offset="953" max-vertical-offset="1605">
+        <state line="36" column="0" selection-start="1007" selection-end="1035" vertical-scroll-proportion="-22.5" vertical-offset="0" max-vertical-offset="660">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/flipped/core/templates/core/video_detail.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="3" column="0" selection-start="54" selection-end="77" vertical-scroll-proportion="-1.25" vertical-offset="15" max-vertical-offset="600">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/flipped/common/templates/common/incl_bottom.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="1" column="8" selection-start="32" selection-end="32" vertical-scroll-proportion="0.025641026" vertical-offset="0" max-vertical-offset="675">
           <folding />
         </state>
       </provider>
