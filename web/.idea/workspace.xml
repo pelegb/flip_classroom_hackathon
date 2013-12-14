@@ -95,7 +95,7 @@
       <file leaf-file-name="top.html" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/flipped/common/templates/common/top.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="9" column="0" selection-start="558" selection-end="558" vertical-scroll-proportion="-2.5833333" vertical-offset="73" max-vertical-offset="990">
+            <state line="8" column="0" selection-start="489" selection-end="489" vertical-scroll-proportion="-5.0" vertical-offset="0" max-vertical-offset="990">
               <folding />
             </state>
           </provider>
@@ -104,7 +104,7 @@
       <file leaf-file-name="bottom.html" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/flipped/common/templates/common/bottom.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="33" column="0" selection-start="1405" selection-end="1405" vertical-scroll-proportion="0.54756635" vertical-offset="0" max-vertical-offset="904">
+            <state line="32" column="0" selection-start="1339" selection-end="1339" vertical-scroll-proportion="0.53097343" vertical-offset="0" max-vertical-offset="904">
               <folding />
             </state>
           </provider>
@@ -398,6 +398,9 @@
       <pane id="Scope" />
     </panes>
   </component>
+  <component name="PropertiesComponent">
+    <property name="FullScreen" value="false" />
+  </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/flipped/common/static/common" />
@@ -672,14 +675,14 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/flipped/common/templates/common/top.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="9" column="0" selection-start="558" selection-end="558" vertical-scroll-proportion="-2.5833333" vertical-offset="73" max-vertical-offset="990">
+        <state line="8" column="0" selection-start="489" selection-end="489" vertical-scroll-proportion="-5.0" vertical-offset="0" max-vertical-offset="990">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/flipped/common/templates/common/bottom.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="33" column="0" selection-start="1405" selection-end="1405" vertical-scroll-proportion="0.54756635" vertical-offset="0" max-vertical-offset="904">
+        <state line="32" column="0" selection-start="1339" selection-end="1339" vertical-scroll-proportion="0.53097343" vertical-offset="0" max-vertical-offset="904">
           <folding />
         </state>
       </provider>
