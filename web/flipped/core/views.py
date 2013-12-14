@@ -46,5 +46,5 @@ def item_view(request,item_id):
     videos = VideoPage.objects.filter(teach_item=item)
     return render_to_response(request, 'core/item_view.html',
                               {'item': item, 'videos':videos},
-                              context_instance=RequestContext(request)))
+                              )
 
