@@ -42,3 +42,20 @@ class RatingReview(Review):
 
 class TextualReview(Review):
     textual_review  = models.CharField(max_length=500)
+    
+    
+class Tag(models.Model):
+    name = models.CharField(max_length=20,unique=True)
+    def get_video_count(self):
+        return TagVideo.objects.filter(tag=self).count()
+    def __unicode__(self):
+        return self.name
+    
+class TagVideo(models.Model):
+    video = models.ForeignKey(VideoPage)
+    tag = models.ForeignKey(Tag)
+    
+    
+        
+    
+

@@ -6,3 +6,6 @@ class VideoForm(forms.Form):
     title = forms.CharField(max_length=50)
     content = forms.CharField(widget=forms.Textarea)
     item = forms.ModelChoiceField(queryset=models.TeachItem.objects.all())     
+    tags = forms.ModelMultipleChoiceField(queryset=models.Tag.objects.all())
+    
+    
