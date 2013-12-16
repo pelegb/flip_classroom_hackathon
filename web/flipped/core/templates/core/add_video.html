@@ -12,25 +12,14 @@
 	<div class="container-fluid">
 		<form action="/core/add-video/" method="post">
 			{% csrf_token %}
-			{# Include the hidden fields #}
-			{% for hidden in form.hidden_fields %}
-			{{ hidden }}
-			{% endfor %}
-			{# Include the visible fields #}
-			{% for field in form.visible_fields %}
-			<div class="fieldWrapper">
-				{{ field.errors }}
-				{% trans field.label_tag %} {{ field }}
-			</div>
-			{% endfor %}
-			<p>
-				<input type="submit" value=
-				{% if form.edited_id.value %}
-				"שנה"
-				 {% else %}
-				  "הוסף"
-				 {% endif %}
-				/>
+			{{form.as_p}}
+			<input type="submit" value=
+			{% if form.edited_id.value %}
+			"שנה"
+			{% else %}
+			"הוסף"
+			{% endif %}
+			/>
 			</p>
 		</form>
 	</div>

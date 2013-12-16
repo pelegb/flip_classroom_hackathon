@@ -1,6 +1,6 @@
 # -*- coding: UTF-8 -*-
 from __future__ import unicode_literals
-from django import forms
+import floppyforms as forms
 from django.conf import settings
 from wysihtml5.widgets import Wysihtml5TextareaWidget
 import models
