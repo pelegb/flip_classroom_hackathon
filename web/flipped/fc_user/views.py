@@ -1,4 +1,4 @@
-from django.shortcuts import render, render_to_response
+from django.shortcuts import render
 import forms
 from django.http.response import HttpResponseRedirect
 from django.template.context import RequestContext
@@ -20,7 +20,7 @@ def register(request):
             user = authenticate(username=cd['username'],password=cd['password'])
             login(request,user)
             return HttpResponseRedirect('/common/home/')
-    return render_to_response('fc_user/register.html',dict(form=form),context_instance=RequestContext(request)) 
+    return render(request,'fc_user/register.html',dict(form=form)) 
     
 
 
