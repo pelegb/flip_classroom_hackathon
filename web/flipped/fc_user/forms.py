@@ -1,4 +1,4 @@
-from django import forms
+import floppyforms as forms
 class RegisterForm(forms.Form):
     username = forms.CharField(max_length=30,required=True)
     password = forms.CharField(max_length=10,required=True)

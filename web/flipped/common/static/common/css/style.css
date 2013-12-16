@@ -6,3 +6,11 @@ body {
 .wysihtml5-sandbox {
     direction:rtl;
 }
+
+.controls input {
+	height: 28px;
+}
+
+#id_content {
+	width: 400px;
+}

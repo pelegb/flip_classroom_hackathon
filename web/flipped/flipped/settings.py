@@ -40,6 +40,7 @@ INSTALLED_APPS = (
     'common',
     'fc_user',
     'wysihtml5',
+    'floppyforms',
 )
 
 MIDDLEWARE_CLASSES = (
