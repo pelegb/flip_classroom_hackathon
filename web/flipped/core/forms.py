@@ -1,4 +1,5 @@
 # -*- coding: UTF-8 -*-
+from __future__ import unicode_literals
 from django import forms
 from django.conf import settings
 from wysihtml5.widgets import Wysihtml5TextareaWidget
@@ -6,11 +7,11 @@ import models
 
 
 translations = {
-    "link" : u"קישור",
-    "title": u"כותרת",
-    "content": u"תוכן",
-    "item": u"שיוך",
-    "tags": u"תגיות",
+    "link" : "קישור",
+    "title": "כותרת",
+    "content": "תוכן",
+    "item": "שיוך",
+    "tags": "תגיות",
 }
 
 class VideoForm(forms.Form):
