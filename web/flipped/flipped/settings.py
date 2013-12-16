@@ -70,7 +70,7 @@ DATABASES = {
 # Internationalization
 # https://docs.djangoproject.com/en/1.6/topics/i18n/
 
-LANGUAGE_CODE = 'en-us'
+LANGUAGE_CODE = 'he'
 
 TIME_ZONE = 'UTC'
 
@@ -89,4 +89,12 @@ STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 
 LOGIN_URL = '/fc_user/login/'
 LOGIN_REDIRECT_URL = '/common/home/'
+
+
+
+LOCALE_PATH = (os.path.join(BASE_DIR,'locale'),)
+
+
+
+
 
