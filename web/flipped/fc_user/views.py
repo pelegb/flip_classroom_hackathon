@@ -23,4 +23,8 @@ def register(request):
     return render(request,'fc_user/register.html',dict(form=form)) 
     
 
-
+from django.utils.translation import ugettext as _
+from django.http import HttpResponse
+def trans(request):
+    outputs = [_("username") , _("first_name") , _("last_name")] 
+    return HttpResponse('<br/>'.join(outputs))

@@ -92,7 +92,7 @@ LOGIN_REDIRECT_URL = '/common/home/'
 
 
 
-LOCALE_PATH = (os.path.join(BASE_DIR,'locale'),)
+LOCALE_PATHS = (os.path.join(BASE_DIR,'locale'),)
 
 
 
