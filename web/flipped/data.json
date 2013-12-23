@@ -117,11 +117,11 @@
     }
 },
 {
-    "pk": "9zhrg13acmq8nqq3mmu5xtbmvb7zz6nx", 
+    "pk": "86ndw0c8j9fjpn4xa38crvqohcs2z5ah", 
     "model": "sessions.session", 
     "fields": {
-        "expire_date": "2014-01-06T19:56:35.751Z", 
-        "session_data": "OWQ5ZjMwNDExMzIwZDcyMGY5N2IwMjQ2YzkzNzUxODlmNjM4ODViNTp7Il9hdXRoX3VzZXJfYmFja2VuZCI6ImRqYW5nby5jb250cmliLmF1dGguYmFja2VuZHMuTW9kZWxCYWNrZW5kIiwiX2F1dGhfdXNlcl9pZCI6Mn0="
+        "expire_date": "2014-01-06T21:14:23.633Z", 
+        "session_data": "YzY4NmNhOWQxMmRmZjYyYjFkNTRlMjA3Yzg5OTYzZjgxMjBiY2M5NTp7Il9hdXRoX3VzZXJfYmFja2VuZCI6ImRqYW5nby5jb250cmliLmF1dGguYmFja2VuZHMuTW9kZWxCYWNrZW5kIiwiX2F1dGhfdXNlcl9pZCI6MX0="
     }
 },
 {
@@ -219,6 +219,13 @@
     "model": "core.tag", 
     "fields": {
         "name": "\u05d4\u05e2\u05e9\u05e8\u05d4"
+    }
+},
+{
+    "pk": 6, 
+    "model": "core.tag", 
+    "fields": {
+        "name": "\u05d1\u05d2\u05e8\u05d5\u05ea"
     }
 },
 {
@@ -615,7 +622,7 @@
         "is_active": true, 
         "is_superuser": true, 
         "is_staff": true, 
-        "last_login": "2013-12-23T19:02:47.711Z", 
+        "last_login": "2013-12-23T21:14:23.619Z", 
         "groups": [], 
         "user_permissions": [], 
         "password": "pbkdf2_sha256$12000$YntSkEvG8yvF$YH7bGuLDP5KJQeB7jo2xrCQ/ZArP/a9bcyzW5YbfMrA=", 
@@ -786,6 +793,19 @@
         "change_message": "permissions \u05e9\u05d5\u05e0\u05d4.", 
         "user": 1, 
         "content_type": 3
+    }
+},
+{
+    "pk": 8, 
+    "model": "admin.logentry", 
+    "fields": {
+        "action_flag": 1, 
+        "action_time": "2013-12-23T21:15:00.678Z", 
+        "object_repr": "\u05d1\u05d2\u05e8\u05d5\u05ea", 
+        "object_id": "6", 
+        "change_message": "", 
+        "user": 1, 
+        "content_type": 12
     }
 }
 ]
