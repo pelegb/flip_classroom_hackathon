@@ -21,7 +21,9 @@
 				<h1>{{ video.video_title }}</h1>
 				<p>הועלה על ידי <a href="/fc_user/users/{{video.user.id}}">{{video.user.first_name}} {{video.user.last_name}}</a>
 					  בתאריך {{video.upload_date.day}} ל{{video.upload_date.month | heb_month }} {{video.upload_date.year}}
-					  (<a href="/core/edit-video/{{video.id}}/">ערוך</a>)
+					  {% if perms.core.change_videopage %}
+						(<a href="/core/edit-video/{{video.id}}/">ערוך</a>) 
+					  {% endif %}
 					  </p>
 				<p>
 			            {% if ancestors %}
@@ -43,4 +45,4 @@
 	</div>
 </div>
 {% endblock %}
-
+ערוך
