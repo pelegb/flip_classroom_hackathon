@@ -117,22 +117,6 @@
     }
 },
 {
-    "pk": "86ndw0c8j9fjpn4xa38crvqohcs2z5ah", 
-    "model": "sessions.session", 
-    "fields": {
-        "expire_date": "2014-01-06T21:14:23.633Z", 
-        "session_data": "YzY4NmNhOWQxMmRmZjYyYjFkNTRlMjA3Yzg5OTYzZjgxMjBiY2M5NTp7Il9hdXRoX3VzZXJfYmFja2VuZCI6ImRqYW5nby5jb250cmliLmF1dGguYmFja2VuZHMuTW9kZWxCYWNrZW5kIiwiX2F1dGhfdXNlcl9pZCI6MX0="
-    }
-},
-{
-    "pk": "klmur794b0djmk4yk8g2bmrkxzapwifz", 
-    "model": "sessions.session", 
-    "fields": {
-        "expire_date": "2014-01-06T19:16:47.529Z", 
-        "session_data": "ODliYzc5ZWM1NTlkY2Y0OWM0NDU1ZmI5Y2Q3YWY5NmU1NDhlYTU4Yzp7Il9hdXRoX3VzZXJfYmFja2VuZCI6ImRqYW5nby5jb250cmliLmF1dGguYmFja2VuZHMuTW9kZWxCYWNrZW5kIiwiX2F1dGhfdXNlcl9pZCI6M30="
-    }
-},
-{
     "pk": 1, 
     "model": "core.teachtopic", 
     "fields": {
