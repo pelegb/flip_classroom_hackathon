@@ -22,6 +22,7 @@
 				<p>הועלה על ידי <a href="/fc_user/users/{{video.user.id}}">{{video.user.first_name}} {{video.user.last_name}}</a>
 					  בתאריך {{video.upload_date.day}} ל{{video.upload_date.month | heb_month }} {{video.upload_date.year}}
 					  (<a href="/core/edit-video/{{video.id}}/">ערוך</a>)
+					  (<a href="/core/delete-video/{{video.id}}/">מחק</a>)
 					  </p>
 				<p>
 			            {% if ancestors %}

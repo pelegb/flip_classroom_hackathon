@@ -47,11 +47,18 @@ def add_video(request,video_id=None):
             TagVideo.objects.filter(video=v).delete()
             for t in form.cleaned_data['tags']:
                 TagVideo.objects.get_or_create(video=v,tag=t)
-        
+
             return HttpResponseRedirect(reverse('core:video_detail',kwargs=dict(video_id=v.id)))
         else:
             print form.errors
     return render(request,'core/add_video.html',dict(form=form))
+
+@login_required
+def delete_video(request, video_id):
+    v = get_object_or_404(VideoPage, pk=video_id)
+    item_id = v.teach_item.id
+    v.delete()
+    return item_view(request, item_id)
 
 def topic_view(request,topic_id):
     topic = get_object_or_404(TeachTopic, pk=topic_id)
