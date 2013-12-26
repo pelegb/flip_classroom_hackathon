@@ -1,0 +1,898 @@
+[
+{
+    "pk": 1, 
+    "model": "contenttypes.contenttype", 
+    "fields": {
+        "model": "logentry", 
+        "name": "log entry", 
+        "app_label": "admin"
+    }
+},
+{
+    "pk": 2, 
+    "model": "contenttypes.contenttype", 
+    "fields": {
+        "model": "permission", 
+        "name": "permission", 
+        "app_label": "auth"
+    }
+},
+{
+    "pk": 3, 
+    "model": "contenttypes.contenttype", 
+    "fields": {
+        "model": "group", 
+        "name": "group", 
+        "app_label": "auth"
+    }
+},
+{
+    "pk": 4, 
+    "model": "contenttypes.contenttype", 
+    "fields": {
+        "model": "user", 
+        "name": "user", 
+        "app_label": "auth"
+    }
+},
+{
+    "pk": 5, 
+    "model": "contenttypes.contenttype", 
+    "fields": {
+        "model": "contenttype", 
+        "name": "content type", 
+        "app_label": "contenttypes"
+    }
+},
+{
+    "pk": 6, 
+    "model": "contenttypes.contenttype", 
+    "fields": {
+        "model": "session", 
+        "name": "session", 
+        "app_label": "sessions"
+    }
+},
+{
+    "pk": 7, 
+    "model": "contenttypes.contenttype", 
+    "fields": {
+        "model": "teachtopic", 
+        "name": "teach topic", 
+        "app_label": "core"
+    }
+},
+{
+    "pk": 8, 
+    "model": "contenttypes.contenttype", 
+    "fields": {
+        "model": "teachitem", 
+        "name": "teach item", 
+        "app_label": "core"
+    }
+},
+{
+    "pk": 9, 
+    "model": "contenttypes.contenttype", 
+    "fields": {
+        "model": "videopage", 
+        "name": "video page", 
+        "app_label": "core"
+    }
+},
+{
+    "pk": 10, 
+    "model": "contenttypes.contenttype", 
+    "fields": {
+        "model": "ratingreview", 
+        "name": "rating review", 
+        "app_label": "core"
+    }
+},
+{
+    "pk": 11, 
+    "model": "contenttypes.contenttype", 
+    "fields": {
+        "model": "textualreview", 
+        "name": "textual review", 
+        "app_label": "core"
+    }
+},
+{
+    "pk": 12, 
+    "model": "contenttypes.contenttype", 
+    "fields": {
+        "model": "tag", 
+        "name": "tag", 
+        "app_label": "core"
+    }
+},
+{
+    "pk": 13, 
+    "model": "contenttypes.contenttype", 
+    "fields": {
+        "model": "tagvideo", 
+        "name": "tag video", 
+        "app_label": "core"
+    }
+},
+{
+    "pk": 1, 
+    "model": "core.teachtopic", 
+    "fields": {
+        "description": "\u05e4\u05d9\u05d6\u05d9\u05e7\u05d4 (\u05de\u05d4\u05de\u05d9\u05dc\u05d4 \u05d4\u05d9\u05d5\u05d5\u05e0\u05d9\u05ea \u05e4\u05d9\u05d6\u05d9\u05e1 \u03c6\u03cd\u03c3\u03b9\u03c2, \u05d8\u05d1\u05e2) \u05d4\u05d9\u05d0 \u05e2\u05e0\u05e3 \u05d1\u05de\u05d3\u05e2\u05d9 \u05d4\u05d8\u05d1\u05e2 \u05d4\u05d7\u05d5\u05e7\u05e8 \u05d0\u05ea \u05d7\u05d5\u05e7\u05d9 \u05d4\u05d9\u05e1\u05d5\u05d3 \u05e9\u05dc \u05d4\u05d8\u05d1\u05e2 \u05db\u05e4\u05d9 \u05e9\u05d4\u05dd \u05d1\u05d0\u05d9\u05dd \u05dc\u05d9\u05d3\u05d9 \u05d1\u05d9\u05d8\u05d5\u05d9 \u05d1\u05db\u05dc \u05de\u05e2\u05e8\u05db\u05ea \u05d4\u05e0\u05d9\u05ea\u05e0\u05ea \u05dc\u05ea\u05e6\u05e4\u05d9\u05ea, \u05d1\u05db\u05d3\u05d5\u05e8 \u05d4\u05d0\u05e8\u05e5 \u05d5\u05d1\u05d7\u05dc\u05dc. \u05d4\u05e0\u05d5\u05e9\u05d0\u05d9\u05dd \u05d1\u05d4\u05dd \u05e2\u05d5\u05e1\u05e7\u05ea \u05d4\u05e4\u05d9\u05d6\u05d9\u05e7\u05d4 \u05db\u05d5\u05dc\u05dc\u05d9\u05dd \u05ea\u05e0\u05d5\u05e2\u05ea \u05e2\u05e6\u05de\u05d9\u05dd, \u05d4\u05ea\u05e0\u05d4\u05d2\u05d5\u05ea \u05d4\u05d7\u05d5\u05de\u05e8, \u05d7\u05e7\u05e8 \u05d4\u05d0\u05e0\u05e8\u05d2\u05d9\u05d4, \u05d5\u05d4\u05e9\u05e4\u05e2\u05ea \u05d7\u05d5\u05e7\u05d9 \u05d8\u05d1\u05e2 \u05de\u05e1\u05d5\u05d9\u05de\u05d9\u05dd \u05e2\u05dc \u05e8\u05e6\u05e3 \u05d4\u05de\u05e8\u05d7\u05d1 \u05d5\u05d4\u05d6\u05de\u05df. \u05de\u05d3\u05e2 \u05d4\u05e4\u05d9\u05d6\u05d9\u05e7\u05d4 \u05de\u05ea\u05e4\u05ea\u05d7 \u05e2\u05dc \u05d9\u05d3\u05d9 \u05ea\u05e6\u05e4\u05d9\u05d5\u05ea \u05d5\u05de\u05de\u05e6\u05d0\u05d9\u05dd, \u05d4\u05de\u05d2\u05d5\u05d1\u05e9\u05d9\u05dd \u05dc\u05db\u05d3\u05d9 \u05ea\u05d0\u05d5\u05e8\u05d9\u05d5\u05ea \u05d5\u05d7\u05d5\u05e7\u05d9\u05dd \u05d4\u05de\u05ea\u05d5\u05d0\u05e8\u05d9\u05dd \u05dc\u05e8\u05d5\u05d1 \u05d1\u05e9\u05e4\u05d4 \u05e9\u05dc \u05de\u05e9\u05d5\u05d5\u05d0\u05d5\u05ea \u05de\u05ea\u05de\u05d8\u05d9\u05d5\u05ea. \u05db\u05db\u05dc \u05e9\u05d9\u05e9 \u05d9\u05d5\u05ea\u05e8 \u05ea\u05e6\u05e4\u05d9\u05d5\u05ea \u05d5\u05de\u05ea\u05e7\u05d1\u05dc\u05d9\u05dd \u05d9\u05d5\u05ea\u05e8 \u05de\u05de\u05e6\u05d0\u05d9\u05dd \u05de\u05d1\u05d9\u05e6\u05d5\u05e2 \u05e9\u05dc \u05e0\u05d9\u05e1\u05d5\u05d9\u05d9\u05dd, \u05e2\u05e9\u05d5\u05d9\u05d5\u05ea \u05d4\u05ea\u05d0\u05d5\u05e8\u05d9\u05d5\u05ea \u05d4\u05dc\u05dc\u05d5 \u05dc\u05d4\u05ea\u05e2\u05d3\u05db\u05df \u05d5\u05dc\u05d4\u05e9\u05ea\u05db\u05dc\u05dc.\n", 
+        "parent": null, 
+        "title": "\u05e4\u05d9\u05d6\u05d9\u05e7\u05d4"
+    }
+},
+{
+    "pk": 2, 
+    "model": "core.teachtopic", 
+    "fields": {
+        "description": "\u05d4\u05de\u05db\u05e0\u05d9\u05e7\u05d4 \u05d4\u05e7\u05dc\u05d0\u05e1\u05d9\u05ea \u05d4\u05d9\u05d0 \u05d0\u05d7\u05d3 \u05de\u05e2\u05e0\u05e4\u05d9 \u05d4\u05e4\u05d9\u05d6\u05d9\u05e7\u05d4 \u05d4\u05d1\u05e1\u05d9\u05e1\u05d9\u05d9\u05dd \u05d5\u05d4\u05de\u05d5\u05e7\u05d3\u05de\u05d9\u05dd \u05d1\u05d9\u05d5\u05ea\u05e8, \u05d4\u05d7\u05d5\u05e7\u05e8 \u05d0\u05ea \u05ea\u05e0\u05d5\u05e2\u05ea \u05d4\u05d2\u05d5\u05e4\u05d9\u05dd, \u05d0\u05ea \u05d4\u05db\u05d5\u05d7\u05d5\u05ea \u05d4\u05e4\u05d5\u05e2\u05dc\u05d9\u05dd \u05e2\u05dc\u05d9\u05d4\u05dd \u05d5\u05d0\u05ea \u05ea\u05db\u05d5\u05e0\u05d5\u05ea\u05d9\u05d4\u05dd \u05d4\u05e4\u05d9\u05d6\u05d9\u05e7\u05dc\u05d9\u05d5\u05ea, \u05db\u05e9\u05d0\u05dc\u05d4 \u05de\u05ea\u05e7\u05d9\u05d9\u05de\u05d9\u05dd \u05d1\u05de\u05d4\u05d9\u05e8\u05d5\u05d9\u05d5\u05ea \u05e0\u05de\u05d5\u05db\u05d5\u05ea (\u05d9\u05d7\u05e1\u05d9\u05ea \u05dc\u05de\u05d4\u05d9\u05e8\u05d5\u05ea \u05d4\u05d0\u05d5\u05e8) \u05d5\u05d1\u05e1\u05d3\u05e8\u05d9 \u05d2\u05d5\u05d3\u05dc \u05d4\u05d2\u05d3\u05d5\u05dc\u05d9\u05dd, \u05d9\u05d7\u05e1\u05d9\u05ea, \u05de\u05d0\u05dc\u05d4 \u05e9\u05d1\u05d4\u05dd \u05e2\u05d5\u05e1\u05e7\u05ea \u05de\u05db\u05e0\u05d9\u05e7\u05ea \u05d4\u05e7\u05d5\u05d5\u05e0\u05d8\u05d9\u05dd (\u05d4\u05d3\u05e0\u05d4 \u05d1\u05d0\u05d5\u05d1\u05d9\u05d9\u05e7\u05d8\u05d9\u05dd \u05d6\u05e2\u05d9\u05e8\u05d9\u05dd). \u05dc\u05e8\u05d5\u05d1, \u05d4\u05de\u05d5\u05e0\u05d7 \"\u05de\u05db\u05e0\u05d9\u05e7\u05d4\" \u05dc\u05d1\u05d3\u05d5 \u05de\u05ea\u05d9\u05d9\u05d7\u05e1 \u05dc\u05de\u05db\u05e0\u05d9\u05e7\u05d4 \u05d4\u05e7\u05dc\u05d0\u05e1\u05d9\u05ea, \u05d4\u05d2\u05dd \u05e9\u05d0\u05e3 \u05ea\u05d5\u05e8\u05ea \u05d4\u05d9\u05d7\u05e1\u05d5\u05ea \u05d5\u05de\u05db\u05e0\u05d9\u05e7\u05ea \u05d4\u05e7\u05d5\u05d5\u05e0\u05d8\u05d9\u05dd \u05d4\u05df \u05ea\u05d5\u05e8\u05d5\u05ea \u05de\u05db\u05e0\u05d9\u05d5\u05ea \u05d4\u05e2\u05d5\u05e1\u05e7\u05d5\u05ea \u05d1\u05d7\u05e7\u05e8 \u05ea\u05d7\u05d5\u05de\u05d9\u05dd \u05d3\u05d5\u05de\u05d9\u05dd, \u05d0\u05da \u05d1\u05e1\u05d3\u05e8\u05d9 \u05d2\u05d5\u05d3\u05dc \u05e7\u05d9\u05e6\u05d5\u05e0\u05d9\u05d9\u05dd \u05d9\u05d5\u05ea\u05e8 \u05d5\u05ea\u05d5\u05da \u05e9\u05d9\u05de\u05d5\u05e9 \u05d1\u05d4\u05e0\u05d7\u05d5\u05ea \u05d0\u05d7\u05e8\u05d5\u05ea \u05d5\u05d1\u05db\u05dc\u05d9\u05dd \u05de\u05ea\u05de\u05d8\u05d9\u05d9\u05dd \u05de\u05ea\u05e7\u05d3\u05de\u05d9\u05dd \u05d9\u05d5\u05ea\u05e8. \u05d4\u05de\u05db\u05e0\u05d9\u05e7\u05d4 \u05d4\u05e7\u05dc\u05d0\u05e1\u05d9\u05ea \u05e0\u05e7\u05e8\u05d0\u05ea \u05dc\u05e2\u05ea\u05d9\u05dd \u05d0\u05e3 \"\u05de\u05db\u05e0\u05d9\u05e7\u05d4 \u05e0\u05d9\u05d5\u05d8\u05d5\u05e0\u05d9\u05ea\" \u05e2\u05dc \u05e9\u05de\u05d5 \u05e9\u05dc \u05d0\u05d9\u05d9\u05d6\u05e7 \u05e0\u05d9\u05d5\u05d8\u05d5\u05df, \u05d0\u05e9\u05e8 \u05e0\u05d7\u05e9\u05d1 \u05dc\u05de\u05e0\u05e1\u05d7\u05d4 \u05d4\u05e8\u05d0\u05e9\u05d5\u05df \u05d1\u05e6\u05d5\u05e8\u05ea\u05d4 \u05d4\u05de\u05d3\u05e2\u05d9\u05ea \u05d4\u05de\u05e7\u05d5\u05d1\u05dc\u05ea \u05d4\u05d9\u05d5\u05dd.", 
+        "parent": 1, 
+        "title": "\u05de\u05db\u05e0\u05d9\u05e7\u05d4"
+    }
+},
+{
+    "pk": 3, 
+    "model": "core.teachtopic", 
+    "fields": {
+        "description": "\u05d1\u05e4\u05d9\u05d6\u05d9\u05e7\u05d4, \u05ea\u05e0\u05d5\u05e2\u05d4 \u05de\u05e2\u05d2\u05dc\u05d9\u05ea \u05d4\u05d9\u05d0 \u05ea\u05e0\u05d5\u05e2\u05d4 \u05e9\u05dc \u05d2\u05d5\u05e3 \u05e2\u05dc \u05d2\u05d1\u05d9 \u05de\u05e1\u05dc\u05d5\u05dc \u05de\u05e2\u05d2\u05dc\u05d9. \u05ea\u05e0\u05d5\u05e2\u05d4 \u05de\u05e2\u05d2\u05dc\u05d9\u05ea \u05e0\u05e4\u05d5\u05e6\u05d4 \u05de\u05d0\u05d5\u05d3 \u05d1\u05d8\u05d1\u05e2. \u05d3\u05d5\u05d2\u05de\u05d0\u05d5\u05ea \u05dc\u05de\u05e2\u05e8\u05db\u05d5\u05ea \u05d4\u05de\u05ea\u05d5\u05d0\u05e8\u05d5\u05ea \u05e2\u05dc \u05d9\u05d3\u05d9 \u05ea\u05e0\u05d5\u05e2\u05d4 \u05de\u05e2\u05d2\u05dc\u05d9\u05ea: \u05dc\u05d5\u05d5\u05d9\u05d9\u05df \u05d4\u05de\u05e7\u05d9\u05e3 \u05d0\u05ea \u05db\u05d3\u05d5\u05e8 \u05d4\u05d0\u05e8\u05e5, \u05de\u05e1\u05d4 \u05de\u05e1\u05ea\u05d5\u05d1\u05d1\u05ea \u05d4\u05e7\u05e9\u05d5\u05e8\u05d4 \u05dc\u05d7\u05d5\u05d8 \u05de\u05ea\u05d5\u05d7 \u05d5\u05de\u05d8\u05e2\u05df \u05d7\u05e9\u05de\u05dc\u05d9 \u05d1\u05e9\u05d3\u05d4 \u05de\u05d2\u05e0\u05d8\u05d9.", 
+        "parent": 2, 
+        "title": "\u05ea\u05e0\u05d5\u05e2\u05d4 \u05de\u05e2\u05d2\u05dc\u05d9\u05ea"
+    }
+},
+{
+    "pk": 4, 
+    "model": "core.teachtopic", 
+    "fields": {
+        "description": "\u05d7\u05d5\u05e7\u05d9 \u05d4\u05ea\u05e0\u05d5\u05e2\u05d4 \u05e9\u05dc \u05e0\u05d9\u05d5\u05d8\u05d5\u05df \u05d4\u05dd \u05e9\u05dc\u05d5\u05e9\u05d4 \u05d7\u05d5\u05e7\u05d9 \u05e4\u05d9\u05d6\u05d9\u05e7\u05d4 \u05e9\u05e0\u05d9\u05e1\u05d7 \u05d0\u05d9\u05d9\u05d6\u05e7 \u05e0\u05d9\u05d5\u05d8\u05d5\u05df, \u05d5\u05e2\u05d5\u05e1\u05e7\u05d9\u05dd \u05d1\u05ea\u05e0\u05d5\u05e2\u05ea\u05dd \u05e9\u05dc \u05d2\u05d5\u05e4\u05d9\u05dd. \u05d0\u05dc\u05d4 \u05d4\u05dd \u05d7\u05d5\u05e7\u05d9 \u05d4\u05d9\u05e1\u05d5\u05d3 \u05e9\u05dc \u05d4\u05de\u05db\u05e0\u05d9\u05e7\u05d4 \u05d4\u05e7\u05dc\u05d0\u05e1\u05d9\u05ea.\n\u05e0\u05d9\u05d5\u05d8\u05d5\u05df \u05e4\u05e8\u05e1\u05dd \u05d7\u05d5\u05e7\u05d9\u05dd \u05d0\u05dc\u05d4 \u05dc\u05e8\u05d0\u05e9\u05d5\u05e0\u05d4 \u05d1\u05e1\u05e4\u05e8\u05d5 \"\u05d4\u05e2\u05e7\u05e8\u05d5\u05e0\u05d5\u05ea \u05d4\u05de\u05ea\u05de\u05d8\u05d9\u05d9\u05dd \u05e9\u05dc \u05e4\u05d9\u05dc\u05d5\u05e1\u05d5\u05e4\u05d9\u05d9\u05ea \u05d4\u05d8\u05d1\u05e2\", \u05d5\u05ea\u05d5\u05da \u05e9\u05d9\u05de\u05d5\u05e9 \u05d1\u05d7\u05e9\u05d1\u05d5\u05df \u05d4\u05d0\u05d9\u05e0\u05e4\u05d9\u05e0\u05d9\u05d8\u05e1\u05d9\u05de\u05dc\u05d9 \u05e9\u05e4\u05d9\u05ea\u05d7, \u05d4\u05d5\u05db\u05d9\u05d7 \u05ea\u05d5\u05e6\u05d0\u05d5\u05ea \u05e8\u05d1\u05d5\u05ea \u05d4\u05e2\u05d5\u05e1\u05e7\u05d5\u05ea \u05d1\u05d2\u05d5\u05e4\u05d9\u05dd \u05d0\u05d9\u05d3\u05d0\u05dc\u05d9\u05d9\u05dd. \u05d1\u05d0\u05de\u05e6\u05e2\u05d5\u05ea \u05d7\u05d5\u05e7\u05d9 \u05d4\u05ea\u05e0\u05d5\u05e2\u05d4 \u05e9\u05dc\u05d5 \u05d5\u05d7\u05d5\u05e7 \u05d4\u05de\u05e9\u05d9\u05db\u05d4 \u05d4\u05d0\u05d5\u05e0\u05d9\u05d1\u05e8\u05e1\u05dc\u05d9 \u05e0\u05ea\u05df \u05e0\u05d9\u05d5\u05d8\u05d5\u05df \u05d4\u05e1\u05d1\u05e8 \u05dc\u05d7\u05d5\u05e7\u05d9 \u05e7\u05e4\u05dc\u05e8 \u05e2\u05dc \u05ea\u05e0\u05d5\u05e2\u05ea\u05dd \u05e9\u05dc \u05db\u05d5\u05db\u05d1\u05d9 \u05dc\u05db\u05ea.\n", 
+        "parent": 2, 
+        "title": "\u05d7\u05d5\u05e7\u05d9 \u05d4\u05ea\u05e0\u05d5\u05e2\u05d4 \u05e9\u05dc \u05e0\u05d9\u05d5\u05d8\u05d5\u05df"
+    }
+},
+{
+    "pk": 5, 
+    "model": "core.teachtopic", 
+    "fields": {
+        "description": "\u05db\u05bf\u05d9\u05de\u05d9\u05d4 (\u05de\u05e2\u05e8\u05d1\u05d9\u05ea: \u0643\u064a\u0645\u064a\u0627\u0621, \u05db\u05b4\u05bc\u05d9\u05de\u05b4\u05d9\u05b7\u05d0) \u05d4\u05d9\u05d0 \u05e2\u05e0\u05e3 \u05d1\u05de\u05d3\u05e2\u05d9 \u05d4\u05d8\u05d1\u05e2 \u05d4\u05e2\u05d5\u05e1\u05e7 \u05d1\u05d4\u05e8\u05db\u05d1 \u05d4\u05d7\u05d5\u05de\u05e8, \u05de\u05d1\u05e0\u05d4\u05d5, \u05ea\u05db\u05d5\u05e0\u05d5\u05ea\u05d9\u05d5 \u05d5\u05d4\u05e9\u05d9\u05e0\u05d5\u05d9\u05d9\u05dd \u05d4\u05d7\u05dc\u05d9\u05dd \u05d1\u05d5 \u05d1\u05de\u05d4\u05dc\u05da \u05d0\u05d9\u05e0\u05d8\u05e8\u05e7\u05e6\u05d9\u05d4 \u05e2\u05dd \u05d7\u05d5\u05de\u05e8 \u05d0\u05d7\u05e8 \u05d0\u05d5 \u05e2\u05dd \u05d0\u05e0\u05e8\u05d2\u05d9\u05d4. \u05db\u05d9\u05de\u05d9\u05d4 \u05d4\u05d9\u05d0 \u05d3\u05d9\u05e1\u05e6\u05d9\u05e4\u05dc\u05d9\u05e0\u05d4 \u05de\u05d3\u05e2\u05d9\u05ea \u05d4\u05e7\u05e9\u05d5\u05e8\u05d4 \u05dc\u05d7\u05e7\u05e8 \u05e9\u05dc \u05d0\u05d8\u05d5\u05de\u05d9\u05dd, \u05de\u05d5\u05dc\u05e7\u05d5\u05dc\u05d5\u05ea, \u05d2\u05d1\u05d9\u05e9\u05d9\u05dd \u05d5\u05e6\u05d1\u05e8\u05d9\u05dd \u05d0\u05d7\u05e8\u05d9\u05dd \u05e9\u05dc \u05d7\u05d5\u05de\u05e8, \u05d1\u05d9\u05df \u05d0\u05dd \u05d4\u05dd \u05de\u05e6\u05d5\u05d9\u05d9\u05dd \u05d1\u05d4\u05e8\u05db\u05d1 \u05de\u05e1\u05d5\u05d9\u05dd \u05d0\u05d5 \u05d1\u05e6\u05d5\u05e8\u05d4 \u05de\u05d1\u05d5\u05d3\u05d3\u05ea. \u05e0\u05d9\u05ea\u05df \u05dc\u05db\u05e0\u05d5\u05ea \u05d0\u05ea \u05d4\u05db\u05d9\u05de\u05d9\u05d4 \u05db\"\u05de\u05d3\u05e2 \u05de\u05e8\u05db\u05d6\u05d9\", \u05db\u05d9\u05d5\u05d5\u05df \u05e9\u05d4\u05d9\u05d0 \u05de\u05e7\u05e9\u05e8\u05ea \u05d1\u05d9\u05df \u05ea\u05d7\u05d5\u05de\u05d9\u05dd \u05e0\u05d5\u05e1\u05e4\u05d9\u05dd \u05e9\u05dc \u05de\u05d3\u05e2\u05d9 \u05d4\u05d8\u05d1\u05e2, \u05db\u05d2\u05d5\u05df \u05d0\u05e1\u05d8\u05e8\u05d5\u05e0\u05d5\u05de\u05d9\u05d4, \u05e4\u05d9\u05d6\u05d9\u05e7\u05d4, \u05de\u05d3\u05e2 \u05d4\u05d7\u05d5\u05de\u05e8\u05d9\u05dd, \u05d1\u05d9\u05d5\u05dc\u05d5\u05d2\u05d9\u05d4 \u05d5\u05d2\u05d0\u05d5\u05dc\u05d5\u05d2\u05d9\u05d4. \u05de\u05d1\u05d7\u05d9\u05e0\u05d4 \u05d4\u05d9\u05e1\u05d8\u05d5\u05e8\u05d9\u05ea, \u05d4\u05db\u05d9\u05de\u05d9\u05d4 \u05d4\u05de\u05d5\u05d3\u05e8\u05e0\u05d9\u05ea \u05d4\u05ea\u05e4\u05ea\u05d7\u05d4 \u05de\u05d4\u05d0\u05dc\u05db\u05d9\u05de\u05d9\u05d4 \u05d1\u05e2\u05e7\u05d1\u05d5\u05ea \u05d4\u05de\u05d4\u05e4\u05db\u05d4 \u05d4\u05db\u05d9\u05de\u05d9\u05ea (1773).", 
+        "parent": null, 
+        "title": "\u05db\u05d9\u05de\u05d9\u05d4"
+    }
+},
+{
+    "pk": 6, 
+    "model": "core.teachtopic", 
+    "fields": {
+        "description": "\u05db\u05d9\u05de\u05d9\u05d4 \u05d0\u05d5\u05e8\u05d2\u05e0\u05d9\u05ea \u05d4\u05d9\u05d0 \u05e2\u05e0\u05e3 \u05d1\u05db\u05d9\u05de\u05d9\u05d4 \u05d4\u05e2\u05d5\u05e1\u05e7 \u05d1\u05de\u05d1\u05e0\u05d4, \u05d1\u05de\u05d0\u05e4\u05d9\u05d9\u05e0\u05d9\u05dd \u05d5\u05d1\u05ea\u05d2\u05d5\u05d1\u05d5\u05ea \u05e9\u05dc \u05ea\u05e8\u05db\u05d5\u05d1\u05d5\u05ea \u05d0\u05d5\u05e8\u05d2\u05e0\u05d9\u05d5\u05ea - \u05de\u05d2\u05d5\u05d5\u05df \u05d4\u05d7\u05d5\u05de\u05e8\u05d9\u05dd \u05d4\u05de\u05db\u05d9\u05dc\u05d9\u05dd \u05d0\u05d8\u05d5\u05de\u05d9 \u05e4\u05d7\u05de\u05df \u05d5\u05de\u05d9\u05de\u05df. \u05d1\u05d7\u05e7\u05e8 \u05d4\u05de\u05d1\u05e0\u05d4 \u05e0\u05e2\u05e9\u05d4 \u05e9\u05d9\u05de\u05d5\u05e9 \u05d1\u05e1\u05e4\u05e7\u05d8\u05e8\u05d5\u05de\u05d8\u05e8\u05d9\u05d4 \u05d5\u05d1\u05e9\u05d9\u05d8\u05d5\u05ea \u05db\u05d9\u05de\u05d9\u05d5\u05ea \u05d5\u05e4\u05d9\u05d6\u05d9\u05e7\u05dc\u05d9\u05d5\u05ea \u05d0\u05d7\u05e8\u05d5\u05ea \u05e2\u05dc \u05de\u05e0\u05ea \u05dc\u05e7\u05d1\u05d5\u05e2 \u05d0\u05ea \u05d4\u05e8\u05db\u05d1 \u05d4\u05d7\u05d5\u05de\u05e8 \u05d5\u05d0\u05ea \u05de\u05d1\u05e0\u05d4\u05d5 \u05d4\u05de\u05e8\u05d7\u05d1\u05d9. \u05d4\u05de\u05d0\u05e4\u05d9\u05d9\u05e0\u05d9\u05dd \u05d4\u05e4\u05d9\u05d6\u05d9\u05e7\u05dc\u05d9\u05d9\u05dd \u05e9\u05dc \u05d4\u05d7\u05d5\u05de\u05e8 \u05d5\u05d4\u05de\u05d0\u05e4\u05d9\u05d9\u05e0\u05d9\u05dd \u05d4\u05db\u05d9\u05de\u05d9\u05d9\u05dd \u05e9\u05dc \u05d4\u05d7\u05d5\u05de\u05e8 \u05e0\u05dc\u05de\u05d3\u05d9\u05dd \u05d1\u05e9\u05d9\u05d8\u05d5\u05ea \u05d3\u05d5\u05de\u05d5\u05ea \u05d5\u05d2\u05dd \u05e0\u05e2\u05e9\u05d4 \u05e9\u05d9\u05de\u05d5\u05e9 \u05d1\u05e9\u05d9\u05d8\u05d5\u05ea \u05dc\u05d0\u05de\u05d5\u05d3 \u05d0\u05ea \u05d4\u05e8\u05d9\u05d0\u05e7\u05d8\u05d9\u05d1\u05d9\u05d5\u05ea \u05d4\u05db\u05d9\u05de\u05d9\u05ea, \u05d1\u05de\u05d8\u05e8\u05d4 \u05dc\u05d4\u05d1\u05d9\u05df \u05d0\u05ea \u05d4\u05ea\u05e0\u05d4\u05d2\u05d5\u05ea \u05d4\u05d7\u05d5\u05de\u05e8 \u05d4\u05d0\u05d5\u05e8\u05d2\u05e0\u05d9 \u05d1\u05de\u05ea\u05db\u05d5\u05e0\u05ea\u05d5 \u05d4\u05d8\u05d1\u05e2\u05d9\u05ea (\u05d0\u05dd \u05e0\u05d9\u05ea\u05df), \u05d0\u05d5\u05dc\u05dd \u05d2\u05dd \u05d1\u05ea\u05de\u05d9\u05e1\u05d5\u05ea, \u05ea\u05e2\u05e8\u05d5\u05d1\u05d5\u05ea \u05d5\u05d1\u05e6\u05d5\u05e8\u05d5\u05ea \u05e1\u05d9\u05e0\u05ea\u05d8\u05d9\u05d5\u05ea. \u05d7\u05e7\u05e8 \u05d4\u05ea\u05e8\u05db\u05d5\u05d1\u05d5\u05ea \u05d4\u05d0\u05d5\u05e8\u05d2\u05e0\u05d9\u05d5\u05ea \u05db\u05d5\u05dc\u05dc \u05d0\u05ea \u05d4\u05db\u05e0\u05ea\u05dd, \u05e2\u05dc \u05d9\u05d3\u05d9 \u05e1\u05d9\u05e0\u05ea\u05d6\u05d4 \u05d0\u05d5 \u05d1\u05d0\u05de\u05e6\u05e2\u05d5\u05ea \u05ea\u05d2\u05d5\u05d1\u05d5\u05ea \u05e2\u05d5\u05e7\u05d1\u05d5\u05ea, \u05d1\u05de\u05e2\u05d1\u05d3\u05d4 \u05d0\u05d5 \u05ea\u05d0\u05d5\u05e8\u05d8\u05d9\u05ea.", 
+        "parent": 5, 
+        "title": "\u05db\u05d9\u05de\u05d9\u05d4 \u05d0\u05d5\u05e8\u05d2\u05e0\u05d9\u05ea"
+    }
+},
+{
+    "pk": 1, 
+    "model": "core.teachitem", 
+    "fields": {
+        "description": "\u05de\u05d1\u05d5\u05d0 \u05d1\u05e1\u05d9\u05e1\u05d9 \u05dc\u05ea\u05e0\u05d5\u05e2\u05d4 \u05de\u05e2\u05d2\u05dc\u05d9\u05ea", 
+        "parent": 3, 
+        "title": "\u05de\u05d1\u05d5\u05d0 \u05dc\u05ea\u05e0\u05d5\u05e2\u05d4 \u05de\u05e2\u05d2\u05dc\u05d9\u05ea"
+    }
+},
+{
+    "pk": 2, 
+    "model": "core.teachitem", 
+    "fields": {
+        "description": "\u05ea\u05e0\u05d5\u05e2\u05d4 \u05de\u05e2\u05d2\u05dc\u05d9\u05ea \u05dc\u05dc\u05d0 \u05db\u05d5\u05d7 \u05de\u05e9\u05d9\u05db\u05d4", 
+        "parent": 3, 
+        "title": "\u05ea\u05e0\u05d5\u05e2\u05d4 \u05de\u05e2\u05d2\u05dc\u05d9\u05ea \u05d1\u05d7\u05dc\u05dc"
+    }
+},
+{
+    "pk": 1, 
+    "model": "core.tag", 
+    "fields": {
+        "name": "\u05e9\u05d9\u05e2\u05d5\u05e8 \u05de\u05e6\u05d5\u05dc\u05dd"
+    }
+},
+{
+    "pk": 2, 
+    "model": "core.tag", 
+    "fields": {
+        "name": "\u05e6\u05d9\u05dc\u05d5\u05dd \u05de\u05e1\u05da"
+    }
+},
+{
+    "pk": 3, 
+    "model": "core.tag", 
+    "fields": {
+        "name": "\u05e0\u05d9\u05e1\u05d5\u05d9"
+    }
+},
+{
+    "pk": 4, 
+    "model": "core.tag", 
+    "fields": {
+        "name": "\u05de\u05e2\u05e9\u05d9"
+    }
+},
+{
+    "pk": 5, 
+    "model": "core.tag", 
+    "fields": {
+        "name": "\u05d4\u05e2\u05e9\u05e8\u05d4"
+    }
+},
+{
+    "pk": 6, 
+    "model": "core.tag", 
+    "fields": {
+        "name": "\u05d1\u05d2\u05e8\u05d5\u05ea"
+    }
+},
+{
+    "pk": 1, 
+    "model": "auth.permission", 
+    "fields": {
+        "codename": "add_logentry", 
+        "name": "Can add log entry", 
+        "content_type": 1
+    }
+},
+{
+    "pk": 2, 
+    "model": "auth.permission", 
+    "fields": {
+        "codename": "change_logentry", 
+        "name": "Can change log entry", 
+        "content_type": 1
+    }
+},
+{
+    "pk": 3, 
+    "model": "auth.permission", 
+    "fields": {
+        "codename": "delete_logentry", 
+        "name": "Can delete log entry", 
+        "content_type": 1
+    }
+},
+{
+    "pk": 4, 
+    "model": "auth.permission", 
+    "fields": {
+        "codename": "add_permission", 
+        "name": "Can add permission", 
+        "content_type": 2
+    }
+},
+{
+    "pk": 5, 
+    "model": "auth.permission", 
+    "fields": {
+        "codename": "change_permission", 
+        "name": "Can change permission", 
+        "content_type": 2
+    }
+},
+{
+    "pk": 6, 
+    "model": "auth.permission", 
+    "fields": {
+        "codename": "delete_permission", 
+        "name": "Can delete permission", 
+        "content_type": 2
+    }
+},
+{
+    "pk": 7, 
+    "model": "auth.permission", 
+    "fields": {
+        "codename": "add_group", 
+        "name": "Can add group", 
+        "content_type": 3
+    }
+},
+{
+    "pk": 8, 
+    "model": "auth.permission", 
+    "fields": {
+        "codename": "change_group", 
+        "name": "Can change group", 
+        "content_type": 3
+    }
+},
+{
+    "pk": 9, 
+    "model": "auth.permission", 
+    "fields": {
+        "codename": "delete_group", 
+        "name": "Can delete group", 
+        "content_type": 3
+    }
+},
+{
+    "pk": 10, 
+    "model": "auth.permission", 
+    "fields": {
+        "codename": "add_user", 
+        "name": "Can add user", 
+        "content_type": 4
+    }
+},
+{
+    "pk": 11, 
+    "model": "auth.permission", 
+    "fields": {
+        "codename": "change_user", 
+        "name": "Can change user", 
+        "content_type": 4
+    }
+},
+{
+    "pk": 12, 
+    "model": "auth.permission", 
+    "fields": {
+        "codename": "delete_user", 
+        "name": "Can delete user", 
+        "content_type": 4
+    }
+},
+{
+    "pk": 13, 
+    "model": "auth.permission", 
+    "fields": {
+        "codename": "add_contenttype", 
+        "name": "Can add content type", 
+        "content_type": 5
+    }
+},
+{
+    "pk": 14, 
+    "model": "auth.permission", 
+    "fields": {
+        "codename": "change_contenttype", 
+        "name": "Can change content type", 
+        "content_type": 5
+    }
+},
+{
+    "pk": 15, 
+    "model": "auth.permission", 
+    "fields": {
+        "codename": "delete_contenttype", 
+        "name": "Can delete content type", 
+        "content_type": 5
+    }
+},
+{
+    "pk": 16, 
+    "model": "auth.permission", 
+    "fields": {
+        "codename": "add_session", 
+        "name": "Can add session", 
+        "content_type": 6
+    }
+},
+{
+    "pk": 17, 
+    "model": "auth.permission", 
+    "fields": {
+        "codename": "change_session", 
+        "name": "Can change session", 
+        "content_type": 6
+    }
+},
+{
+    "pk": 18, 
+    "model": "auth.permission", 
+    "fields": {
+        "codename": "delete_session", 
+        "name": "Can delete session", 
+        "content_type": 6
+    }
+},
+{
+    "pk": 19, 
+    "model": "auth.permission", 
+    "fields": {
+        "codename": "add_teachtopic", 
+        "name": "Can add teach topic", 
+        "content_type": 7
+    }
+},
+{
+    "pk": 20, 
+    "model": "auth.permission", 
+    "fields": {
+        "codename": "change_teachtopic", 
+        "name": "Can change teach topic", 
+        "content_type": 7
+    }
+},
+{
+    "pk": 21, 
+    "model": "auth.permission", 
+    "fields": {
+        "codename": "delete_teachtopic", 
+        "name": "Can delete teach topic", 
+        "content_type": 7
+    }
+},
+{
+    "pk": 22, 
+    "model": "auth.permission", 
+    "fields": {
+        "codename": "add_teachitem", 
+        "name": "Can add teach item", 
+        "content_type": 8
+    }
+},
+{
+    "pk": 23, 
+    "model": "auth.permission", 
+    "fields": {
+        "codename": "change_teachitem", 
+        "name": "Can change teach item", 
+        "content_type": 8
+    }
+},
+{
+    "pk": 24, 
+    "model": "auth.permission", 
+    "fields": {
+        "codename": "delete_teachitem", 
+        "name": "Can delete teach item", 
+        "content_type": 8
+    }
+},
+{
+    "pk": 25, 
+    "model": "auth.permission", 
+    "fields": {
+        "codename": "add_videopage", 
+        "name": "Can add video page", 
+        "content_type": 9
+    }
+},
+{
+    "pk": 26, 
+    "model": "auth.permission", 
+    "fields": {
+        "codename": "change_videopage", 
+        "name": "Can change video page", 
+        "content_type": 9
+    }
+},
+{
+    "pk": 27, 
+    "model": "auth.permission", 
+    "fields": {
+        "codename": "delete_videopage", 
+        "name": "Can delete video page", 
+        "content_type": 9
+    }
+},
+{
+    "pk": 28, 
+    "model": "auth.permission", 
+    "fields": {
+        "codename": "add_ratingreview", 
+        "name": "Can add rating review", 
+        "content_type": 10
+    }
+},
+{
+    "pk": 29, 
+    "model": "auth.permission", 
+    "fields": {
+        "codename": "change_ratingreview", 
+        "name": "Can change rating review", 
+        "content_type": 10
+    }
+},
+{
+    "pk": 30, 
+    "model": "auth.permission", 
+    "fields": {
+        "codename": "delete_ratingreview", 
+        "name": "Can delete rating review", 
+        "content_type": 10
+    }
+},
+{
+    "pk": 31, 
+    "model": "auth.permission", 
+    "fields": {
+        "codename": "add_textualreview", 
+        "name": "Can add textual review", 
+        "content_type": 11
+    }
+},
+{
+    "pk": 32, 
+    "model": "auth.permission", 
+    "fields": {
+        "codename": "change_textualreview", 
+        "name": "Can change textual review", 
+        "content_type": 11
+    }
+},
+{
+    "pk": 33, 
+    "model": "auth.permission", 
+    "fields": {
+        "codename": "delete_textualreview", 
+        "name": "Can delete textual review", 
+        "content_type": 11
+    }
+},
+{
+    "pk": 34, 
+    "model": "auth.permission", 
+    "fields": {
+        "codename": "add_tag", 
+        "name": "Can add tag", 
+        "content_type": 12
+    }
+},
+{
+    "pk": 35, 
+    "model": "auth.permission", 
+    "fields": {
+        "codename": "change_tag", 
+        "name": "Can change tag", 
+        "content_type": 12
+    }
+},
+{
+    "pk": 36, 
+    "model": "auth.permission", 
+    "fields": {
+        "codename": "delete_tag", 
+        "name": "Can delete tag", 
+        "content_type": 12
+    }
+},
+{
+    "pk": 37, 
+    "model": "auth.permission", 
+    "fields": {
+        "codename": "add_tagvideo", 
+        "name": "Can add tag video", 
+        "content_type": 13
+    }
+},
+{
+    "pk": 38, 
+    "model": "auth.permission", 
+    "fields": {
+        "codename": "change_tagvideo", 
+        "name": "Can change tag video", 
+        "content_type": 13
+    }
+},
+{
+    "pk": 39, 
+    "model": "auth.permission", 
+    "fields": {
+        "codename": "delete_tagvideo", 
+        "name": "Can delete tag video", 
+        "content_type": 13
+    }
+},
+{
+    "pk": 1, 
+    "model": "auth.group", 
+    "fields": {
+        "name": "Teachers", 
+        "permissions": [
+            13, 
+            14, 
+            15, 
+            28, 
+            29, 
+            30, 
+            34, 
+            35, 
+            36, 
+            37, 
+            38, 
+            39, 
+            22, 
+            23, 
+            24, 
+            19, 
+            20, 
+            21, 
+            31, 
+            32, 
+            33, 
+            25, 
+            26, 
+            27
+        ]
+    }
+},
+{
+    "pk": 1, 
+    "model": "auth.user", 
+    "fields": {
+        "username": "flip", 
+        "first_name": "\u05e4\u05dc\u05d9\u05e4", 
+        "last_name": "\u05e4\u05dc\u05d5\u05e4", 
+        "is_active": true, 
+        "is_superuser": true, 
+        "is_staff": true, 
+        "last_login": "2013-12-24T07:52:01Z", 
+        "groups": [], 
+        "user_permissions": [], 
+        "password": "pbkdf2_sha256$12000$YntSkEvG8yvF$YH7bGuLDP5KJQeB7jo2xrCQ/ZArP/a9bcyzW5YbfMrA=", 
+        "email": "flip@klum.com", 
+        "date_joined": "2013-12-14T16:06:45Z"
+    }
+},
+{
+    "pk": 2, 
+    "model": "auth.user", 
+    "fields": {
+        "username": "itamar", 
+        "first_name": "\u05d0\u05d9\u05ea\u05de\u05e8", 
+        "last_name": "\u05d4\u05de\u05d5\u05e8\u05d4", 
+        "is_active": true, 
+        "is_superuser": false, 
+        "is_staff": false, 
+        "last_login": "2013-12-23T19:56:35.701Z", 
+        "groups": [
+            1
+        ], 
+        "user_permissions": [], 
+        "password": "pbkdf2_sha256$12000$UfBZxSIUoRuf$5zDtBGtihOe0dWSChLLa6nYixY+bBQauNs00tvQoikg=", 
+        "email": "ita@mar.com", 
+        "date_joined": "2013-12-23T18:45:03Z"
+    }
+},
+{
+    "pk": 3, 
+    "model": "auth.user", 
+    "fields": {
+        "username": "yonatan", 
+        "first_name": "\u05d9\u05d5\u05e0\u05ea\u05df", 
+        "last_name": "\u05d4\u05ea\u05dc\u05de\u05d9\u05d3", 
+        "is_active": true, 
+        "is_superuser": false, 
+        "is_staff": false, 
+        "last_login": "2013-12-23T19:16:47.489Z", 
+        "groups": [], 
+        "user_permissions": [], 
+        "password": "pbkdf2_sha256$12000$LVyaqjCgy2BK$p8GC5xzcF7iRClI9l5edgqAIiisSxDrE4kqkOJMMe7Q=", 
+        "email": "yona@tan.com", 
+        "date_joined": "2013-12-23T18:47:06Z"
+    }
+},
+{
+    "pk": 4, 
+    "model": "auth.user", 
+    "fields": {
+        "username": "eran", 
+        "first_name": "\u05e2\u05e8\u05df", 
+        "last_name": "\u05e7\u05d9\u05d3\u05e8", 
+        "is_active": true, 
+        "is_superuser": false, 
+        "is_staff": false, 
+        "last_login": "2013-12-24T07:55:30.281Z", 
+        "groups": [
+            1
+        ], 
+        "user_permissions": [], 
+        "password": "pbkdf2_sha256$12000$zBbXH0VvLMde$JhyOLoBF7GmzHhBJzD4MG/ylWrxnyF9q0RpQtTdX6Xs=", 
+        "email": "eran@klum.com", 
+        "date_joined": "2013-12-24T07:52:48Z"
+    }
+},
+{
+    "pk": 1, 
+    "model": "core.videopage", 
+    "fields": {
+        "upload_date": "2013-12-14T10:58:53.996Z", 
+        "teach_item": 1, 
+        "youtube_movie_id": "D7GdUFVQzso", 
+        "content": "\u05d4\u05d8\u05db\u05e0\u05d9\u05d5\u05df - \u05e7\u05d5\u05e8\u05e1 113013 - \u05d4\u05e9\u05dc\u05de\u05d5\u05ea \u05e4\u05d9\u05e1\u05d9\u05e7\u05d4 1\n\u05d4\u05e8\u05e6\u05d0\u05d4 21 - \u05ea\u05e0\u05d5\u05e2\u05d4 \u05de\u05e2\u05d2\u05dc\u05d9\u05ea\n\u05de\u05e8\u05e6\u05d4 : \u05e4\u05e8\u05d5\u05e4' \u05de\u05e8\u05d9\u05d5 \u05dc\u05d9\u05d1\u05d9\u05d5\n\u05e4\u05e7\u05d5\u05dc\u05d8\u05d4 : \u05e4\u05d9\u05e1\u05d9\u05e7\u05d4\n", 
+        "user": 1, 
+        "video_title": "\u05d4\u05e9\u05dc\u05de\u05d5\u05ea \u05e4\u05d9\u05e1\u05d9\u05e7\u05d4 1 - \u05d4\u05e8\u05e6\u05d0\u05d4 21"
+    }
+},
+{
+    "pk": 2, 
+    "model": "core.videopage", 
+    "fields": {
+        "upload_date": "2013-12-14T10:59:39.350Z", 
+        "teach_item": 1, 
+        "youtube_movie_id": "Te_WEj4nuYo", 
+        "content": "\u05d4\u05e1\u05d1\u05e8 \u05e2\u05dc \u05ea\u05e0\u05d5\u05e2\u05d4 \u05de\u05e2\u05d2\u05dc\u05d9\u05ea - \u05d3\u05d5\u05d3 \u05dc\u05e0\u05d9\u05d0\u05d3\u05d5 - \u05de\u05db\u05dc\u05dc\u05ea \u05d0\u05e4\u05e7\u05d4\n\u05d4\u05e9\u05dc\u05de\u05d5\u05ea \u05e4\u05d9\u05d6\u05d9\u05e7\u05d4", 
+        "user": 1, 
+        "video_title": "\u05e4\u05d9\u05d6\u05d9\u05e7\u05d4 - \u05d3\u05d5\u05d3 \u05dc\u05e0\u05d9\u05d0\u05d3\u05d5 - \u05d0\u05e4\u05e7\u05d4 - \u05ea\u05e0\u05d5\u05e2\u05d4 \u05de\u05e2\u05d2\u05dc\u05d9\u05ea"
+    }
+},
+{
+    "pk": 3, 
+    "model": "core.videopage", 
+    "fields": {
+        "upload_date": "2013-12-14T11:00:07.664Z", 
+        "teach_item": 2, 
+        "youtube_movie_id": "K82rEtPECe8", 
+        "content": "\u05d4\u05e7\u05dc\u05d8\u05d4 \u05e9\u05dc \u05e9\u05d9\u05e2\u05d5\u05e8 \u05d7\u05d9 \u05de\u05ea\u05d0\u05e8\u05d9\u05da 12.06.2013\n\u05de\u05e0\u05d7\u05d4 - \u05d2\u05d9\u05dc \u05e7\u05e8\u05e1\u05d9\u05e7", 
+        "user": 1, 
+        "video_title": "\u05e4\u05d9\u05d6\u05d9\u05e7\u05d4 \u05de\u05db\u05e0\u05d9\u05e7\u05d4- \u05ea\u05e0\u05d5\u05e2\u05d4 \u05de\u05e2\u05d2\u05dc\u05d9\u05ea"
+    }
+},
+{
+    "pk": 1, 
+    "model": "admin.logentry", 
+    "fields": {
+        "action_flag": 1, 
+        "action_time": "2013-12-23T18:42:12.077Z", 
+        "object_repr": "Teachers", 
+        "object_id": "1", 
+        "change_message": "", 
+        "user": 1, 
+        "content_type": 3
+    }
+},
+{
+    "pk": 2, 
+    "model": "admin.logentry", 
+    "fields": {
+        "action_flag": 1, 
+        "action_time": "2013-12-23T18:45:03.747Z", 
+        "object_repr": "itamar", 
+        "object_id": "2", 
+        "change_message": "", 
+        "user": 1, 
+        "content_type": 4
+    }
+},
+{
+    "pk": 3, 
+    "model": "admin.logentry", 
+    "fields": {
+        "action_flag": 2, 
+        "action_time": "2013-12-23T18:45:32.390Z", 
+        "object_repr": "itamar", 
+        "object_id": "2", 
+        "change_message": "groups \u05e9\u05d5\u05e0\u05d4.", 
+        "user": 1, 
+        "content_type": 4
+    }
+},
+{
+    "pk": 4, 
+    "model": "admin.logentry", 
+    "fields": {
+        "action_flag": 2, 
+        "action_time": "2013-12-23T18:46:35.223Z", 
+        "object_repr": "itamar", 
+        "object_id": "2", 
+        "change_message": "first_name, last_name \u05d5 email \u05e9\u05d5\u05e0\u05d4.", 
+        "user": 1, 
+        "content_type": 4
+    }
+},
+{
+    "pk": 5, 
+    "model": "admin.logentry", 
+    "fields": {
+        "action_flag": 1, 
+        "action_time": "2013-12-23T18:47:06.967Z", 
+        "object_repr": "yonatan", 
+        "object_id": "3", 
+        "change_message": "", 
+        "user": 1, 
+        "content_type": 4
+    }
+},
+{
+    "pk": 6, 
+    "model": "admin.logentry", 
+    "fields": {
+        "action_flag": 2, 
+        "action_time": "2013-12-23T18:47:37.350Z", 
+        "object_repr": "yonatan", 
+        "object_id": "3", 
+        "change_message": "first_name, last_name \u05d5 email \u05e9\u05d5\u05e0\u05d4.", 
+        "user": 1, 
+        "content_type": 4
+    }
+},
+{
+    "pk": 7, 
+    "model": "admin.logentry", 
+    "fields": {
+        "action_flag": 2, 
+        "action_time": "2013-12-23T19:10:27.274Z", 
+        "object_repr": "Teachers", 
+        "object_id": "1", 
+        "change_message": "permissions \u05e9\u05d5\u05e0\u05d4.", 
+        "user": 1, 
+        "content_type": 3
+    }
+},
+{
+    "pk": 8, 
+    "model": "admin.logentry", 
+    "fields": {
+        "action_flag": 1, 
+        "action_time": "2013-12-23T21:15:00.678Z", 
+        "object_repr": "\u05d1\u05d2\u05e8\u05d5\u05ea", 
+        "object_id": "6", 
+        "change_message": "", 
+        "user": 1, 
+        "content_type": 12
+    }
+},
+{
+    "pk": 9, 
+    "model": "admin.logentry", 
+    "fields": {
+        "action_flag": 2, 
+        "action_time": "2013-12-24T07:52:33.151Z", 
+        "object_repr": "flip", 
+        "object_id": "1", 
+        "change_message": "first_name \u05d5 last_name \u05e9\u05d5\u05e0\u05d4.", 
+        "user": 1, 
+        "content_type": 4
+    }
+},
+{
+    "pk": 10, 
+    "model": "admin.logentry", 
+    "fields": {
+        "action_flag": 1, 
+        "action_time": "2013-12-24T07:52:48.238Z", 
+        "object_repr": "eran", 
+        "object_id": "4", 
+        "change_message": "", 
+        "user": 1, 
+        "content_type": 4
+    }
+},
+{
+    "pk": 11, 
+    "model": "admin.logentry", 
+    "fields": {
+        "action_flag": 2, 
+        "action_time": "2013-12-24T07:53:19.429Z", 
+        "object_repr": "eran", 
+        "object_id": "4", 
+        "change_message": "first_name, last_name, email \u05d5 groups \u05e9\u05d5\u05e0\u05d4.", 
+        "user": 1, 
+        "content_type": 4
+    }
+},
+{
+    "pk": 12, 
+    "model": "admin.logentry", 
+    "fields": {
+        "action_flag": 1, 
+        "action_time": "2013-12-24T07:53:56.245Z", 
+        "object_repr": "\u05db\u05d9\u05de\u05d9\u05d4", 
+        "object_id": "5", 
+        "change_message": "", 
+        "user": 1, 
+        "content_type": 7
+    }
+},
+{
+    "pk": 13, 
+    "model": "admin.logentry", 
+    "fields": {
+        "action_flag": 1, 
+        "action_time": "2013-12-24T07:54:32.717Z", 
+        "object_repr": "\u05db\u05d9\u05de\u05d9\u05d4 \u05d0\u05d5\u05e8\u05d2\u05e0\u05d9\u05ea", 
+        "object_id": "6", 
+        "change_message": "", 
+        "user": 1, 
+        "content_type": 7
+    }
+}
+]
