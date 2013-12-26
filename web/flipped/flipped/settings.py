@@ -41,6 +41,7 @@ INSTALLED_APPS = (
     'fc_user',
     'wysihtml5',
     'floppyforms',
+    'django_extensions'
 )
 
 MIDDLEWARE_CLASSES = (
