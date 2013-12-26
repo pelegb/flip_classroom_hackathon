@@ -95,7 +95,10 @@ LOGIN_REDIRECT_URL = '/common/home/'
 
 LOCALE_PATHS = (os.path.join(BASE_DIR,'locale'),)
 
-
+from django.conf import global_settings
+TEMPLATE_CONTEXT_PROCESSORS = global_settings.TEMPLATE_CONTEXT_PROCESSORS + (
+	"common.processors.topics",
+)
 
 
 
