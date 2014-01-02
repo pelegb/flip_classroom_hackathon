@@ -11,25 +11,15 @@
         {% endif %}
 
         <h1>{{ topic.title }}</h1>
-        <ul>
-        {% for key, value in subtree.items %}
-            <li><a href="../../topic/{{ key.id }}/">{{ key }}</a></li>
-            {% if value.items %}            
+        {% for topic in subtree %}
+            {% if topic == "in" %}
             <ul>
-            {% for key, value in value.items %}
-                <li><a href="../../topic/{{ key.id }}/">{{ key }}</a></li>
-                {% if value.items %}            
-                <ul>
-                {% for key, value in value.items %}
-                    <li><a href="../../topic/{{ key.id }}/">{{ key }}</a></li>
-                {% endfor %}
-                </ul>
-                {% endif %}
-            {% endfor %}
+            {% elif topic == "out" %}
             </ul>
+            {% else %}
+            <li><a href="../../topic/{{ topic.id }}/">{{ topic }}</a></li>
             {% endif %}
         {% endfor %}
-        </ul>
         {% if item_list %}
         <h2>פריטים בנושא זה</h2>
         <ul>

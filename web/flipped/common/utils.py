@@ -20,8 +20,10 @@ def get_ancestry_from_entity(entity):
     return ancestors
 
 def get_subtree_from_topic(topic):
-#gets a topic and returns a map, mapping each topic to its children, which are in turn similar maps. Terminal topics map to None, and items map to their count
-    subtree={}
+#gets a topic and returns a list representing the topic tree rooted in topic
+#the tree contains the string "down"/"up to indicate going down/up a level
+    subtree=[topic]
     for child_topic in TeachTopic.objects.filter(parent=topic):
-        subtree[child_topic]=get_subtree_from_topic(child_topic)
+        subtree.extend(["in"]+get_subtree_from_topic(child_topic)+["out"])
     return subtree
+
