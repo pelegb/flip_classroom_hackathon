@@ -1,19 +1,32 @@
-from django.shortcuts import render, get_object_or_404
-from models import VideoPage,TagVideo,Tag
+from core.models import RatingReview
+from django.contrib.auth.decorators import login_required
 from django.core.urlresolvers import reverse
 from django.http.response import HttpResponseRedirect
+from django.shortcuts import render, get_object_or_404
+from models import TeachItem, TeachTopic, VideoPage, TagVideo, Tag
 import common.utils
-from django.contrib.auth.decorators import login_required
 import forms
-from models import TeachTopic
-from models import TeachItem
-from django.template.context import RequestContext
 # Create your views here.
 
 def video_detail(request, video_id):
     video = get_object_or_404(VideoPage, pk=video_id)
     ancestors = common.utils.get_ancestry_from_entity(video.teach_item)
-    return render(request, 'core/video_detail.html', {'video': video, 'ancestors':ancestors})
+    if request.method == 'GET':
+        form = forms.ReviewForm()
+    elif request.method == 'POST':
+        form = forms.ReviewForm(request.POST)
+        if request.user.is_authenticated() and form.is_valid():
+            for context in RatingReview.context_choices:
+                if form.cleaned_data[context[0]]:
+                    review = RatingReview()
+                    review.user = request.user
+                    review.video = video
+                    review.context = context[0]
+                    review.rate = form.cleaned_data[context[0]]
+                    review.save()
+        else:
+            print form.errors
+    return render(request, 'core/video_detail.html', {'video': video, 'ancestors':ancestors, 'form':form})
 
 
 @login_required
@@ -68,5 +81,4 @@ def item_view(request,item_id):
     ancestors = common.utils.get_ancestry_from_entity(item)
     ancestors = ancestors[:-1]
     return render(request,'core/item_view.html', {'item': item, 'videos':videos, 'ancestors':ancestors})
-
 
