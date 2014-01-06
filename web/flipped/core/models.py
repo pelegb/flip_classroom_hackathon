@@ -1,6 +1,6 @@
 from django.db import models
-import django.contrib.auth
 from wysihtml5.fields import Wysihtml5TextField
+import django.contrib.auth
 
 class TeachEntity(models.Model):
     class Meta:
@@ -31,14 +31,14 @@ class Review(models.Model):
     class Meta:
         abstract=True
     video   = models.ForeignKey(VideoPage)
-    user = models.ForeignKey(django.contrib.auth.get_user_model())
+    user = models.ForeignKey(django.contrib.auth.get_user_model(), blank=True, null=True, default=None)
 
 class RatingReview(Review):
     context_choices = (
         ("rel",      "Relevancy"),
         ("quality",  "Technical quality")
     )
-    context = models.CharField(max_length=10)
+    context = models.CharField(max_length=12, choices=context_choices)
     rate    = models.PositiveSmallIntegerField()
 
 class TextualReview(Review):
