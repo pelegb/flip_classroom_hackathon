@@ -1,11 +1,12 @@
 from core.models import RatingReview
 from django.contrib.auth.decorators import login_required
 from django.core.urlresolvers import reverse
-from django.http.response import HttpResponseRedirect
+from django.http.response import HttpResponseRedirect, HttpResponse
 from django.shortcuts import render, get_object_or_404
 from models import TeachItem, TeachTopic, VideoPage, TagVideo, Tag
 import common.utils
 import forms
+from django.views.decorators.csrf import csrf_exempt
 # Create your views here.
 
 def video_detail(request, video_id):
@@ -28,6 +29,11 @@ def video_detail(request, video_id):
             print form.errors
     return render(request, 'core/video_detail.html', {'video': video, 'ancestors':ancestors, 'form':form})
 
+@csrf_exempt
+def video_rate(req,video_id):
+    video = get_object_or_404(VideoPage, pk=video_id)
+    user = req.user
+    return HttpResponse(status=201)
 
 @login_required
 def add_video(request,video_id=None):
