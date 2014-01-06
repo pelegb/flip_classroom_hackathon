@@ -47,11 +47,43 @@
                     <p><input type="submit" value="{% trans 'rate' %}"></p>
                     </form>
                     <br/>
-                    <form>
-                    	RATING [WIP]
-                    <input class="rating" data-clearable="remove" id="rating_rel" name="rating_rel" type="number" data-max="10" data-min="1" />
-					<input class="rating" data-clearable="remove" id="rating_tech" name="rating_tech" type="number" data-max="10" data-min="1"/>
-					</form>                    
+                    <form id="rate_video_form">
+             		{% csrf_token %}
+					<div class="control-group">
+						<label class="control-label" for="id_quality">איכות טכנית:</label>
+						<div class="controls field-quality">
+    	                	<input class="rating" id="rating_tech" name="rating_tech" type="number" data-max="10" data-min="1" />
+	                    </div>
+        			</div>
+        			<div class="control-group">
+						<label class="control-label" for="id_relevance">רלבנטיות:</label>
+						<div class="controls field-quality">
+    	                	<input class="rating" id="rating_rel" name="rating_rel" type="number" data-max="10" data-min="1" />
+	                    </div>
+        			</div>            	
+					<p><input type="submit" value="{% trans 'rate' %}"></p>
+					</form>
+					<script>
+						$("#rate_video_form").submit(function() {
+							var rating_tech = $("#rating_tech").val();
+							var rating_rel = $("#rating_rel").val();
+							$.ajax({
+								url : '/core/videos/rate/{{video.id}}/',
+								method : 'POST',
+								data : {
+									rating_tech : rating_tech,
+									rating_rel : rating_rel,	
+								},
+								success : function(data) {
+									alert('success');
+								},
+								error : function(xhr,status,err ) {
+									alert(status + ' : ' + err);
+								}
+							});
+							return false;
+						});
+					</script>                    
                 {% endif %}
 			</div>
 		</div>
