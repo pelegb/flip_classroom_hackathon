@@ -1,11 +1,21 @@
 {% load staticfiles %}
 
+<!DOCTYPE HTML>
+<html>
+	<head>
 <link rel="stylesheet" type="text/css" href="{% static 'common/css/stylesheet.css' %}" />
-<link rel="stylesheet" type="text/css" href="{% static 'common/css/bootstrap-rtl.min.css' %}" />
+<link rel="stylesheet" type="text/css" href="{% static 'common/css/bootstrap-rtl.min.css' %}"/>
 <link rel="stylesheet" type="text/css" href="{% static 'common/css/bootstrap-responsive-rtl.min.css' %}" />
 <link rel="stylesheet" type="text/css" href="{% static 'common/css/main.css' %}" />
 <link rel="stylesheet" type="text/css" href="{% static 'common/css/style.css' %}" />
+</head>
+<body>
 
+<script src="{% static 'common/js/jquery.2.0.3.min.js' %}"></script>
+<script src="{% static 'common/js/modernizr-2.6.2-respond-1.1.0.min.js' %}"></script>
+<script src="{% static 'common/js/bootstrap.min.js' %}"></script>
+<script src="{% static 'common/js/collapse.js' %}"></script>
+<script src="{% static 'common/js/bootstrap23-rating-input.min.js' %}"></script>
 
 
 <div class="navbar navbar-inverse navbar-fixed-top">
@@ -24,7 +34,7 @@
 						<ul class="dropdown-menu">
 						{% for topic in topics %}
 						<li>
-							<a href="/core/topic/{{ topic.id }}/"">{{ topic }}</a>
+							<a href="/core/topic/{{ topic.id }}/">{{ topic }}</a>
 						</li>
 						{% endfor %}
 						</ul>

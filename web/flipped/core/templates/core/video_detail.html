@@ -1,8 +1,8 @@
 {% extends "common/base.html" %}
 {% load flip_filters %}
 {% load i18n %}
+{% load staticfiles %}
 {% block content %}
-
 <div class="container">
 
 	<!-- Main hero unit for a primary marketing message or call to action -->
@@ -46,6 +46,12 @@
                     {{form.as_p}}
                     <p><input type="submit" value="{% trans 'rate' %}"></p>
                     </form>
+                    <br/>
+                    <form>
+                    	RATING [WIP]
+                    <input class="rating" data-clearable="remove" id="rating_rel" name="rating_rel" type="number" data-max="10" data-min="1" />
+					<input class="rating" data-clearable="remove" id="rating_tech" name="rating_tech" type="number" data-max="10" data-min="1"/>
+					</form>                    
                 {% endif %}
 			</div>
 		</div>
