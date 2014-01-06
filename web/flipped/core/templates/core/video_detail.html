@@ -1,5 +1,6 @@
 {% extends "common/base.html" %}
 {% load flip_filters %}
+{% load i18n %}
 {% block content %}
 
 <div class="container">
@@ -39,6 +40,13 @@
                 {{ video.content | safe }}
                 </div>
 
+                {% if user.is_authenticated %}
+                    <form action="/core/videos/{{video.id}}/" method="post">
+                    {% csrf_token %}
+                    {{form.as_p}}
+                    <p><input type="submit" value="{% trans 'rate' %}"></p>
+                    </form>
+                {% endif %}
 			</div>
 		</div>
 		<!-- /container -->
