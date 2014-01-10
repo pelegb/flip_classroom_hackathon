@@ -13,11 +13,11 @@ import json
 def get_global_ratings(video):
     from django.db.models import Avg,Count
     total_quality = RatingReview.objects.filter(context='quality',video=video).aggregate(count=Count('rate'),average=Avg('rate'))
-    rate_quality = dict(average=int(round(total_quality['average'])),
+    rate_quality = dict(average=int(round(total_quality['average'] or 0)),
                         count=total_quality['count'])
                     
     total_rel = RatingReview.objects.filter(context='rel',video=video).aggregate(count=Count('rate'),average=Avg('rate'))
-    rate_rel = dict(average=int(round(total_rel['average'])),
+    rate_rel = dict(average=int(round(total_rel['average'] or 0)),
                     count=total_rel['count'])
     
     return dict(rate_quality=rate_quality,rate_rel=rate_rel)
