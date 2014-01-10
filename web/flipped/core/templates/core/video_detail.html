@@ -60,11 +60,16 @@
 						<label class="control-label" for="id_relevance">רלבנטיות:</label>
 						<div class="controls field-relevance">
     	                	<input class="rating" id="rating_rel" name="rating_rel" type="number" data-max="10" data-min="1" value="{{rate_rel.cur}}"/>
-    	                	
 	                    </div>
         			</div>            	
         			{% csrf_token %}
-					<p><input type="submit" value="{% trans 'rate' %}"></p>
+					<p><input type="submit" value="{% trans 'rate' %}">
+						<span id="form_result" class="hidden">
+						<span id="form_result" class="label label-success">
+						הדירוג נשלח בהצלחה
+						</span>
+						</span>	
+					</p>
 					</form>
 					<script>
 						function isLegal(rate) {
@@ -86,7 +91,10 @@
 									csrfmiddlewaretoken : $("#rate_video_form input[name=csrfmiddlewaretoken]").val()
 								},
 								success : function(data) {
-									alert('success');
+									$("#form_result").removeClass("hidden");
+									setTimeout(function() {
+      									$("#form_result").addClass("hidden");
+									}, 3000);
 								},
 								error : function(xhr,status,err ) {
 									alert(status + ' : ' + err + '\n' + xhr.responseText);
