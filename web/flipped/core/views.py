@@ -7,33 +7,58 @@ from models import TeachItem, TeachTopic, VideoPage, TagVideo, Tag
 import common.utils
 import forms
 from django.views.decorators.csrf import csrf_exempt
+import json
 # Create your views here.
 
 def video_detail(request, video_id):
+    from django.db.models import Avg,Count
     video = get_object_or_404(VideoPage, pk=video_id)
     ancestors = common.utils.get_ancestry_from_entity(video.teach_item)
-    if request.method == 'GET':
-        form = forms.ReviewForm()
-    elif request.method == 'POST':
-        form = forms.ReviewForm(request.POST)
-        if request.user.is_authenticated() and form.is_valid():
-            for context in RatingReview.context_choices:
-                if form.cleaned_data[context[0]]:
-                    review = RatingReview()
-                    review.user = request.user
-                    review.video = video
-                    review.context = context[0]
-                    review.rate = form.cleaned_data[context[0]]
-                    review.save()
-        else:
-            print form.errors
-    return render(request, 'core/video_detail.html', {'video': video, 'ancestors':ancestors, 'form':form})
-
-@csrf_exempt
-def video_rate(req,video_id):
-    video = get_object_or_404(VideoPage, pk=video_id)
-    user = req.user
-    return HttpResponse(status=201)
+    ctx = dict(video = video, ancestors = ancestors)
+    total_quality = RatingReview.objects.filter(context='quality',video=video).aggregate(count=Count('rate'),average=Avg('rate'))
+    rate_quality = dict(cur='',
+                        average=int(round(total_quality['average'])),
+                        count=total_quality['count'])
+                    
+    total_rel = RatingReview.objects.filter(context='rel',video=video).aggregate(count=Count('rate'),average=Avg('rate'))
+    rate_rel = dict(cur='',
+                    average=int(round(total_rel['average'])),
+                    count=total_rel['count'])
+    
+                        
+    if request.user.is_authenticated():
+        try:
+            rate_quality['cur'] = RatingReview.objects.get(user=request.user,context='quality',video=video).rate
+        except RatingReview.DoesNotExist:
+            pass
+        try:
+            rate_rel['cur'] = RatingReview.objects.get(user=request.user,context='rel',video=video).rate
+        except RatingReview.DoesNotExist:
+            pass
+    ctx['rate_quality'] = rate_quality
+    ctx['rate_rel'] = rate_rel
+    return render(request, 'core/video_detail.html', ctx)
+    
+@login_required
+def video_rate(request,video_id):
+    if request.method == 'POST':
+        video = get_object_or_404(VideoPage, pk=video_id)
+        try:
+            if request.user.is_authenticated():
+                for context_tuple in RatingReview.context_choices:
+                    context = context_tuple[0]
+                    rate =  int(request.POST['rating_%s' % (context)])
+                    review,created = RatingReview.objects.get_or_create(user=request.user,video=video,context=context,defaults={'rate':rate})
+                    # if not new - must update the rate
+                    if not created:
+                        review.rate = rate
+                        review.save()
+                return HttpResponse(status=201)
+        except Exception,e:
+            error_dict = dict(error=unicode(e))
+            return HttpResponse(status=400,content=json.dumps(error_dict),content_type='application/json')
+        
+    
 
 @login_required
 def add_video(request,video_id=None):

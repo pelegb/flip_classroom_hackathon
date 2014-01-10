@@ -27,6 +27,15 @@
 					  {% endif %}
 					  </p>
 				<p>
+					<span><b>{% trans 'technical quality' %}</b></span>
+					<span>{% trans 'raters' %}</span><span>:</span><span>{{rate_quality.count}}</span>
+    	                	<span> {% trans 'average' %}</span><span>:</span><span>{{rate_quality.average}}</span>
+    	                <span>&nbsp;&nbsp; </span>
+    	             <span><b>{% trans 'relevancy' %}</b></span>
+    	             <span> {% trans 'raters' %}</span><span>:</span><span>{{rate_rel.count}}</span>
+    	                	<span> {% trans 'average' %}</span><span>:</span><span>{{rate_rel.average}}</span>
+				</p>
+				<p>
 			            {% if ancestors %}
 			            {% for ancestor in ancestors %}
 			            {% if forloop.first %} {% else %} >> {% endif %}<a href="../../topic/{{ ancestor.id }}/">{{ ancestor }}</a> 
@@ -39,46 +48,48 @@
                 <div class="mini-layout-body">
                 {{ video.content | safe }}
                 </div>
-
                 {% if user.is_authenticated %}
-                    <form action="/core/videos/{{video.id}}/" method="post">
-                    {% csrf_token %}
-                    {{form.as_p}}
-                    <p><input type="submit" value="{% trans 'rate' %}"></p>
-                    </form>
-                    <br/>
                     <form id="rate_video_form">
-             		{% csrf_token %}
 					<div class="control-group">
 						<label class="control-label" for="id_quality">איכות טכנית:</label>
 						<div class="controls field-quality">
-    	                	<input class="rating" id="rating_tech" name="rating_tech" type="number" data-max="10" data-min="1" />
+    	                	<input class="rating" id="rating_quality" name="rating_quality" type="number" data-max="10" data-min="1" value="{{rate_quality.cur}}"/>
 	                    </div>
         			</div>
         			<div class="control-group">
 						<label class="control-label" for="id_relevance">רלבנטיות:</label>
-						<div class="controls field-quality">
-    	                	<input class="rating" id="rating_rel" name="rating_rel" type="number" data-max="10" data-min="1" />
+						<div class="controls field-relevance">
+    	                	<input class="rating" id="rating_rel" name="rating_rel" type="number" data-max="10" data-min="1" value="{{rate_rel.cur}}"/>
+    	                	
 	                    </div>
         			</div>            	
+        			{% csrf_token %}
 					<p><input type="submit" value="{% trans 'rate' %}"></p>
 					</form>
 					<script>
+						function isLegal(rate) {
+							return (!isNaN(rate) && rate >= 1 && rate <= 10);
+						}
 						$("#rate_video_form").submit(function() {
-							var rating_tech = $("#rating_tech").val();
+							var rating_quality = $("#rating_quality").val();
 							var rating_rel = $("#rating_rel").val();
+							if (!isLegal(rating_quality) || !isLegal(rating_rel)) {
+								alert('Rating is not legal');
+								return false;
+							}
 							$.ajax({
 								url : '/core/videos/rate/{{video.id}}/',
 								method : 'POST',
 								data : {
-									rating_tech : rating_tech,
+									rating_quality : rating_quality,
 									rating_rel : rating_rel,	
+									csrfmiddlewaretoken : $("#rate_video_form input[name=csrfmiddlewaretoken]").val()
 								},
 								success : function(data) {
 									alert('success');
 								},
 								error : function(xhr,status,err ) {
-									alert(status + ' : ' + err);
+									alert(status + ' : ' + err + '\n' + xhr.responseText);
 								}
 							});
 							return false;
