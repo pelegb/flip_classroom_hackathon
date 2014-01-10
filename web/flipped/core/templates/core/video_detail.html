@@ -28,23 +28,14 @@
 					  </p>
 				<p>
 					<span><b>{% trans 'technical quality' %}</b></span>
-					<span class="badge badge-success">{{rate_quality.count}}</span>
-					{% for x in rate_quality.average|range %}
-    	             	<i class="icon-star"></i>
-    	             {% endfor %}
-    	             {% for x in rate_quality.average|range_to:10 %}
-    	             	<i class="icon-star-empty"></i>
-    	             {% endfor %}
+					<span id="rate_quality"></span>
     	             <span><b>{% trans 'relevancy' %}</b></span>
-    	             <span class="badge badge-success">{{rate_rel.count}}</span>
-    	             {% for x in rate_rel.average|range %}
-    	             	<i class="icon-star"></i>
-    	             {% endfor %}
-    	             {% for x in rate_rel.average|range_to:10 %}
-    	             	<i class="icon-star-empty"></i>
-    	             {% endfor %}
-    	             
+    	             <span id="rate_rel"></span>
 				</p>
+				<script>
+					showRating('rate_quality',{{ rate_quality.count }},{{ rate_quality.average }});
+					showRating('rate_rel',{{ rate_rel.count }},{{ rate_rel.average }});
+				</script>
 				<p>
 			            {% if ancestors %}
 			            {% for ancestor in ancestors %}
@@ -102,6 +93,8 @@
 								},
 								success : function(data) {
 									$("#form_result").removeClass("hidden");
+									showRating('rate_quality',data.rate_quality.count,data.rate_quality.average);
+									showRating('rate_rel',data.rate_rel.count,data.rate_rel.average);
 									setTimeout(function() {
       									$("#form_result").addClass("hidden");
 									}, 3000);

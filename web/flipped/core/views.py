@@ -10,33 +10,34 @@ from django.views.decorators.csrf import csrf_exempt
 import json
 # Create your views here.
 
-def video_detail(request, video_id):
+def get_global_ratings(video):
     from django.db.models import Avg,Count
-    video = get_object_or_404(VideoPage, pk=video_id)
-    ancestors = common.utils.get_ancestry_from_entity(video.teach_item)
-    ctx = dict(video = video, ancestors = ancestors)
     total_quality = RatingReview.objects.filter(context='quality',video=video).aggregate(count=Count('rate'),average=Avg('rate'))
-    rate_quality = dict(cur='',
-                        average=int(round(total_quality['average'])),
+    rate_quality = dict(average=int(round(total_quality['average'])),
                         count=total_quality['count'])
                     
     total_rel = RatingReview.objects.filter(context='rel',video=video).aggregate(count=Count('rate'),average=Avg('rate'))
-    rate_rel = dict(cur='',
-                    average=int(round(total_rel['average'])),
+    rate_rel = dict(average=int(round(total_rel['average'])),
                     count=total_rel['count'])
     
-                        
+    return dict(rate_quality=rate_quality,rate_rel=rate_rel)
+
+def video_detail(request, video_id):
+    
+    video = get_object_or_404(VideoPage, pk=video_id)
+    ancestors = common.utils.get_ancestry_from_entity(video.teach_item)
+    ctx = dict(video = video, ancestors = ancestors)
+    ctx.update(get_global_ratings(video))
+    
     if request.user.is_authenticated():
         try:
-            rate_quality['cur'] = RatingReview.objects.get(user=request.user,context='quality',video=video).rate
+            ctx['rate_quality']['cur'] = RatingReview.objects.get(user=request.user,context='quality',video=video).rate
         except RatingReview.DoesNotExist:
-            pass
+            ctx['rate_quality']['cur'] = ''
         try:
-            rate_rel['cur'] = RatingReview.objects.get(user=request.user,context='rel',video=video).rate
+            ctx['rate_rel']['cur'] = RatingReview.objects.get(user=request.user,context='rel',video=video).rate
         except RatingReview.DoesNotExist:
-            pass
-    ctx['rate_quality'] = rate_quality
-    ctx['rate_rel'] = rate_rel
+            ctx['rate_rel']['cur'] = ''
     return render(request, 'core/video_detail.html', ctx)
     
 @login_required
@@ -53,7 +54,8 @@ def video_rate(request,video_id):
                     if not created:
                         review.rate = rate
                         review.save()
-                return HttpResponse(status=201)
+                result = get_global_ratings(video)
+                return HttpResponse(status=201,content=json.dumps(result),content_type='application/json')
         except Exception,e:
             error_dict = dict(error=unicode(e))
             return HttpResponse(status=400,content=json.dumps(error_dict),content_type='application/json')
