@@ -28,12 +28,22 @@
 					  </p>
 				<p>
 					<span><b>{% trans 'technical quality' %}</b></span>
-					<span>{% trans 'raters' %}</span><span>:</span><span>{{rate_quality.count}}</span>
-    	                	<span> {% trans 'average' %}</span><span>:</span><span>{{rate_quality.average}}</span>
-    	                <span>&nbsp;&nbsp; </span>
+					<span class="badge badge-success">{{rate_quality.count}}</span>
+					{% for x in rate_quality.average|range %}
+    	             	<i class="icon-star"></i>
+    	             {% endfor %}
+    	             {% for x in rate_quality.average|range_to:10 %}
+    	             	<i class="icon-star-empty"></i>
+    	             {% endfor %}
     	             <span><b>{% trans 'relevancy' %}</b></span>
-    	             <span> {% trans 'raters' %}</span><span>:</span><span>{{rate_rel.count}}</span>
-    	                	<span> {% trans 'average' %}</span><span>:</span><span>{{rate_rel.average}}</span>
+    	             <span class="badge badge-success">{{rate_rel.count}}</span>
+    	             {% for x in rate_rel.average|range %}
+    	             	<i class="icon-star"></i>
+    	             {% endfor %}
+    	             {% for x in rate_rel.average|range_to:10 %}
+    	             	<i class="icon-star-empty"></i>
+    	             {% endfor %}
+    	             
 				</p>
 				<p>
 			            {% if ancestors %}
