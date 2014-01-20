@@ -36,7 +36,7 @@ class Review(models.Model):
 class RatingReview(Review):
     context_choices = (
         ("rel",      "Relevancy"),
-        ("quality",  "Technical quality")
+        ("quality",  "Technical quality"),
     )
     context = models.CharField(max_length=12, choices=context_choices)
     rate    = models.PositiveSmallIntegerField()

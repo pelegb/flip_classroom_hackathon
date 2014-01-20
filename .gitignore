@@ -41,3 +41,5 @@ db.sqlite3
 *~
 \#*
 web/.idea/
+local_settings.py
+

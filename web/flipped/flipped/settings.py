@@ -112,5 +112,11 @@ TEMPLATE_CONTEXT_PROCESSORS = global_settings.TEMPLATE_CONTEXT_PROCESSORS + (
 	"common.processors.topics",
 )
 
+try:
+    from local_settings import *
+except ImportError:
+    pass
+
+
 
 
