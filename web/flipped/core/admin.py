@@ -1,13 +1,31 @@
 from django.contrib import admin
-from core import models
+from django.db import models
+from wysihtml5.widgets import Wysihtml5TextareaWidget
+import core.models
 
-admin.site.register(models.VideoPage)
-admin.site.register(models.TextualReview)
-admin.site.register(models.RatingReview)
-admin.site.register(models.TeachItem)
-admin.site.register(models.TeachTopic)
-admin.site.register(models.Tag)
-admin.site.register(models.TagVideo)
+class VideoPageAdmin(admin.ModelAdmin):
+    formfield_overrides = {
+        models.TextField: {'widget': Wysihtml5TextareaWidget},
+    }
+
+class TeachItemAdmin(admin.ModelAdmin):
+    formfield_overrides = {
+        models.TextField: {'widget': Wysihtml5TextareaWidget},
+    }
+
+class TeachTopicAdmin(admin.ModelAdmin):
+    formfield_overrides = {
+        models.TextField: {'widget': Wysihtml5TextareaWidget},
+    }    
+
+
+admin.site.register(core.models.VideoPage,admin_class=VideoPageAdmin)
+admin.site.register(core.models.TextualReview)
+admin.site.register(core.models.RatingReview)
+admin.site.register(core.models.TeachItem,admin_class=TeachItemAdmin)
+admin.site.register(core.models.TeachTopic,admin_class=TeachTopicAdmin)
+admin.site.register(core.models.Tag)
+admin.site.register(core.models.TagVideo)
 
 
 
