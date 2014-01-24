@@ -10,9 +10,9 @@
 		<div class="row-fluid">
 			<div class="span2">
 				<h4>תגיות</h4>
-				{% for t in video.tagvideo_set.all %}
+				{% for t in video.tags.all %}
 				<div class="topic_button">
-					<a class="btn btn-info btn-medium">{{t.tag.name}} ({{t.tag.get_video_count}})</a>
+					<a class="btn btn-info btn-medium">{{t.name}}  <span class="badge badge-info">{{t.videos.count}}</span></a>
 				</div>
 				{% endfor %}
 			</div>
