@@ -3,10 +3,9 @@ from django.contrib.auth.decorators import login_required
 from django.core.urlresolvers import reverse
 from django.http.response import HttpResponseRedirect, HttpResponse
 from django.shortcuts import render, get_object_or_404
-from models import TeachItem, TeachTopic, VideoPage, TagVideo, Tag
+from models import TeachItem, TeachTopic, VideoPage, Tag
 import common.utils
 import forms
-from django.views.decorators.csrf import csrf_exempt
 import json
 # Create your views here.
 
@@ -71,7 +70,7 @@ def add_video(request,video_id=None):
             initial = dict()
             video = VideoPage.objects.get(id=video_id)
             initial['content'] = video.content
-            initial['tags'] = Tag.objects.filter(id__in=video.tagvideo_set.all().values_list('tag')) 
+            initial['tags'] = video.tags.all() 
             initial['title'] = video.video_title
             initial['link'] = 'http://www.youtube.com/watch?v=%s' % (video.youtube_movie_id)
             initial['item'] = video.teach_item
@@ -90,9 +89,9 @@ def add_video(request,video_id=None):
             v.teach_item = form.cleaned_data['item']
             v.user = request.user
             v.save()
-            TagVideo.objects.filter(video=v).delete()
+            v.tags.clear()
             for t in form.cleaned_data['tags']:
-                TagVideo.objects.get_or_create(video=v,tag=t)
+                v.tags.add(t)
         
             return HttpResponseRedirect(reverse('core:video_detail',kwargs=dict(video_id=v.id)))
         else:
