@@ -24,6 +24,7 @@ class VideoPage(models.Model):
     video_title      = models.CharField(max_length=50)
     user             = models.ForeignKey(django.contrib.auth.get_user_model())
     teach_item       = models.ForeignKey(TeachItem, blank=True, null=True)
+    tags             = models.ManyToManyField('Tag',related_name='videos',blank=True,null=True)
     def __unicode__(self):
         return self.video_title
 
@@ -44,17 +45,13 @@ class RatingReview(Review):
 class TextualReview(Review):
     textual_review  = models.CharField(max_length=500)
     
-    
 class Tag(models.Model):
     name = models.CharField(max_length=20,unique=True)
     def get_video_count(self):
-        return TagVideo.objects.filter(tag=self).count()
+        return self.videos.count()
     def __unicode__(self):
         return self.name
     
-class TagVideo(models.Model):
-    video = models.ForeignKey(VideoPage)
-    tag = models.ForeignKey(Tag)
     
     
         
