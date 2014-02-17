@@ -102,7 +102,7 @@ def topic_view(request,topic_id):
     topic = get_object_or_404(TeachTopic, pk=topic_id)
     subtree = common.utils.get_subtree_from_topic(topic)
     subtree = subtree[1:]
-    item_list = TeachItem.objects.filter(parent=topic)
+    item_list = TeachItem.objects.filter(parent=topic).order_by('order_index')
     ancestors = common.utils.get_ancestry_from_entity(topic)
     ancestors = ancestors[:-1]
     return render(request,'core/topic_view.html', {'topic': topic, 'subtree':subtree, 'ancestors': ancestors, 'item_list':item_list})
