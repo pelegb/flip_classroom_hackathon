@@ -1,6 +1,7 @@
 from django.db import models
 from wysihtml5.fields import Wysihtml5TextField
 import django.contrib.auth
+import sys
 
 class TeachEntity(models.Model):
     class Meta:
@@ -8,6 +9,8 @@ class TeachEntity(models.Model):
     title = models.CharField(max_length=50)
     description = models.TextField()
     parent = models.ForeignKey('TeachTopic',blank=True,null=True)
+    order_index = models.PositiveIntegerField(default=sys.maxint)
+    
     def __unicode__(self):
         return self.title
 

@@ -23,7 +23,7 @@ def get_subtree_from_topic(topic):
 #gets a topic and returns a list representing the topic tree rooted in topic
 #the tree contains the string "down"/"up to indicate going down/up a level
     subtree=[topic]
-    for child_topic in TeachTopic.objects.filter(parent=topic):
+    for child_topic in TeachTopic.objects.filter(parent=topic).order_by('order_index'):
         subtree.extend(["in"]+get_subtree_from_topic(child_topic)+["out"])
     return subtree
 
