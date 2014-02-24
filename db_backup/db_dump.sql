@@ -1,0 +1,1840 @@
+--
+-- PostgreSQL database dump
+--
+
+SET statement_timeout = 0;
+SET client_encoding = 'UTF8';
+SET standard_conforming_strings = on;
+SET check_function_bodies = false;
+SET client_min_messages = warning;
+
+--
+-- Name: plpgsql; Type: EXTENSION; Schema: -; Owner: 
+--
+
+CREATE EXTENSION IF NOT EXISTS plpgsql WITH SCHEMA pg_catalog;
+
+
+--
+-- Name: EXTENSION plpgsql; Type: COMMENT; Schema: -; Owner: 
+--
+
+COMMENT ON EXTENSION plpgsql IS 'PL/pgSQL procedural language';
+
+
+SET search_path = public, pg_catalog;
+
+SET default_tablespace = '';
+
+SET default_with_oids = false;
+
+--
+-- Name: auth_group; Type: TABLE; Schema: public; Owner: flipped; Tablespace: 
+--
+
+CREATE TABLE auth_group (
+    id integer NOT NULL,
+    name character varying(80) NOT NULL
+);
+
+
+ALTER TABLE public.auth_group OWNER TO flipped;
+
+--
+-- Name: auth_group_id_seq; Type: SEQUENCE; Schema: public; Owner: flipped
+--
+
+CREATE SEQUENCE auth_group_id_seq
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+ALTER TABLE public.auth_group_id_seq OWNER TO flipped;
+
+--
+-- Name: auth_group_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: flipped
+--
+
+ALTER SEQUENCE auth_group_id_seq OWNED BY auth_group.id;
+
+
+--
+-- Name: auth_group_permissions; Type: TABLE; Schema: public; Owner: flipped; Tablespace: 
+--
+
+CREATE TABLE auth_group_permissions (
+    id integer NOT NULL,
+    group_id integer NOT NULL,
+    permission_id integer NOT NULL
+);
+
+
+ALTER TABLE public.auth_group_permissions OWNER TO flipped;
+
+--
+-- Name: auth_group_permissions_id_seq; Type: SEQUENCE; Schema: public; Owner: flipped
+--
+
+CREATE SEQUENCE auth_group_permissions_id_seq
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+ALTER TABLE public.auth_group_permissions_id_seq OWNER TO flipped;
+
+--
+-- Name: auth_group_permissions_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: flipped
+--
+
+ALTER SEQUENCE auth_group_permissions_id_seq OWNED BY auth_group_permissions.id;
+
+
+--
+-- Name: auth_permission; Type: TABLE; Schema: public; Owner: flipped; Tablespace: 
+--
+
+CREATE TABLE auth_permission (
+    id integer NOT NULL,
+    name character varying(50) NOT NULL,
+    content_type_id integer NOT NULL,
+    codename character varying(100) NOT NULL
+);
+
+
+ALTER TABLE public.auth_permission OWNER TO flipped;
+
+--
+-- Name: auth_permission_id_seq; Type: SEQUENCE; Schema: public; Owner: flipped
+--
+
+CREATE SEQUENCE auth_permission_id_seq
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+ALTER TABLE public.auth_permission_id_seq OWNER TO flipped;
+
+--
+-- Name: auth_permission_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: flipped
+--
+
+ALTER SEQUENCE auth_permission_id_seq OWNED BY auth_permission.id;
+
+
+--
+-- Name: auth_user; Type: TABLE; Schema: public; Owner: flipped; Tablespace: 
+--
+
+CREATE TABLE auth_user (
+    id integer NOT NULL,
+    password character varying(128) NOT NULL,
+    last_login timestamp with time zone NOT NULL,
+    is_superuser boolean NOT NULL,
+    username character varying(30) NOT NULL,
+    first_name character varying(30) NOT NULL,
+    last_name character varying(30) NOT NULL,
+    email character varying(75) NOT NULL,
+    is_staff boolean NOT NULL,
+    is_active boolean NOT NULL,
+    date_joined timestamp with time zone NOT NULL
+);
+
+
+ALTER TABLE public.auth_user OWNER TO flipped;
+
+--
+-- Name: auth_user_groups; Type: TABLE; Schema: public; Owner: flipped; Tablespace: 
+--
+
+CREATE TABLE auth_user_groups (
+    id integer NOT NULL,
+    user_id integer NOT NULL,
+    group_id integer NOT NULL
+);
+
+
+ALTER TABLE public.auth_user_groups OWNER TO flipped;
+
+--
+-- Name: auth_user_groups_id_seq; Type: SEQUENCE; Schema: public; Owner: flipped
+--
+
+CREATE SEQUENCE auth_user_groups_id_seq
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+ALTER TABLE public.auth_user_groups_id_seq OWNER TO flipped;
+
+--
+-- Name: auth_user_groups_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: flipped
+--
+
+ALTER SEQUENCE auth_user_groups_id_seq OWNED BY auth_user_groups.id;
+
+
+--
+-- Name: auth_user_id_seq; Type: SEQUENCE; Schema: public; Owner: flipped
+--
+
+CREATE SEQUENCE auth_user_id_seq
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+ALTER TABLE public.auth_user_id_seq OWNER TO flipped;
+
+--
+-- Name: auth_user_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: flipped
+--
+
+ALTER SEQUENCE auth_user_id_seq OWNED BY auth_user.id;
+
+
+--
+-- Name: auth_user_user_permissions; Type: TABLE; Schema: public; Owner: flipped; Tablespace: 
+--
+
+CREATE TABLE auth_user_user_permissions (
+    id integer NOT NULL,
+    user_id integer NOT NULL,
+    permission_id integer NOT NULL
+);
+
+
+ALTER TABLE public.auth_user_user_permissions OWNER TO flipped;
+
+--
+-- Name: auth_user_user_permissions_id_seq; Type: SEQUENCE; Schema: public; Owner: flipped
+--
+
+CREATE SEQUENCE auth_user_user_permissions_id_seq
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+ALTER TABLE public.auth_user_user_permissions_id_seq OWNER TO flipped;
+
+--
+-- Name: auth_user_user_permissions_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: flipped
+--
+
+ALTER SEQUENCE auth_user_user_permissions_id_seq OWNED BY auth_user_user_permissions.id;
+
+
+--
+-- Name: core_ratingreview; Type: TABLE; Schema: public; Owner: flipped; Tablespace: 
+--
+
+CREATE TABLE core_ratingreview (
+    id integer NOT NULL,
+    video_id integer NOT NULL,
+    user_id integer,
+    context character varying(12) NOT NULL,
+    rate smallint NOT NULL,
+    CONSTRAINT core_ratingreview_rate_check CHECK ((rate >= 0))
+);
+
+
+ALTER TABLE public.core_ratingreview OWNER TO flipped;
+
+--
+-- Name: core_ratingreview_id_seq; Type: SEQUENCE; Schema: public; Owner: flipped
+--
+
+CREATE SEQUENCE core_ratingreview_id_seq
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+ALTER TABLE public.core_ratingreview_id_seq OWNER TO flipped;
+
+--
+-- Name: core_ratingreview_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: flipped
+--
+
+ALTER SEQUENCE core_ratingreview_id_seq OWNED BY core_ratingreview.id;
+
+
+--
+-- Name: core_tag; Type: TABLE; Schema: public; Owner: flipped; Tablespace: 
+--
+
+CREATE TABLE core_tag (
+    id integer NOT NULL,
+    name character varying(20) NOT NULL
+);
+
+
+ALTER TABLE public.core_tag OWNER TO flipped;
+
+--
+-- Name: core_tag_id_seq; Type: SEQUENCE; Schema: public; Owner: flipped
+--
+
+CREATE SEQUENCE core_tag_id_seq
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+ALTER TABLE public.core_tag_id_seq OWNER TO flipped;
+
+--
+-- Name: core_tag_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: flipped
+--
+
+ALTER SEQUENCE core_tag_id_seq OWNED BY core_tag.id;
+
+
+--
+-- Name: core_teachitem; Type: TABLE; Schema: public; Owner: flipped; Tablespace: 
+--
+
+CREATE TABLE core_teachitem (
+    id integer NOT NULL,
+    title character varying(50) NOT NULL,
+    description text NOT NULL,
+    parent_id integer,
+    order_index integer NOT NULL,
+    CONSTRAINT ck_order_index_pstv_789a814029615a1c CHECK ((order_index >= 0)),
+    CONSTRAINT core_teachitem_order_index_check CHECK ((order_index >= 0))
+);
+
+
+ALTER TABLE public.core_teachitem OWNER TO flipped;
+
+--
+-- Name: core_teachitem_id_seq; Type: SEQUENCE; Schema: public; Owner: flipped
+--
+
+CREATE SEQUENCE core_teachitem_id_seq
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+ALTER TABLE public.core_teachitem_id_seq OWNER TO flipped;
+
+--
+-- Name: core_teachitem_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: flipped
+--
+
+ALTER SEQUENCE core_teachitem_id_seq OWNED BY core_teachitem.id;
+
+
+--
+-- Name: core_teachtopic; Type: TABLE; Schema: public; Owner: flipped; Tablespace: 
+--
+
+CREATE TABLE core_teachtopic (
+    id integer NOT NULL,
+    title character varying(50) NOT NULL,
+    description text NOT NULL,
+    parent_id integer,
+    order_index integer NOT NULL,
+    CONSTRAINT ck_order_index_pstv_2b3570bab2edb157 CHECK ((order_index >= 0)),
+    CONSTRAINT core_teachtopic_order_index_check CHECK ((order_index >= 0))
+);
+
+
+ALTER TABLE public.core_teachtopic OWNER TO flipped;
+
+--
+-- Name: core_teachtopic_id_seq; Type: SEQUENCE; Schema: public; Owner: flipped
+--
+
+CREATE SEQUENCE core_teachtopic_id_seq
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+ALTER TABLE public.core_teachtopic_id_seq OWNER TO flipped;
+
+--
+-- Name: core_teachtopic_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: flipped
+--
+
+ALTER SEQUENCE core_teachtopic_id_seq OWNED BY core_teachtopic.id;
+
+
+--
+-- Name: core_textualreview; Type: TABLE; Schema: public; Owner: flipped; Tablespace: 
+--
+
+CREATE TABLE core_textualreview (
+    id integer NOT NULL,
+    video_id integer NOT NULL,
+    user_id integer,
+    textual_review character varying(500) NOT NULL
+);
+
+
+ALTER TABLE public.core_textualreview OWNER TO flipped;
+
+--
+-- Name: core_textualreview_id_seq; Type: SEQUENCE; Schema: public; Owner: flipped
+--
+
+CREATE SEQUENCE core_textualreview_id_seq
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+ALTER TABLE public.core_textualreview_id_seq OWNER TO flipped;
+
+--
+-- Name: core_textualreview_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: flipped
+--
+
+ALTER SEQUENCE core_textualreview_id_seq OWNED BY core_textualreview.id;
+
+
+--
+-- Name: core_videopage; Type: TABLE; Schema: public; Owner: flipped; Tablespace: 
+--
+
+CREATE TABLE core_videopage (
+    id integer NOT NULL,
+    youtube_movie_id character varying(25) NOT NULL,
+    upload_date timestamp with time zone NOT NULL,
+    content text NOT NULL,
+    video_title character varying(50) NOT NULL,
+    user_id integer NOT NULL,
+    teach_item_id integer
+);
+
+
+ALTER TABLE public.core_videopage OWNER TO flipped;
+
+--
+-- Name: core_videopage_id_seq; Type: SEQUENCE; Schema: public; Owner: flipped
+--
+
+CREATE SEQUENCE core_videopage_id_seq
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+ALTER TABLE public.core_videopage_id_seq OWNER TO flipped;
+
+--
+-- Name: core_videopage_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: flipped
+--
+
+ALTER SEQUENCE core_videopage_id_seq OWNED BY core_videopage.id;
+
+
+--
+-- Name: core_videopage_tags; Type: TABLE; Schema: public; Owner: flipped; Tablespace: 
+--
+
+CREATE TABLE core_videopage_tags (
+    id integer NOT NULL,
+    videopage_id integer NOT NULL,
+    tag_id integer NOT NULL
+);
+
+
+ALTER TABLE public.core_videopage_tags OWNER TO flipped;
+
+--
+-- Name: core_videopage_tags_id_seq; Type: SEQUENCE; Schema: public; Owner: flipped
+--
+
+CREATE SEQUENCE core_videopage_tags_id_seq
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+ALTER TABLE public.core_videopage_tags_id_seq OWNER TO flipped;
+
+--
+-- Name: core_videopage_tags_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: flipped
+--
+
+ALTER SEQUENCE core_videopage_tags_id_seq OWNED BY core_videopage_tags.id;
+
+
+--
+-- Name: django_admin_log; Type: TABLE; Schema: public; Owner: flipped; Tablespace: 
+--
+
+CREATE TABLE django_admin_log (
+    id integer NOT NULL,
+    action_time timestamp with time zone NOT NULL,
+    user_id integer NOT NULL,
+    content_type_id integer,
+    object_id text,
+    object_repr character varying(200) NOT NULL,
+    action_flag smallint NOT NULL,
+    change_message text NOT NULL,
+    CONSTRAINT django_admin_log_action_flag_check CHECK ((action_flag >= 0))
+);
+
+
+ALTER TABLE public.django_admin_log OWNER TO flipped;
+
+--
+-- Name: django_admin_log_id_seq; Type: SEQUENCE; Schema: public; Owner: flipped
+--
+
+CREATE SEQUENCE django_admin_log_id_seq
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+ALTER TABLE public.django_admin_log_id_seq OWNER TO flipped;
+
+--
+-- Name: django_admin_log_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: flipped
+--
+
+ALTER SEQUENCE django_admin_log_id_seq OWNED BY django_admin_log.id;
+
+
+--
+-- Name: django_content_type; Type: TABLE; Schema: public; Owner: flipped; Tablespace: 
+--
+
+CREATE TABLE django_content_type (
+    id integer NOT NULL,
+    name character varying(100) NOT NULL,
+    app_label character varying(100) NOT NULL,
+    model character varying(100) NOT NULL
+);
+
+
+ALTER TABLE public.django_content_type OWNER TO flipped;
+
+--
+-- Name: django_content_type_id_seq; Type: SEQUENCE; Schema: public; Owner: flipped
+--
+
+CREATE SEQUENCE django_content_type_id_seq
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+ALTER TABLE public.django_content_type_id_seq OWNER TO flipped;
+
+--
+-- Name: django_content_type_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: flipped
+--
+
+ALTER SEQUENCE django_content_type_id_seq OWNED BY django_content_type.id;
+
+
+--
+-- Name: django_session; Type: TABLE; Schema: public; Owner: flipped; Tablespace: 
+--
+
+CREATE TABLE django_session (
+    session_key character varying(40) NOT NULL,
+    session_data text NOT NULL,
+    expire_date timestamp with time zone NOT NULL
+);
+
+
+ALTER TABLE public.django_session OWNER TO flipped;
+
+--
+-- Name: south_migrationhistory; Type: TABLE; Schema: public; Owner: flipped; Tablespace: 
+--
+
+CREATE TABLE south_migrationhistory (
+    id integer NOT NULL,
+    app_name character varying(255) NOT NULL,
+    migration character varying(255) NOT NULL,
+    applied timestamp with time zone NOT NULL
+);
+
+
+ALTER TABLE public.south_migrationhistory OWNER TO flipped;
+
+--
+-- Name: south_migrationhistory_id_seq; Type: SEQUENCE; Schema: public; Owner: flipped
+--
+
+CREATE SEQUENCE south_migrationhistory_id_seq
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+ALTER TABLE public.south_migrationhistory_id_seq OWNER TO flipped;
+
+--
+-- Name: south_migrationhistory_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: flipped
+--
+
+ALTER SEQUENCE south_migrationhistory_id_seq OWNED BY south_migrationhistory.id;
+
+
+--
+-- Name: id; Type: DEFAULT; Schema: public; Owner: flipped
+--
+
+ALTER TABLE ONLY auth_group ALTER COLUMN id SET DEFAULT nextval('auth_group_id_seq'::regclass);
+
+
+--
+-- Name: id; Type: DEFAULT; Schema: public; Owner: flipped
+--
+
+ALTER TABLE ONLY auth_group_permissions ALTER COLUMN id SET DEFAULT nextval('auth_group_permissions_id_seq'::regclass);
+
+
+--
+-- Name: id; Type: DEFAULT; Schema: public; Owner: flipped
+--
+
+ALTER TABLE ONLY auth_permission ALTER COLUMN id SET DEFAULT nextval('auth_permission_id_seq'::regclass);
+
+
+--
+-- Name: id; Type: DEFAULT; Schema: public; Owner: flipped
+--
+
+ALTER TABLE ONLY auth_user ALTER COLUMN id SET DEFAULT nextval('auth_user_id_seq'::regclass);
+
+
+--
+-- Name: id; Type: DEFAULT; Schema: public; Owner: flipped
+--
+
+ALTER TABLE ONLY auth_user_groups ALTER COLUMN id SET DEFAULT nextval('auth_user_groups_id_seq'::regclass);
+
+
+--
+-- Name: id; Type: DEFAULT; Schema: public; Owner: flipped
+--
+
+ALTER TABLE ONLY auth_user_user_permissions ALTER COLUMN id SET DEFAULT nextval('auth_user_user_permissions_id_seq'::regclass);
+
+
+--
+-- Name: id; Type: DEFAULT; Schema: public; Owner: flipped
+--
+
+ALTER TABLE ONLY core_ratingreview ALTER COLUMN id SET DEFAULT nextval('core_ratingreview_id_seq'::regclass);
+
+
+--
+-- Name: id; Type: DEFAULT; Schema: public; Owner: flipped
+--
+
+ALTER TABLE ONLY core_tag ALTER COLUMN id SET DEFAULT nextval('core_tag_id_seq'::regclass);
+
+
+--
+-- Name: id; Type: DEFAULT; Schema: public; Owner: flipped
+--
+
+ALTER TABLE ONLY core_teachitem ALTER COLUMN id SET DEFAULT nextval('core_teachitem_id_seq'::regclass);
+
+
+--
+-- Name: id; Type: DEFAULT; Schema: public; Owner: flipped
+--
+
+ALTER TABLE ONLY core_teachtopic ALTER COLUMN id SET DEFAULT nextval('core_teachtopic_id_seq'::regclass);
+
+
+--
+-- Name: id; Type: DEFAULT; Schema: public; Owner: flipped
+--
+
+ALTER TABLE ONLY core_textualreview ALTER COLUMN id SET DEFAULT nextval('core_textualreview_id_seq'::regclass);
+
+
+--
+-- Name: id; Type: DEFAULT; Schema: public; Owner: flipped
+--
+
+ALTER TABLE ONLY core_videopage ALTER COLUMN id SET DEFAULT nextval('core_videopage_id_seq'::regclass);
+
+
+--
+-- Name: id; Type: DEFAULT; Schema: public; Owner: flipped
+--
+
+ALTER TABLE ONLY core_videopage_tags ALTER COLUMN id SET DEFAULT nextval('core_videopage_tags_id_seq'::regclass);
+
+
+--
+-- Name: id; Type: DEFAULT; Schema: public; Owner: flipped
+--
+
+ALTER TABLE ONLY django_admin_log ALTER COLUMN id SET DEFAULT nextval('django_admin_log_id_seq'::regclass);
+
+
+--
+-- Name: id; Type: DEFAULT; Schema: public; Owner: flipped
+--
+
+ALTER TABLE ONLY django_content_type ALTER COLUMN id SET DEFAULT nextval('django_content_type_id_seq'::regclass);
+
+
+--
+-- Name: id; Type: DEFAULT; Schema: public; Owner: flipped
+--
+
+ALTER TABLE ONLY south_migrationhistory ALTER COLUMN id SET DEFAULT nextval('south_migrationhistory_id_seq'::regclass);
+
+
+--
+-- Data for Name: auth_group; Type: TABLE DATA; Schema: public; Owner: flipped
+--
+
+COPY auth_group (id, name) FROM stdin;
+1	Teachers
+\.
+
+
+--
+-- Name: auth_group_id_seq; Type: SEQUENCE SET; Schema: public; Owner: flipped
+--
+
+SELECT pg_catalog.setval('auth_group_id_seq', 1, true);
+
+
+--
+-- Data for Name: auth_group_permissions; Type: TABLE DATA; Schema: public; Owner: flipped
+--
+
+COPY auth_group_permissions (id, group_id, permission_id) FROM stdin;
+1	1	32
+2	1	33
+3	1	34
+4	1	35
+5	1	36
+6	1	37
+7	1	38
+8	1	39
+9	1	40
+10	1	41
+11	1	42
+12	1	22
+13	1	23
+14	1	24
+15	1	25
+16	1	26
+17	1	27
+18	1	28
+19	1	29
+20	1	30
+21	1	31
+\.
+
+
+--
+-- Name: auth_group_permissions_id_seq; Type: SEQUENCE SET; Schema: public; Owner: flipped
+--
+
+SELECT pg_catalog.setval('auth_group_permissions_id_seq', 21, true);
+
+
+--
+-- Data for Name: auth_permission; Type: TABLE DATA; Schema: public; Owner: flipped
+--
+
+COPY auth_permission (id, name, content_type_id, codename) FROM stdin;
+1	Can add log entry	1	add_logentry
+2	Can change log entry	1	change_logentry
+3	Can delete log entry	1	delete_logentry
+4	Can add permission	2	add_permission
+5	Can change permission	2	change_permission
+6	Can delete permission	2	delete_permission
+7	Can add group	3	add_group
+8	Can change group	3	change_group
+9	Can delete group	3	delete_group
+10	Can add user	4	add_user
+11	Can change user	4	change_user
+12	Can delete user	4	delete_user
+13	Can add content type	5	add_contenttype
+14	Can change content type	5	change_contenttype
+15	Can delete content type	5	delete_contenttype
+16	Can add session	6	add_session
+17	Can change session	6	change_session
+18	Can delete session	6	delete_session
+19	Can add migration history	7	add_migrationhistory
+20	Can change migration history	7	change_migrationhistory
+21	Can delete migration history	7	delete_migrationhistory
+22	Can add teach topic	8	add_teachtopic
+23	Can change teach topic	8	change_teachtopic
+24	Can delete teach topic	8	delete_teachtopic
+25	Can add teach item	9	add_teachitem
+26	Can change teach item	9	change_teachitem
+27	Can delete teach item	9	delete_teachitem
+28	Can add video page	10	add_videopage
+29	Can change video page	10	change_videopage
+30	Can delete video page	10	delete_videopage
+31	Can add rating review	11	add_ratingreview
+32	Can change rating review	11	change_ratingreview
+33	Can delete rating review	11	delete_ratingreview
+34	Can add textual review	12	add_textualreview
+35	Can change textual review	12	change_textualreview
+36	Can delete textual review	12	delete_textualreview
+37	Can add tag	13	add_tag
+38	Can change tag	13	change_tag
+39	Can delete tag	13	delete_tag
+40	Can add tag video	14	add_tagvideo
+41	Can change tag video	14	change_tagvideo
+42	Can delete tag video	14	delete_tagvideo
+\.
+
+
+--
+-- Name: auth_permission_id_seq; Type: SEQUENCE SET; Schema: public; Owner: flipped
+--
+
+SELECT pg_catalog.setval('auth_permission_id_seq', 42, true);
+
+
+--
+-- Data for Name: auth_user; Type: TABLE DATA; Schema: public; Owner: flipped
+--
+
+COPY auth_user (id, password, last_login, is_superuser, username, first_name, last_name, email, is_staff, is_active, date_joined) FROM stdin;
+2	pbkdf2_sha256$12000$RJcB0SFfQ2oD$D365n99NdMYEE3Xicga0PijrzCi4KR4r2BA8gJ+6d3E=	2014-02-17 13:26:07-05	t	banitt81	איתמר	בנית	banitt81@yahoo.com	t	t	2014-01-20 15:35:23-05
+8	pbkdf2_sha256$12000$Tz7XNx3wlJ5S$wBk3XZBDNNZSEIfZAVvVl+//OBgXFadSInLYyV/VG8g=	2014-02-17 13:28:41.572163-05	f	noteacher	לאמורה	לאמורה	noteacher@teacher.com	f	t	2014-02-17 13:24:33-05
+3	pbkdf2_sha256$12000$VMBQ6a6xTmQs$G48leBfbt6GjHuoBkczC9MUj5v6fqemiQ0ylorJptsM=	2014-02-17 14:22:01.099288-05	t	eran	ערן	קידר	ekeydar@gmail.com	t	t	2014-01-20 15:36:44-05
+4	pbkdf2_sha256$12000$IVyD5cDON7eP$PuT0HdET8knRuOln9D8EIMtTBNT+0s83ONsJh5REP5k=	2014-02-24 13:05:24.941912-05	t	barakp	ברק	פלג	pelegb@gmail.com	t	t	2014-01-20 15:37:27-05
+1	pbkdf2_sha256$12000$uPlKy3Oih2iu$lr3JvTcWE1gy2vuqTL0lwCNLlpqwNm5OOhNP3TLF/Yk=	2014-01-24 06:08:48.074708-05	t	flip	פליפ	פלופ	flip@flip.com	t	t	2014-01-20 15:30:21-05
+5	pbkdf2_sha256$12000$B1rh8eX57hdq$4XEiOJ7EShH5BLT9Kbf+ei4cOHTwEaL9iSxocyQCYFs=	2014-02-03 14:13:02.133729-05	f	gl1000007	גלעד	לייבוביץ	gl1000007@gmail.com	f	t	2014-02-03 14:13:01.872958-05
+6	pbkdf2_sha256$12000$188oeTJ170qT$Bby7e4xXghIMGmeJaYqP3CHa9yIMuvYN5cIM76ndiJQ=	2014-02-10 13:42:02.809739-05	f	shahar.josefbserg	shahar	josefsberg	shahar.josefsberg@gmail.com	f	t	2014-02-10 13:42:02.639976-05
+7	pbkdf2_sha256$12000$CwgaDoYkLhom$3Foe4GQ86fbh6876uyVxQY+hi+UT3kF37ghOucu0HQI=	2014-02-11 01:56:15.242213-05	f	xTheBawsx	ליאור	לוי	lior.levy@hotmail.com	f	t	2014-02-11 01:55:38.844816-05
+\.
+
+
+--
+-- Data for Name: auth_user_groups; Type: TABLE DATA; Schema: public; Owner: flipped
+--
+
+COPY auth_user_groups (id, user_id, group_id) FROM stdin;
+3	4	1
+6	3	1
+7	2	1
+8	8	1
+\.
+
+
+--
+-- Name: auth_user_groups_id_seq; Type: SEQUENCE SET; Schema: public; Owner: flipped
+--
+
+SELECT pg_catalog.setval('auth_user_groups_id_seq', 8, true);
+
+
+--
+-- Name: auth_user_id_seq; Type: SEQUENCE SET; Schema: public; Owner: flipped
+--
+
+SELECT pg_catalog.setval('auth_user_id_seq', 8, true);
+
+
+--
+-- Data for Name: auth_user_user_permissions; Type: TABLE DATA; Schema: public; Owner: flipped
+--
+
+COPY auth_user_user_permissions (id, user_id, permission_id) FROM stdin;
+\.
+
+
+--
+-- Name: auth_user_user_permissions_id_seq; Type: SEQUENCE SET; Schema: public; Owner: flipped
+--
+
+SELECT pg_catalog.setval('auth_user_user_permissions_id_seq', 1, false);
+
+
+--
+-- Data for Name: core_ratingreview; Type: TABLE DATA; Schema: public; Owner: flipped
+--
+
+COPY core_ratingreview (id, video_id, user_id, context, rate) FROM stdin;
+1	3	3	rel	10
+2	3	3	quality	10
+\.
+
+
+--
+-- Name: core_ratingreview_id_seq; Type: SEQUENCE SET; Schema: public; Owner: flipped
+--
+
+SELECT pg_catalog.setval('core_ratingreview_id_seq', 2, true);
+
+
+--
+-- Data for Name: core_tag; Type: TABLE DATA; Schema: public; Owner: flipped
+--
+
+COPY core_tag (id, name) FROM stdin;
+1	HTML
+\.
+
+
+--
+-- Name: core_tag_id_seq; Type: SEQUENCE SET; Schema: public; Owner: flipped
+--
+
+SELECT pg_catalog.setval('core_tag_id_seq', 1, true);
+
+
+--
+-- Data for Name: core_teachitem; Type: TABLE DATA; Schema: public; Owner: flipped
+--
+
+COPY core_teachitem (id, title, description, parent_id, order_index) FROM stdin;
+3	קישורים	<div><div>קישורים הם עמוד השדרה של ההיפרטקסט ומאפשרים מעבר מהיר בין דף אינטרנט אחד למשנהו.</div><div><br></div><div><u>מטרות:<br></u>הלומדים ידעו ליצור קישורים לקובץ HTML המצוי באותה תיקיה.<br>הלומדים&nbsp;ידעו ליצור קישורים לקובץ HTML המצוי באותו מחשב בתיקיה פנימית.<br>הלומדים&nbsp;ידעו ליצור קישורים לדף אינטרנט.</div></div><div>הלומדים&nbsp;ידעו ליצור קישורים למיקום מסוים בדף HTML.</div>	7	300
+4	רשימות ב HTML	<div>רשימות מאפשרות ארגון נוח ומהיר של מידע בדפי HTML.<br><br><u>מטרות</u>:<br>הלומדים יכירו את תגיות ul,ol,li.<br>הלומדים ידעו ליצור רשימות ורשימות מקוננות בדפי HTML.</div>	7	400
+5	תמונות ב HTML	<div><div>תגית img מאפשרת שילוב תמונות בתוך דפי HTML.</div><div><br></div><u><div><u>מטרות:</u></div></u><div>הלומדים ידעו לשלב תמונות בתוך דפי HTML.</div><div>הלומדים&nbsp;יכירו את תכונות src, alt, height.</div></div><div>הלומדים&nbsp;ידעו להגדיר תמונה כקישור.</div>	7	500
+6	טבלאות ב HTML	<div><div>טבלאות מאפשרות ארגון נוח של מידע רב באופנים מגוונים בתוך דפי HTML.</div><div><br></div><div>מטרות:<br>הלומדים ידעו ליצור טבלאות בדפי HTML.<br>הלומדים&nbsp;ידעו לעצב טבלאות בדפי HTML.<br>הלומדים&nbsp;ישלטו בתגיות - table, tr, td, th ובתכונות cellspacing, cellpadding,border, colspan, rowspan.</div></div><div><br></div>	7	600
+7	טפסים ב HTML	<div><div>טפסים מאפשרים יצירת דפי HTML בהם המשתמש יכול להזין מידע מסוגים שונים ולהשפיע על המידע המוצג בדף או לשלוח מידע לשרת.</div><div>פריט זה עוסק ביצירת הטפסים עצמם, ולא בטיפול במידע שהמשתמש מזין לתוכם. על מנת ללמוד כיצד לטפל במידע, יש לפנות לפריטים העוסקים בטפסים בפרקים javascript ו ASP.</div><div><br></div><div><u>מטרות:<br></u>הלומדים ידעו ליצור טפסים בקובץ HTML.<br>הלומדים&nbsp;ידעו ליצור שדות קלט מהסוגים: text, password, checkbox, radio, select, textArea, reset, submit.<br>הלומדים&nbsp;יכירו את התכונות הבאות ותפקידיהן: type, action, method, length, name, value, checked</div></div><div><br></div>	7	700
+8	CSS	<div>טכנולוגיית CSS מאפשרת עיצוב דפי אינטרנט באופן אחיד ללא צורך לעצב כל תגית בנפרד. בפריט זה נלמד על עיצוב דף HTML בעזרת תגית style ועל עיצוב אחיד של מספר דפי HTML באמצעות קובץ CSS.<br><br><u>מטרות:<br></u>הלומדים יכירו את תגית style.<br>הלומדים ידעו לעצב דף HTML בודד בצורה ריכוזית באמצעות עיצוב תגית מסוימת ובאמצעות יצירת מחלקות עיצוב משוייכות וחפשיות.<br>הלומדים ידעו לעצב מספר דפי HTML באמצעות קובץ CSS יחיד.</div>	7	800
+9	עבודה עם visual studio	<p>השימוש בתכנת notepad יעיל עד שלב מסוים, שמעבר לו רצוי לעבור לעבוד בסביבת פיתוח. כאן נלמד לעבוד עם תכנת web developer express 2008.</p><p><br></p><p>מטרות:<br>הלומדים יתקינו במחשביהם את תכנת visual studio web developer.<br>הלומדים ידעו ליצור אתר אינטרנט באמצעות התכנה, וליצור קבצי HTML בתוכו.<br>הלומדים ידעו לצפות בדפי ה HTML שיצרו בעזרת הדפדפן.</p>	6	2147483647
+10	מבוא ל javascript	<div><div>javascript היא שפת תסריט המאפשרת הרצת קוד ללא הידור ישירות על הדפדפן של המשתמש.<br><br></div><div>מטרות:<br>הלומדים ידעו לשלב תסריט בדף HTML בעזרת תגית script.<br>הלומדים ידעו מתי מופעל תסריט JS וע"י מי.<br>הלומדים ידעו להצהיר על משתנים ולהכניס לתוכם ערכים.<br>הלומדים ידעו להשתמש בפקודות alert, ו prompt.<br>הלומדים יכירו את טיפוסי המשתנים הקיימים ב JS ויבינו כיצד הם נקבעים.<br>הלומדים יבינו את משמעותו של אופרטור '+' עבור סוגי משתנים שונים.</div></div>	9	100
+11	מבני בקרה ב javascript	<div><div>בפרק זה נעסוק במבני בקרה בסיסיים ב javascript:</div><div>- הוראות ביצוע מותנה (if).</div><div>- הוראות ביצוע חוזר (לולאות).</div><div><br></div><div>מטרות:</div><div>הלומדים ידעו לשלב בתסריט javacsript פקודות ביצוע מותנה ושערים לוגיים.</div></div><div>הלומדים ידעו לשלב בתסריט javacsript פקודות ביצוע חוזר (for, while).</div>	9	200
+2	תכונות ב HTML	<div>שפת HTML מאפשרת לקבוע לתגיות מסוימות תכונות המעצבות אותן ומשפיעות על תפקודן.<br><br><u>מטרות:</u><br>הלומדים ידעו כיצד לשנות תכונותיהן של תגיות HTML.<br>הלומדים יכירו את התכונות - style-color, font-size, font-family, backgroundcolor, dir.<br>הלומדים יכירו את תגית span ויבינו את שימושיה.</div><div><br></div>	7	200
+21	אובייקט response	<div><div>אובייקט response הוא אובייקט הקיים בצד השרת ואוסף לתוכו את כל המידע שיש לשלוח בסיום ריצת קוד השרת למשתמש. ללא שימוש בטכנולוגיית ASP הוא מכיל רק את התוכן המפיע בצד הלקוח של הקובץ (HTML, JS), אולם ניתן לשנות את התוכן המוכנס לתוכו במהלך ריצת הקוד בצד השרת.<br><br></div><div><u>מטרות:</u></div></div><div>הלומדים ידעו כי אובייקט response מכיל את כל המידע הנשלח את המשתמש מן השרת.</div><div>הלומדים ידעו להשתמש בפעולות - redirect,end,write.</div>	10	300
+13	פעולות ב javascript ותכונת id	<div><div>פעולות (פונקציות) מאפשרות קריאה לקטע קוד ידוע מראש. כתיבת פעולות תאפשר לנו בעתיד להפעיל קטעי קוד בהתאם לפעולות המשתמש בדף.</div><div>תכונת id מהווה "שם" לתגיות בדף ה HTML ומאפשרת למתכנת להתייחס לתגיות אלה מתוך קוד javascript על מנת לשנות את תכונותיהן.</div><div><br></div><div>מטרות:<br>הלומדים ידעו לכתוב פעולות ב JS.<br>הלומדים ידעו להפעיל פעולות ב JS באמצעות קישור.<br>הלומדים ידעו כיצד לתת לעצם שם (תכונת id) וכיצד לגשת אליו מתוך קוד JS.</div></div>	9	400
+15	מחרוזות ב javascript, ותכונת innerHTML.	<div><div>קוד javascript מאפשר למתכנת לשנות את מראה הדף בהתאם לפעולות המשתמש. על מנת לבצע זאת כראוי, יש לדעת ליצור מחרוזות HTML תקינות ולהכניסן לדף הקיים. בפרק זה נעסוק בטיפול במחרוזות ובאופן הכנסתן לדף HTML.</div><div><br></div><div>הערה - הסרטונים בפרק זה לא נועדו ללימוד ראשוני של מחרוזות, אלא ללמידת אופן הטיפול במחרוזות ב javascript לאחר לימודן בשפה אחרת כלשהי.<br><br><u>מטרות:<br></u>הלומדים ידעו להפעיל פונקציות על מחרוזות בשפת JS.<br>הלומדים ידעו לגשת לתכונה innerHTML.<br>הלומדים ידעו להכניס לדף HTML תגיות נוספות באמצעות innerHTML.<br>הלומדים ידעו ליצור בעזרת קוד JS ותכונת innerHTML תגיות מורכבות.<br><br></div></div><div><div><br></div></div>	9	600
+14	תכנות מוכוון אירועים	<div><div>תכנות מוכוון אירועים הוא צורת תכנות בה אירועים מסוימים שמבצע המשתמש מפעילים פונקציות שנוצרו מראש. באופן זה ניתן ליצור דפי HTML אשר יגיבו לפעולות המשתמש.</div><div><br></div><div>מטרות:</div></div><div>התלמידים ידעו כיצד להפעיל פונקציות בעזרת טריגרים.</div>	9	500
+16	גישה לנתוני טופס באמצעות javascript	<div><div>במסגרת לימודי ה HTML ראינו כיצד ליצור ולעצב טופס כרצוננו. בפרק זה נתקדם מדרגה אחת הלאה ונראה כיצד ניתן לגשת לנתונים שהזין המשתמש בטופס באמצעות קוד javascript הרץ על מחשב הלקוח. כך ניתן לאפשר דינמיות רבה יותר של הדף המוצג, או לכתוב פעולות שנועדו לבדוק את תקינות הקלט שהזין המשתמש בטרם שליחתו לשרת (עוד על טיפול בנתונים ממחשב השרת, בפרק העוסק ב ASP).</div><div><br></div><div>מטרות:</div><div>הלומדים ידעו לגשת באמצעות קוד JS לנתונים שהכניס לקוח לטופס בכל סוגי השדות (טקסט, לחצני רדיו, צ'קבוקס, רשימה נגללת, תיבת טקסט).<br></div><div><br></div><div><br></div></div>	9	700
+18	האובייקטים date setInterval	<div><div>פרק זה כולל טיפול בשני אובייקטים נוספים בשפת javascript המאפשרים שיפור נראות האתר, ובין השאר הוספת שעון לאתר.</div><div><br></div><div>מטרות:</div><div>הלומדים ידעו להשתמש באובייקט date.<br>הלומדים ידעו להשתמש בפעולת setInterval.</div></div><div>הלומדים ידעו להוסיף לאתר שעון מתעדכן.</div>	9	900
+17	גישה לאובייקטים דינמיים	<div><div>בפרקים ראינו כיצד ניתן לגשת ולשנותתכונותיו של אובייקט קבוע בשפה או אובייקט שיצרנו מראש ושייכנו לו תכונת id כלשהי. אולם, טכניקות אלו לא יכולות לעבוד כאשר אנו יוצרים אובייקטים באופן דינמי, כלומר, כתגובה לפעולות המשתמש. במקרה זה, לא נוכל תמיד לדעת מראש את ערך ה id של האובייקט אליו נרצה לגשת. כאן נראה כיצד ניתן לגשת לאובייקטים כאלה בעזרת פעולת getElementByID.</div><div><br></div><div><u>מטרות:<br></u>הלומדים יכירו את הפעולה getElementById<br>הלומדים ידעו לתת מזהים (id) לאובייקטים שנוצרו בעזרת קוד JS.<br>הלומדים ידעו לגשת באמצעות קוד JS לאובייקטים שנוצרו בקוד JS.</div></div>	9	800
+19	masterPage	<div><div>masterPage מאפשר יצירת תבנית אחידה לתוכה יוכנסו התכנים בדפי האתר השונים. ניתן לראות שיטה זו מיושמת במרבית האתרים הגדולים, בהם קיים סמליל קבוע, ותרות קישורים קבועה בעוד שתוכן הדף מתחלף בהתאם לתנועת המשתמש באתר.&nbsp;</div><div><br></div><div>מטרות:<br>הלומדים ידעו ליצור דפים המבוססים על תבנית masterpage ובהם תכנים משתנים מרובים (יותר ממקטע בודד בדף שתכנו משתנה בהתאם לגלישת המשתמש).</div></div><div><br></div>	10	100
+20	מבוא ל ASP - שינוי תוכן דף באמצעות קוד צד שרת.	<p>בפרק זה נראה היכן נכתב קוד שרץ בצד שרת, מתי הוא רץ וכיצד ניתן לקשרו לתכנים הנשלחים בסופו של דבר למשתמש.</p><p><u>מטרות:<br></u>הלומדים יבינו כי ניתן להריץ קוד בצד שרת טרם שליחת הקובץ ללקוח.<br>הלומדים יכירו את פעולת page_load.<br>הלומדים ידעו ליצור קובץ asp ולהריץ קוד בצד שרת.<br>הלומדים ידעו להכניס תוכן לקובץ הנשלח ללקוח באמצעות קוד בצד שרת.</p>	10	200
+31	שיעור הפוך מהו	<div>אחת הגישות הפדגוגיות המשלבת באופן משמעותי שימוש בסרטונים בתהליך ההוראה בכיתה היא שיעור הפוך.<br>כאן תמצאו סרטונים העוסקים בגישה - עקרונותיה, יתרונותיה וחסרונותיה.</div>	15	2147483647
+1	מבוא ל HTML	<div><div>פרק זה עוסק בכתיבת דף אינטרנט ראשון, היכרות עם תחביר תגיות והכרת תגיות בסיסיות ב HTML</div><div><br></div><div>מטרות:</div><div><div>הלומדים ידעו מהי שפת HTML ולמה משמשת.</div><div>הלומדים&nbsp;ידעו מהן תגיות ולמה הן משמשות.</div><div>הלומדים ידעו מה תפקיד הדפדפן בצפייה בדפי HTML.</div><div>הלומדים&nbsp;ידעו ליצור דף HTML בסיסי באמצעות ה notepad.</div><div>הלומדים&nbsp;יכירו את התגיות - html, head, body, title, h1 - h6, br, hr.</div></div></div>	7	100
+23	מבוא ל SQL	<p>בפרק זה נלמד את התחביר הבסיסי של שפת SQL.</p><p><u>מטרות:</u><br>הלומדים ידעו מה היא שפת SQL ולמה משמשת.<br>הלומדים ידעו ליצור מסדי נתונים ב visual studio.<br>הלומדים ידעו לכתוב שאילתות SQL מארבעת הסוגים - insert,update,delete,select.<br>הלומדים ידעו להפעיל שאילתות SQL על מסדי נתונים דרך ה visual studio.<br>הלומדים ידעו להשתמש ב LIKE בשאילתות SQL.</p>	11	100
+24	חיבור SQL לצד שרת - פעולות בסיסיות	<p></p><div>בפרק זה נלמד כיצד לבצע באמצעות קוד הרץ בצד השרת (ASP) פעולות על מסד הנתונים בעזרת מחלקת עזר בשם MyADOHelper.</div><div><br></div><div><u>מטרות:</u></div><div>הלומדים ידעו מה תפקידה של המחלקה MyAdoHelper.</div><div>הלומדים ידעו לקשר את המחלקה MyAdoHelper.cs לאתר ב visual studio.</div><div>הלומדים ידעו לקלוט נתונים שהזין המשתמש בטופס HTML וליצור בעזרתם שאילתות SQL.</div><div>הלומדים ידעו להפעיל שאילתות על מסד הנתונים בעזרת הפעולות DoQuery, IsExist, PrintDataTable.</div><div>הלומדים ידעו לכתוב טפסים שיבצעו על מסד הנתונים את הפעולות הבאות:</div>\t<div>- הכנסת פריט חדש לטבלה במסד נתונים.</div>\t<div>- עדכון פריט במסד נתונים.</div>\t<div>- מחיקת פריט ממסד נתונים.</div>\t<div>- אחזור פריטים ממסד נתונים בעזרת prinDataTable</div><div>הלומדים ידעו ליצור אתר ובו דפים שנוצרים בעזרת מידע המצוי במסד הנתונים.</div><p></p>	11	200
+25	הפעולה executeDataTable	<div><div>בפרק זה נלמד כיצד ניתן לאחזר מצד השרת נתונים השמורים במסד הנתונים באופן בו ניתן לעשות בהם שימוש שאינו הדפסה פשוטה של טבלת HTML.</div><div><br><u>מטרות:</u></div><div>הלומדים יכירו את הטיפוס DataTable.</div></div><div>הלומדים יבינו את המגבלות בשימוש בפעולה PrintDataTable.</div><div>הלומדים ידעו להשתמש בפעולה ExecuteDataTable ולחלץ באמצעותה כל נתוון המצוי במסד הנתונים.</div><div>הלומדים ידעו לייצר קוד HTML שיוכנס לצד הלקוח מתוך אובייקט DataTable.</div>	11	300
+26	אובייקט session	<p>אובייקט session מאפשר שמירת מידע על משתמש מסוים שיהיה נגיש מכל הדפים באתר. כך ניתן לוודא כי משתמש מסוים אכן ביצע login בדף אחר, ולאפשר התאמה אישית של דפי האתר למשתמש.</p><p><u>מטרות</u>:<br>הלומדים יבינו מהותו של אובייקט session, מתי נוצר, מתי נמחק, ולמה משמש.<br>הלומדים ידעו להכניס ערכים לאובייקט session.התלמידים ידעו להוציא ערכים מתוך אובייקט session.<br>הלומדים ידעו להגביל גישת גולשים לדפים מסוימים באתר למשתמשים שנרשמו בלבד.</p>	12	100
+27	אובייקט application	<div>אובייקט applictaion מאפשר שמירת מידע בשרת הנגיש מכל הדפים ועבור כל המשתמשים. בעזרתו ניתן לשתף מידע בין משתמשים שונים (סקרים, דירוגי משתמשים, צ'אט עוד).<br><br><u>מטרות:</u><br></div><div>הלומדים יבינו מהותו של אובייקט application, מתי נוצר, מתי נמחק, ולמה משמש.</div><div>הלומדים ידעו להכניס ערכים לאובייקט application.</div><div>הלומדים ידעו להוציא ערכים מתוך אובייקט application.</div><div>הלומדים ידעו ליצור מונה כניסות משתמשים ואפשרות שיחוח (צ'אט).</div>	12	200
+30	הקלטת מסך - screenCasting	<div>screenCasting היא שיטה ליצירת סרטון בה מקליטים את מסך המחשב. גישה זו זולה ומהירה למאפשרת שימוש בכל אמצעי ההמחשה שהמחשב יכול להציע.</div>	13	100
+32	עריכת סרטונים	<div>כאן תמצאו הסברים על עריכת וידאו בסיסית.</div>	13	200
+12	אובייקטים קבועים בשפת javascript	<div><div>שפת javascript מכילה אובייקטים (עצמים) קבועים. כל אובייקט מכיל תכונות (משתנים) ופעולות (פונקציות). שימוש באובייקטים אלה מאפשר לשנות תכונותיהם בעזרת קוד javascript.</div><div><br></div><div>מטרות:</div><div>הלומדים ידעו מהו אובייקט (עצם).<br>הלומדים ידעו להשתמש באובייקטים קבועים של javascript:<br>- אובייקט window:<br>&nbsp; - הלומדים ידעו להשתמש בתכונת status.<br>&nbsp; - הלומדים ידעו להשתמש בפעולות prompt, alert,<br>- אובייקט document:<br>&nbsp; - הלומדים ידעו להשתמש בתכונות style של אובייקט body.<br>&nbsp; - הלומדים ידעו להשתמש בפעולה document.write.<br>הלומדים ידעו ליצור באופן דינמי (בהשפעת קלט מן המשתמש) תגיות ב HTML.<br>הלומדים ידעו ליצור באופן דינמי (בהשפעת קלט מן המשתמש) תגיות מורכבות ב HTML - טבלה למשל.</div></div>	9	300
+22	אובייקט request וגישה לנתוני טופס מצד שרת	<div><div>אובייקט request מכיל את כל המידע שהתקבל מהמשתמש בעת שליחת הבקשה לדף מסוים. בעת כניסה רגילה לדף, יכיל מידע על המשתמש, ואת שם הקובץ המבוקש. אולם, לאחר מילוי טופס, כלל הנתונים שהכניס המשתמש לטופס יופיעו בצד שרת כנתונים השייכים לאובייקט request.</div><div><br></div><div><u>מטרות:</u></div></div><div>הלומדים ידעו מה תפקידה של תכונת action בתגית form.</div><div>הלומדים ידעו מה תפקידה של תכונת method בתגית form.</div><div>הלומדים ידעו מה תפקידיו של אובייקט request וידעו להשתמש בפעולות queryString, Form</div><div>הלומדים ידעו לגשת לנתוני טופס בצד שרת באמצעות שליחתם לדף נוסף.</div><div>הלומדים ידעו לגשת לנתוני טופס בצד שרת בדף של הטופס.</div>	10	400
+\.
+
+
+--
+-- Name: core_teachitem_id_seq; Type: SEQUENCE SET; Schema: public; Owner: flipped
+--
+
+SELECT pg_catalog.setval('core_teachitem_id_seq', 32, true);
+
+
+--
+-- Data for Name: core_teachtopic; Type: TABLE DATA; Schema: public; Owner: flipped
+--
+
+COPY core_teachtopic (id, title, description, parent_id, order_index) FROM stdin;
+3	פיסיקה	<div>תחום מדעי העוסק בתיאור חוקי הטבע. הפיסיקה עוסקת בין השאר בתנועת גופים, אור, קול וחקר החלל.</div>	\N	2147483647
+4	מכניקה קלאסית	<div>תחום רחב בפיסיקה העוסק בחקר תנועת גופים והכוחות הפועלים עליהם. תחום זה קרוי גם מכניקה ניוטונית כיוון שחלק ניכר ממנה מבוסס על תגליותיו של אייזיק ניוטון ופיתוחיו המתמטיים.</div>	3	2147483647
+5	מדעי המחשב	<div>תחום מדעי העוסק בפיתוח כלים לוגיים לפתרון בעיות, והתאמתם למערכות מחשב. בין השאר נכללים בתחום מדעי המחשב עיסוק בסיבוכיות פתרון בעיות מורכבות, וביישום מעשי של אלגוריתמים.</div>	\N	2147483647
+6	מבוא לתכנות בסביבת האינטרנט	<div>הפרק מבוא לתכנות בסביבת האינטרנט עוסק בהכרת הכלים הבסיסיים המשמשים כותבי אתרים. ביניהם HTML, javascript, טכנולוגיות ASP, ושפת SQL.<br>השלמת פרק זה תאפשר כתיבת אתר אינטרנט בעל חלקים דינמיים, מערכת רישום משתמשים ושימוש במסדי נתונים, הגבלת הרשאות משתמשים שונים ועוד.</div>	5	2147483647
+13	מדריך להקלטת סרטונים	<div>כאן ניתן ללמוד איך להקליט סרטונים ללא עלות כספית, לקבל רעיונות חדשים להמחשות גרפיות מעניינות ולהכיר תוכנות הקלטה ועריכה בסיסיות.<br></div>	15	2147483647
+15	שיעור פתוח - הקלטת סרטונים, שיעור הפוך...	<div>תכנית לימודים זו מכילה נושאים הקשורים ל:</div><div>- הקלטת סרטונים.</div><div>- שיעורים הפוכים.</div><div>- מחשבות על שימוש בסרטונים בכיתה.</div>	\N	2147483647
+7	HTML	<div>שפת HTML היא שפת סימון המאפשרת יצירת דפי אינטרנט. דפים אלו ייכתבו ע"י מתכנת או באמצעות קוד ויפורשו ע"י דפדפן לצורך הצגתם למשתמש.&nbsp;</div>	6	100
+9	javascript	<div>על מנת ליצור דפי אינטרנט דינמיים, כלומר כאלה המסוגלים להשתנות ולהתעדכן בהתאם לפעולות המשתמש, יש צורך להריץ קוד כלשהו על מחשב המשתמש. פרק זה עוסק בשפת תסריט (script) הקרויה javascript המאפשרת ביצוע פעולות אלה.</div>	6	200
+10	ASP	<div>ASP &nbsp;- active server page<br>טכנולוגיית ASP מקדמת אותנו צעד נוסף לכיוון יכולותיהם של אתרי אינטרנט מודרניים.<br>טכנולוגייה זו מאפשרת הרצת קוד על מחשב השרת בעת קבלת בקשהממשתמש לדף מסוים. כך, השרת יכול ליצור עבור המשתמש דף מיוחד המתאים לצרכיו וייחודי עבורו. דוגמאות טובות לשימוש ב ASP הן אתרי דוא"ל, אשר שולחים דף HTML המכיל את הודעות הדוא"ל של משתמש מסוים ברגע מסוים, או אתרי חיפוש, היוצרים דף המכיל תשובה לשאלה ששאל המשתמש זה עתה.</div>	6	300
+12	קוד צד שרת - נושאים מתקדמים	<div>פרק זה מכיל עיסוק בשני אובייקטים הקיימים בצד שרת ומאפשרים שמירת מידע במעבר בין דפים שונים ובין משתמשים שונים - אובייקט session ואובייקט applictaion.<br>בעזרת שני אובייקטים אלו יכול השרת להעביר מידע בין דפי האתר לגבי משתמש מסוים ולהעביר מידע בין משתמשים שונים באותו האתר.</div>	6	500
+11	SQL	<div>SQL - structured query language<br><br>שפת SQL מגדירה דרך סטנדרטית לגשת למסדי נתונים. שפה זו תאפשר לנו ליצור ולשנות מסדי נתונים במחשב השרת ובכך לשמור נתונים באתר גם ללא נוכחות של גולשים. למשל - שמירת רשימת משתמשים רשומים, או מוצרים לרכישה באתר של חנות מקוונת.</div>	6	400
+\.
+
+
+--
+-- Name: core_teachtopic_id_seq; Type: SEQUENCE SET; Schema: public; Owner: flipped
+--
+
+SELECT pg_catalog.setval('core_teachtopic_id_seq', 15, true);
+
+
+--
+-- Data for Name: core_textualreview; Type: TABLE DATA; Schema: public; Owner: flipped
+--
+
+COPY core_textualreview (id, video_id, user_id, textual_review) FROM stdin;
+\.
+
+
+--
+-- Name: core_textualreview_id_seq; Type: SEQUENCE SET; Schema: public; Owner: flipped
+--
+
+SELECT pg_catalog.setval('core_textualreview_id_seq', 1, false);
+
+
+--
+-- Data for Name: core_videopage; Type: TABLE DATA; Schema: public; Owner: flipped
+--
+
+COPY core_videopage (id, youtube_movie_id, upload_date, content, video_title, user_id, teach_item_id) FROM stdin;
+1	ON9TVSn9KtU	2014-01-24 06:55:42.04662-05	<div>0:0 - תיאור תכונותיה של שפת HTML<br>3:19 - כתיבת דף HTML ראשון,מבנה כללי של דף HTML.<br>7:58 - תגיות h1-h6 - כותרות.<br>8:35 - תגית &lt;br&gt; - ירידת שורה.<br>9:20 - תגית title - כותרת חלון.<br>10:20 - סיכום והערות.<br><br></div>	דף HTML ראשון	2	1
+2	CRd4Cxsbm8w	2014-01-24 08:33:44.62533-05	<div>0:0 - הקדמה ומוטיבציה.<br>1:26 - תגית style - תחביר בסיסי<br>4:05 - מחלקות עיצוב<br>6:03 - מחלקות חופשיות<br>7:03 - סיכום<br><br><br></div>	תגית style	2	8
+3	QzXrz8tx_oQ	2014-01-25 02:31:17.534154-05	<div>0:0 - מבוא<br>0:30 - תגית הערה<br>0:36 - דוגמה ומוטיבציה - תכונת dir.<br>1:50 - תחביר כללי.<br>2:08 - תכונת style:color. שינוי צבע טקסט.<br>2:56 - היררכיה של תכונות.<br>3:45 - שינוי גופן (font-family) &nbsp;ו גודל גופן (font-size).<br>4:50 - מספר ערכים באותה תכונה.<br>5:16 - סיכום.<br><br><br><br></div>	תכונות של תגיות ב HTML	2	2
+4	ecYGQbe8cLI	2014-01-25 02:39:35.891608-05	<div>0:00 - מבוא.<br>0:35 - תחביר בסיסי - תגית a, תכונת href. קישור לדף אינטרנט.<br>2:08 - קישור לדף HTML נוסף באותה תיקייה.<br>3:03 - קישור פנימי באותו דף. תכונת name.<br>4:38 - קישור חיצוני למקום מסוים בדף.<br><br><br><br></div>	קישורים ב HTML	2	3
+5	RbZPDM4p1M8	2014-01-27 14:21:05.334345-05	<div>0:0 - מבוא<br>0:15 - תגית img ומיקום שמירת התמונה.<br>0:55 - תכונת src, מציינת את קובץ התמונה.<br>1:26 - תכונת alt, מציינת את הטקסט שיוצג במקרה שהתמונה לא נמצאה.<br>2:00 - תכונת height, קובעת את גובה התמונה.<br>2:35 - תכונת width, קובעת את רוחב התמונה.<br>3:00 - הדגמת השפעת תכונת alt.<br>3:32 - גישה לתמונה שאינה מצויה בתיקיה בה נמצא קובץ ה HTML.<br>4:00 - שילוב תמונה עם תגיות נוספות: בתוך טבלה וכקישור.<br><br></div>	תמונות ב HTML	2	5
+6	0XBtzh3he0g	2014-01-27 14:31:31.027925-05	<div>0:0 - מבוא ומוטיבציה.<br>0:27 - תגית table - טבלה.<br>0:56 - תגית tr - שורה בטבלה.<br>1:25 - תגית td - תא בשורה.<br>2:43 - תגית th - תא בעל תכונות כותרת (כתב מודגש).<br>3:24 - תכונות התגית table (עיצוב טבלה).<br>border, cellspacing, cellpadding.<br>4:20 - דוגמה לשימוש בטבלה לארגון דפי אינטרנט.<br>5:05 - אורך השורה אינו קבוע - יכולות להיות שורות באורכים שונים.<br>5:47 - התכונות colspan,rowspan - מיזוג תאים.<br>7:00 - עיצוב תאי טבלה וסיכום.<br><br><br></div>	טבלאות ב HTML	2	6
+7	E3d858NJ0Ao	2014-02-04 00:46:19.806-05	<div>0:0 - מבוא ותוכן הסרטון<br>0:37 - מהי שפת תסריט?<br>3:20 - תגית script<br>4:00 - פקודת alert - הקפצת חלון עם הודעה.<br>5:05 - מתי רץ קוד javascript?<br>6:30 - הצהרת משתנים ופקודת prompt - קבלת קלט מן המשתמש.<br><br><br><br></div>	מבוא ל javascript	2	10
+8	7D7CBFUZjgE	2014-02-10 07:49:22.543604-05	<div>סרטון זה מתאר את תפקידיו של אובייקט request ואת הדרך לגשת לנתונים השמורים בו מקוד הרץ בצד שרת.</div>	אובייקט request וגישה לנתוני טופס מצד שרת	2	22
+10	IlPoQRWdOso	2014-02-10 07:56:51.650125-05	<div>צריך להשלים</div>	מבוא ל ASP	2	20
+11	5itl9Vuzu7s	2014-02-10 07:57:27.871993-05	<div>צריך להשלים</div>	masterPage	2	19
+15	6YnwgYBu63I	2014-02-10 09:29:07.252128-05	להשלים	הפעולות isExist ו printDataTable 	2	24
+16	hnXjpMSURQ0	2014-02-10 09:29:54.954434-05	להשלים	executeDataTable	2	25
+17	RFl6a8yatNM	2014-02-10 09:32:04.605394-05	להשלים	סקירה כוללת של טיפול בטפסים	2	24
+18	4Hz7o75IBwM	2014-02-10 09:38:05.864209-05	להשלים	אובייקט application	2	27
+19	IFSfw9Xxjvs	2014-02-10 09:38:35.448663-05	להשלים	אובייקט session	2	26
+9	OzMpSOGl77s	2014-02-10 07:54:46.602415-05	<div>0:0 - סקירה כללית - תקשורת בין שרת ללקוח, אובייקט request.<br>1:20 - סדר יצירת אובייקט response - הרצת פעולת page_load, העתקת צד לקוח.<br>2:15 - תחביר לגישה לאובייקט response ופעולת write. כתיבהישירות לתוך האובייקט.<br>3:52 - פעולת end. סיום הכתיבה לאובייק ושליחתו ללקוח ללא תוכן צד הלקוח (HTML).<br>5:14 - פעולת redirect. ניתוב הלקוח לדף אחר.<br>6:03 - סיכום.<br><br></div>	אובייקט response	2	21
+20	68G1ZXaWUog	2014-02-11 00:42:16.112142-05	להשלים	לולאות בשפת javascript	2	11
+21	mJCbCvbeqEM	2014-02-11 00:42:54.552133-05	להשלים	אובייקטים ב JS	2	12
+22	tUkBNjlusYg	2014-02-11 00:43:43.146578-05	להשלים	פעולות ב JS	2	13
+23	Cf_FTvsriEI	2014-02-11 00:44:06.184472-05	להשלים	תכונת id	2	13
+26	BLr5lK-x0qQ	2014-02-12 11:56:23.446108-05	<div>0:00 - מבוא - מהי שאילתת SELECT?<br>0:15 - תחביר בסיסי של שאילתת SELECT.<br>0:50 - הרצה ידנית של שאילתה ב visual studio 2008, ודוגמאות לשאילתות.<br>2:45 - תחביר שימוש בשערים לוגיים בשאילתה.<br>3:05 - דוגמה לשימוש בשערים לוגיים.<br><br><br><br></div>	שאילתת SELECT	2	23
+24	_L7fPgO8qX0	2014-02-12 10:50:45.926042-05	<div>0:00 - מוטיבציה - מסדי נתונים לשם מה?<br>1:48 - יצירת מסד נתונים ב visual studio 2013.<br>2:57 - יצירת טבלה חדשה במסד נתונים.<br>3:24 - הגדרת שדות (עמודות) בטבלה, וקביעת שם הטבלה.<br>5:30 - מילוי ידני של הטבלה.<br>6:30 - סיכום.</div>	מבוא למסדי נתונים - visual studio 2013	2	23
+25	4eGj9CxtkrQ	2014-02-12 10:59:41.360317-05	<div>0:00 - מהי SQL.<br>0:45 - טיפוסי שאילתות קיימות.<br>1:08 - תחביר שאילתת INSERT (הכנסת רשומה חדשה לטבלה).<br>2:02 - דוגמה ב visual studio 2008.<br>4:26 - תחביר מקוצר של שאילתת INSERT המזינה את כל העמודות לפי הסדר.<br>4:50 - סיכום.<br><br></div>	מבוא ל SQL ושאילתת INSERT	2	23
+12	FDz9E8-WCEM	2014-02-10 08:09:02.517659-05	<div>0:00 - מוטיבציה לשימוש במסדי נתונים.<br>1:50 - יצירת קובץ מסד נתונים ב visual studio 2008.<br>2:35 - יצירת טבלה חדשה במסד הנתונים.<br>2:58 - הגדרת עמודות בטבלה חדשה, כולל טיפוסי נתונים שונים, ושמירת הטבלה.<br>4:25 - הזנת מידע לטבלה באופן ידני.<br>5:20 - סיכום.<br><br><br><br></div>	מבוא למסדי נתונים - visual studio 2008	2	23
+28	fh0LytOHBE0	2014-02-15 08:05:54.902882-05	להשלים	משתנים ב javascript	2	10
+29	thzZ5hJQypA	2014-02-15 08:08:30.60519-05	להשלים	תכנות מוכוון אירועים ב JS	2	14
+30	AWoCpT6_ZAw	2014-02-17 00:35:34.588615-05	להשלים	טיפול במחרוזות ב JS	2	15
+32	swh0LUt9UvA	2014-02-17 00:37:10.431014-05	להשלים	גישה לנתוני טופס באמצעות javascript	2	16
+33	Lf3NJQEm1B4	2014-02-17 00:37:54.421204-05	להשלים	פעולת getElementByID	2	17
+34	9NrWQYuWzyM	2014-02-17 00:42:22.129819-05	להשלים	יצירת טפסים ב HTML - חלק א'	2	7
+35	3iXjXPF3988	2014-02-17 00:42:43.134713-05	להשלים	יצירת טפסים ב HTML - חלק ב'	2	7
+31	UKzP97XDB8s	2014-02-17 00:36:05.282922-05	להשלים	תכונת innerHTML	2	15
+37	Vl7W-c9yaW4	2014-02-17 15:03:21.626405-05	להשלים	עבודה עם תכנת screencast-o-matic	2	30
+38	3qvxqo71Z80	2014-02-17 15:06:18.154729-05	להשלים	שיעור הפוך מהו	2	31
+40	9aGuLuipTwg	2014-02-17 15:09:13.374532-05	להשלים	why I flipped my classroom	2	31
+41	y5HVHXh5Wjc	2014-02-17 15:14:07.291627-05	להשלים	5 Minute Guide to Screencasting	2	30
+39	ojiebVw8O0g	2014-02-17 15:08:28.770961-05	להשלים	The Flipped Classroom Model	2	31
+42	3ZZij3NNyVg	2014-02-17 15:17:56.168901-05	להשלים	Getting Started Tutorial - Windows Live Movie Make	2	32
+43	JZXK68NS7gU	2014-02-17 15:19:05.743176-05	להשלים	Movie Maker Video Editing Tutorial	2	32
+13	XEWwyUaTaDM	2014-02-10 09:28:07.008147-05	<div>0:00 - מה מטרת המחלקה MyADOHelper?<br>0:40 - תזכורת - מהי מחלקה?<br>2:03 - הכללת המחלקה MyAdoHelper בפרויקט ב visual studio.<br><br></div>	היכרות עם המחלקה myADOHelper	2	24
+14	ExcGOR2FEfQ	2014-02-10 09:28:37.017639-05	<div>0:00 - תוכן הסרטון.<br>0:20 - סקירת מסד הנתונים עליו נעבוד בסרטון.<br>1:05 - הפעולה DoQuery.<br>1:26 - קריאה כללית של הפעולה במחלקה MyAdoHelper, סקירת הפרמטרים של הפעולה.<br>2:18 - קריאה לפעולה Doquery מתוך פעולת Page_Load, בעזרת שאילתה שנוצרה ידנית.<br>3:30 - הרצת הקוד ובדיקת שינוי מסד הנתונים.<br>4:40 - חיבור לטופס - סקירת הטופס בו נשתמש.<br>5:28 - חילוץ נתוני הטופס מאובייקט request.<br>6:15 - שינוי השימוש בפעולת DoQuery ויצירתה בעזרת הנתונים שחולצו מאובייקט request.<br>6:45 - הפעלת האתר והכנסת נתונם למסד הנתונים בעזרת טופס.<br>7:32 - סקירה חוזרת של השתלשלות האירועים - טופס -&gt; בדיקת קלט -&gt; צד שרת....<br>8:04 - סיכום<br><br></div>	פעולת DoQuery	2	24
+\.
+
+
+--
+-- Name: core_videopage_id_seq; Type: SEQUENCE SET; Schema: public; Owner: flipped
+--
+
+SELECT pg_catalog.setval('core_videopage_id_seq', 43, true);
+
+
+--
+-- Data for Name: core_videopage_tags; Type: TABLE DATA; Schema: public; Owner: flipped
+--
+
+COPY core_videopage_tags (id, videopage_id, tag_id) FROM stdin;
+1	31	1
+\.
+
+
+--
+-- Name: core_videopage_tags_id_seq; Type: SEQUENCE SET; Schema: public; Owner: flipped
+--
+
+SELECT pg_catalog.setval('core_videopage_tags_id_seq', 2, true);
+
+
+--
+-- Data for Name: django_admin_log; Type: TABLE DATA; Schema: public; Owner: flipped
+--
+
+COPY django_admin_log (id, action_time, user_id, content_type_id, object_id, object_repr, action_flag, change_message) FROM stdin;
+1	2014-01-20 15:32:49.448001-05	1	4	1	flip	2	first_name ו last_name שונה.
+2	2014-01-20 15:34:30.583153-05	1	3	1	Teachers	1	
+3	2014-01-20 15:35:24.025832-05	1	4	2	banitt81	1	
+4	2014-01-20 15:36:14.344557-05	1	4	2	banitt81	2	first_name, last_name, email, is_superuser ו groups שונה.
+5	2014-01-20 15:36:44.996765-05	1	4	3	eran	1	
+6	2014-01-20 15:37:05.144618-05	1	4	3	eran	2	first_name, last_name, email ו groups שונה.
+7	2014-01-20 15:37:27.403406-05	1	4	4	barakp	1	
+8	2014-01-20 15:38:15.900108-05	1	4	4	barakp	2	first_name, last_name, email, is_staff, is_superuser ו groups שונה.
+9	2014-01-20 15:38:29.467861-05	1	4	2	banitt81	2	is_staff שונה.
+10	2014-01-20 15:39:08.69973-05	1	4	2	banitt81	2	is_superuser שונה.
+11	2014-01-20 15:39:24.001388-05	1	4	3	eran	2	is_staff ו is_superuser שונה.
+12	2014-01-20 15:39:44.374681-05	2	8	1	פיסיקה	1	
+13	2014-01-20 15:39:57.872462-05	2	8	1	פיסיקה	3	
+14	2014-01-20 16:43:02.570597-05	2	8	2	כימיה	1	
+15	2014-01-20 16:44:01.787018-05	2	8	2	כימיה	3	
+16	2014-01-24 06:35:15.474032-05	2	8	3	פיסיקה	1	
+17	2014-01-24 06:37:31.468089-05	2	8	4	מכניקה קלאסית	1	
+18	2014-01-24 06:40:50.635164-05	2	8	5	מדעי המחשב	1	
+19	2014-01-24 06:43:10.143124-05	2	8	6	מבוא לתכנות בסביבת האינטרנט	1	
+20	2014-01-24 06:44:08.12465-05	2	8	7	HTML	1	
+21	2014-01-24 06:47:36.777914-05	2	8	8	מבוא ל HTML	1	
+22	2014-01-24 06:49:47.276568-05	2	9	1	מבוא ל HTML	1	
+23	2014-01-24 06:50:07.831556-05	2	8	8	מבוא ל HTML	3	
+24	2014-01-24 08:10:06.52392-05	2	9	2	תכונות ב HTML	1	
+25	2014-01-24 08:11:40.307187-05	2	9	3	קישורים	1	
+26	2014-01-24 08:12:56.750209-05	2	9	4	רשימות ב HTML	1	
+27	2014-01-24 08:17:13.815875-05	2	9	5	תמונות ב HTML	1	
+28	2014-01-24 08:18:28.845221-05	2	9	6	טבלאות ב HTML	1	
+29	2014-01-24 08:21:00.041783-05	2	9	7	טפסים ב HTML	1	
+30	2014-01-24 08:22:56.784946-05	2	9	8	CSS	1	
+31	2014-01-31 09:37:12.791929-05	2	9	9	עבודה עם visual studio	1	
+32	2014-01-31 09:38:53.08228-05	2	8	9	javascript	1	
+33	2014-02-03 10:16:00.858997-05	2	9	10	מבוא ל javascript	1	
+34	2014-02-03 10:17:33.474237-05	2	9	11	מבני בקרה ב javascript	1	
+35	2014-02-03 10:19:49.777791-05	2	9	12	אובייקטים קבועים בשפת javascript	1	
+36	2014-02-03 10:21:54.917867-05	2	9	13	פעולות ב javascript ותכונת id	1	
+37	2014-02-03 10:23:17.423463-05	2	9	14	תכנות מוכוון אירועים	1	
+38	2014-02-03 10:26:13.602445-05	2	9	15	מחרוזות ב javascript, ותכונת innerHTML.	1	
+39	2014-02-04 00:32:44.598985-05	2	9	16	גישה לנתוני טופס באמצעות javascript	1	
+40	2014-02-04 00:36:12.732207-05	2	9	17	גישה לאובייקטים דינמיים	1	
+41	2014-02-04 00:38:35.269404-05	2	9	18	האובייקטים date setInterval	1	
+42	2014-02-09 00:31:08.828244-05	2	8	10	ASP	1	
+43	2014-02-09 00:34:15.818509-05	2	9	19	masterPage	1	
+44	2014-02-09 00:36:32.28133-05	2	9	20	מבוא ל ASP - שינוי תוכן דף באמצעות קוד צד שרת.	1	
+45	2014-02-09 00:39:30.851261-05	2	9	21	אובייקט response	1	
+46	2014-02-09 00:42:06.263285-05	2	9	22	אובייקט request וגישה לנתוני טופס מצד שרת	1	
+47	2014-02-10 08:07:17.682229-05	2	8	11	SQL	1	
+48	2014-02-10 08:08:34.117349-05	2	9	23	מבוא ל SQL	1	
+49	2014-02-10 08:57:36.924695-05	2	9	24	חיבור SQL לצד שרת - פעולות בסיסיות	1	
+50	2014-02-10 08:58:55.402402-05	2	9	25	הפעולה executeDataTable	1	
+51	2014-02-10 09:34:06.083814-05	2	8	12	קוד צד שרת - נושאים מתקדמים	1	
+52	2014-02-10 09:35:56.932243-05	2	9	26	אובייקט session	1	
+53	2014-02-10 09:37:38.883069-05	2	9	27	אובייקט application	1	
+54	2014-02-11 00:39:30.861276-05	2	10	9	אובייקט response	2	content ו video_title שונה.
+55	2014-02-12 10:51:36.53279-05	2	10	12	מבוא למסדי נתונים - visual studio 2008	2	video_title שונה.
+56	2014-02-12 10:51:54.145433-05	2	10	24	מבוא למסדי נתונים - visual studio 2013	2	video_title שונה.
+57	2014-02-12 15:34:23.309007-05	2	10	27	טיפול בטפסים - המעגל השלם	3	
+58	2014-02-15 07:50:32.840597-05	2	10	12	מבוא למסדי נתונים - visual studio 2008	2	content שונה.
+59	2014-02-15 07:55:37.203166-05	2	10	26	שאילתת SELECT	2	content שונה.
+60	2014-02-15 08:05:54.907682-05	2	10	28	משתנים ב javascript	1	
+61	2014-02-15 08:06:29.212202-05	2	10	28	משתנים ב javascript	2	youtube_movie_id שונה.
+62	2014-02-15 08:08:30.610008-05	2	10	29	תכנות מוכוון אירועים ב JS	1	
+63	2014-02-17 12:22:20.096413-05	3	13	1	HTML	1	
+64	2014-02-17 12:22:24.24877-05	3	10	31	תכונת innerHTML	2	tags שונה.
+65	2014-02-17 13:26:57.475911-05	3	4	2	banitt81	2	is_superuser שונה.
+66	2014-02-17 13:27:29.434161-05	2	4	8	noteacher	2	groups שונה.
+67	2014-02-17 14:45:19.170792-05	2	8	13	מדריך להקלטת סרטונים	1	
+68	2014-02-17 14:48:33.725979-05	2	8	14	הקלטת סרטונים	1	
+69	2014-02-17 14:51:28.697569-05	2	9	28	screenCast-O-Matic	1	
+70	2014-02-17 14:58:45.333292-05	2	9	29	מטא-תכנית לימודים: הקלטת סרטונים, שיעורים הפוכים..	1	
+71	2014-02-17 14:59:26.929216-05	2	9	29	מטא-תכנית לימודים: הקלטת סרטונים, שיעורים הפוכים..	3	
+72	2014-02-17 15:00:14.028834-05	2	8	15	מטא-תכנית לימודים- הקלטת סרטונים, שיעור הפוך...	1	
+73	2014-02-17 15:00:32.13964-05	2	8	13	מדריך להקלטת סרטונים	2	parent שונה.
+74	2014-02-17 15:01:10.849204-05	2	8	14	הקלטת סרטונים	3	
+75	2014-02-17 15:02:38.153897-05	2	9	30	הקלטת מסך - screenCasting	1	
+76	2014-02-17 15:05:32.032819-05	2	9	31	שיעור הפוך מהו	1	
+77	2014-02-17 15:10:12.363033-05	2	8	15	מטא-תכנית לימודים- הקלטת סרטונים, שיעור הפוך...	2	description שונה.
+78	2014-02-17 15:14:41.605165-05	2	10	41	5 Minute Guide to Screencasting	2	teach_item שונה.
+79	2014-02-17 15:15:12.745706-05	2	10	39	The Flipped Classroom Model	2	video_title שונה.
+80	2014-02-17 15:17:32.029677-05	2	9	32	עריכת סרטונים	1	
+81	2014-02-17 15:21:12.246792-05	2	8	15	שיעור פתוח - הקלטת סרטונים, שיעור הפוך...	2	title שונה.
+82	2014-02-19 00:39:05.60729-05	2	10	13	היכרות עם המחלקה myADOHelper	2	content שונה.
+83	2014-02-19 01:02:37.660178-05	2	10	14	פעולת DoQuery	2	content שונה.
+84	2014-02-24 14:13:43.957713-05	2	8	7	HTML	2	order_index שונה.
+85	2014-02-24 14:13:52.021839-05	2	8	9	javascript	2	order_index שונה.
+86	2014-02-24 14:14:03.975023-05	2	8	10	ASP	2	order_index שונה.
+87	2014-02-24 14:14:16.996816-05	2	8	11	SQL	2	order_index שונה.
+88	2014-02-24 14:14:25.851653-05	2	8	11	SQL	2	אף שדה לא השתנה.
+89	2014-02-24 14:14:35.517873-05	2	8	12	קוד צד שרת - נושאים מתקדמים	2	order_index שונה.
+90	2014-02-24 14:16:10.252647-05	2	9	1	מבוא ל HTML	2	order_index שונה.
+91	2014-02-24 14:16:54.408322-05	2	9	3	קישורים	2	order_index שונה.
+92	2014-02-24 14:17:02.997724-05	2	9	4	רשימות ב HTML	2	order_index שונה.
+93	2014-02-24 14:17:15.246232-05	2	9	5	תמונות ב HTML	2	order_index שונה.
+94	2014-02-24 14:17:28.964538-05	2	9	6	טבלאות ב HTML	2	order_index שונה.
+95	2014-02-24 14:17:36.779453-05	2	9	7	טפסים ב HTML	2	order_index שונה.
+96	2014-02-24 14:17:43.773288-05	2	9	8	CSS	2	order_index שונה.
+97	2014-02-24 14:33:04.317429-05	2	9	9	עבודה עם visual studio	2	אף שדה לא השתנה.
+98	2014-02-24 14:33:25.5447-05	2	9	10	מבוא ל javascript	2	order_index שונה.
+99	2014-02-24 14:33:33.522293-05	2	9	11	מבני בקרה ב javascript	2	order_index שונה.
+100	2014-02-24 14:33:50.209948-05	2	9	12	אובייקטים קבועים בשפת javascript	2	order_index שונה.
+101	2014-02-24 14:33:57.626001-05	2	9	13	פעולות ב javascript ותכונת id	2	order_index שונה.
+102	2014-02-24 14:34:04.20947-05	2	9	14	תכנות מוכוון אירועים	2	order_index שונה.
+103	2014-02-24 14:34:11.491296-05	2	9	14	תכנות מוכוון אירועים	2	אף שדה לא השתנה.
+104	2014-02-24 14:34:26.1-05	2	9	15	מחרוזות ב javascript, ותכונת innerHTML.	2	order_index שונה.
+105	2014-02-24 14:34:33.089843-05	2	9	16	גישה לנתוני טופס באמצעות javascript	2	order_index שונה.
+106	2014-02-24 14:34:39.451674-05	2	9	17	גישה לאובייקטים דינמיים	2	order_index שונה.
+107	2014-02-24 14:34:57.882294-05	2	9	17	גישה לאובייקטים דינמיים	2	אף שדה לא השתנה.
+108	2014-02-24 14:35:27.175444-05	2	9	18	האובייקטים date setInterval	2	order_index שונה.
+109	2014-02-24 14:35:45.613774-05	2	9	19	masterPage	2	order_index שונה.
+110	2014-02-24 14:35:54.050051-05	2	9	20	מבוא ל ASP - שינוי תוכן דף באמצעות קוד צד שרת.	2	order_index שונה.
+111	2014-02-24 14:36:00.285799-05	2	9	21	אובייקט response	2	order_index שונה.
+112	2014-02-24 14:36:06.58846-05	2	9	21	אובייקט response	2	אף שדה לא השתנה.
+113	2014-02-24 14:36:13.467733-05	2	9	22	אובייקט request וגישה לנתוני טופס מצד שרת	2	order_index שונה.
+114	2014-02-24 14:36:30.719146-05	2	9	23	מבוא ל SQL	2	order_index שונה.
+115	2014-02-24 14:36:36.595547-05	2	9	24	חיבור SQL לצד שרת - פעולות בסיסיות	2	order_index שונה.
+116	2014-02-24 14:36:43.386927-05	2	9	25	הפעולה executeDataTable	2	order_index שונה.
+117	2014-02-24 14:36:51.514374-05	2	9	26	אובייקט session	2	order_index שונה.
+118	2014-02-24 14:36:57.447478-05	2	9	27	אובייקט application	2	order_index שונה.
+119	2014-02-24 14:37:43.907137-05	2	9	30	הקלטת מסך - screenCasting	2	order_index שונה.
+120	2014-02-24 14:37:50.397228-05	2	9	32	עריכת סרטונים	2	order_index שונה.
+121	2014-02-24 14:39:42.522462-05	2	9	2	תכונות ב HTML	2	order_index שונה.
+\.
+
+
+--
+-- Name: django_admin_log_id_seq; Type: SEQUENCE SET; Schema: public; Owner: flipped
+--
+
+SELECT pg_catalog.setval('django_admin_log_id_seq', 121, true);
+
+
+--
+-- Data for Name: django_content_type; Type: TABLE DATA; Schema: public; Owner: flipped
+--
+
+COPY django_content_type (id, name, app_label, model) FROM stdin;
+1	log entry	admin	logentry
+2	permission	auth	permission
+3	group	auth	group
+4	user	auth	user
+5	content type	contenttypes	contenttype
+6	session	sessions	session
+7	migration history	south	migrationhistory
+8	teach topic	core	teachtopic
+9	teach item	core	teachitem
+10	video page	core	videopage
+11	rating review	core	ratingreview
+12	textual review	core	textualreview
+13	tag	core	tag
+14	tag video	core	tagvideo
+\.
+
+
+--
+-- Name: django_content_type_id_seq; Type: SEQUENCE SET; Schema: public; Owner: flipped
+--
+
+SELECT pg_catalog.setval('django_content_type_id_seq', 14, true);
+
+
+--
+-- Data for Name: django_session; Type: TABLE DATA; Schema: public; Owner: flipped
+--
+
+COPY django_session (session_key, session_data, expire_date) FROM stdin;
+89c7ngdrf4cxm8pr0jdoe39jxb31y634	YzY4NmNhOWQxMmRmZjYyYjFkNTRlMjA3Yzg5OTYzZjgxMjBiY2M5NTp7Il9hdXRoX3VzZXJfYmFja2VuZCI6ImRqYW5nby5jb250cmliLmF1dGguYmFja2VuZHMuTW9kZWxCYWNrZW5kIiwiX2F1dGhfdXNlcl9pZCI6MX0=	2014-02-03 15:32:07.863996-05
+uk3gdc72fdrymvtrgj19s9h5zyfoebop	ODliYzc5ZWM1NTlkY2Y0OWM0NDU1ZmI5Y2Q3YWY5NmU1NDhlYTU4Yzp7Il9hdXRoX3VzZXJfYmFja2VuZCI6ImRqYW5nby5jb250cmliLmF1dGguYmFja2VuZHMuTW9kZWxCYWNrZW5kIiwiX2F1dGhfdXNlcl9pZCI6M30=	2014-03-03 14:22:01.104067-05
+9apg3df33qvya7osi2aa79dms7vp8nwh	ZGVhYzMyNzNiMzdlOGNiNGE0OWFlYTFjMmNiNzVlZWNmNzNmOGJhNjp7fQ==	2014-03-05 01:02:44.068845-05
+60o4wuacuqozo2xpvcefumi1hrqap4dp	OWQ5ZjMwNDExMzIwZDcyMGY5N2IwMjQ2YzkzNzUxODlmNjM4ODViNTp7Il9hdXRoX3VzZXJfYmFja2VuZCI6ImRqYW5nby5jb250cmliLmF1dGguYmFja2VuZHMuTW9kZWxCYWNrZW5kIiwiX2F1dGhfdXNlcl9pZCI6Mn0=	2014-02-03 15:38:37.016374-05
+5qao346w125jtxasojqwnh2cefrhj50y	ZWIyNzkxY2JmZDI4NTlkNDA4Y2MxNWU5YzIzMDQ3NDNlN2E4YWIyMjp7Il9hdXRoX3VzZXJfYmFja2VuZCI6ImRqYW5nby5jb250cmliLmF1dGguYmFja2VuZHMuTW9kZWxCYWNrZW5kIiwiX2F1dGhfdXNlcl9pZCI6NH0=	2014-03-10 14:05:24.944787-04
+dw5o1feh00g0qhh7je2mggyo193f7gcz	ZGVhYzMyNzNiMzdlOGNiNGE0OWFlYTFjMmNiNzVlZWNmNzNmOGJhNjp7fQ==	2014-02-07 04:08:04.010047-05
+amjoycihx8lk42r5kjnm0azhvwi4ffzx	YzY4NmNhOWQxMmRmZjYyYjFkNTRlMjA3Yzg5OTYzZjgxMjBiY2M5NTp7Il9hdXRoX3VzZXJfYmFja2VuZCI6ImRqYW5nby5jb250cmliLmF1dGguYmFja2VuZHMuTW9kZWxCYWNrZW5kIiwiX2F1dGhfdXNlcl9pZCI6MX0=	2014-02-07 06:08:48.079335-05
+32etwrr6n1oyznh0i0yfj9ensbqbutbi	OWQ5ZjMwNDExMzIwZDcyMGY5N2IwMjQ2YzkzNzUxODlmNjM4ODViNTp7Il9hdXRoX3VzZXJfYmFja2VuZCI6ImRqYW5nby5jb250cmliLmF1dGguYmFja2VuZHMuTW9kZWxCYWNrZW5kIiwiX2F1dGhfdXNlcl9pZCI6Mn0=	2014-02-07 06:33:08.610708-05
+2xsyp4gljjm3q2j1hf3js7xqshhe5ydm	ZGVhYzMyNzNiMzdlOGNiNGE0OWFlYTFjMmNiNzVlZWNmNzNmOGJhNjp7fQ==	2014-02-11 15:30:11.110064-05
+gto34ja2djxho0l83fhisliu8kwe44pr	OWQ5ZjMwNDExMzIwZDcyMGY5N2IwMjQ2YzkzNzUxODlmNjM4ODViNTp7Il9hdXRoX3VzZXJfYmFja2VuZCI6ImRqYW5nby5jb250cmliLmF1dGguYmFja2VuZHMuTW9kZWxCYWNrZW5kIiwiX2F1dGhfdXNlcl9pZCI6Mn0=	2014-02-17 10:14:17.45555-05
+1sh0qqaq29rrpl5mkx081t7f0mlebwu4	OGM3ZjI4MjZjMzBlMDI2NjI5ZTEyN2QxMWM3OWYzZGZhMGZhMmM5OTp7Il9hdXRoX3VzZXJfYmFja2VuZCI6ImRqYW5nby5jb250cmliLmF1dGguYmFja2VuZHMuTW9kZWxCYWNrZW5kIiwiX2F1dGhfdXNlcl9pZCI6NX0=	2014-02-17 14:13:02.137418-05
+3eqrt4mtiyvl10opx1amu3rkfkp06h9w	OWQ5ZjMwNDExMzIwZDcyMGY5N2IwMjQ2YzkzNzUxODlmNjM4ODViNTp7Il9hdXRoX3VzZXJfYmFja2VuZCI6ImRqYW5nby5jb250cmliLmF1dGguYmFja2VuZHMuTW9kZWxCYWNrZW5kIiwiX2F1dGhfdXNlcl9pZCI6Mn0=	2014-02-24 07:46:48.883406-05
+khmcy03olsa4psfw80zpn0hpb61z4g5g	OWQ5ZjMwNDExMzIwZDcyMGY5N2IwMjQ2YzkzNzUxODlmNjM4ODViNTp7Il9hdXRoX3VzZXJfYmFja2VuZCI6ImRqYW5nby5jb250cmliLmF1dGguYmFja2VuZHMuTW9kZWxCYWNrZW5kIiwiX2F1dGhfdXNlcl9pZCI6Mn0=	2014-02-24 08:55:58.758994-05
+jir3cp1ekfnuxacngeti8wwml0fvbaya	ZGVhYzMyNzNiMzdlOGNiNGE0OWFlYTFjMmNiNzVlZWNmNzNmOGJhNjp7fQ==	2014-02-24 13:42:21.612771-05
+fzptgqqczgllmex02c5gdkbhmw7ogqmh	NjkzZjQ2Y2E0OTI3NzExYjBkNjczNTMxOTJmZmViMjhjOTE0ODgwYjp7Il9hdXRoX3VzZXJfYmFja2VuZCI6ImRqYW5nby5jb250cmliLmF1dGguYmFja2VuZHMuTW9kZWxCYWNrZW5kIiwiX2F1dGhfdXNlcl9pZCI6N30=	2014-02-25 01:56:15.246709-05
+qg6lbawjg35q7higlos6v5248i3eg4b9	OWQ5ZjMwNDExMzIwZDcyMGY5N2IwMjQ2YzkzNzUxODlmNjM4ODViNTp7Il9hdXRoX3VzZXJfYmFja2VuZCI6ImRqYW5nby5jb250cmliLmF1dGguYmFja2VuZHMuTW9kZWxCYWNrZW5kIiwiX2F1dGhfdXNlcl9pZCI6Mn0=	2014-02-26 11:55:27.632478-05
+uk2wmrwls3n68r90rqu51vbrtcgvow5q	OWQ5ZjMwNDExMzIwZDcyMGY5N2IwMjQ2YzkzNzUxODlmNjM4ODViNTp7Il9hdXRoX3VzZXJfYmFja2VuZCI6ImRqYW5nby5jb250cmliLmF1dGguYmFja2VuZHMuTW9kZWxCYWNrZW5kIiwiX2F1dGhfdXNlcl9pZCI6Mn0=	2014-03-03 13:26:07.570414-05
+\.
+
+
+--
+-- Data for Name: south_migrationhistory; Type: TABLE DATA; Schema: public; Owner: flipped
+--
+
+COPY south_migrationhistory (id, app_name, migration, applied) FROM stdin;
+1	django_extensions	0001_empty	2014-01-20 15:25:15.201381-05
+2	core	0001_initial	2014-01-20 15:25:15.349247-05
+3	core	0002_auto__chg_field_ratingreview_context	2014-01-20 15:25:15.419395-05
+4	core	0003_auto__chg_field_ratingreview_user__chg_field_textualreview_user	2014-01-20 15:25:15.513243-05
+5	core	0004_auto__del_tagvideo	2014-01-24 06:07:53.233193-05
+6	core	0005_auto__add_field_teachtopic_order_index__add_field_teachitem_order_inde	2014-02-24 13:04:10.047609-05
+\.
+
+
+--
+-- Name: south_migrationhistory_id_seq; Type: SEQUENCE SET; Schema: public; Owner: flipped
+--
+
+SELECT pg_catalog.setval('south_migrationhistory_id_seq', 6, true);
+
+
+--
+-- Name: auth_group_name_key; Type: CONSTRAINT; Schema: public; Owner: flipped; Tablespace: 
+--
+
+ALTER TABLE ONLY auth_group
+    ADD CONSTRAINT auth_group_name_key UNIQUE (name);
+
+
+--
+-- Name: auth_group_permissions_group_id_permission_id_key; Type: CONSTRAINT; Schema: public; Owner: flipped; Tablespace: 
+--
+
+ALTER TABLE ONLY auth_group_permissions
+    ADD CONSTRAINT auth_group_permissions_group_id_permission_id_key UNIQUE (group_id, permission_id);
+
+
+--
+-- Name: auth_group_permissions_pkey; Type: CONSTRAINT; Schema: public; Owner: flipped; Tablespace: 
+--
+
+ALTER TABLE ONLY auth_group_permissions
+    ADD CONSTRAINT auth_group_permissions_pkey PRIMARY KEY (id);
+
+
+--
+-- Name: auth_group_pkey; Type: CONSTRAINT; Schema: public; Owner: flipped; Tablespace: 
+--
+
+ALTER TABLE ONLY auth_group
+    ADD CONSTRAINT auth_group_pkey PRIMARY KEY (id);
+
+
+--
+-- Name: auth_permission_content_type_id_codename_key; Type: CONSTRAINT; Schema: public; Owner: flipped; Tablespace: 
+--
+
+ALTER TABLE ONLY auth_permission
+    ADD CONSTRAINT auth_permission_content_type_id_codename_key UNIQUE (content_type_id, codename);
+
+
+--
+-- Name: auth_permission_pkey; Type: CONSTRAINT; Schema: public; Owner: flipped; Tablespace: 
+--
+
+ALTER TABLE ONLY auth_permission
+    ADD CONSTRAINT auth_permission_pkey PRIMARY KEY (id);
+
+
+--
+-- Name: auth_user_groups_pkey; Type: CONSTRAINT; Schema: public; Owner: flipped; Tablespace: 
+--
+
+ALTER TABLE ONLY auth_user_groups
+    ADD CONSTRAINT auth_user_groups_pkey PRIMARY KEY (id);
+
+
+--
+-- Name: auth_user_groups_user_id_group_id_key; Type: CONSTRAINT; Schema: public; Owner: flipped; Tablespace: 
+--
+
+ALTER TABLE ONLY auth_user_groups
+    ADD CONSTRAINT auth_user_groups_user_id_group_id_key UNIQUE (user_id, group_id);
+
+
+--
+-- Name: auth_user_pkey; Type: CONSTRAINT; Schema: public; Owner: flipped; Tablespace: 
+--
+
+ALTER TABLE ONLY auth_user
+    ADD CONSTRAINT auth_user_pkey PRIMARY KEY (id);
+
+
+--
+-- Name: auth_user_user_permissions_pkey; Type: CONSTRAINT; Schema: public; Owner: flipped; Tablespace: 
+--
+
+ALTER TABLE ONLY auth_user_user_permissions
+    ADD CONSTRAINT auth_user_user_permissions_pkey PRIMARY KEY (id);
+
+
+--
+-- Name: auth_user_user_permissions_user_id_permission_id_key; Type: CONSTRAINT; Schema: public; Owner: flipped; Tablespace: 
+--
+
+ALTER TABLE ONLY auth_user_user_permissions
+    ADD CONSTRAINT auth_user_user_permissions_user_id_permission_id_key UNIQUE (user_id, permission_id);
+
+
+--
+-- Name: auth_user_username_key; Type: CONSTRAINT; Schema: public; Owner: flipped; Tablespace: 
+--
+
+ALTER TABLE ONLY auth_user
+    ADD CONSTRAINT auth_user_username_key UNIQUE (username);
+
+
+--
+-- Name: core_ratingreview_pkey; Type: CONSTRAINT; Schema: public; Owner: flipped; Tablespace: 
+--
+
+ALTER TABLE ONLY core_ratingreview
+    ADD CONSTRAINT core_ratingreview_pkey PRIMARY KEY (id);
+
+
+--
+-- Name: core_tag_name_key; Type: CONSTRAINT; Schema: public; Owner: flipped; Tablespace: 
+--
+
+ALTER TABLE ONLY core_tag
+    ADD CONSTRAINT core_tag_name_key UNIQUE (name);
+
+
+--
+-- Name: core_tag_pkey; Type: CONSTRAINT; Schema: public; Owner: flipped; Tablespace: 
+--
+
+ALTER TABLE ONLY core_tag
+    ADD CONSTRAINT core_tag_pkey PRIMARY KEY (id);
+
+
+--
+-- Name: core_teachitem_pkey; Type: CONSTRAINT; Schema: public; Owner: flipped; Tablespace: 
+--
+
+ALTER TABLE ONLY core_teachitem
+    ADD CONSTRAINT core_teachitem_pkey PRIMARY KEY (id);
+
+
+--
+-- Name: core_teachtopic_pkey; Type: CONSTRAINT; Schema: public; Owner: flipped; Tablespace: 
+--
+
+ALTER TABLE ONLY core_teachtopic
+    ADD CONSTRAINT core_teachtopic_pkey PRIMARY KEY (id);
+
+
+--
+-- Name: core_textualreview_pkey; Type: CONSTRAINT; Schema: public; Owner: flipped; Tablespace: 
+--
+
+ALTER TABLE ONLY core_textualreview
+    ADD CONSTRAINT core_textualreview_pkey PRIMARY KEY (id);
+
+
+--
+-- Name: core_videopage_pkey; Type: CONSTRAINT; Schema: public; Owner: flipped; Tablespace: 
+--
+
+ALTER TABLE ONLY core_videopage
+    ADD CONSTRAINT core_videopage_pkey PRIMARY KEY (id);
+
+
+--
+-- Name: core_videopage_tags_pkey; Type: CONSTRAINT; Schema: public; Owner: flipped; Tablespace: 
+--
+
+ALTER TABLE ONLY core_videopage_tags
+    ADD CONSTRAINT core_videopage_tags_pkey PRIMARY KEY (id);
+
+
+--
+-- Name: core_videopage_tags_videopage_id_32ad1b5527fb8257_uniq; Type: CONSTRAINT; Schema: public; Owner: flipped; Tablespace: 
+--
+
+ALTER TABLE ONLY core_videopage_tags
+    ADD CONSTRAINT core_videopage_tags_videopage_id_32ad1b5527fb8257_uniq UNIQUE (videopage_id, tag_id);
+
+
+--
+-- Name: django_admin_log_pkey; Type: CONSTRAINT; Schema: public; Owner: flipped; Tablespace: 
+--
+
+ALTER TABLE ONLY django_admin_log
+    ADD CONSTRAINT django_admin_log_pkey PRIMARY KEY (id);
+
+
+--
+-- Name: django_content_type_app_label_model_key; Type: CONSTRAINT; Schema: public; Owner: flipped; Tablespace: 
+--
+
+ALTER TABLE ONLY django_content_type
+    ADD CONSTRAINT django_content_type_app_label_model_key UNIQUE (app_label, model);
+
+
+--
+-- Name: django_content_type_pkey; Type: CONSTRAINT; Schema: public; Owner: flipped; Tablespace: 
+--
+
+ALTER TABLE ONLY django_content_type
+    ADD CONSTRAINT django_content_type_pkey PRIMARY KEY (id);
+
+
+--
+-- Name: django_session_pkey; Type: CONSTRAINT; Schema: public; Owner: flipped; Tablespace: 
+--
+
+ALTER TABLE ONLY django_session
+    ADD CONSTRAINT django_session_pkey PRIMARY KEY (session_key);
+
+
+--
+-- Name: south_migrationhistory_pkey; Type: CONSTRAINT; Schema: public; Owner: flipped; Tablespace: 
+--
+
+ALTER TABLE ONLY south_migrationhistory
+    ADD CONSTRAINT south_migrationhistory_pkey PRIMARY KEY (id);
+
+
+--
+-- Name: auth_group_name_like; Type: INDEX; Schema: public; Owner: flipped; Tablespace: 
+--
+
+CREATE INDEX auth_group_name_like ON auth_group USING btree (name varchar_pattern_ops);
+
+
+--
+-- Name: auth_group_permissions_group_id; Type: INDEX; Schema: public; Owner: flipped; Tablespace: 
+--
+
+CREATE INDEX auth_group_permissions_group_id ON auth_group_permissions USING btree (group_id);
+
+
+--
+-- Name: auth_group_permissions_permission_id; Type: INDEX; Schema: public; Owner: flipped; Tablespace: 
+--
+
+CREATE INDEX auth_group_permissions_permission_id ON auth_group_permissions USING btree (permission_id);
+
+
+--
+-- Name: auth_permission_content_type_id; Type: INDEX; Schema: public; Owner: flipped; Tablespace: 
+--
+
+CREATE INDEX auth_permission_content_type_id ON auth_permission USING btree (content_type_id);
+
+
+--
+-- Name: auth_user_groups_group_id; Type: INDEX; Schema: public; Owner: flipped; Tablespace: 
+--
+
+CREATE INDEX auth_user_groups_group_id ON auth_user_groups USING btree (group_id);
+
+
+--
+-- Name: auth_user_groups_user_id; Type: INDEX; Schema: public; Owner: flipped; Tablespace: 
+--
+
+CREATE INDEX auth_user_groups_user_id ON auth_user_groups USING btree (user_id);
+
+
+--
+-- Name: auth_user_user_permissions_permission_id; Type: INDEX; Schema: public; Owner: flipped; Tablespace: 
+--
+
+CREATE INDEX auth_user_user_permissions_permission_id ON auth_user_user_permissions USING btree (permission_id);
+
+
+--
+-- Name: auth_user_user_permissions_user_id; Type: INDEX; Schema: public; Owner: flipped; Tablespace: 
+--
+
+CREATE INDEX auth_user_user_permissions_user_id ON auth_user_user_permissions USING btree (user_id);
+
+
+--
+-- Name: auth_user_username_like; Type: INDEX; Schema: public; Owner: flipped; Tablespace: 
+--
+
+CREATE INDEX auth_user_username_like ON auth_user USING btree (username varchar_pattern_ops);
+
+
+--
+-- Name: core_ratingreview_user_id; Type: INDEX; Schema: public; Owner: flipped; Tablespace: 
+--
+
+CREATE INDEX core_ratingreview_user_id ON core_ratingreview USING btree (user_id);
+
+
+--
+-- Name: core_ratingreview_video_id; Type: INDEX; Schema: public; Owner: flipped; Tablespace: 
+--
+
+CREATE INDEX core_ratingreview_video_id ON core_ratingreview USING btree (video_id);
+
+
+--
+-- Name: core_tag_name_like; Type: INDEX; Schema: public; Owner: flipped; Tablespace: 
+--
+
+CREATE INDEX core_tag_name_like ON core_tag USING btree (name varchar_pattern_ops);
+
+
+--
+-- Name: core_teachitem_parent_id; Type: INDEX; Schema: public; Owner: flipped; Tablespace: 
+--
+
+CREATE INDEX core_teachitem_parent_id ON core_teachitem USING btree (parent_id);
+
+
+--
+-- Name: core_teachtopic_parent_id; Type: INDEX; Schema: public; Owner: flipped; Tablespace: 
+--
+
+CREATE INDEX core_teachtopic_parent_id ON core_teachtopic USING btree (parent_id);
+
+
+--
+-- Name: core_textualreview_user_id; Type: INDEX; Schema: public; Owner: flipped; Tablespace: 
+--
+
+CREATE INDEX core_textualreview_user_id ON core_textualreview USING btree (user_id);
+
+
+--
+-- Name: core_textualreview_video_id; Type: INDEX; Schema: public; Owner: flipped; Tablespace: 
+--
+
+CREATE INDEX core_textualreview_video_id ON core_textualreview USING btree (video_id);
+
+
+--
+-- Name: core_videopage_tags_tag_id; Type: INDEX; Schema: public; Owner: flipped; Tablespace: 
+--
+
+CREATE INDEX core_videopage_tags_tag_id ON core_videopage_tags USING btree (tag_id);
+
+
+--
+-- Name: core_videopage_tags_videopage_id; Type: INDEX; Schema: public; Owner: flipped; Tablespace: 
+--
+
+CREATE INDEX core_videopage_tags_videopage_id ON core_videopage_tags USING btree (videopage_id);
+
+
+--
+-- Name: core_videopage_teach_item_id; Type: INDEX; Schema: public; Owner: flipped; Tablespace: 
+--
+
+CREATE INDEX core_videopage_teach_item_id ON core_videopage USING btree (teach_item_id);
+
+
+--
+-- Name: core_videopage_user_id; Type: INDEX; Schema: public; Owner: flipped; Tablespace: 
+--
+
+CREATE INDEX core_videopage_user_id ON core_videopage USING btree (user_id);
+
+
+--
+-- Name: django_admin_log_content_type_id; Type: INDEX; Schema: public; Owner: flipped; Tablespace: 
+--
+
+CREATE INDEX django_admin_log_content_type_id ON django_admin_log USING btree (content_type_id);
+
+
+--
+-- Name: django_admin_log_user_id; Type: INDEX; Schema: public; Owner: flipped; Tablespace: 
+--
+
+CREATE INDEX django_admin_log_user_id ON django_admin_log USING btree (user_id);
+
+
+--
+-- Name: django_session_expire_date; Type: INDEX; Schema: public; Owner: flipped; Tablespace: 
+--
+
+CREATE INDEX django_session_expire_date ON django_session USING btree (expire_date);
+
+
+--
+-- Name: django_session_session_key_like; Type: INDEX; Schema: public; Owner: flipped; Tablespace: 
+--
+
+CREATE INDEX django_session_session_key_like ON django_session USING btree (session_key varchar_pattern_ops);
+
+
+--
+-- Name: auth_group_permissions_permission_id_fkey; Type: FK CONSTRAINT; Schema: public; Owner: flipped
+--
+
+ALTER TABLE ONLY auth_group_permissions
+    ADD CONSTRAINT auth_group_permissions_permission_id_fkey FOREIGN KEY (permission_id) REFERENCES auth_permission(id) DEFERRABLE INITIALLY DEFERRED;
+
+
+--
+-- Name: auth_user_groups_group_id_fkey; Type: FK CONSTRAINT; Schema: public; Owner: flipped
+--
+
+ALTER TABLE ONLY auth_user_groups
+    ADD CONSTRAINT auth_user_groups_group_id_fkey FOREIGN KEY (group_id) REFERENCES auth_group(id) DEFERRABLE INITIALLY DEFERRED;
+
+
+--
+-- Name: auth_user_user_permissions_permission_id_fkey; Type: FK CONSTRAINT; Schema: public; Owner: flipped
+--
+
+ALTER TABLE ONLY auth_user_user_permissions
+    ADD CONSTRAINT auth_user_user_permissions_permission_id_fkey FOREIGN KEY (permission_id) REFERENCES auth_permission(id) DEFERRABLE INITIALLY DEFERRED;
+
+
+--
+-- Name: content_type_id_refs_id_93d2d1f8; Type: FK CONSTRAINT; Schema: public; Owner: flipped
+--
+
+ALTER TABLE ONLY django_admin_log
+    ADD CONSTRAINT content_type_id_refs_id_93d2d1f8 FOREIGN KEY (content_type_id) REFERENCES django_content_type(id) DEFERRABLE INITIALLY DEFERRED;
+
+
+--
+-- Name: content_type_id_refs_id_d043b34a; Type: FK CONSTRAINT; Schema: public; Owner: flipped
+--
+
+ALTER TABLE ONLY auth_permission
+    ADD CONSTRAINT content_type_id_refs_id_d043b34a FOREIGN KEY (content_type_id) REFERENCES django_content_type(id) DEFERRABLE INITIALLY DEFERRED;
+
+
+--
+-- Name: group_id_refs_id_f4b32aac; Type: FK CONSTRAINT; Schema: public; Owner: flipped
+--
+
+ALTER TABLE ONLY auth_group_permissions
+    ADD CONSTRAINT group_id_refs_id_f4b32aac FOREIGN KEY (group_id) REFERENCES auth_group(id) DEFERRABLE INITIALLY DEFERRED;
+
+
+--
+-- Name: parent_id_refs_id_c591cf38; Type: FK CONSTRAINT; Schema: public; Owner: flipped
+--
+
+ALTER TABLE ONLY core_teachitem
+    ADD CONSTRAINT parent_id_refs_id_c591cf38 FOREIGN KEY (parent_id) REFERENCES core_teachtopic(id) DEFERRABLE INITIALLY DEFERRED;
+
+
+--
+-- Name: parent_id_refs_id_fdbe991b; Type: FK CONSTRAINT; Schema: public; Owner: flipped
+--
+
+ALTER TABLE ONLY core_teachtopic
+    ADD CONSTRAINT parent_id_refs_id_fdbe991b FOREIGN KEY (parent_id) REFERENCES core_teachtopic(id) DEFERRABLE INITIALLY DEFERRED;
+
+
+--
+-- Name: tag_id_refs_id_3a2b739a; Type: FK CONSTRAINT; Schema: public; Owner: flipped
+--
+
+ALTER TABLE ONLY core_videopage_tags
+    ADD CONSTRAINT tag_id_refs_id_3a2b739a FOREIGN KEY (tag_id) REFERENCES core_tag(id) DEFERRABLE INITIALLY DEFERRED;
+
+
+--
+-- Name: teach_item_id_refs_id_e9cf5306; Type: FK CONSTRAINT; Schema: public; Owner: flipped
+--
+
+ALTER TABLE ONLY core_videopage
+    ADD CONSTRAINT teach_item_id_refs_id_e9cf5306 FOREIGN KEY (teach_item_id) REFERENCES core_teachitem(id) DEFERRABLE INITIALLY DEFERRED;
+
+
+--
+-- Name: user_id_refs_id_0e6a31ef; Type: FK CONSTRAINT; Schema: public; Owner: flipped
+--
+
+ALTER TABLE ONLY core_textualreview
+    ADD CONSTRAINT user_id_refs_id_0e6a31ef FOREIGN KEY (user_id) REFERENCES auth_user(id) DEFERRABLE INITIALLY DEFERRED;
+
+
+--
+-- Name: user_id_refs_id_40c41112; Type: FK CONSTRAINT; Schema: public; Owner: flipped
+--
+
+ALTER TABLE ONLY auth_user_groups
+    ADD CONSTRAINT user_id_refs_id_40c41112 FOREIGN KEY (user_id) REFERENCES auth_user(id) DEFERRABLE INITIALLY DEFERRED;
+
+
+--
+-- Name: user_id_refs_id_4dc23c39; Type: FK CONSTRAINT; Schema: public; Owner: flipped
+--
+
+ALTER TABLE ONLY auth_user_user_permissions
+    ADD CONSTRAINT user_id_refs_id_4dc23c39 FOREIGN KEY (user_id) REFERENCES auth_user(id) DEFERRABLE INITIALLY DEFERRED;
+
+
+--
+-- Name: user_id_refs_id_989c92af; Type: FK CONSTRAINT; Schema: public; Owner: flipped
+--
+
+ALTER TABLE ONLY core_ratingreview
+    ADD CONSTRAINT user_id_refs_id_989c92af FOREIGN KEY (user_id) REFERENCES auth_user(id) DEFERRABLE INITIALLY DEFERRED;
+
+
+--
+-- Name: user_id_refs_id_a43d7cec; Type: FK CONSTRAINT; Schema: public; Owner: flipped
+--
+
+ALTER TABLE ONLY core_videopage
+    ADD CONSTRAINT user_id_refs_id_a43d7cec FOREIGN KEY (user_id) REFERENCES auth_user(id) DEFERRABLE INITIALLY DEFERRED;
+
+
+--
+-- Name: user_id_refs_id_c0d12874; Type: FK CONSTRAINT; Schema: public; Owner: flipped
+--
+
+ALTER TABLE ONLY django_admin_log
+    ADD CONSTRAINT user_id_refs_id_c0d12874 FOREIGN KEY (user_id) REFERENCES auth_user(id) DEFERRABLE INITIALLY DEFERRED;
+
+
+--
+-- Name: video_id_refs_id_294073fb; Type: FK CONSTRAINT; Schema: public; Owner: flipped
+--
+
+ALTER TABLE ONLY core_ratingreview
+    ADD CONSTRAINT video_id_refs_id_294073fb FOREIGN KEY (video_id) REFERENCES core_videopage(id) DEFERRABLE INITIALLY DEFERRED;
+
+
+--
+-- Name: video_id_refs_id_6ea8b581; Type: FK CONSTRAINT; Schema: public; Owner: flipped
+--
+
+ALTER TABLE ONLY core_textualreview
+    ADD CONSTRAINT video_id_refs_id_6ea8b581 FOREIGN KEY (video_id) REFERENCES core_videopage(id) DEFERRABLE INITIALLY DEFERRED;
+
+
+--
+-- Name: videopage_id_refs_id_049d8c62; Type: FK CONSTRAINT; Schema: public; Owner: flipped
+--
+
+ALTER TABLE ONLY core_videopage_tags
+    ADD CONSTRAINT videopage_id_refs_id_049d8c62 FOREIGN KEY (videopage_id) REFERENCES core_videopage(id) DEFERRABLE INITIALLY DEFERRED;
+
+
+--
+-- Name: public; Type: ACL; Schema: -; Owner: postgres
+--
+
+REVOKE ALL ON SCHEMA public FROM PUBLIC;
+REVOKE ALL ON SCHEMA public FROM postgres;
+GRANT ALL ON SCHEMA public TO postgres;
+GRANT ALL ON SCHEMA public TO PUBLIC;
+
+
+--
+-- PostgreSQL database dump complete
+--
+
