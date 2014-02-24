@@ -1,5 +1,5 @@
 from django.db import models
-from wysihtml5.fields import Wysihtml5TextField
+from django.db.models.aggregates import Avg, Count
 import django.contrib.auth
 import sys
 
@@ -28,8 +28,20 @@ class VideoPage(models.Model):
     user             = models.ForeignKey(django.contrib.auth.get_user_model())
     teach_item       = models.ForeignKey(TeachItem, blank=True, null=True)
     tags             = models.ManyToManyField('Tag',related_name='videos',blank=True,null=True)
+    
     def __unicode__(self):
         return self.video_title
+    
+    def _fetch_rating(self, context):
+        rating = RatingReview.objects.filter(video__id=self.id, context=context).aggregate(count=Count('rate'),average=Avg('rate'))
+        rating['average'] = int(round(rating['average'])) if rating['average'] else 0
+        return rating
+    
+    def relevancy_rating(self):
+        return self._fetch_rating(RatingReview.context_choices[0][0])
+
+    def quality_rating(self):
+        return self._fetch_rating(RatingReview.context_choices[1][0]) 
 
 class Review(models.Model):
     class Meta:

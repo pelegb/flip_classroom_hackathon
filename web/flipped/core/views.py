@@ -3,7 +3,7 @@ from django.contrib.auth.decorators import login_required
 from django.core.urlresolvers import reverse
 from django.http.response import HttpResponseRedirect, HttpResponse
 from django.shortcuts import render, get_object_or_404
-from models import TeachItem, TeachTopic, VideoPage, Tag
+from models import TeachItem, TeachTopic, VideoPage
 import common.utils
 import forms
 import json
@@ -109,8 +109,8 @@ def topic_view(request,topic_id):
 
 def item_view(request,item_id):
     item = get_object_or_404(TeachItem, pk=item_id)
-    videos = VideoPage.objects.filter(teach_item=item)
+    videos = list(VideoPage.objects.filter(teach_item=item))
     ancestors = common.utils.get_ancestry_from_entity(item)
     ancestors = ancestors[:-1]
-    return render(request,'core/item_view.html', {'item': item, 'videos':videos, 'ancestors':ancestors})
+    return render(request,'core/item_view.html', {'item': item, 'videos':sorted(videos, key=lambda video: video.relevancy_rating()['average'], reverse=True), 'ancestors':ancestors})
 
