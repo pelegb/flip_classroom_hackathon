@@ -1,0 +1,17 @@
+Django==1.6.2
+Fabric==1.8.2
+Flask==0.10.1
+Jinja2==2.7.2
+MarkupSafe==0.18
+South==0.8.4
+Werkzeug==0.9.4
+django-extensions==1.3.3
+django-floppyforms==1.1.1
+django-wysihtml5==1.2b3
+ecdsa==0.10
+itsdangerous==0.23
+paramiko==1.12.2
+psycopg2==2.5.2
+pycrypto==2.6.1
+six==1.5.2
+wsgiref==0.1.2
