@@ -6,7 +6,8 @@ import models
 
 class VideoForm(forms.Form):
     edited_id = forms.IntegerField(widget=forms.HiddenInput(),initial=0)
-    link = forms.URLField(label=_("link"))
+    link = forms.URLField(label=_("link"),
+                          widget=forms.TextInput(attrs={'placeholder': 'https://www.youtube.com/watch?v=2H4RkudFzlc'}))
     title = forms.CharField(max_length=50,label=_("title"))
     content = forms.CharField(widget=Wysihtml5TextareaWidget(),label=_("content"))
     item = forms.ModelChoiceField(queryset=models.TeachItem.objects.all(),required=True, label=_("item"))
