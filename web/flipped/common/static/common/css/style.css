@@ -14,3 +14,7 @@ body {
 #id_content {
 	width: 400px;
 }
+
+.wideTextInput {
+    width:50%;
+}
