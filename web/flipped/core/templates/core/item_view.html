@@ -12,15 +12,15 @@
             {% endfor %}
             {% endif %}
 
-                <h1>{{ item.title }}</h1>
-	        {% if videos %}	
+            <h1>{{ item.title }}</h1>
+	        {% if videos %}
 	        <ul>
        		{% for video in videos %}
-	            <li><a href="../../videos/{{ video.id }}/">{{ video }}</a>, {% trans 'uploaded by' %}: {{ video.user.get_full_name }},  
+	            <li><a href="../../videos/{{ video.id }}/">{{ video }}</a>, {% trans 'uploaded by' %}: {{ video.user.get_full_name }}, <br>
 	               <span>{% trans 'technical quality' %}:</span>
                    <span id="rate_quality_{{ video.id }}"></span>
                    <span>{% trans 'relevancy' %}:</span>
-                   <span id="rate_rel_{{ video.id }}"></span> 
+                   <span id="rate_rel_{{ video.id }}"></span>
 	            </li>
 	            <script>
                         showRating('rate_quality_{{ video.id }}',{{ video.quality_rating.count }},{{ video.quality_rating.average }});
@@ -30,7 +30,7 @@
         	</ul>
 	        {% endif %}
 			<div class="row">
-        		{{item.description | safe}}	
+        		{{item.description | safe}}
         </div>
         </div> <!-- /container -->
 </div>
