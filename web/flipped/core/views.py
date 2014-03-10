@@ -14,20 +14,20 @@ def get_global_ratings(video):
     total_quality = RatingReview.objects.filter(context='quality',video=video).aggregate(count=Count('rate'),average=Avg('rate'))
     rate_quality = dict(average=int(round(total_quality['average'] or 0)),
                         count=total_quality['count'])
-                    
+
     total_rel = RatingReview.objects.filter(context='rel',video=video).aggregate(count=Count('rate'),average=Avg('rate'))
     rate_rel = dict(average=int(round(total_rel['average'] or 0)),
                     count=total_rel['count'])
-    
+
     return dict(rate_quality=rate_quality,rate_rel=rate_rel)
 
 def video_detail(request, video_id):
-    
+
     video = get_object_or_404(VideoPage, pk=video_id)
     ancestors = common.utils.get_ancestry_from_entity(video.teach_item)
     ctx = dict(video = video, ancestors = ancestors)
     ctx.update(get_global_ratings(video))
-    
+
     if request.user.is_authenticated():
         try:
             ctx['rate_quality']['cur'] = RatingReview.objects.get(user=request.user,context='quality',video=video).rate
@@ -38,7 +38,7 @@ def video_detail(request, video_id):
         except RatingReview.DoesNotExist:
             ctx['rate_rel']['cur'] = ''
     return render(request, 'core/video_detail.html', ctx)
-    
+
 @login_required
 def video_rate(request,video_id):
     if request.method == 'POST':
@@ -58,8 +58,8 @@ def video_rate(request,video_id):
         except Exception,e:
             error_dict = dict(error=unicode(e))
             return HttpResponse(status=400,content=json.dumps(error_dict),content_type='application/json')
-        
-    
+
+
 
 @login_required
 def add_video(request,video_id=None):
@@ -70,7 +70,7 @@ def add_video(request,video_id=None):
             initial = dict()
             video = VideoPage.objects.get(id=video_id)
             initial['content'] = video.content
-            initial['tags'] = video.tags.all() 
+            initial['tags'] = video.tags.all()
             initial['title'] = video.video_title
             initial['link'] = 'http://www.youtube.com/watch?v=%s' % (video.youtube_movie_id)
             initial['item'] = video.teach_item
@@ -92,7 +92,7 @@ def add_video(request,video_id=None):
             v.tags.clear()
             for t in form.cleaned_data['tags']:
                 v.tags.add(t)
-        
+
             return HttpResponseRedirect(reverse('core:video_detail',kwargs=dict(video_id=v.id)))
         else:
             print form.errors
@@ -114,3 +114,7 @@ def item_view(request,item_id):
     ancestors = ancestors[:-1]
     return render(request,'core/item_view.html', {'item': item, 'videos':sorted(videos, key=lambda video: video.relevancy_rating()['average'], reverse=True), 'ancestors':ancestors})
 
+@login_required
+def user_view(request):
+    videos = VideoPage.objects.filter(user=request.user)
+    return render(request, 'core/user_view.html', {'videos': videos})
