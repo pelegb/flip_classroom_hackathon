@@ -8,55 +8,95 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-02-24 21:14+0200\n"
+"POT-Creation-Date: 2014-03-10 22:16+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: \n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-#: core/forms.py:9
+#: common/templates/common/incl_top.html:28
+msgid "openclass"
+msgstr "שיעור פתוח"
+
+#: common/templates/common/incl_top.html:33
+msgid "teach topics"
+msgstr "נושאי לימוד"
+
+#: common/templates/common/incl_top.html:46
+#: core/templates/core/user_view.html:14 core/templates/core/user_view.html:31
+msgid "upload video"
+msgstr "העלאת סרטון"
+
+#: common/templates/common/incl_top.html:51
+#: core/templates/core/user_view.html:8
+msgid "hello"
+msgstr "שלום"
+
+#: common/templates/common/incl_top.html:52
+msgid "log out"
+msgstr "התנתק"
+
+#: common/templates/common/incl_top.html:54
+msgid "log in"
+msgstr "התחבר"
+
+#: common/templates/common/incl_top.html:55
+msgid "sign up"
+msgstr "הירשם"
+
+#: core/forms.py:11
 msgid "link"
 msgstr "קישור"
 
-#: core/forms.py:10
+#: core/forms.py:15
 msgid "title"
 msgstr "כותרת"
 
-#: core/forms.py:11
+#: core/forms.py:20
 msgid "content"
 msgstr "תוכן"
 
-#: core/forms.py:12
+#: core/forms.py:21
 msgid "item"
 msgstr "פריט"
 
-#: core/forms.py:13
+#: core/forms.py:22
 msgid "tags"
 msgstr "תגיות"
 
-#: core/forms.py:16 core/templates/core/item_view.html:18
+#: core/forms.py:25 core/templates/core/item_view.html:22
+#: core/templates/core/user_view.html:21
 #: core/templates/core/video_detail.html:32
 msgid "relevancy"
 msgstr "רלוונטיות"
 
-#: core/forms.py:17 core/templates/core/item_view.html:18
+#: core/forms.py:26 core/templates/core/item_view.html:20
+#: core/templates/core/user_view.html:19
 #: core/templates/core/video_detail.html:30
 msgid "technical quality"
 msgstr "איכות טכנית"
 
-#: core/templates/core/item_view.html:18
+#: core/templates/core/item_view.html:19
 msgid "uploaded by"
 msgstr "הועלה ע\"י"
+
+#: core/templates/core/user_view.html:13
+msgid "the videos you uploaded:"
+msgstr "הסרטונים שלך:"
+
+#: core/templates/core/user_view.html:35
+msgid "change your password"
+msgstr "שנה את סיסמתי"
 
 #: core/templates/core/video_detail.html:67
 msgid "rate"
 msgstr "דרג"
 
-#: fc_user/forms.py:4 fc_user/views.py:29
+#: fc_user/forms.py:4
 msgid "username"
 msgstr "שם משתמש"
 
@@ -68,13 +108,54 @@ msgstr "סיסמא"
 msgid "email"
 msgstr "דואל"
 
-#: fc_user/forms.py:7 fc_user/views.py:29
+#: fc_user/forms.py:7
 msgid "first_name"
 msgstr "שם פרטי"
 
-#: fc_user/forms.py:8 fc_user/views.py:29
+#: fc_user/forms.py:8
 msgid "last_name"
 msgstr "שם משפחה"
+
+#: fc_user/templates/fc_user/password_change.html:11
+msgid "Please correct the error below."
+msgstr "נא לתקן את השגיאה מתחת."
+
+#: fc_user/templates/fc_user/password_change.html:11
+msgid "Please correct the errors below."
+msgstr "נא לתקן את השגיאות מתחת."
+
+#: fc_user/templates/fc_user/password_change.html:15
+msgid "Password change"
+msgstr "שינוי סיסמא"
+
+#: fc_user/templates/fc_user/password_change.html:17
+msgid ""
+"Please enter your old password, for security's sake, and then enter your new "
+"password twice so we can verify you typed it in correctly."
+msgstr ""
+"נא להזין את סיסמתך הישנה, לצרכי אבטחה, ולאחר מכן את סיסמתך החדשה פעמיים כדי "
+"שנוכל לוודא שהקלדת אותה כראוי."
+
+#: fc_user/templates/fc_user/password_change.html:23
+msgid "Old password"
+msgstr "סיסמא ישנה"
+
+#: fc_user/templates/fc_user/password_change.html:28
+msgid "New password"
+msgstr "סיסמא חדשה"
+
+#: fc_user/templates/fc_user/password_change.html:33
+msgid "Password (again)"
+msgstr "סיסמא חדשה (שוב)"
+
+#: fc_user/templates/fc_user/password_change.html:39
+#, fuzzy
+msgid "Change my password"
+msgstr "סיסמא"
+
+#: fc_user/templates/fc_user/password_change_done.html:7
+msgid "Password change successful"
+msgstr "הסיסמא שונתה בהצלחה"
 
 #~ msgid "raters"
 #~ msgstr "מדרגים"
