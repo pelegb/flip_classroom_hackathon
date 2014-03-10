@@ -11,6 +11,7 @@
                 {% if videos %}
                 <h2>
                     {%trans 'the videos you uploaded:' %}
+                    <a href="{% url 'core:add_video' %}">{% trans 'upload video' %}</a>
                 </h2>
                 <ul>
                 {% for video in videos %}
@@ -26,7 +27,13 @@
                     </script>
                 {% endfor %}
                 </ul>
+                {% else %}
+                <a href="{% url 'core:add_video' %}">{% trans 'upload video' %}</a>
                 {% endif %}
+
+                <h2>
+                    <a href="{% url 'fc_user:password_change' %}" >{%trans 'change your password' %}</a>
+                </h2>
             </div>
         </div>
 {%endblock %}
