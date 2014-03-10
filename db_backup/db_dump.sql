@@ -843,13 +843,13 @@ SELECT pg_catalog.setval('auth_permission_id_seq', 42, true);
 
 COPY auth_user (id, password, last_login, is_superuser, username, first_name, last_name, email, is_staff, is_active, date_joined) FROM stdin;
 8	pbkdf2_sha256$12000$Tz7XNx3wlJ5S$wBk3XZBDNNZSEIfZAVvVl+//OBgXFadSInLYyV/VG8g=	2014-02-17 13:28:41.572163-05	f	noteacher	לאמורה	לאמורה	noteacher@teacher.com	f	t	2014-02-17 13:24:33-05
-4	pbkdf2_sha256$12000$IVyD5cDON7eP$PuT0HdET8knRuOln9D8EIMtTBNT+0s83ONsJh5REP5k=	2014-02-24 13:05:24.941912-05	t	barakp	ברק	פלג	pelegb@gmail.com	t	t	2014-01-20 15:37:27-05
 3	pbkdf2_sha256$12000$VMBQ6a6xTmQs$G48leBfbt6GjHuoBkczC9MUj5v6fqemiQ0ylorJptsM=	2014-02-25 03:29:14.266951-05	t	eran	ערן	קידר	ekeydar@gmail.com	t	t	2014-01-20 15:36:44-05
-2	pbkdf2_sha256$12000$RJcB0SFfQ2oD$D365n99NdMYEE3Xicga0PijrzCi4KR4r2BA8gJ+6d3E=	2014-02-26 05:17:45.738698-05	t	banitt81	איתמר	בנית	banitt81@yahoo.com	t	t	2014-01-20 15:35:23-05
 1	pbkdf2_sha256$12000$uPlKy3Oih2iu$lr3JvTcWE1gy2vuqTL0lwCNLlpqwNm5OOhNP3TLF/Yk=	2014-01-24 06:08:48.074708-05	t	flip	פליפ	פלופ	flip@flip.com	t	t	2014-01-20 15:30:21-05
 9	pbkdf2_sha256$12000$IcUTTyyHXFrA$b4x7HiPY/iv+bx/ZJ0zYvkA/oyfieYd6wCAZ4ZmPEdE=	2014-02-28 17:56:26.595882-05	f	yoniLavi	יוני	לביא	yoni@lavi.fm	f	t	2014-02-28 17:56:26.34728-05
 5	pbkdf2_sha256$12000$B1rh8eX57hdq$4XEiOJ7EShH5BLT9Kbf+ei4cOHTwEaL9iSxocyQCYFs=	2014-02-03 14:13:02.133729-05	f	gl1000007	גלעד	לייבוביץ	gl1000007@gmail.com	f	t	2014-02-03 14:13:01.872958-05
 10	pbkdf2_sha256$12000$sHyNIpdIVU8n$VAM/x0hMFxJ9tbT5+NEBKPYgCIhaFQm7YQ4ElLbqkOE=	2014-03-03 09:10:14.378773-05	f	zoco	זוקו	ניסיון	zocomail@yahoo.com	f	t	2014-03-03 09:09:55.272732-05
+2	pbkdf2_sha256$12000$RJcB0SFfQ2oD$D365n99NdMYEE3Xicga0PijrzCi4KR4r2BA8gJ+6d3E=	2014-03-10 14:11:40.382734-04	t	banitt81	איתמר	בנית	banitt81@yahoo.com	t	t	2014-01-20 15:35:23-05
+4	pbkdf2_sha256$12000$IVyD5cDON7eP$PuT0HdET8knRuOln9D8EIMtTBNT+0s83ONsJh5REP5k=	2014-03-10 14:56:38.138531-04	t	barakp	ברק	פלג	pelegb@gmail.com	t	t	2014-01-20 15:37:27-05
 6	pbkdf2_sha256$12000$188oeTJ170qT$Bby7e4xXghIMGmeJaYqP3CHa9yIMuvYN5cIM76ndiJQ=	2014-02-10 13:42:02.809739-05	f	shahar.josefbserg	shahar	josefsberg	shahar.josefsberg@gmail.com	f	t	2014-02-10 13:42:02.639976-05
 7	pbkdf2_sha256$12000$CwgaDoYkLhom$3Foe4GQ86fbh6876uyVxQY+hi+UT3kF37ghOucu0HQI=	2014-02-11 01:56:15.242213-05	f	xTheBawsx	ליאור	לוי	lior.levy@hotmail.com	f	t	2014-02-11 01:55:38.844816-05
 \.
@@ -1276,6 +1276,8 @@ xlavbw3otjip5ahptpsc9sb4orepw4ab	ODA5YTM3NWQyZTk5NDk2MjAyN2ZjYTE4YzQxODU1NDI3NWQ
 khmcy03olsa4psfw80zpn0hpb61z4g5g	OWQ5ZjMwNDExMzIwZDcyMGY5N2IwMjQ2YzkzNzUxODlmNjM4ODViNTp7Il9hdXRoX3VzZXJfYmFja2VuZCI6ImRqYW5nby5jb250cmliLmF1dGguYmFja2VuZHMuTW9kZWxCYWNrZW5kIiwiX2F1dGhfdXNlcl9pZCI6Mn0=	2014-02-24 08:55:58.758994-05
 4z2wf6ihw312uerqzru7520ncecdm6f7	OGI4ZGViYWY4M2U3Y2QwNzBlYjEwY2NmZWQ2M2JiM2EwZjgzYjUzNjp7Il9hdXRoX3VzZXJfYmFja2VuZCI6ImRqYW5nby5jb250cmliLmF1dGguYmFja2VuZHMuTW9kZWxCYWNrZW5kIiwiX2F1dGhfdXNlcl9pZCI6MTB9	2014-03-17 10:10:14.383688-04
 jir3cp1ekfnuxacngeti8wwml0fvbaya	ZGVhYzMyNzNiMzdlOGNiNGE0OWFlYTFjMmNiNzVlZWNmNzNmOGJhNjp7fQ==	2014-02-24 13:42:21.612771-05
+3uzzviducs9qhnqjujweza9owczdmgy0	OWQ5ZjMwNDExMzIwZDcyMGY5N2IwMjQ2YzkzNzUxODlmNjM4ODViNTp7Il9hdXRoX3VzZXJfYmFja2VuZCI6ImRqYW5nby5jb250cmliLmF1dGguYmFja2VuZHMuTW9kZWxCYWNrZW5kIiwiX2F1dGhfdXNlcl9pZCI6Mn0=	2014-03-24 14:11:40.387578-04
+5aiby0wm4pg2rndn4i97lbjcmouzinus	ZWIyNzkxY2JmZDI4NTlkNDA4Y2MxNWU5YzIzMDQ3NDNlN2E4YWIyMjp7Il9hdXRoX3VzZXJfYmFja2VuZCI6ImRqYW5nby5jb250cmliLmF1dGguYmFja2VuZHMuTW9kZWxCYWNrZW5kIiwiX2F1dGhfdXNlcl9pZCI6NH0=	2014-03-24 14:56:38.141943-04
 fzptgqqczgllmex02c5gdkbhmw7ogqmh	NjkzZjQ2Y2E0OTI3NzExYjBkNjczNTMxOTJmZmViMjhjOTE0ODgwYjp7Il9hdXRoX3VzZXJfYmFja2VuZCI6ImRqYW5nby5jb250cmliLmF1dGguYmFja2VuZHMuTW9kZWxCYWNrZW5kIiwiX2F1dGhfdXNlcl9pZCI6N30=	2014-02-25 01:56:15.246709-05
 qg6lbawjg35q7higlos6v5248i3eg4b9	OWQ5ZjMwNDExMzIwZDcyMGY5N2IwMjQ2YzkzNzUxODlmNjM4ODViNTp7Il9hdXRoX3VzZXJfYmFja2VuZCI6ImRqYW5nby5jb250cmliLmF1dGguYmFja2VuZHMuTW9kZWxCYWNrZW5kIiwiX2F1dGhfdXNlcl9pZCI6Mn0=	2014-02-26 11:55:27.632478-05
 uk2wmrwls3n68r90rqu51vbrtcgvow5q	OWQ5ZjMwNDExMzIwZDcyMGY5N2IwMjQ2YzkzNzUxODlmNjM4ODViNTp7Il9hdXRoX3VzZXJfYmFja2VuZCI6ImRqYW5nby5jb250cmliLmF1dGguYmFja2VuZHMuTW9kZWxCYWNrZW5kIiwiX2F1dGhfdXNlcl9pZCI6Mn0=	2014-03-03 13:26:07.570414-05
