@@ -1,4 +1,5 @@
 {% load staticfiles %}
+{% load i18n %}
 
 <!DOCTYPE HTML>
 <html>
@@ -24,37 +25,34 @@
 	<div class="navbar-inner">
 		<div class="container">
 			<a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse"> <span class="icon-bar"></span> <span class="icon-bar"></span> <span class="icon-bar"></span> </a>
-			<a class="brand" href="/">♲ שיעור פתוח</a>
+			<a class="brand" href="/">♲ {% trans 'openclass' %}</a>
 			<div class="nav-collapse collapse">
 				<ul class="nav">
 
 					<li class="dropdown">
-						<a href="#" class="dropdown-toggle" data-toggle="dropdown">נושאי לימוד<b class="caret"></b></a>
+						<a href="#" class="dropdown-toggle" data-toggle="dropdown">{% trans 'teach topics' %}<b class="caret"></b></a>
 						<ul class="dropdown-menu">
 						{% for topic in topics %}
 						<li>
-							<a href="/core/topic/{{ topic.id }}/">{{ topic }}</a>
+							<a href="{% url 'core:topic_view' topic.id %}">{{ topic }}</a>
 						</li>
 						{% endfor %}
 						</ul>
 					</li>
 
 					<li>
-						    <a href="/core/add-video/">
+						    <a href="{% url 'core:add_video' %}">
                                 <font color="#F1AE47">
-                                    העלאת סרטון
+                                    {% trans 'upload video' %}
                                 </font>
 						    </a>
 					</li>
-					<li>
-						<a href="#contact">העמוד שלי</a>
-					</li>
 					{% if user.is_active %}
-					<li dir="ltr"><a>שלום {{user.first_name}}</a></li>
-					<li dir="ltr"><a href="{% url 'fc_user:logout' %}">התנתק</a></li>
+					<li dir="ltr"><a href="{% url 'core:user_view' %}">{% trans 'hello' %} {{user.first_name}}</a></li>
+					<li dir="ltr"><a href="{% url 'fc_user:logout' %}">{% trans 'log out' %}</a></li>
 					{% else %}
-					<li dir="ltr"><a href="{% url 'fc_user:login' %}">התחבר</a></li>
-					<li dir="ltr"><a href="{% url 'fc_user:register' %}">הרשם</a></li>
+					<li dir="ltr"><a href="{% url 'fc_user:login' %}">{% trans 'log in' %}</a></li>
+					<li dir="ltr"><a href="{% url 'fc_user:register' %}">{% trans 'sign up' %}</a></li>
 					{% endif %}
 				</ul>
 			</div>
