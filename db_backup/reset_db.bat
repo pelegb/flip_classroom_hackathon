@@ -1,0 +1,5 @@
+set PGPASSWORD=flipped
+"C:\Program Files (x86)\PostgreSQL\9.1\bin\dropdb.exe" -U flipped flipped
+"C:\Program Files (x86)\PostgreSQL\9.1\bin\createdb.exe" -U flipped flipped
+"C:\Program Files (x86)\PostgreSQL\9.1\bin\psql.exe" -f db_dump.sql -U flipped
+
