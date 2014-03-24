@@ -18,3 +18,10 @@ body {
 .wideTextInput {
     width:50%;
 }
+
+.btn-primary {
+    width: 300px;
+    height: 70px;
+    text-align: center;
+    font-size: xx-large;
+}

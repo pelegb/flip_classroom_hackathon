@@ -1,3 +1,13 @@
 {% extends "common/base.html" %}
+{% block content %}
+{% load staticfiles %}
 
+<div class="container">
+    <div class="container-fluid">
+    {% for topic in topics %}
+        <a href="{% url 'core:topic_view' topic.id %}" class="btn btn-primary btn-lg">{{ topic }}</a>
+    {% endfor %}
+    </div>
+</div>
 
+{% endblock %}
