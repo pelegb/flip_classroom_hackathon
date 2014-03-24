@@ -1,12 +1,17 @@
 {% extends "common/base.html" %}
+{% load i18n %}
 {% block content %}
 {% load staticfiles %}
 
 <div class="container">
     <div class="container-fluid">
-    {% for topic in topics %}
-        <a href="{% url 'core:topic_view' topic.id %}" class="btn btn-primary btn-lg">{{ topic }}</a>
-    {% endfor %}
+	    <h1>{% trans 'Welcome' %}</h1>
+	    <h3>{% trans 'Please feel free to view the video items' %}</h3>
+	    <div class="btn-group-justified">
+	        {% for topic in topics %}
+	            <a href="{% url 'core:topic_view' topic.id %}" class="btn btn-primary btn-xlarge" role="button">{{ topic }}</a>
+	        {% endfor %}
+	    </div>
     </div>
 </div>
 
