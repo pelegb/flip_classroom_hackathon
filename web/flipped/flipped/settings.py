@@ -103,7 +103,7 @@ STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 LOGIN_URL = '/fc_user/login/'
 LOGIN_REDIRECT_URL = '/common/home/'
 
-
+SESSION_COOKIE_AGE = 3600 # in seconds
 
 LOCALE_PATHS = (os.path.join(BASE_DIR,'locale'),)
 
