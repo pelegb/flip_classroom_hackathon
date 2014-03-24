@@ -19,9 +19,12 @@ body {
     width:50%;
 }
 
-.btn-primary {
-    width: 300px;
-    height: 70px;
-    text-align: center;
-    font-size: xx-large;
-}
+.btn-xlarge {
+	width: 25%;
+    padding: 18px 28px;
+    font-size: 30px;
+    line-height: normal;
+    -webkit-border-radius: 8px;
+       -moz-border-radius: 8px;
+            border-radius: 8px;
+    }
