@@ -849,8 +849,8 @@ COPY auth_user (id, password, last_login, is_superuser, username, first_name, la
 5	pbkdf2_sha256$12000$B1rh8eX57hdq$4XEiOJ7EShH5BLT9Kbf+ei4cOHTwEaL9iSxocyQCYFs=	2014-02-03 14:13:02.133729-05	f	gl1000007	גלעד	לייבוביץ	gl1000007@gmail.com	f	t	2014-02-03 14:13:01.872958-05
 10	pbkdf2_sha256$12000$sHyNIpdIVU8n$VAM/x0hMFxJ9tbT5+NEBKPYgCIhaFQm7YQ4ElLbqkOE=	2014-03-03 09:10:14.378773-05	f	zoco	זוקו	ניסיון	zocomail@yahoo.com	f	t	2014-03-03 09:09:55.272732-05
 2	pbkdf2_sha256$12000$RJcB0SFfQ2oD$D365n99NdMYEE3Xicga0PijrzCi4KR4r2BA8gJ+6d3E=	2014-03-10 14:11:40.382734-04	t	banitt81	איתמר	בנית	banitt81@yahoo.com	t	t	2014-01-20 15:35:23-05
-4	pbkdf2_sha256$12000$IVyD5cDON7eP$PuT0HdET8knRuOln9D8EIMtTBNT+0s83ONsJh5REP5k=	2014-03-10 14:56:38.138531-04	t	barakp	ברק	פלג	pelegb@gmail.com	t	t	2014-01-20 15:37:27-05
 6	pbkdf2_sha256$12000$188oeTJ170qT$Bby7e4xXghIMGmeJaYqP3CHa9yIMuvYN5cIM76ndiJQ=	2014-02-10 13:42:02.809739-05	f	shahar.josefbserg	shahar	josefsberg	shahar.josefsberg@gmail.com	f	t	2014-02-10 13:42:02.639976-05
+4	pbkdf2_sha256$12000$IVyD5cDON7eP$PuT0HdET8knRuOln9D8EIMtTBNT+0s83ONsJh5REP5k=	2014-03-24 17:10:51.408549-04	t	barakp	ברק	פלג	pelegb@gmail.com	t	t	2014-01-20 15:37:27-05
 7	pbkdf2_sha256$12000$CwgaDoYkLhom$3Foe4GQ86fbh6876uyVxQY+hi+UT3kF37ghOucu0HQI=	2014-02-11 01:56:15.242213-05	f	xTheBawsx	ליאור	לוי	lior.levy@hotmail.com	f	t	2014-02-11 01:55:38.844816-05
 \.
 
@@ -984,12 +984,12 @@ COPY core_teachtopic (id, title, description, parent_id, order_index) FROM stdin
 5	מדעי המחשב	<div>תחום מדעי העוסק בפיתוח כלים לוגיים לפתרון בעיות, והתאמתם למערכות מחשב. בין השאר נכללים בתחום מדעי המחשב עיסוק בסיבוכיות פתרון בעיות מורכבות, וביישום מעשי של אלגוריתמים.</div>	\N	2147483647
 6	מבוא לתכנות בסביבת האינטרנט	<div>הפרק מבוא לתכנות בסביבת האינטרנט עוסק בהכרת הכלים הבסיסיים המשמשים כותבי אתרים. ביניהם HTML, javascript, טכנולוגיות ASP, ושפת SQL.<br>השלמת פרק זה תאפשר כתיבת אתר אינטרנט בעל חלקים דינמיים, מערכת רישום משתמשים ושימוש במסדי נתונים, הגבלת הרשאות משתמשים שונים ועוד.</div>	5	2147483647
 13	מדריך להקלטת סרטונים	<div>כאן ניתן ללמוד איך להקליט סרטונים ללא עלות כספית, לקבל רעיונות חדשים להמחשות גרפיות מעניינות ולהכיר תוכנות הקלטה ועריכה בסיסיות.<br></div>	15	2147483647
-15	שיעור פתוח - הקלטת סרטונים, שיעור הפוך...	<div>תכנית לימודים זו מכילה נושאים הקשורים ל:</div><div>- הקלטת סרטונים.</div><div>- שיעורים הפוכים.</div><div>- מחשבות על שימוש בסרטונים בכיתה.</div>	\N	2147483647
 7	HTML	<div>שפת HTML היא שפת סימון המאפשרת יצירת דפי אינטרנט. דפים אלו ייכתבו ע"י מתכנת או באמצעות קוד ויפורשו ע"י דפדפן לצורך הצגתם למשתמש.&nbsp;</div>	6	100
 9	javascript	<div>על מנת ליצור דפי אינטרנט דינמיים, כלומר כאלה המסוגלים להשתנות ולהתעדכן בהתאם לפעולות המשתמש, יש צורך להריץ קוד כלשהו על מחשב המשתמש. פרק זה עוסק בשפת תסריט (script) הקרויה javascript המאפשרת ביצוע פעולות אלה.</div>	6	200
 10	ASP	<div>ASP &nbsp;- active server page<br>טכנולוגיית ASP מקדמת אותנו צעד נוסף לכיוון יכולותיהם של אתרי אינטרנט מודרניים.<br>טכנולוגייה זו מאפשרת הרצת קוד על מחשב השרת בעת קבלת בקשהממשתמש לדף מסוים. כך, השרת יכול ליצור עבור המשתמש דף מיוחד המתאים לצרכיו וייחודי עבורו. דוגמאות טובות לשימוש ב ASP הן אתרי דוא"ל, אשר שולחים דף HTML המכיל את הודעות הדוא"ל של משתמש מסוים ברגע מסוים, או אתרי חיפוש, היוצרים דף המכיל תשובה לשאלה ששאל המשתמש זה עתה.</div>	6	300
 12	קוד צד שרת - נושאים מתקדמים	<div>פרק זה מכיל עיסוק בשני אובייקטים הקיימים בצד שרת ומאפשרים שמירת מידע במעבר בין דפים שונים ובין משתמשים שונים - אובייקט session ואובייקט applictaion.<br>בעזרת שני אובייקטים אלו יכול השרת להעביר מידע בין דפי האתר לגבי משתמש מסוים ולהעביר מידע בין משתמשים שונים באותו האתר.</div>	6	500
 11	SQL	<div>SQL - structured query language<br><br>שפת SQL מגדירה דרך סטנדרטית לגשת למסדי נתונים. שפה זו תאפשר לנו ליצור ולשנות מסדי נתונים במחשב השרת ובכך לשמור נתונים באתר גם ללא נוכחות של גולשים. למשל - שמירת רשימת משתמשים רשומים, או מוצרים לרכישה באתר של חנות מקוונת.</div>	6	400
+15	ליצור וללמד	<div>תכנית לימודים זו מכילה נושאים הקשורים ל:</div><div>- הקלטת סרטונים.</div><div>- שיעורים הפוכים.</div><div>- מחשבות על שימוש בסרטונים בכיתה.</div>	\N	2147483647
 \.
 
 
@@ -1213,6 +1213,7 @@ COPY django_admin_log (id, action_time, user_id, content_type_id, object_id, obj
 119	2014-02-24 14:37:43.907137-05	2	9	30	הקלטת מסך - screenCasting	2	order_index שונה.
 120	2014-02-24 14:37:50.397228-05	2	9	32	עריכת סרטונים	2	order_index שונה.
 121	2014-02-24 14:39:42.522462-05	2	9	2	תכונות ב HTML	2	order_index שונה.
+122	2014-03-24 17:11:11.650036-04	4	8	15	ליצור וללמד	2	title שונה.
 \.
 
 
@@ -1220,7 +1221,7 @@ COPY django_admin_log (id, action_time, user_id, content_type_id, object_id, obj
 -- Name: django_admin_log_id_seq; Type: SEQUENCE SET; Schema: public; Owner: flipped
 --
 
-SELECT pg_catalog.setval('django_admin_log_id_seq', 121, true);
+SELECT pg_catalog.setval('django_admin_log_id_seq', 122, true);
 
 
 --
@@ -1278,6 +1279,7 @@ khmcy03olsa4psfw80zpn0hpb61z4g5g	OWQ5ZjMwNDExMzIwZDcyMGY5N2IwMjQ2YzkzNzUxODlmNjM
 jir3cp1ekfnuxacngeti8wwml0fvbaya	ZGVhYzMyNzNiMzdlOGNiNGE0OWFlYTFjMmNiNzVlZWNmNzNmOGJhNjp7fQ==	2014-02-24 13:42:21.612771-05
 3uzzviducs9qhnqjujweza9owczdmgy0	OWQ5ZjMwNDExMzIwZDcyMGY5N2IwMjQ2YzkzNzUxODlmNjM4ODViNTp7Il9hdXRoX3VzZXJfYmFja2VuZCI6ImRqYW5nby5jb250cmliLmF1dGguYmFja2VuZHMuTW9kZWxCYWNrZW5kIiwiX2F1dGhfdXNlcl9pZCI6Mn0=	2014-03-24 14:11:40.387578-04
 5aiby0wm4pg2rndn4i97lbjcmouzinus	ZWIyNzkxY2JmZDI4NTlkNDA4Y2MxNWU5YzIzMDQ3NDNlN2E4YWIyMjp7Il9hdXRoX3VzZXJfYmFja2VuZCI6ImRqYW5nby5jb250cmliLmF1dGguYmFja2VuZHMuTW9kZWxCYWNrZW5kIiwiX2F1dGhfdXNlcl9pZCI6NH0=	2014-03-24 14:56:38.141943-04
+dlghdx9786dtp7a10h770wnwbp40it5d	ZWIyNzkxY2JmZDI4NTlkNDA4Y2MxNWU5YzIzMDQ3NDNlN2E4YWIyMjp7Il9hdXRoX3VzZXJfYmFja2VuZCI6ImRqYW5nby5jb250cmliLmF1dGguYmFja2VuZHMuTW9kZWxCYWNrZW5kIiwiX2F1dGhfdXNlcl9pZCI6NH0=	2014-03-24 18:10:51.411778-04
 fzptgqqczgllmex02c5gdkbhmw7ogqmh	NjkzZjQ2Y2E0OTI3NzExYjBkNjczNTMxOTJmZmViMjhjOTE0ODgwYjp7Il9hdXRoX3VzZXJfYmFja2VuZCI6ImRqYW5nby5jb250cmliLmF1dGguYmFja2VuZHMuTW9kZWxCYWNrZW5kIiwiX2F1dGhfdXNlcl9pZCI6N30=	2014-02-25 01:56:15.246709-05
 qg6lbawjg35q7higlos6v5248i3eg4b9	OWQ5ZjMwNDExMzIwZDcyMGY5N2IwMjQ2YzkzNzUxODlmNjM4ODViNTp7Il9hdXRoX3VzZXJfYmFja2VuZCI6ImRqYW5nby5jb250cmliLmF1dGguYmFja2VuZHMuTW9kZWxCYWNrZW5kIiwiX2F1dGhfdXNlcl9pZCI6Mn0=	2014-02-26 11:55:27.632478-05
 uk2wmrwls3n68r90rqu51vbrtcgvow5q	OWQ5ZjMwNDExMzIwZDcyMGY5N2IwMjQ2YzkzNzUxODlmNjM4ODViNTp7Il9hdXRoX3VzZXJfYmFja2VuZCI6ImRqYW5nby5jb250cmliLmF1dGguYmFja2VuZHMuTW9kZWxCYWNrZW5kIiwiX2F1dGhfdXNlcl9pZCI6Mn0=	2014-03-03 13:26:07.570414-05
