@@ -37,11 +37,16 @@
 					showRating('rate_rel',{{ rate_rel.count }},{{ rate_rel.average }});
 				</script>
 				<p>
-			            {% if ancestors %}
-			            {% for ancestor in ancestors %}
-			            {% if forloop.first %} {% else %} >> {% endif %}<a href="../../topic/{{ ancestor.id }}/">{{ ancestor }}</a> 
-			            {% endfor %}
-			            {% endif %}
+                    {% if ancestors %}
+                        {% for ancestor in ancestors %}
+                            {% if forloop.first %} {% else %} >> {% endif %}
+                            {% if forloop.last %} 
+                                <a href="../../item/{{ ancestor.id }}/">{{ ancestor }}</a>
+                            {% else %} 
+                                <a href="../../topic/{{ ancestor.id }}/">{{ ancestor }}</a> 
+                            {% endif %}
+                        {% endfor %}
+                    {% endif %}
 				</p>
 
 				<iframe width="800" height="500" src="//www.youtube.com/embed/{{ video.youtube_movie_id }}" frameborder="0" allowfullscreen></iframe>

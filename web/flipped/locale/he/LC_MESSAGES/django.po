@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-03-24 22:30+0200\n"
+"POT-Creation-Date: 2014-04-07 22:02+0300\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -24,36 +24,47 @@ msgstr "ברוכים הבאים ל\"שיעור פתוח\""
 
 #: .\common\templates\common\home.html:9
 msgid "Please feel free to view the video items"
-msgstr "אתם מוזמנים להיכנס לתכניות הלימודים ולצפות בסרטונים וכן להרשם וליצור סרטונים עבור תכניות אלה"
+msgstr ""
+"אתם מוזמנים להיכנס לתכניות הלימודים ולצפות בסרטונים וכן להרשם וליצור סרטונים "
+"עבור תכניות אלה"
 
-#: .\common\templates\common\incl_top.html:28
-msgid "openclass"
+#: .\common\templates\common\home.html:16
+msgid "Uploaded recently"
+msgstr "הועלה לאחרונה"
+
+#: .\common\templates\common\home.html:19
+msgid "uploaded"
+msgstr "הועלה ע\"י"
+
+#: .\common\templates\common\incl_top.html:7
+#: .\common\templates\common\incl_top.html:29
+msgid "Open Class"
 msgstr "שיעור פתוח"
 
-#: .\common\templates\common\incl_top.html:33
+#: .\common\templates\common\incl_top.html:34
 msgid "teach topics"
 msgstr "נושאי לימוד"
 
-#: .\common\templates\common\incl_top.html:46
+#: .\common\templates\common\incl_top.html:47
 #: .\core\templates\core\user_view.html:14
 #: .\core\templates\core\user_view.html:31
 msgid "upload video"
 msgstr "העלאת סרטון"
 
-#: .\common\templates\common\incl_top.html:51
+#: .\common\templates\common\incl_top.html:52
 #: .\core\templates\core\user_view.html:8
 msgid "hello"
 msgstr "שלום"
 
-#: .\common\templates\common\incl_top.html:52
+#: .\common\templates\common\incl_top.html:53
 msgid "log out"
 msgstr "התנתק"
 
-#: .\common\templates\common\incl_top.html:54
+#: .\common\templates\common\incl_top.html:55
 msgid "log in"
 msgstr "התחבר"
 
-#: .\common\templates\common\incl_top.html:55
+#: .\common\templates\common\incl_top.html:56
 msgid "sign up"
 msgstr "הירשם"
 
@@ -101,7 +112,7 @@ msgstr "הסרטונים שלך:"
 msgid "change your password"
 msgstr "שנה את סיסמתי"
 
-#: .\core\templates\core\video_detail.html:67
+#: .\core\templates\core\video_detail.html:72
 msgid "rate"
 msgstr "דרג"
 
@@ -165,6 +176,9 @@ msgstr "סיסמא"
 #: .\fc_user\templates\fc_user\password_change_done.html:7
 msgid "Password change successful"
 msgstr "הסיסמא שונתה בהצלחה"
+
+#~ msgid "openclass"
+#~ msgstr "שיעור פתוח"
 
 #~ msgid "raters"
 #~ msgstr "מדרגים"
