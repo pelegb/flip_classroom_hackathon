@@ -20,11 +20,13 @@ body {
 }
 
 .btn-xlarge {
-	width: 25%;
-    padding: 18px 28px;
+    padding: 27px 28px;
     font-size: 30px;
     line-height: normal;
+    margin-bottom: 5px;
+    width: 100%;
     -webkit-border-radius: 8px;
        -moz-border-radius: 8px;
             border-radius: 8px;
     }
+ 
