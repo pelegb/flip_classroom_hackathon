@@ -1,10 +1,5 @@
 import urlparse
-import models
 from core.models import TeachTopic
-from core.models import TeachItem
-from core.models import VideoPage
-from django.db import models
-
 
 def parse_video_id_from_link(link):
     url_data = urlparse.urlparse(link)
