@@ -8,7 +8,7 @@
 	    <h1>{% trans 'Welcome' %}</h1>
 	    <h3>{% trans 'Please feel free to view the video items' %}</h3>
 	    <div class="row">
-	       <div class="span5 btn-group-vertical">
+	       <div class="span4 btn-group-vertical">
 	           {% for topic in topics %}
 	               <a href="{% url 'core:topic_view' topic.id %}" class="btn btn-primary btn-xlarge" role="button">{{ topic }}</a>
 	           {% endfor %}
