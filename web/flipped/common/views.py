@@ -1,9 +1,10 @@
 from django.shortcuts import render
-from django.template.context import RequestContext
+import core.models
 
 # Create your views here.
 
 def home(request):
-    return render(request,'common/home.html')
+    feed = core.models.VideoPage.objects.order_by('-upload_date')[:5]
+    return render(request,'common/home.html', {'feed':feed})
 
 
