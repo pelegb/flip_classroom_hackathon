@@ -26,9 +26,8 @@
             <div class="span2">
             <a href="{% url 'core:video_detail' video.id %}">
             <img src="http://img.youtube.com/vi/{{ video.youtube_movie_id }}/0.jpg">
-            {{ video.video_title }} <br>
-            {% trans 'uploaded' %} {{ video.upload_date.date }}
-            </a>
+            {{ video.video_title }}</a> <br>
+            {% trans 'published' %} {{ video.upload_date | date:'j/n/y' }}
             </div>
         {% endfor %}
         </div>

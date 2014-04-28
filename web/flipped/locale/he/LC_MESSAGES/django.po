@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-04-07 22:58+0300\n"
+"POT-Creation-Date: 2014-04-28 21:39+0300\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -33,8 +33,8 @@ msgid "Uploaded recently:"
 msgstr "הועלה לאחרונה:"
 
 #: .\common\templates\common\home.html:30
-msgid "uploaded"
-msgstr "הועלה ע\"י"
+msgid "published"
+msgstr "הועלה ב-"
 
 #: .\common\templates\common\incl_top.html:7
 #: .\common\templates\common\incl_top.html:29
@@ -103,6 +103,10 @@ msgstr "איכות טכנית"
 #: .\core\templates\core\item_view.html:19
 msgid "uploaded by"
 msgstr "הועלה ע\"י"
+
+#: .\core\templates\core\item_view.html:32
+msgid "Be the first to upload a video"
+msgstr "רוצים להיות הראשונים? העלו סרטון"
 
 #: .\core\templates\core\user_view.html:13
 msgid "the videos you uploaded:"
@@ -176,6 +180,9 @@ msgstr "סיסמא"
 #: .\fc_user\templates\fc_user\password_change_done.html:7
 msgid "Password change successful"
 msgstr "הסיסמא שונתה בהצלחה"
+
+#~ msgid "uploaded"
+#~ msgstr "הועלה ע\"י"
 
 #~ msgid "openclass"
 #~ msgstr "שיעור פתוח"
