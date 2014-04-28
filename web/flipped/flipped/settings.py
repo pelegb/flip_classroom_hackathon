@@ -118,5 +118,5 @@ except ImportError:
     pass
 
 
-
+GOOGLE_API_KEY = 'AIzaSyCoW4x6Mck2P9VIHwC0um11QNf2RBPavAs'
 
