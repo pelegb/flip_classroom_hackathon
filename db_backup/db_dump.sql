@@ -842,6 +842,7 @@ SELECT pg_catalog.setval('auth_permission_id_seq', 42, true);
 --
 
 COPY auth_user (id, password, last_login, is_superuser, username, first_name, last_name, email, is_staff, is_active, date_joined) FROM stdin;
+13	pbkdf2_sha256$12000$0RmRSK8MCjv1$TsNcO1G3lRD4SQf5rii1zJWOz5hdDNlutaHCxbOFjNc=	2014-04-28 15:46:32.062094-04	f	tomahidror	תום	אחי דרור	tom.ahidror@gmail.com	f	t	2014-04-28 15:46:31.915889-04
 8	pbkdf2_sha256$12000$Tz7XNx3wlJ5S$wBk3XZBDNNZSEIfZAVvVl+//OBgXFadSInLYyV/VG8g=	2014-02-17 13:28:41.572163-05	f	noteacher	לאמורה	לאמורה	noteacher@teacher.com	f	t	2014-02-17 13:24:33-05
 3	pbkdf2_sha256$12000$VMBQ6a6xTmQs$G48leBfbt6GjHuoBkczC9MUj5v6fqemiQ0ylorJptsM=	2014-02-25 03:29:14.266951-05	t	eran	ערן	קידר	ekeydar@gmail.com	t	t	2014-01-20 15:36:44-05
 1	pbkdf2_sha256$12000$uPlKy3Oih2iu$lr3JvTcWE1gy2vuqTL0lwCNLlpqwNm5OOhNP3TLF/Yk=	2014-01-24 06:08:48.074708-05	t	flip	פליפ	פלופ	flip@flip.com	t	t	2014-01-20 15:30:21-05
@@ -852,8 +853,8 @@ COPY auth_user (id, password, last_login, is_superuser, username, first_name, la
 7	pbkdf2_sha256$12000$CwgaDoYkLhom$3Foe4GQ86fbh6876uyVxQY+hi+UT3kF37ghOucu0HQI=	2014-02-11 01:56:15.242213-05	f	xTheBawsx	ליאור	לוי	lior.levy@hotmail.com	f	t	2014-02-11 01:55:38.844816-05
 11	pbkdf2_sha256$12000$Zpy8TeXATh1W$cUYfmw0QB3R4heBt0rasRvtqzNOHF9OXe6Vznlbc/k8=	2014-04-07 04:26:52.384281-04	f	avivsalem	אביב	סלם	avivsalem@gmail.com	f	t	2014-04-07 04:26:52.199572-04
 12	pbkdf2_sha256$12000$yoHsHLSn2bTt$aMWQrKqZHtg78vjkGL9GBukw1hoWo/r/tVPUCJLQ5eo=	2014-04-24 02:24:24.131104-04	f	dpaluy	דוד	פלוי	dpaluy@gmail.com	f	t	2014-04-24 02:24:23.846583-04
-2	pbkdf2_sha256$12000$RJcB0SFfQ2oD$D365n99NdMYEE3Xicga0PijrzCi4KR4r2BA8gJ+6d3E=	2014-04-28 14:08:33.425211-04	t	banitt81	איתמר	בנית	banitt81@yahoo.com	t	t	2014-01-20 15:35:23-05
 4	pbkdf2_sha256$12000$IVyD5cDON7eP$PuT0HdET8knRuOln9D8EIMtTBNT+0s83ONsJh5REP5k=	2014-04-28 14:58:37.677447-04	t	barakp	ברק	פלג	pelegb@gmail.com	t	t	2014-01-20 15:37:27-05
+2	pbkdf2_sha256$12000$RJcB0SFfQ2oD$D365n99NdMYEE3Xicga0PijrzCi4KR4r2BA8gJ+6d3E=	2014-04-28 15:16:23.302082-04	t	banitt81	איתמר	בנית	banitt81@yahoo.com	t	t	2014-01-20 15:35:23-05
 \.
 
 
@@ -880,7 +881,7 @@ SELECT pg_catalog.setval('auth_user_groups_id_seq', 8, true);
 -- Name: auth_user_id_seq; Type: SEQUENCE SET; Schema: public; Owner: flipped
 --
 
-SELECT pg_catalog.setval('auth_user_id_seq', 12, true);
+SELECT pg_catalog.setval('auth_user_id_seq', 13, true);
 
 
 --
@@ -1069,6 +1070,7 @@ COPY core_videopage (id, youtube_movie_id, upload_date, content, video_title, us
 13	XEWwyUaTaDM	2014-02-10 09:28:07.008147-05	<div>0:00 - מה מטרת המחלקה MyADOHelper?<br>0:40 - תזכורת - מהי מחלקה?<br>2:03 - הכללת המחלקה MyAdoHelper בפרויקט ב visual studio.<br><br></div>	היכרות עם המחלקה myADOHelper	2	24
 14	ExcGOR2FEfQ	2014-02-10 09:28:37.017639-05	<div>0:00 - תוכן הסרטון.<br>0:20 - סקירת מסד הנתונים עליו נעבוד בסרטון.<br>1:05 - הפעולה DoQuery.<br>1:26 - קריאה כללית של הפעולה במחלקה MyAdoHelper, סקירת הפרמטרים של הפעולה.<br>2:18 - קריאה לפעולה Doquery מתוך פעולת Page_Load, בעזרת שאילתה שנוצרה ידנית.<br>3:30 - הרצת הקוד ובדיקת שינוי מסד הנתונים.<br>4:40 - חיבור לטופס - סקירת הטופס בו נשתמש.<br>5:28 - חילוץ נתוני הטופס מאובייקט request.<br>6:15 - שינוי השימוש בפעולת DoQuery ויצירתה בעזרת הנתונים שחולצו מאובייקט request.<br>6:45 - הפעלת האתר והכנסת נתונם למסד הנתונים בעזרת טופס.<br>7:32 - סקירה חוזרת של השתלשלות האירועים - טופס -&gt; בדיקת קלט -&gt; צד שרת....<br>8:04 - סיכום<br><br></div>	פעולת DoQuery	2	24
 44	S3mI81jNtHs	2014-04-28 13:26:40.136316-04	<div>0:00 - מבוא<br>0:28 - הגדרת השאלה - מה המצב הטבעי של גוף?<br>0:43 - תפיסה יומיומית - כאשר אין השפעות חיצוניות על גוף - הוא עוצר.<br>0:50 - כיצד היו מתנהגים חפצים ברכבת?<br>1:30 - דוגמה נוספת - חיכוך.<br>2:15 - החוק הראשון של ניוטון.<br>2:51 - משיכת נייר מתחת לחפץ.<br>3:15 - חפץ הממשיך לנוע בעצירה פתאומית.<br>3:29 - הסבר התנהגות הגוף בעת נסיעה ברכב.<br><br></div>	החוק הראשון של ניוטון	2	35
+45	8KMllMbQ6x4	2014-04-28 15:58:13.434107-04	<div>מתוך פורום הפיס לחינוך 2013.<br>קישור לאתר הפורום:<br><a rel="nofollow" target="_blank" href="http://www.eduactionforum.com/%D7%9B%D7%99%D7%AA%D7%94-%D7%94%D7%A4%D7%95%D7%9B%D7%94-%D7%9C%D7%95%D7%9E%D7%93%D7%99%D7%9D-%D7%91%D7%91%D7%99%D7%AA-%D7%9E%D7%AA%D7%A8%D7%92%D7%9C%D7%99%D7%9D-%D7%91%D7%9B%D7%99%D7%AA%D7%94/">http://www.eduactionforum.com/%D7%9B%D7%99%D7%AA%D7%94-%D7%94%D7%A4%D7%95%D7%9B%D7%94-%D7%9C%D7%95%D...</a><br></div>	אביב צמח, מורה לאזרחות, על "כיתה הפוכה"	13	31
 \.
 
 
@@ -1076,7 +1078,7 @@ COPY core_videopage (id, youtube_movie_id, upload_date, content, video_title, us
 -- Name: core_videopage_id_seq; Type: SEQUENCE SET; Schema: public; Owner: flipped
 --
 
-SELECT pg_catalog.setval('core_videopage_id_seq', 44, true);
+SELECT pg_catalog.setval('core_videopage_id_seq', 45, true);
 
 
 --
@@ -1304,6 +1306,8 @@ rossbag69sru2ih4j8ga0a18qyvasond	NTQwYWM5NjBmODMyMzM5NjEyY2VkZDkzOGRkZGMwZDhiYTc
 k8e11mwrqtwozs8bf7qhyen0kr3xdyqf	OWQ5ZjMwNDExMzIwZDcyMGY5N2IwMjQ2YzkzNzUxODlmNjM4ODViNTp7Il9hdXRoX3VzZXJfYmFja2VuZCI6ImRqYW5nby5jb250cmliLmF1dGguYmFja2VuZHMuTW9kZWxCYWNrZW5kIiwiX2F1dGhfdXNlcl9pZCI6Mn0=	2014-04-28 14:08:10.449479-04
 du1dd4pxndahcbzkg5s9r40pxrs6ku1i	OWQ5ZjMwNDExMzIwZDcyMGY5N2IwMjQ2YzkzNzUxODlmNjM4ODViNTp7Il9hdXRoX3VzZXJfYmFja2VuZCI6ImRqYW5nby5jb250cmliLmF1dGguYmFja2VuZHMuTW9kZWxCYWNrZW5kIiwiX2F1dGhfdXNlcl9pZCI6Mn0=	2014-04-28 15:08:33.428398-04
 sy15jqvky5ooofxdp1rype4l42tep0gk	ZGVhYzMyNzNiMzdlOGNiNGE0OWFlYTFjMmNiNzVlZWNmNzNmOGJhNjp7fQ==	2014-04-28 15:58:46.619496-04
+41mkzfcp3w2i67nx1j1uu8o9q90m92h0	OWQ5ZjMwNDExMzIwZDcyMGY5N2IwMjQ2YzkzNzUxODlmNjM4ODViNTp7Il9hdXRoX3VzZXJfYmFja2VuZCI6ImRqYW5nby5jb250cmliLmF1dGguYmFja2VuZHMuTW9kZWxCYWNrZW5kIiwiX2F1dGhfdXNlcl9pZCI6Mn0=	2014-04-28 16:16:23.307282-04
+josoyzj8bisd4zbdsnf401xb9ffeh27r	MWI1ODY4YzkzZTI4NGM4MWI5NDg0YTQxOWRhM2QxOWJiZDU4MTFhNjp7Il9hdXRoX3VzZXJfYmFja2VuZCI6ImRqYW5nby5jb250cmliLmF1dGguYmFja2VuZHMuTW9kZWxCYWNrZW5kIiwiX2F1dGhfdXNlcl9pZCI6MTN9	2014-04-28 16:46:32.0645-04
 uk2wmrwls3n68r90rqu51vbrtcgvow5q	OWQ5ZjMwNDExMzIwZDcyMGY5N2IwMjQ2YzkzNzUxODlmNjM4ODViNTp7Il9hdXRoX3VzZXJfYmFja2VuZCI6ImRqYW5nby5jb250cmliLmF1dGguYmFja2VuZHMuTW9kZWxCYWNrZW5kIiwiX2F1dGhfdXNlcl9pZCI6Mn0=	2014-03-03 13:26:07.570414-05
 \.
 
