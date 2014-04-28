@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-04-28 21:39+0300\n"
+"POT-Creation-Date: 2014-04-29 00:24+0300\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -68,33 +68,38 @@ msgstr "התחבר"
 msgid "sign up"
 msgstr "הירשם"
 
-#: .\core\forms.py:11
+#: .\core\forms.py:32
+msgid "Invalid YouTube URL"
+msgstr "יש להזין כתובת יוטיוב תקינה"
+
+#: .\core\forms.py:38
+#, python-format
+msgid "Video could not be found on YouTube for ID: %(id)s"
+msgstr "לא נמצא סרטון יוטיוב עם מזהה: %(id)s"
+
+#: .\core\forms.py:43
 msgid "link"
 msgstr "קישור"
 
-#: .\core\forms.py:15
+#: .\core\forms.py:48
 msgid "title"
 msgstr "כותרת"
 
-#: .\core\forms.py:20
+#: .\core\forms.py:53
 msgid "content"
 msgstr "תוכן"
 
-#: .\core\forms.py:21
+#: .\core\forms.py:54
 msgid "item"
 msgstr "פריט"
 
-#: .\core\forms.py:22
-msgid "tags"
-msgstr "תגיות"
-
-#: .\core\forms.py:25 .\core\templates\core\item_view.html:22
+#: .\core\forms.py:58 .\core\templates\core\item_view.html:22
 #: .\core\templates\core\user_view.html:21
 #: .\core\templates\core\video_detail.html:32
 msgid "relevancy"
 msgstr "רלוונטיות"
 
-#: .\core\forms.py:26 .\core\templates\core\item_view.html:20
+#: .\core\forms.py:59 .\core\templates\core\item_view.html:20
 #: .\core\templates\core\user_view.html:19
 #: .\core\templates\core\video_detail.html:30
 msgid "technical quality"
@@ -180,6 +185,9 @@ msgstr "סיסמא"
 #: .\fc_user\templates\fc_user\password_change_done.html:7
 msgid "Password change successful"
 msgstr "הסיסמא שונתה בהצלחה"
+
+#~ msgid "tags"
+#~ msgstr "תגיות"
 
 #~ msgid "uploaded"
 #~ msgstr "הועלה ע\"י"
