@@ -29,13 +29,13 @@ def validate_youtube(value):
     try:
         video_id = parse_video_id_from_link(value)
     except:
-        raise ValidationError(u'Invalid YouTube URL')
+        raise ValidationError(_(u'Invalid YouTube URL'))
     
     try:
         r = requests.get('https://www.googleapis.com/youtube/v3/videos', params={'key' : GOOGLE_API_KEY, 'part':'id', 'id':video_id})
         assert r.json()['pageInfo']['totalResults'] == 1
     except:
-        raise ValidationError(u'Video could not be found on YouTube for ID: %s'%video_id)
+        raise ValidationError(_(u'Video could not be found on YouTube for ID: %(id)s') % {'id':video_id})
 
 
 class VideoForm(forms.Form):
