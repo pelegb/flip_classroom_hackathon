@@ -850,10 +850,10 @@ COPY auth_user (id, password, last_login, is_superuser, username, first_name, la
 10	pbkdf2_sha256$12000$sHyNIpdIVU8n$VAM/x0hMFxJ9tbT5+NEBKPYgCIhaFQm7YQ4ElLbqkOE=	2014-03-03 09:10:14.378773-05	f	zoco	זוקו	ניסיון	zocomail@yahoo.com	f	t	2014-03-03 09:09:55.272732-05
 6	pbkdf2_sha256$12000$188oeTJ170qT$Bby7e4xXghIMGmeJaYqP3CHa9yIMuvYN5cIM76ndiJQ=	2014-02-10 13:42:02.809739-05	f	shahar.josefbserg	shahar	josefsberg	shahar.josefsberg@gmail.com	f	t	2014-02-10 13:42:02.639976-05
 4	pbkdf2_sha256$12000$IVyD5cDON7eP$PuT0HdET8knRuOln9D8EIMtTBNT+0s83ONsJh5REP5k=	2014-03-24 17:10:51.408549-04	t	barakp	ברק	פלג	pelegb@gmail.com	t	t	2014-01-20 15:37:27-05
-2	pbkdf2_sha256$12000$RJcB0SFfQ2oD$D365n99NdMYEE3Xicga0PijrzCi4KR4r2BA8gJ+6d3E=	2014-04-06 06:25:47.503306-04	t	banitt81	איתמר	בנית	banitt81@yahoo.com	t	t	2014-01-20 15:35:23-05
 7	pbkdf2_sha256$12000$CwgaDoYkLhom$3Foe4GQ86fbh6876uyVxQY+hi+UT3kF37ghOucu0HQI=	2014-02-11 01:56:15.242213-05	f	xTheBawsx	ליאור	לוי	lior.levy@hotmail.com	f	t	2014-02-11 01:55:38.844816-05
 11	pbkdf2_sha256$12000$Zpy8TeXATh1W$cUYfmw0QB3R4heBt0rasRvtqzNOHF9OXe6Vznlbc/k8=	2014-04-07 04:26:52.384281-04	f	avivsalem	אביב	סלם	avivsalem@gmail.com	f	t	2014-04-07 04:26:52.199572-04
 12	pbkdf2_sha256$12000$yoHsHLSn2bTt$aMWQrKqZHtg78vjkGL9GBukw1hoWo/r/tVPUCJLQ5eo=	2014-04-24 02:24:24.131104-04	f	dpaluy	דוד	פלוי	dpaluy@gmail.com	f	t	2014-04-24 02:24:23.846583-04
+2	pbkdf2_sha256$12000$RJcB0SFfQ2oD$D365n99NdMYEE3Xicga0PijrzCi4KR4r2BA8gJ+6d3E=	2014-04-28 13:08:10.44441-04	t	banitt81	איתמר	בנית	banitt81@yahoo.com	t	t	2014-01-20 15:35:23-05
 \.
 
 
@@ -921,6 +921,7 @@ SELECT pg_catalog.setval('core_ratingreview_id_seq', 2, true);
 
 COPY core_tag (id, name) FROM stdin;
 1	HTML
+2	דינמיקה
 \.
 
 
@@ -928,7 +929,7 @@ COPY core_tag (id, name) FROM stdin;
 -- Name: core_tag_id_seq; Type: SEQUENCE SET; Schema: public; Owner: flipped
 --
 
-SELECT pg_catalog.setval('core_tag_id_seq', 1, true);
+SELECT pg_catalog.setval('core_tag_id_seq', 2, true);
 
 
 --
@@ -966,6 +967,9 @@ COPY core_teachitem (id, title, description, parent_id, order_index) FROM stdin;
 32	עריכת סרטונים	<div>כאן תמצאו הסברים על עריכת וידאו בסיסית.</div>	13	200
 12	אובייקטים קבועים בשפת javascript	<div><div>שפת javascript מכילה אובייקטים (עצמים) קבועים. כל אובייקט מכיל תכונות (משתנים) ופעולות (פונקציות). שימוש באובייקטים אלה מאפשר לשנות תכונותיהם בעזרת קוד javascript.</div><div><br></div><div>מטרות:</div><div>הלומדים ידעו מהו אובייקט (עצם).<br>הלומדים ידעו להשתמש באובייקטים קבועים של javascript:<br>- אובייקט window:<br>&nbsp; - הלומדים ידעו להשתמש בתכונת status.<br>&nbsp; - הלומדים ידעו להשתמש בפעולות prompt, alert,<br>- אובייקט document:<br>&nbsp; - הלומדים ידעו להשתמש בתכונות style של אובייקט body.<br>&nbsp; - הלומדים ידעו להשתמש בפעולה document.write.<br>הלומדים ידעו ליצור באופן דינמי (בהשפעת קלט מן המשתמש) תגיות ב HTML.<br>הלומדים ידעו ליצור באופן דינמי (בהשפעת קלט מן המשתמש) תגיות מורכבות ב HTML - טבלה למשל.</div></div>	9	300
 22	אובייקט request וגישה לנתוני טופס מצד שרת	<div><div>אובייקט request מכיל את כל המידע שהתקבל מהמשתמש בעת שליחת הבקשה לדף מסוים. בעת כניסה רגילה לדף, יכיל מידע על המשתמש, ואת שם הקובץ המבוקש. אולם, לאחר מילוי טופס, כלל הנתונים שהכניס המשתמש לטופס יופיעו בצד שרת כנתונים השייכים לאובייקט request.</div><div><br></div><div><u>מטרות:</u></div></div><div>הלומדים ידעו מה תפקידה של תכונת action בתגית form.</div><div>הלומדים ידעו מה תפקידה של תכונת method בתגית form.</div><div>הלומדים ידעו מה תפקידיו של אובייקט request וידעו להשתמש בפעולות queryString, Form</div><div>הלומדים ידעו לגשת לנתוני טופס בצד שרת באמצעות שליחתם לדף נוסף.</div><div>הלומדים ידעו לגשת לנתוני טופס בצד שרת בדף של הטופס.</div>	10	400
+33	דינמיקה מהי	<div>מהן השאלות המרכזיות העומדות בבסיס הדינמיקה? אילו נושאים היא מכסה ומה ההשלכות שלה על ענפים אחרים בפיסיקה?</div>	16	100
+34	גישות היסטוריות לתנועת גופים	<div>פרק זה עוסק בגישותיהם של הוגים מהעת העתיקה לגבי תנועת גופים, ובפרט גישתו של אריסטו ותיאוריית האימפטוס.</div>	16	200
+35	החוק הראשון של ניוטון	<div>פרק זה עוסק בהתנהגותם של גופים כאשר תנועתם אינה מאולצת ע"י השפעות חיצוניות - כלומר, התנהגותם ה"טבעית".</div>	16	300
 \.
 
 
@@ -973,7 +977,7 @@ COPY core_teachitem (id, title, description, parent_id, order_index) FROM stdin;
 -- Name: core_teachitem_id_seq; Type: SEQUENCE SET; Schema: public; Owner: flipped
 --
 
-SELECT pg_catalog.setval('core_teachitem_id_seq', 32, true);
+SELECT pg_catalog.setval('core_teachitem_id_seq', 35, true);
 
 
 --
@@ -992,6 +996,7 @@ COPY core_teachtopic (id, title, description, parent_id, order_index) FROM stdin
 12	קוד צד שרת - נושאים מתקדמים	<div>פרק זה מכיל עיסוק בשני אובייקטים הקיימים בצד שרת ומאפשרים שמירת מידע במעבר בין דפים שונים ובין משתמשים שונים - אובייקט session ואובייקט applictaion.<br>בעזרת שני אובייקטים אלו יכול השרת להעביר מידע בין דפי האתר לגבי משתמש מסוים ולהעביר מידע בין משתמשים שונים באותו האתר.</div>	6	500
 11	SQL	<div>SQL - structured query language<br><br>שפת SQL מגדירה דרך סטנדרטית לגשת למסדי נתונים. שפה זו תאפשר לנו ליצור ולשנות מסדי נתונים במחשב השרת ובכך לשמור נתונים באתר גם ללא נוכחות של גולשים. למשל - שמירת רשימת משתמשים רשומים, או מוצרים לרכישה באתר של חנות מקוונת.</div>	6	400
 15	ליצור וללמד	<div>תכנית לימודים זו מכילה נושאים הקשורים ל:</div><div>- הקלטת סרטונים.</div><div>- שיעורים הפוכים.</div><div>- מחשבות על שימוש בסרטונים בכיתה.</div>	\N	2147483647
+16	דינמיקה	<div>ענף במכניקה העוסק באופן בו כוחות ומומנטים משפיעים על תנועת גופים.</div>	4	300
 \.
 
 
@@ -999,7 +1004,7 @@ COPY core_teachtopic (id, title, description, parent_id, order_index) FROM stdin
 -- Name: core_teachtopic_id_seq; Type: SEQUENCE SET; Schema: public; Owner: flipped
 --
 
-SELECT pg_catalog.setval('core_teachtopic_id_seq', 15, true);
+SELECT pg_catalog.setval('core_teachtopic_id_seq', 16, true);
 
 
 --
@@ -1063,6 +1068,7 @@ COPY core_videopage (id, youtube_movie_id, upload_date, content, video_title, us
 43	JZXK68NS7gU	2014-02-17 15:19:05.743176-05	להשלים	Movie Maker Video Editing Tutorial	2	32
 13	XEWwyUaTaDM	2014-02-10 09:28:07.008147-05	<div>0:00 - מה מטרת המחלקה MyADOHelper?<br>0:40 - תזכורת - מהי מחלקה?<br>2:03 - הכללת המחלקה MyAdoHelper בפרויקט ב visual studio.<br><br></div>	היכרות עם המחלקה myADOHelper	2	24
 14	ExcGOR2FEfQ	2014-02-10 09:28:37.017639-05	<div>0:00 - תוכן הסרטון.<br>0:20 - סקירת מסד הנתונים עליו נעבוד בסרטון.<br>1:05 - הפעולה DoQuery.<br>1:26 - קריאה כללית של הפעולה במחלקה MyAdoHelper, סקירת הפרמטרים של הפעולה.<br>2:18 - קריאה לפעולה Doquery מתוך פעולת Page_Load, בעזרת שאילתה שנוצרה ידנית.<br>3:30 - הרצת הקוד ובדיקת שינוי מסד הנתונים.<br>4:40 - חיבור לטופס - סקירת הטופס בו נשתמש.<br>5:28 - חילוץ נתוני הטופס מאובייקט request.<br>6:15 - שינוי השימוש בפעולת DoQuery ויצירתה בעזרת הנתונים שחולצו מאובייקט request.<br>6:45 - הפעלת האתר והכנסת נתונם למסד הנתונים בעזרת טופס.<br>7:32 - סקירה חוזרת של השתלשלות האירועים - טופס -&gt; בדיקת קלט -&gt; צד שרת....<br>8:04 - סיכום<br><br></div>	פעולת DoQuery	2	24
+44	S3mI81jNtHs	2014-04-28 13:26:40.136316-04	<div>0:00 - מבוא<br>0:28 - הגדרת השאלה - מה המצב הטבעי של גוף?<br>0:43 - תפיסה יומיומית - כאשר אין השפעות חיצוניות על גוף - הוא עוצר.<br>0:50 - כיצד היו מתנהגים חפצים ברכבת?<br>1:30 - דוגמה נוספת - חיכוך.<br>2:15 - החוק הראשון של ניוטון.<br>2:51 - משיכת נייר מתחת לחפץ.<br>3:15 - חפץ הממשיך לנוע בעצירה פתאומית.<br>3:29 - הסבר התנהגות הגוף בעת נסיעה ברכב.<br><br></div>	החוק הראשון של ניוטון	2	35
 \.
 
 
@@ -1070,7 +1076,7 @@ COPY core_videopage (id, youtube_movie_id, upload_date, content, video_title, us
 -- Name: core_videopage_id_seq; Type: SEQUENCE SET; Schema: public; Owner: flipped
 --
 
-SELECT pg_catalog.setval('core_videopage_id_seq', 43, true);
+SELECT pg_catalog.setval('core_videopage_id_seq', 44, true);
 
 
 --
@@ -1079,6 +1085,7 @@ SELECT pg_catalog.setval('core_videopage_id_seq', 43, true);
 
 COPY core_videopage_tags (id, videopage_id, tag_id) FROM stdin;
 1	31	1
+4	44	1
 \.
 
 
@@ -1086,7 +1093,7 @@ COPY core_videopage_tags (id, videopage_id, tag_id) FROM stdin;
 -- Name: core_videopage_tags_id_seq; Type: SEQUENCE SET; Schema: public; Owner: flipped
 --
 
-SELECT pg_catalog.setval('core_videopage_tags_id_seq', 2, true);
+SELECT pg_catalog.setval('core_videopage_tags_id_seq', 4, true);
 
 
 --
@@ -1216,6 +1223,13 @@ COPY django_admin_log (id, action_time, user_id, content_type_id, object_id, obj
 120	2014-02-24 14:37:50.397228-05	2	9	32	עריכת סרטונים	2	order_index שונה.
 121	2014-02-24 14:39:42.522462-05	2	9	2	תכונות ב HTML	2	order_index שונה.
 122	2014-03-24 17:11:11.650036-04	4	8	15	ליצור וללמד	2	title שונה.
+123	2014-04-28 13:10:16.86106-04	2	8	16	דינמיקה	1	
+124	2014-04-28 13:12:35.451021-04	2	9	33	דינמיקה מהי	1	
+125	2014-04-28 13:14:22.198316-04	2	9	34	גישות היסטוריות לתנועת גופים	1	
+126	2014-04-28 13:15:21.296368-04	2	9	35	החוק הראשון של ניוטון	1	
+127	2014-04-28 13:26:20.503312-04	2	13	2	דינמיקה	1	
+128	2014-04-28 13:26:40.14805-04	2	10	44	החוק הראשון של ניוטון	1	
+129	2014-04-28 13:27:34.238696-04	2	10	44	החוק הראשון של ניוטון	2	youtube_movie_id שונה.
 \.
 
 
@@ -1223,7 +1237,7 @@ COPY django_admin_log (id, action_time, user_id, content_type_id, object_id, obj
 -- Name: django_admin_log_id_seq; Type: SEQUENCE SET; Schema: public; Owner: flipped
 --
 
-SELECT pg_catalog.setval('django_admin_log_id_seq', 122, true);
+SELECT pg_catalog.setval('django_admin_log_id_seq', 129, true);
 
 
 --
@@ -1287,6 +1301,7 @@ elrif0gww5use6y1e90ix4fvmjoy10i5	OWQ5ZjMwNDExMzIwZDcyMGY5N2IwMjQ2YzkzNzUxODlmNjM
 qg6lbawjg35q7higlos6v5248i3eg4b9	OWQ5ZjMwNDExMzIwZDcyMGY5N2IwMjQ2YzkzNzUxODlmNjM4ODViNTp7Il9hdXRoX3VzZXJfYmFja2VuZCI6ImRqYW5nby5jb250cmliLmF1dGguYmFja2VuZHMuTW9kZWxCYWNrZW5kIiwiX2F1dGhfdXNlcl9pZCI6Mn0=	2014-02-26 11:55:27.632478-05
 g3ossv6vr6ofl3m9oz7zg945yrnqv6en	NzMyZDdlMzQ1YmRhZTQ0OWUxNjczM2E5ZTlkNTEwODJkZDgzNDcwNDp7Il9hdXRoX3VzZXJfYmFja2VuZCI6ImRqYW5nby5jb250cmliLmF1dGguYmFja2VuZHMuTW9kZWxCYWNrZW5kIiwiX2F1dGhfdXNlcl9pZCI6MTF9	2014-04-07 05:26:52.38662-04
 rossbag69sru2ih4j8ga0a18qyvasond	NTQwYWM5NjBmODMyMzM5NjEyY2VkZDkzOGRkZGMwZDhiYTc3ZGU1Zjp7Il9hdXRoX3VzZXJfYmFja2VuZCI6ImRqYW5nby5jb250cmliLmF1dGguYmFja2VuZHMuTW9kZWxCYWNrZW5kIiwiX2F1dGhfdXNlcl9pZCI6MTJ9	2014-04-24 03:24:24.135171-04
+k8e11mwrqtwozs8bf7qhyen0kr3xdyqf	OWQ5ZjMwNDExMzIwZDcyMGY5N2IwMjQ2YzkzNzUxODlmNjM4ODViNTp7Il9hdXRoX3VzZXJfYmFja2VuZCI6ImRqYW5nby5jb250cmliLmF1dGguYmFja2VuZHMuTW9kZWxCYWNrZW5kIiwiX2F1dGhfdXNlcl9pZCI6Mn0=	2014-04-28 14:08:10.449479-04
 uk2wmrwls3n68r90rqu51vbrtcgvow5q	OWQ5ZjMwNDExMzIwZDcyMGY5N2IwMjQ2YzkzNzUxODlmNjM4ODViNTp7Il9hdXRoX3VzZXJfYmFja2VuZCI6ImRqYW5nby5jb250cmliLmF1dGguYmFja2VuZHMuTW9kZWxCYWNrZW5kIiwiX2F1dGhfdXNlcl9pZCI6Mn0=	2014-03-03 13:26:07.570414-05
 \.
 
