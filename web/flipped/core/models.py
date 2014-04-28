@@ -21,10 +21,12 @@ class TeachItem(TeachEntity):
     pass
 
 class VideoPage(models.Model):
+    VIDEO_TITLE_LENGTH = 50
+    
     youtube_movie_id = models.CharField(max_length=25)
     upload_date      = models.DateTimeField('date uploaded to our site',auto_now_add=True)
     content          = models.TextField()
-    video_title      = models.CharField(max_length=50)
+    video_title      = models.CharField(max_length=VIDEO_TITLE_LENGTH)
     user             = models.ForeignKey(django.contrib.auth.get_user_model())
     teach_item       = models.ForeignKey(TeachItem, blank=True, null=True)
     tags             = models.ManyToManyField('Tag',related_name='videos',blank=True,null=True)

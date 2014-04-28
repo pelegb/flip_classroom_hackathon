@@ -90,8 +90,8 @@ def add_video(request,video_id=None):
             v.user = request.user
             v.save()
             v.tags.clear()
-            for t in form.cleaned_data['tags']:
-                v.tags.add(t)
+            #for t in form.cleaned_data['tags']:
+            #    v.tags.add(t)
 
             return HttpResponseRedirect(reverse('core:video_detail',kwargs=dict(video_id=v.id)))
         else:
