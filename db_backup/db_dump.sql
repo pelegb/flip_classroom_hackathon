@@ -844,6 +844,7 @@ SELECT pg_catalog.setval('auth_permission_id_seq', 42, true);
 COPY auth_user (id, password, last_login, is_superuser, username, first_name, last_name, email, is_staff, is_active, date_joined) FROM stdin;
 13	pbkdf2_sha256$12000$0RmRSK8MCjv1$TsNcO1G3lRD4SQf5rii1zJWOz5hdDNlutaHCxbOFjNc=	2014-04-28 15:46:32.062094-04	f	tomahidror	תום	אחי דרור	tom.ahidror@gmail.com	f	t	2014-04-28 15:46:31.915889-04
 4	pbkdf2_sha256$12000$IVyD5cDON7eP$PuT0HdET8knRuOln9D8EIMtTBNT+0s83ONsJh5REP5k=	2014-04-28 17:15:14.299064-04	t	barakp	ברק	פלג	pelegb@gmail.com	t	t	2014-01-20 15:37:27-05
+2	pbkdf2_sha256$12000$RJcB0SFfQ2oD$D365n99NdMYEE3Xicga0PijrzCi4KR4r2BA8gJ+6d3E=	2014-05-13 00:44:50.542217-04	t	banitt81	איתמר	בנית	banitt81@yahoo.com	t	t	2014-01-20 15:35:23-05
 8	pbkdf2_sha256$12000$Tz7XNx3wlJ5S$wBk3XZBDNNZSEIfZAVvVl+//OBgXFadSInLYyV/VG8g=	2014-02-17 13:28:41.572163-05	f	noteacher	לאמורה	לאמורה	noteacher@teacher.com	f	t	2014-02-17 13:24:33-05
 3	pbkdf2_sha256$12000$VMBQ6a6xTmQs$G48leBfbt6GjHuoBkczC9MUj5v6fqemiQ0ylorJptsM=	2014-02-25 03:29:14.266951-05	t	eran	ערן	קידר	ekeydar@gmail.com	t	t	2014-01-20 15:36:44-05
 1	pbkdf2_sha256$12000$uPlKy3Oih2iu$lr3JvTcWE1gy2vuqTL0lwCNLlpqwNm5OOhNP3TLF/Yk=	2014-01-24 06:08:48.074708-05	t	flip	פליפ	פלופ	flip@flip.com	t	t	2014-01-20 15:30:21-05
@@ -854,7 +855,6 @@ COPY auth_user (id, password, last_login, is_superuser, username, first_name, la
 7	pbkdf2_sha256$12000$CwgaDoYkLhom$3Foe4GQ86fbh6876uyVxQY+hi+UT3kF37ghOucu0HQI=	2014-02-11 01:56:15.242213-05	f	xTheBawsx	ליאור	לוי	lior.levy@hotmail.com	f	t	2014-02-11 01:55:38.844816-05
 11	pbkdf2_sha256$12000$Zpy8TeXATh1W$cUYfmw0QB3R4heBt0rasRvtqzNOHF9OXe6Vznlbc/k8=	2014-04-07 04:26:52.384281-04	f	avivsalem	אביב	סלם	avivsalem@gmail.com	f	t	2014-04-07 04:26:52.199572-04
 12	pbkdf2_sha256$12000$yoHsHLSn2bTt$aMWQrKqZHtg78vjkGL9GBukw1hoWo/r/tVPUCJLQ5eo=	2014-04-24 02:24:24.131104-04	f	dpaluy	דוד	פלוי	dpaluy@gmail.com	f	t	2014-04-24 02:24:23.846583-04
-2	pbkdf2_sha256$12000$RJcB0SFfQ2oD$D365n99NdMYEE3Xicga0PijrzCi4KR4r2BA8gJ+6d3E=	2014-04-28 15:16:23.302082-04	t	banitt81	איתמר	בנית	banitt81@yahoo.com	t	t	2014-01-20 15:35:23-05
 \.
 
 
@@ -971,6 +971,10 @@ COPY core_teachitem (id, title, description, parent_id, order_index) FROM stdin;
 33	דינמיקה מהי	<div>מהן השאלות המרכזיות העומדות בבסיס הדינמיקה? אילו נושאים היא מכסה ומה ההשלכות שלה על ענפים אחרים בפיסיקה?</div>	16	100
 34	גישות היסטוריות לתנועת גופים	<div>פרק זה עוסק בגישותיהם של הוגים מהעת העתיקה לגבי תנועת גופים, ובפרט גישתו של אריסטו ותיאוריית האימפטוס.</div>	16	200
 35	החוק הראשון של ניוטון	<div>פרק זה עוסק בהתנהגותם של גופים כאשר תנועתם אינה מאולצת ע"י השפעות חיצוניות - כלומר, התנהגותם ה"טבעית".</div>	16	300
+36	הגדרת כוח ויחידות	בפרק זה נגדיר את המושג כוח, ונגדיר את יחידת ניוטון המשמשת לכימות של הגודל "כוח".	17	100
+37	חוק הוק	בפרק זה נחקור התנהגות קפיצים ונלמד את חוק הוק	17	200
+38	קפיצים - העמקה	בפרק זה נראה כיצד מתנהגים קפיצים בעת חיבורם זה לזה - חיבור בטור וחיבור במקביל.	17	400
+39	דינמומטר	בפרק זה נעסוק באופן בו ניתן למדוד כוח תוך שימוש בקפיצים.	17	300
 \.
 
 
@@ -978,7 +982,7 @@ COPY core_teachitem (id, title, description, parent_id, order_index) FROM stdin;
 -- Name: core_teachitem_id_seq; Type: SEQUENCE SET; Schema: public; Owner: flipped
 --
 
-SELECT pg_catalog.setval('core_teachitem_id_seq', 35, true);
+SELECT pg_catalog.setval('core_teachitem_id_seq', 39, true);
 
 
 --
@@ -998,6 +1002,7 @@ COPY core_teachtopic (id, title, description, parent_id, order_index) FROM stdin
 11	SQL	<div>SQL - structured query language<br><br>שפת SQL מגדירה דרך סטנדרטית לגשת למסדי נתונים. שפה זו תאפשר לנו ליצור ולשנות מסדי נתונים במחשב השרת ובכך לשמור נתונים באתר גם ללא נוכחות של גולשים. למשל - שמירת רשימת משתמשים רשומים, או מוצרים לרכישה באתר של חנות מקוונת.</div>	6	400
 15	ליצור וללמד	<div>תכנית לימודים זו מכילה נושאים הקשורים ל:</div><div>- הקלטת סרטונים.</div><div>- שיעורים הפוכים.</div><div>- מחשבות על שימוש בסרטונים בכיתה.</div>	\N	2147483647
 16	דינמיקה	<div>ענף במכניקה העוסק באופן בו כוחות ומומנטים משפיעים על תנועת גופים.</div>	4	300
+17	כוחות	<div>בפרק זה נגדיר מהו כוח ונעסוק בשיטה למדידתו.</div>	16	400
 \.
 
 
@@ -1005,7 +1010,7 @@ COPY core_teachtopic (id, title, description, parent_id, order_index) FROM stdin
 -- Name: core_teachtopic_id_seq; Type: SEQUENCE SET; Schema: public; Owner: flipped
 --
 
-SELECT pg_catalog.setval('core_teachtopic_id_seq', 16, true);
+SELECT pg_catalog.setval('core_teachtopic_id_seq', 17, true);
 
 
 --
@@ -1232,6 +1237,11 @@ COPY django_admin_log (id, action_time, user_id, content_type_id, object_id, obj
 127	2014-04-28 13:26:20.503312-04	2	13	2	דינמיקה	1	
 128	2014-04-28 13:26:40.14805-04	2	10	44	החוק הראשון של ניוטון	1	
 129	2014-04-28 13:27:34.238696-04	2	10	44	החוק הראשון של ניוטון	2	youtube_movie_id שונה.
+130	2014-05-13 00:46:16.230826-04	2	8	17	כוחות	1	
+131	2014-05-13 00:52:28.435554-04	2	9	36	הגדרת כוח ויחידות	1	
+132	2014-05-13 00:53:30.34842-04	2	9	37	חוק הוק	1	
+133	2014-05-13 00:54:39.358615-04	2	9	38	קפיצים - העמקה	1	
+134	2014-05-13 00:55:02.73053-04	2	9	39	דינמומטר	1	
 \.
 
 
@@ -1239,7 +1249,7 @@ COPY django_admin_log (id, action_time, user_id, content_type_id, object_id, obj
 -- Name: django_admin_log_id_seq; Type: SEQUENCE SET; Schema: public; Owner: flipped
 --
 
-SELECT pg_catalog.setval('django_admin_log_id_seq', 129, true);
+SELECT pg_catalog.setval('django_admin_log_id_seq', 134, true);
 
 
 --
@@ -1310,6 +1320,7 @@ sy15jqvky5ooofxdp1rype4l42tep0gk	ZGVhYzMyNzNiMzdlOGNiNGE0OWFlYTFjMmNiNzVlZWNmNzN
 josoyzj8bisd4zbdsnf401xb9ffeh27r	MWI1ODY4YzkzZTI4NGM4MWI5NDg0YTQxOWRhM2QxOWJiZDU4MTFhNjp7Il9hdXRoX3VzZXJfYmFja2VuZCI6ImRqYW5nby5jb250cmliLmF1dGguYmFja2VuZHMuTW9kZWxCYWNrZW5kIiwiX2F1dGhfdXNlcl9pZCI6MTN9	2014-04-28 16:46:32.0645-04
 uk2wmrwls3n68r90rqu51vbrtcgvow5q	OWQ5ZjMwNDExMzIwZDcyMGY5N2IwMjQ2YzkzNzUxODlmNjM4ODViNTp7Il9hdXRoX3VzZXJfYmFja2VuZCI6ImRqYW5nby5jb250cmliLmF1dGguYmFja2VuZHMuTW9kZWxCYWNrZW5kIiwiX2F1dGhfdXNlcl9pZCI6Mn0=	2014-03-03 13:26:07.570414-05
 b2k6a3n1meh6vrpqxg0u83ol9btgcmrb	ZWIyNzkxY2JmZDI4NTlkNDA4Y2MxNWU5YzIzMDQ3NDNlN2E4YWIyMjp7Il9hdXRoX3VzZXJfYmFja2VuZCI6ImRqYW5nby5jb250cmliLmF1dGguYmFja2VuZHMuTW9kZWxCYWNrZW5kIiwiX2F1dGhfdXNlcl9pZCI6NH0=	2014-04-28 18:15:14.301664-04
+w3sk9mpq5fkr6qyucqf3x3v51uwizplw	OWQ5ZjMwNDExMzIwZDcyMGY5N2IwMjQ2YzkzNzUxODlmNjM4ODViNTp7Il9hdXRoX3VzZXJfYmFja2VuZCI6ImRqYW5nby5jb250cmliLmF1dGguYmFja2VuZHMuTW9kZWxCYWNrZW5kIiwiX2F1dGhfdXNlcl9pZCI6Mn0=	2014-05-13 01:44:50.54743-04
 \.
 
 
