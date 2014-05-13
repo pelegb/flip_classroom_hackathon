@@ -975,6 +975,7 @@ COPY core_teachitem (id, title, description, parent_id, order_index) FROM stdin;
 37	חוק הוק	בפרק זה נחקור התנהגות קפיצים ונלמד את חוק הוק	17	200
 38	קפיצים - העמקה	בפרק זה נראה כיצד מתנהגים קפיצים בעת חיבורם זה לזה - חיבור בטור וחיבור במקביל.	17	400
 39	דינמומטר	בפרק זה נעסוק באופן בו ניתן למדוד כוח תוך שימוש בקפיצים.	17	300
+40	החוק הראשון של ניוטון בשפה וקטורית	בפרק זה ננסח מחדש את החוק הראשון באופן וקטורי, ונראה את משמעותו בשני מימדים.	16	600
 \.
 
 
@@ -982,7 +983,7 @@ COPY core_teachitem (id, title, description, parent_id, order_index) FROM stdin;
 -- Name: core_teachitem_id_seq; Type: SEQUENCE SET; Schema: public; Owner: flipped
 --
 
-SELECT pg_catalog.setval('core_teachitem_id_seq', 39, true);
+SELECT pg_catalog.setval('core_teachitem_id_seq', 40, true);
 
 
 --
@@ -1242,6 +1243,7 @@ COPY django_admin_log (id, action_time, user_id, content_type_id, object_id, obj
 132	2014-05-13 00:53:30.34842-04	2	9	37	חוק הוק	1	
 133	2014-05-13 00:54:39.358615-04	2	9	38	קפיצים - העמקה	1	
 134	2014-05-13 00:55:02.73053-04	2	9	39	דינמומטר	1	
+135	2014-05-13 01:01:52.610182-04	2	9	40	החוק הראשון של ניוטון בשפה וקטורית	1	
 \.
 
 
@@ -1249,7 +1251,7 @@ COPY django_admin_log (id, action_time, user_id, content_type_id, object_id, obj
 -- Name: django_admin_log_id_seq; Type: SEQUENCE SET; Schema: public; Owner: flipped
 --
 
-SELECT pg_catalog.setval('django_admin_log_id_seq', 134, true);
+SELECT pg_catalog.setval('django_admin_log_id_seq', 135, true);
 
 
 --
