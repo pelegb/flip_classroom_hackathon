@@ -983,6 +983,7 @@ COPY core_teachitem (id, title, description, parent_id, order_index) FROM stdin;
 39	דינמומטר	<div>בפרק זה נעסוק באופן בו ניתן למדוד כוח תוך שימוש בקפיצים.<br>מטרות הלמידה:<br>- הלומדים ידעו כיצד פועל דינמומטר.<br>- הלומדים ידעו כיצד ניתן לתכנן דינמומטר וכיצד להשתמש בו.</div>	17	300
 38	קפיצים - העמקה	<div>בפרק זה נראה כיצד מתנהגים קפיצים בעת חיבורם זה לזה - חיבור בטור וחיבור במקביל.<br>מטרות הלמידה:<br>- הלומדים יבינו את הפיתוח של קבוע קפיץ שקול במקרה של חיבור קפיצים בטור ובמקביל.<br>- הלומדים ידעו כיצד לחשב קבוע קפיץ שקול בחיבור בטור ובמקביל.<br></div>	17	400
 46	המסה האינרציאלית	<div>בפרק זה ניווכח כי יש קשר בין גודל הכוח הפועל על גוף לבין תאוצתו.<br>מטרות:<br>- הלומדים ידעו כי קיים קשר בין שקול הכוחות לבין בתאוצה בכיוון ובגודל.<br>- הלומדים ידעו כי הקשר בין גודל שקול הכוחות לבין גודל התאוצה הוא לינארי.<br>- הלומדים ידעו מהי מסה אינרציאלית.</div>	19	100
+49	הכוח כוקטור	<div>בפרק זה נראה כי ניתן להתייחס לכוח כוקטור ובהתאם לכך לחבר כוחות.<br>מטרול הלימוד:<br>- הלומדים ידעו כי שקול הכוחות הוא הוקטור המתקבל מחיבור וקטורי כל הכוחות הפועלים על גוף.<br>- הלומדים ידעו כי הגוף מאיץ בהתאם לגדלו וכיוונו של שקול הכוחות.<br>- הלומדים ידעו לחבר כוחות ולחשב שקול כוחות על גוף.</div>	16	800
 \.
 
 
@@ -990,7 +991,7 @@ COPY core_teachitem (id, title, description, parent_id, order_index) FROM stdin;
 -- Name: core_teachitem_id_seq; Type: SEQUENCE SET; Schema: public; Owner: flipped
 --
 
-SELECT pg_catalog.setval('core_teachitem_id_seq', 48, true);
+SELECT pg_catalog.setval('core_teachitem_id_seq', 49, true);
 
 
 --
@@ -1272,6 +1273,7 @@ COPY django_admin_log (id, action_time, user_id, content_type_id, object_id, obj
 152	2014-05-19 13:45:30.719463-04	2	9	46	המסה האינרציאלית	1	
 153	2014-05-19 13:46:32.759093-04	2	9	47	החוק השני של ניוטון	1	
 154	2014-05-19 13:48:11.706499-04	2	9	48	מסה כובדית	1	
+155	2014-05-19 14:05:41.397607-04	2	9	49	הכוח כוקטור	1	
 \.
 
 
@@ -1279,7 +1281,7 @@ COPY django_admin_log (id, action_time, user_id, content_type_id, object_id, obj
 -- Name: django_admin_log_id_seq; Type: SEQUENCE SET; Schema: public; Owner: flipped
 --
 
-SELECT pg_catalog.setval('django_admin_log_id_seq', 154, true);
+SELECT pg_catalog.setval('django_admin_log_id_seq', 155, true);
 
 
 --
