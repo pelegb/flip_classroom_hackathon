@@ -17,7 +17,7 @@
             {% elif topic == "out" %}
             </ul>
             {% else %}
-            <li><a href="../../topic/{{ topic.id }}/">{{ topic }}</a></li>
+            <li><a href="../../topic/{{ topic.id }}/">{{ topic }}</a> <span dir="rtl">({{topic.item_count}})</span></li>
             {% endif %}
         {% endfor %}
         {% if item_list %}

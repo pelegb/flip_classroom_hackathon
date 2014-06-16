@@ -3,22 +3,30 @@ from django.db.models.aggregates import Avg, Count
 import django.contrib.auth
 import sys
 
+
 class TeachEntity(models.Model):
     class Meta:
         abstract = True
     title = models.CharField(max_length=50)
     description = models.TextField()
-    parent = models.ForeignKey('TeachTopic',blank=True,null=True)
+    parent = models.ForeignKey('TeachTopic', blank=True,null=True)
     order_index = models.PositiveIntegerField(default=sys.maxint)
     
     def __unicode__(self):
         return self.title
 
+
 class TeachTopic(TeachEntity):
-    pass
+    def item_count(self):
+        if not self.teachtopic_set.count():
+            return self.teachitem_set.count()
+
+        return sum(child_topic.item_count() for child_topic in self.teachtopic_set.all()) + self.teachitem_set.count()
+
 
 class TeachItem(TeachEntity):
     pass
+
 
 class VideoPage(models.Model):
     VIDEO_TITLE_LENGTH = 50
@@ -45,11 +53,13 @@ class VideoPage(models.Model):
     def quality_rating(self):
         return self._fetch_rating(RatingReview.context_choices[1][0]) 
 
+
 class Review(models.Model):
     class Meta:
         abstract=True
     video   = models.ForeignKey(VideoPage)
     user = models.ForeignKey(django.contrib.auth.get_user_model(), blank=True, null=True, default=None)
+
 
 class RatingReview(Review):
     context_choices = (
@@ -59,9 +69,11 @@ class RatingReview(Review):
     context = models.CharField(max_length=12, choices=context_choices)
     rate    = models.PositiveSmallIntegerField()
 
+
 class TextualReview(Review):
     textual_review  = models.CharField(max_length=500)
-    
+
+
 class Tag(models.Model):
     name = models.CharField(max_length=20,unique=True)
     def get_video_count(self):
