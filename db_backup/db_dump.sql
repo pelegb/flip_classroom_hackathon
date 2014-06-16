@@ -849,8 +849,8 @@ COPY auth_user (id, password, last_login, is_superuser, username, first_name, la
 14	pbkdf2_sha256$12000$8Qrmten3AzPk$Wx7Lmfb+ZpdQkXq+72pLCeyxP3oPWU1ZTNF8NAJaaew=	2014-06-05 14:49:32.874961-04	f	אלינה	אלינה	קולטון	alinacolton@gmail.com	f	t	2014-06-05 14:49:32.603289-04
 1	pbkdf2_sha256$12000$uPlKy3Oih2iu$lr3JvTcWE1gy2vuqTL0lwCNLlpqwNm5OOhNP3TLF/Yk=	2014-01-24 06:08:48.074708-05	t	flip	פליפ	פלופ	flip@flip.com	t	t	2014-01-20 15:30:21-05
 9	pbkdf2_sha256$12000$IcUTTyyHXFrA$b4x7HiPY/iv+bx/ZJ0zYvkA/oyfieYd6wCAZ4ZmPEdE=	2014-02-28 17:56:26.595882-05	f	yoniLavi	יוני	לביא	yoni@lavi.fm	f	t	2014-02-28 17:56:26.34728-05
-2	pbkdf2_sha256$12000$RJcB0SFfQ2oD$D365n99NdMYEE3Xicga0PijrzCi4KR4r2BA8gJ+6d3E=	2014-06-09 13:23:08.506328-04	t	banitt81	איתמר	בנית	banitt81@yahoo.com	t	t	2014-01-20 15:35:23-05
 5	pbkdf2_sha256$12000$B1rh8eX57hdq$4XEiOJ7EShH5BLT9Kbf+ei4cOHTwEaL9iSxocyQCYFs=	2014-02-03 14:13:02.133729-05	f	gl1000007	גלעד	לייבוביץ	gl1000007@gmail.com	f	t	2014-02-03 14:13:01.872958-05
+2	pbkdf2_sha256$12000$RJcB0SFfQ2oD$D365n99NdMYEE3Xicga0PijrzCi4KR4r2BA8gJ+6d3E=	2014-06-16 12:05:18.039207-04	t	banitt81	איתמר	בנית	banitt81@yahoo.com	t	t	2014-01-20 15:35:23-05
 10	pbkdf2_sha256$12000$sHyNIpdIVU8n$VAM/x0hMFxJ9tbT5+NEBKPYgCIhaFQm7YQ4ElLbqkOE=	2014-03-03 09:10:14.378773-05	f	zoco	זוקו	ניסיון	zocomail@yahoo.com	f	t	2014-03-03 09:09:55.272732-05
 6	pbkdf2_sha256$12000$188oeTJ170qT$Bby7e4xXghIMGmeJaYqP3CHa9yIMuvYN5cIM76ndiJQ=	2014-02-10 13:42:02.809739-05	f	shahar.josefbserg	shahar	josefsberg	shahar.josefsberg@gmail.com	f	t	2014-02-10 13:42:02.639976-05
 7	pbkdf2_sha256$12000$CwgaDoYkLhom$3Foe4GQ86fbh6876uyVxQY+hi+UT3kF37ghOucu0HQI=	2014-02-11 01:56:15.242213-05	f	xTheBawsx	ליאור	לוי	lior.levy@hotmail.com	f	t	2014-02-11 01:55:38.844816-05
@@ -985,6 +985,11 @@ COPY core_teachitem (id, title, description, parent_id, order_index) FROM stdin;
 38	קפיצים - העמקה	<div>בפרק זה נראה כיצד מתנהגים קפיצים בעת חיבורם זה לזה - חיבור בטור וחיבור במקביל.<br>מטרות הלמידה:<br>- הלומדים יבינו את הפיתוח של קבוע קפיץ שקול במקרה של חיבור קפיצים בטור ובמקביל.<br>- הלומדים ידעו כיצד לחשב קבוע קפיץ שקול בחיבור בטור ובמקביל.<br></div>	17	400
 46	המסה האינרציאלית	<div>בפרק זה ניווכח כי יש קשר בין גודל הכוח הפועל על גוף לבין תאוצתו.<br>מטרות:<br>- הלומדים ידעו כי קיים קשר בין שקול הכוחות לבין בתאוצה בכיוון ובגודל.<br>- הלומדים ידעו כי הקשר בין גודל שקול הכוחות לבין גודל התאוצה הוא לינארי.<br>- הלומדים ידעו מהי מסה אינרציאלית.</div>	19	100
 49	הכוח כוקטור	<div>בפרק זה נראה כי ניתן להתייחס לכוח כוקטור ובהתאם לכך לחבר כוחות.<br>מטרול הלימוד:<br>- הלומדים ידעו כי שקול הכוחות הוא הוקטור המתקבל מחיבור וקטורי כל הכוחות הפועלים על גוף.<br>- הלומדים ידעו כי הגוף מאיץ בהתאם לגדלו וכיוונו של שקול הכוחות.<br>- הלומדים ידעו לחבר כוחות ולחשב שקול כוחות על גוף.</div>	16	800
+50	מתקף	כאן נגדיר את הגודל מתקף ונראה את שימושיותה בכימותו השפעת כוחות על גופים.	20	100
+51	משפט מתקף ותנע	בפרק זה נגדיר את המושג תנע ונראה את הזהות בין מהתקף הפועל על גוף לבין שינוי התנע שלו	20	200
+52	התנע באינטראקציה בין שני גופים	בפרק זה נראה כי החוק השלישי של ניוטון מצביע על סימטריה בין המיתקפים הפועלים על שני גופים המצויים באינטראקציה, ולפיכך סימטריה בשינוי התנע של שני הגופים.	20	300
+53	חוק שימור התנע הקווי	בפרק זה נכליל את הרעיון של שימור תנע על מערכות מורכבות, המכילות יותר משני גופים.	20	400
+54	רתע	בפרק זה נלמד על השלכות חוק שימור התנע במקרים בהם שני גופים או יותר נפרדים זה מזה.	20	500
 \.
 
 
@@ -992,7 +997,7 @@ COPY core_teachitem (id, title, description, parent_id, order_index) FROM stdin;
 -- Name: core_teachitem_id_seq; Type: SEQUENCE SET; Schema: public; Owner: flipped
 --
 
-SELECT pg_catalog.setval('core_teachitem_id_seq', 49, true);
+SELECT pg_catalog.setval('core_teachitem_id_seq', 54, true);
 
 
 --
@@ -1015,6 +1020,7 @@ COPY core_teachtopic (id, title, description, parent_id, order_index) FROM stdin
 17	כוחות	<div>בפרק זה נגדיר מהו כוח ונעסוק בשיטה למדידתו.</div>	16	400
 18	סוגים של כוחות	<div>נושא זה עוסק בסוגי כוחות שונים בהם אנו נתקלים במערכות מכניות, ובפרט - מתיחות, הכוח הנורמלי וכוח החיכוך.</div>	16	600
 19	החוק השני של ניוטון	<div>בפרק זה נעסוק בחוק השני של ניוטון, אשר מתאר את הקשר בין כוחות לבין שינוי בתנועת גופים.<br><br><br></div>	16	700
+20	שימור תנע קווי	פרק זה עוסק בהגדרת המושגים תנע מותקף, מציאת הקשר ביניהם ולימוד חוק שימור התנע הקווי.	16	1000
 \.
 
 
@@ -1022,7 +1028,7 @@ COPY core_teachtopic (id, title, description, parent_id, order_index) FROM stdin
 -- Name: core_teachtopic_id_seq; Type: SEQUENCE SET; Schema: public; Owner: flipped
 --
 
-SELECT pg_catalog.setval('core_teachtopic_id_seq', 19, true);
+SELECT pg_catalog.setval('core_teachtopic_id_seq', 20, true);
 
 
 --
@@ -1088,8 +1094,8 @@ COPY core_videopage (id, youtube_movie_id, upload_date, content, video_title, us
 14	ExcGOR2FEfQ	2014-02-10 09:28:37.017639-05	<div>0:00 - תוכן הסרטון.<br>0:20 - סקירת מסד הנתונים עליו נעבוד בסרטון.<br>1:05 - הפעולה DoQuery.<br>1:26 - קריאה כללית של הפעולה במחלקה MyAdoHelper, סקירת הפרמטרים של הפעולה.<br>2:18 - קריאה לפעולה Doquery מתוך פעולת Page_Load, בעזרת שאילתה שנוצרה ידנית.<br>3:30 - הרצת הקוד ובדיקת שינוי מסד הנתונים.<br>4:40 - חיבור לטופס - סקירת הטופס בו נשתמש.<br>5:28 - חילוץ נתוני הטופס מאובייקט request.<br>6:15 - שינוי השימוש בפעולת DoQuery ויצירתה בעזרת הנתונים שחולצו מאובייקט request.<br>6:45 - הפעלת האתר והכנסת נתונם למסד הנתונים בעזרת טופס.<br>7:32 - סקירה חוזרת של השתלשלות האירועים - טופס -&gt; בדיקת קלט -&gt; צד שרת....<br>8:04 - סיכום<br><br></div>	פעולת DoQuery	2	24
 44	S3mI81jNtHs	2014-04-28 13:26:40.136316-04	<div>0:00 - מבוא<br>0:28 - הגדרת השאלה - מה המצב הטבעי של גוף?<br>0:43 - תפיסה יומיומית - כאשר אין השפעות חיצוניות על גוף - הוא עוצר.<br>0:50 - כיצד היו מתנהגים חפצים ברכבת?<br>1:30 - דוגמה נוספת - חיכוך.<br>2:15 - החוק הראשון של ניוטון.<br>2:51 - משיכת נייר מתחת לחפץ.<br>3:15 - חפץ הממשיך לנוע בעצירה פתאומית.<br>3:29 - הסבר התנהגות הגוף בעת נסיעה ברכב.<br><br></div>	החוק הראשון של ניוטון	2	35
 45	8KMllMbQ6x4	2014-04-28 15:58:13.434107-04	<div>מתוך פורום הפיס לחינוך 2013.<br>קישור לאתר הפורום:<br><a rel="nofollow" target="_blank" href="http://www.eduactionforum.com/%D7%9B%D7%99%D7%AA%D7%94-%D7%94%D7%A4%D7%95%D7%9B%D7%94-%D7%9C%D7%95%D7%9E%D7%93%D7%99%D7%9D-%D7%91%D7%91%D7%99%D7%AA-%D7%9E%D7%AA%D7%A8%D7%92%D7%9C%D7%99%D7%9D-%D7%91%D7%9B%D7%99%D7%AA%D7%94/">http://www.eduactionforum.com/%D7%9B%D7%99%D7%AA%D7%94-%D7%94%D7%A4%D7%95%D7%9B%D7%94-%D7%9C%D7%95%D...</a><br></div>	אביב צמח, מורה לאזרחות, על "כיתה הפוכה"	13	31
-46	s3oJZPMq77M	2014-06-05 15:06:46.376649-04	פתיח לנושא תנע	סרטון לפתיחת נושא תנע	14	3
-47	sh782dUxA-I	2014-06-05 15:08:55.412261-04	סרטון בנושא רתע בהתאם לתכנית הלימודים	רתע	14	3
+46	s3oJZPMq77M	2014-06-05 15:06:46.376649-04	פתיח לנושא תנע	סרטון לפתיחת נושא תנע	14	51
+47	sh782dUxA-I	2014-06-05 15:08:55.412261-04	סרטון בנושא רתע בהתאם לתכנית הלימודים	רתע	14	54
 \.
 
 
@@ -1277,6 +1283,14 @@ COPY django_admin_log (id, action_time, user_id, content_type_id, object_id, obj
 153	2014-05-19 13:46:32.759093-04	2	9	47	החוק השני של ניוטון	1	
 154	2014-05-19 13:48:11.706499-04	2	9	48	מסה כובדית	1	
 155	2014-05-19 14:05:41.397607-04	2	9	49	הכוח כוקטור	1	
+156	2014-06-16 12:06:58.898527-04	2	8	20	שימור תנע קווי	1	
+157	2014-06-16 12:08:20.429788-04	2	9	50	מתקף	1	
+158	2014-06-16 12:09:24.548334-04	2	9	51	משפט מתקף ותנע	1	
+159	2014-06-16 12:11:11.26433-04	2	9	52	התנע באינטראקציה בין שני גופים	1	
+160	2014-06-16 12:11:59.375152-04	2	9	53	חוק שימור התנע הקווי	1	
+161	2014-06-16 12:34:30.836561-04	2	10	46	סרטון לפתיחת נושא תנע	2	teach_item שונה.
+162	2014-06-16 12:43:40.179236-04	2	9	54	רתע	1	
+163	2014-06-16 12:44:06.589569-04	2	10	47	רתע	2	teach_item שונה.
 \.
 
 
@@ -1284,7 +1298,7 @@ COPY django_admin_log (id, action_time, user_id, content_type_id, object_id, obj
 -- Name: django_admin_log_id_seq; Type: SEQUENCE SET; Schema: public; Owner: flipped
 --
 
-SELECT pg_catalog.setval('django_admin_log_id_seq', 155, true);
+SELECT pg_catalog.setval('django_admin_log_id_seq', 163, true);
 
 
 --
@@ -1361,6 +1375,7 @@ i4jcn5a5v9fcldhs7yq9n7ey9muom7xa	ZWIyNzkxY2JmZDI4NTlkNDA4Y2MxNWU5YzIzMDQ3NDNlN2E
 s8lg3xk4a8aatohc27mkn6ostuqrj2xx	NmMxY2YwYjZmNTIwZDBjMDg0YTkyNmFmMjQ2OWNkMDZmNWIwYjdhZTp7Il9hdXRoX3VzZXJfYmFja2VuZCI6ImRqYW5nby5jb250cmliLmF1dGguYmFja2VuZHMuTW9kZWxCYWNrZW5kIiwiX2F1dGhfdXNlcl9pZCI6MTR9	2014-06-05 15:49:32.87722-04
 efe4f4frndh95xhyw7k3uvq6qsrsb0k9	OWQ5ZjMwNDExMzIwZDcyMGY5N2IwMjQ2YzkzNzUxODlmNjM4ODViNTp7Il9hdXRoX3VzZXJfYmFja2VuZCI6ImRqYW5nby5jb250cmliLmF1dGguYmFja2VuZHMuTW9kZWxCYWNrZW5kIiwiX2F1dGhfdXNlcl9pZCI6Mn0=	2014-06-09 14:13:52.665519-04
 ndq9mebexxs7whog2l1ceb8dynlfx3lr	OWQ5ZjMwNDExMzIwZDcyMGY5N2IwMjQ2YzkzNzUxODlmNjM4ODViNTp7Il9hdXRoX3VzZXJfYmFja2VuZCI6ImRqYW5nby5jb250cmliLmF1dGguYmFja2VuZHMuTW9kZWxCYWNrZW5kIiwiX2F1dGhfdXNlcl9pZCI6Mn0=	2014-06-09 14:23:08.509014-04
+rg4dg9efny1s29dkrxyoqhzsq86dgmd1	OWQ5ZjMwNDExMzIwZDcyMGY5N2IwMjQ2YzkzNzUxODlmNjM4ODViNTp7Il9hdXRoX3VzZXJfYmFja2VuZCI6ImRqYW5nby5jb250cmliLmF1dGguYmFja2VuZHMuTW9kZWxCYWNrZW5kIiwiX2F1dGhfdXNlcl9pZCI6Mn0=	2014-06-16 13:05:18.044035-04
 \.
 
 
