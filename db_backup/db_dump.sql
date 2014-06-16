@@ -850,8 +850,8 @@ COPY auth_user (id, password, last_login, is_superuser, username, first_name, la
 1	pbkdf2_sha256$12000$uPlKy3Oih2iu$lr3JvTcWE1gy2vuqTL0lwCNLlpqwNm5OOhNP3TLF/Yk=	2014-01-24 06:08:48.074708-05	t	flip	פליפ	פלופ	flip@flip.com	t	t	2014-01-20 15:30:21-05
 9	pbkdf2_sha256$12000$IcUTTyyHXFrA$b4x7HiPY/iv+bx/ZJ0zYvkA/oyfieYd6wCAZ4ZmPEdE=	2014-02-28 17:56:26.595882-05	f	yoniLavi	יוני	לביא	yoni@lavi.fm	f	t	2014-02-28 17:56:26.34728-05
 5	pbkdf2_sha256$12000$B1rh8eX57hdq$4XEiOJ7EShH5BLT9Kbf+ei4cOHTwEaL9iSxocyQCYFs=	2014-02-03 14:13:02.133729-05	f	gl1000007	גלעד	לייבוביץ	gl1000007@gmail.com	f	t	2014-02-03 14:13:01.872958-05
-2	pbkdf2_sha256$12000$RJcB0SFfQ2oD$D365n99NdMYEE3Xicga0PijrzCi4KR4r2BA8gJ+6d3E=	2014-06-16 12:05:18.039207-04	t	banitt81	איתמר	בנית	banitt81@yahoo.com	t	t	2014-01-20 15:35:23-05
 10	pbkdf2_sha256$12000$sHyNIpdIVU8n$VAM/x0hMFxJ9tbT5+NEBKPYgCIhaFQm7YQ4ElLbqkOE=	2014-03-03 09:10:14.378773-05	f	zoco	זוקו	ניסיון	zocomail@yahoo.com	f	t	2014-03-03 09:09:55.272732-05
+2	pbkdf2_sha256$12000$RJcB0SFfQ2oD$D365n99NdMYEE3Xicga0PijrzCi4KR4r2BA8gJ+6d3E=	2014-06-16 13:50:36.680746-04	t	banitt81	איתמר	בנית	banitt81@yahoo.com	t	t	2014-01-20 15:35:23-05
 6	pbkdf2_sha256$12000$188oeTJ170qT$Bby7e4xXghIMGmeJaYqP3CHa9yIMuvYN5cIM76ndiJQ=	2014-02-10 13:42:02.809739-05	f	shahar.josefbserg	shahar	josefsberg	shahar.josefsberg@gmail.com	f	t	2014-02-10 13:42:02.639976-05
 7	pbkdf2_sha256$12000$CwgaDoYkLhom$3Foe4GQ86fbh6876uyVxQY+hi+UT3kF37ghOucu0HQI=	2014-02-11 01:56:15.242213-05	f	xTheBawsx	ליאור	לוי	lior.levy@hotmail.com	f	t	2014-02-11 01:55:38.844816-05
 11	pbkdf2_sha256$12000$Zpy8TeXATh1W$cUYfmw0QB3R4heBt0rasRvtqzNOHF9OXe6Vznlbc/k8=	2014-04-07 04:26:52.384281-04	f	avivsalem	אביב	סלם	avivsalem@gmail.com	f	t	2014-04-07 04:26:52.199572-04
@@ -987,9 +987,9 @@ COPY core_teachitem (id, title, description, parent_id, order_index) FROM stdin;
 49	הכוח כוקטור	<div>בפרק זה נראה כי ניתן להתייחס לכוח כוקטור ובהתאם לכך לחבר כוחות.<br>מטרול הלימוד:<br>- הלומדים ידעו כי שקול הכוחות הוא הוקטור המתקבל מחיבור וקטורי כל הכוחות הפועלים על גוף.<br>- הלומדים ידעו כי הגוף מאיץ בהתאם לגדלו וכיוונו של שקול הכוחות.<br>- הלומדים ידעו לחבר כוחות ולחשב שקול כוחות על גוף.</div>	16	800
 50	מתקף	כאן נגדיר את הגודל מתקף ונראה את שימושיותה בכימותו השפעת כוחות על גופים.	20	100
 51	משפט מתקף ותנע	בפרק זה נגדיר את המושג תנע ונראה את הזהות בין מהתקף הפועל על גוף לבין שינוי התנע שלו	20	200
-52	התנע באינטראקציה בין שני גופים	בפרק זה נראה כי החוק השלישי של ניוטון מצביע על סימטריה בין המיתקפים הפועלים על שני גופים המצויים באינטראקציה, ולפיכך סימטריה בשינוי התנע של שני הגופים.	20	300
 53	חוק שימור התנע הקווי	בפרק זה נכליל את הרעיון של שימור תנע על מערכות מורכבות, המכילות יותר משני גופים.	20	400
 54	רתע	בפרק זה נלמד על השלכות חוק שימור התנע במקרים בהם שני גופים או יותר נפרדים זה מזה.	20	500
+55	התנגשויות	בפרק זה נלמד על השפעת שימור התנע על התנהגות גופים המתנגשים זה עם זה.	20	450
 \.
 
 
@@ -997,7 +997,7 @@ COPY core_teachitem (id, title, description, parent_id, order_index) FROM stdin;
 -- Name: core_teachitem_id_seq; Type: SEQUENCE SET; Schema: public; Owner: flipped
 --
 
-SELECT pg_catalog.setval('core_teachitem_id_seq', 54, true);
+SELECT pg_catalog.setval('core_teachitem_id_seq', 55, true);
 
 
 --
@@ -1291,6 +1291,8 @@ COPY django_admin_log (id, action_time, user_id, content_type_id, object_id, obj
 161	2014-06-16 12:34:30.836561-04	2	10	46	סרטון לפתיחת נושא תנע	2	teach_item שונה.
 162	2014-06-16 12:43:40.179236-04	2	9	54	רתע	1	
 163	2014-06-16 12:44:06.589569-04	2	10	47	רתע	2	teach_item שונה.
+164	2014-06-16 13:56:22.772474-04	2	9	52	התנע באינטראקציה בין שני גופים	3	
+165	2014-06-16 13:58:12.990377-04	2	9	55	התנגשויות	1	
 \.
 
 
@@ -1298,7 +1300,7 @@ COPY django_admin_log (id, action_time, user_id, content_type_id, object_id, obj
 -- Name: django_admin_log_id_seq; Type: SEQUENCE SET; Schema: public; Owner: flipped
 --
 
-SELECT pg_catalog.setval('django_admin_log_id_seq', 163, true);
+SELECT pg_catalog.setval('django_admin_log_id_seq', 165, true);
 
 
 --
@@ -1376,6 +1378,7 @@ s8lg3xk4a8aatohc27mkn6ostuqrj2xx	NmMxY2YwYjZmNTIwZDBjMDg0YTkyNmFmMjQ2OWNkMDZmNWI
 efe4f4frndh95xhyw7k3uvq6qsrsb0k9	OWQ5ZjMwNDExMzIwZDcyMGY5N2IwMjQ2YzkzNzUxODlmNjM4ODViNTp7Il9hdXRoX3VzZXJfYmFja2VuZCI6ImRqYW5nby5jb250cmliLmF1dGguYmFja2VuZHMuTW9kZWxCYWNrZW5kIiwiX2F1dGhfdXNlcl9pZCI6Mn0=	2014-06-09 14:13:52.665519-04
 ndq9mebexxs7whog2l1ceb8dynlfx3lr	OWQ5ZjMwNDExMzIwZDcyMGY5N2IwMjQ2YzkzNzUxODlmNjM4ODViNTp7Il9hdXRoX3VzZXJfYmFja2VuZCI6ImRqYW5nby5jb250cmliLmF1dGguYmFja2VuZHMuTW9kZWxCYWNrZW5kIiwiX2F1dGhfdXNlcl9pZCI6Mn0=	2014-06-09 14:23:08.509014-04
 rg4dg9efny1s29dkrxyoqhzsq86dgmd1	OWQ5ZjMwNDExMzIwZDcyMGY5N2IwMjQ2YzkzNzUxODlmNjM4ODViNTp7Il9hdXRoX3VzZXJfYmFja2VuZCI6ImRqYW5nby5jb250cmliLmF1dGguYmFja2VuZHMuTW9kZWxCYWNrZW5kIiwiX2F1dGhfdXNlcl9pZCI6Mn0=	2014-06-16 13:05:18.044035-04
+hhtjvvuwwf8dil68kbi5o6k1bex8ncyk	OWQ5ZjMwNDExMzIwZDcyMGY5N2IwMjQ2YzkzNzUxODlmNjM4ODViNTp7Il9hdXRoX3VzZXJfYmFja2VuZCI6ImRqYW5nby5jb250cmliLmF1dGguYmFja2VuZHMuTW9kZWxCYWNrZW5kIiwiX2F1dGhfdXNlcl9pZCI6Mn0=	2014-06-16 14:50:36.685532-04
 \.
 
 
