@@ -7,25 +7,46 @@ import sys
 class TeachEntity(models.Model):
     class Meta:
         abstract = True
+
     title = models.CharField(max_length=50)
     description = models.TextField()
-    parent = models.ForeignKey('TeachTopic', blank=True,null=True)
+    parent = models.ForeignKey('TeachTopic', blank=True, null=True)
     order_index = models.PositiveIntegerField(default=sys.maxint)
-    
+
+    video_count_cache = models.PositiveIntegerField(null=True, default=None)
+
+    def purge_video_count(self):
+        """Recursively(up) purge the video count cache"""
+        print "purging video count of %s" % self.title
+        self.video_count_cache = None
+        self.save()
+        if self.parent:
+            self.parent.purge_video_count()
+
     def __unicode__(self):
         return self.title
 
 
-class TeachTopic(TeachEntity):
-    def item_count(self):
-        if not self.teachtopic_set.count():
-            return self.teachitem_set.count()
-
-        return sum(child_topic.item_count() for child_topic in self.teachtopic_set.all()) + self.teachitem_set.count()
-
-
 class TeachItem(TeachEntity):
-    pass
+    def video_count(self):
+        """Count and cache video count"""
+        if not self.video_count_cache:
+            self.video_count_cache = self.videopage_set.count()
+            self.save()
+
+        return self.video_count_cache
+
+
+class TeachTopic(TeachEntity):
+    def video_count(self):
+        """Recursively(down) count and cache video count"""
+        if not self.video_count_cache:
+            own_videos = sum(item.video_count() for item in self.teachitem_set.all())
+            child_topic_videos = sum(child_topic.video_count() for child_topic in self.teachtopic_set.all())
+            self.video_count_cache = own_videos + child_topic_videos
+            self.save()
+
+        return self.video_count_cache
 
 
 class VideoPage(models.Model):
