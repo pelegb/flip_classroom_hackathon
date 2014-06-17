@@ -93,6 +93,8 @@ def add_video(request,video_id=None):
             #for t in form.cleaned_data['tags']:
             #    v.tags.add(t)
 
+            v.teach_item.purge_video_count()
+
             return HttpResponseRedirect(reverse('core:video_detail',kwargs=dict(video_id=v.id)))
         else:
             print form.errors
