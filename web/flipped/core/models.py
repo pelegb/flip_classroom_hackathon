@@ -17,7 +17,6 @@ class TeachEntity(models.Model):
 
     def purge_video_count(self):
         """Recursively(up) purge the video count cache"""
-        print "purging video count of %s" % self.title
         self.video_count_cache = None
         self.save()
         if self.parent:
