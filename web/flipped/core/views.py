@@ -100,14 +100,12 @@ def add_video(request,video_id=None):
             print form.errors
     return render(request,'core/add_video.html',dict(form=form))
 
-def topic_view(request,topic_id):
+def topic_view(request, topic_id):
     topic = get_object_or_404(TeachTopic, pk=topic_id)
-    subtree = common.utils.get_subtree_from_topic(topic)
-    subtree = subtree[1:]
-    item_list = TeachItem.objects.filter(parent=topic).order_by('order_index')
+    subtree = topic.get_subtree()
     ancestors = common.utils.get_ancestry_from_entity(topic)
     ancestors = ancestors[:-1]
-    return render(request,'core/topic_view.html', {'topic': topic, 'subtree':subtree, 'ancestors': ancestors, 'item_list':item_list})
+    return render(request,'core/topic_view.html', {'topic': topic, 'subtree':subtree, 'ancestors': ancestors})
 
 def item_view(request,item_id):
     item = get_object_or_404(TeachItem, pk=item_id)
