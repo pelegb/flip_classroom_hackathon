@@ -164,7 +164,7 @@ def put_local_settings():
     
     with cd(env.django_base_dir):
         put('files/local_settings.py', 'local_settings.py')
-        fabric.contrib.files.upload_template('files/local_settings.py',
+        fabric.contrib.files.upload_template('files/local_settings.template.py',
                                          'local_settings.py',
                                          context=ctx)
     reload_gunicorn()
