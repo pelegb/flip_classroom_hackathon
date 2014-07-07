@@ -26,6 +26,7 @@ TEMPLATE_DEBUG = True
 
 ALLOWED_HOSTS = []
 
+DEBUG_TOOLBAR_PATCH_SETTINGS = False
 
 # Application definition
 
