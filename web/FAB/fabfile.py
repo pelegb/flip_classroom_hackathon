@@ -157,7 +157,11 @@ def reload_gunicorn():
     """ reload the gunicorn process """
     run('kill -HUP `cat %(HOME)s/flipped.id`' % get_ctx())
 
-        
+@task
+def put_local_settings():
+    with cd(env.django_base_dir):
+        put('files/local_settings.py', 'local_settings.py')
+    reload_gunicorn()
 
 
 
