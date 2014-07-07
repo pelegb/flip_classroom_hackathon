@@ -2,8 +2,8 @@
 {% block content %}
         <div class="container">
 
-            <!-- Main hero unit for a primary marketing message or call to action -->
-            <div class="container-fluid">
+        <!-- Main hero unit for a primary marketing message or call to action -->
+        <div class="container-fluid">
         {% if ancestors %}
         {% for ancestor in ancestors %}
         <a href="../../topic/{{ ancestor.id }}/">{{ ancestor }}</a> >>
@@ -11,30 +11,18 @@
         {% endif %}
 
         <h1>{{ topic.title }}</h1>
-        {% for topic in subtree %}
-            {% if topic == "in" %}
+        {% for entity in subtree %}
+            {% if entity == "in" %}
             <ul>
-            {% elif topic == "out" %}
+            {% elif entity == "out" %}
             </ul>
             {% else %}
             <li>
-	          <a href="../../topic/{{ topic.id }}/">{{ topic }}</a>
-	          <span dir="rtl">({{topic.video_count}})</span>
+	          <a href="../../{{ entity.entity_type }}/{{ entity.id }}/">{{ entity }}</a>
+	          <span dir="rtl">({{entity.video_count}})</span>
             </li>
             {% endif %}
         {% endfor %}
-        {% if item_list %}
-        <h2>פריטים בנושא זה</h2>
-        <ul>
-        {% for item in item_list %}
-            <li>
-	            <a href="../../item/{{ item.id }}/">{{ item }}</a>
-	            <span dir="rtl">({{item.video_count}})</span>
-
-            </li>
-        {% endfor %}
-        </ul>
-        {% endif %}
         <div class="row">
         	{{topic.description | safe}}	
         </div>
