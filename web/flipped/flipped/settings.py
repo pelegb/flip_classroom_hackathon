@@ -117,12 +117,6 @@ TEMPLATE_CONTEXT_PROCESSORS = global_settings.TEMPLATE_CONTEXT_PROCESSORS + (
 	"common.processors.topics",
 )
 
-try:
-    from local_settings import *
-except ImportError:
-    pass
-
-
 GOOGLE_API_KEY = 'AIzaSyCoW4x6Mck2P9VIHwC0um11QNf2RBPavAs'
 
 LOGGING = {
@@ -143,7 +137,12 @@ LOGGING = {
             'class': 'django.utils.log.AdminEmailHandler',
             'include_html': True,
             'email_backend': 'django.core.mail.backends.filebased.EmailBackend'
-        }
+        },
+        'file': {
+            'level': 'DEBUG',
+            'class': 'logging.FileHandler',
+            'filename': '/home/flip/log/debug.log',
+        },
     },
     'loggers': {
         'django': {
@@ -152,11 +151,17 @@ LOGGING = {
             'level': 'INFO',
         },
         'django.request': {
-            'handlers': ['mail_admins'],
-            'level': 'WARNING',
+            'handlers': ['mail_admins', 'file'],
+            'level': 'DEBUG',
             'propagate': False,
         }
     }
 }
 
 EMAIL_FILE_PATH = tempfile.mkdtemp(prefix='django-openclass')
+
+# Must be the last lines in this file
+try:
+    from local_settings import *
+except ImportError:
+    pass
