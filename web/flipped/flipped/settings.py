@@ -155,8 +155,6 @@ LOGGING = {
     }
 }
 
-EMAIL_FILE_PATH = tempfile.mkdtemp(prefix='django-openclass')
-
 # Must be the last lines in this file
 try:
     from local_settings import *
