@@ -132,17 +132,13 @@ LOGGING = {
             'level': 'DEBUG',
             'class': 'django.utils.log.NullHandler',
         },
-        'mail_admins': {
-            'level': 'WARNING',
-            'class': 'django.utils.log.AdminEmailHandler',
-            'include_html': True,
-            'email_backend': 'django.core.mail.backends.filebased.EmailBackend'
-        },
         'file': {
             'level': 'DEBUG',
-            'class': 'logging.FileHandler',
+            'class': 'logging.RotatingFileHandler',
             'filename': '/home/flip/log/debug.log',
-            'formatter': 'verbose'
+            'formatter': 'verbose',
+            'maxBytes': 10**7,
+            'backupCount': 10
         },
     },
     'loggers': {
@@ -152,7 +148,7 @@ LOGGING = {
             'level': 'INFO',
         },
         'django.request': {
-            'handlers': ['mail_admins', 'file'],
+            'handlers': ['file'],
             'level': 'DEBUG',
             'propagate': False,
         }
