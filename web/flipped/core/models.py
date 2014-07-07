@@ -22,11 +22,22 @@ class TeachEntity(models.Model):
         if self.parent:
             self.parent.purge_video_count()
 
+    def get_ancestry(self):
+        """return ancestor list sorted from outer to inner, not including self"""
+        entity = self
+        ancestors = []
+        while entity:
+            ancestors.insert(0, entity)
+            entity = entity.parent
+        return ancestors
+
     def __unicode__(self):
         return self.title
 
 
 class TeachItem(TeachEntity):
+    entity_type = "item"
+
     def video_count(self):
         """Count and cache video count"""
         if not self.video_count_cache:
@@ -37,6 +48,29 @@ class TeachItem(TeachEntity):
 
 
 class TeachTopic(TeachEntity):
+    entity_type = "topic"
+
+    def get_subtree(self, outer_call=True):
+        """Create a list of direct child items and all descendant topics rooted in this topic
+         The inner hierarchy (in|de)denting is signified using 'in' and 'out' strings"""
+
+        if outer_call:
+            # in the original outer call, we don't need to add the current topic, but we do add all its direct items
+            subtree = []
+            child_entities = sorted(list(self.teachitem_set.all()) + list(self.teachtopic_set.all()),
+                                    key=lambda x: x.order_index)
+        else:
+            subtree = [self]
+            child_entities = self.teachtopic_set.order_by('order_index')
+
+        for child_entity in child_entities:
+            if child_entity.entity_type == "topic":
+                subtree.extend(["in"] + child_entity.get_subtree(outer_call=False) + ["out"])
+            else:
+                subtree.extend(["in", child_entity, "out"])
+
+        return subtree
+
     def video_count(self):
         """Recursively(down) count and cache video count"""
         if not self.video_count_cache:
