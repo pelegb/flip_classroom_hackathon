@@ -24,7 +24,7 @@ def get_global_ratings(video):
 def video_detail(request, video_id):
 
     video = get_object_or_404(VideoPage, pk=video_id)
-    ancestors = common.utils.get_ancestry_from_entity(video.teach_item)
+    ancestors = video.teach_item.get_ancestry()
     ctx = dict(video = video, ancestors = ancestors)
     ctx.update(get_global_ratings(video))
 
@@ -100,19 +100,17 @@ def add_video(request,video_id=None):
             print form.errors
     return render(request,'core/add_video.html',dict(form=form))
 
-def topic_view(request,topic_id):
+def topic_view(request, topic_id):
     topic = get_object_or_404(TeachTopic, pk=topic_id)
-    subtree = common.utils.get_subtree_from_topic(topic)
-    subtree = subtree[1:]
-    item_list = TeachItem.objects.filter(parent=topic).order_by('order_index')
-    ancestors = common.utils.get_ancestry_from_entity(topic)
+    subtree = topic.get_subtree()
+    ancestors = topic.get_ancestry()
     ancestors = ancestors[:-1]
-    return render(request,'core/topic_view.html', {'topic': topic, 'subtree':subtree, 'ancestors': ancestors, 'item_list':item_list})
+    return render(request,'core/topic_view.html', {'topic': topic, 'subtree':subtree, 'ancestors': ancestors})
 
 def item_view(request,item_id):
     item = get_object_or_404(TeachItem, pk=item_id)
     videos = list(VideoPage.objects.filter(teach_item=item))
-    ancestors = common.utils.get_ancestry_from_entity(item)
+    ancestors = item.get_ancestry()
     ancestors = ancestors[:-1]
     return render(request,'core/item_view.html', {'item': item, 'videos':sorted(videos, key=lambda video: video.relevancy_rating()['average'], reverse=True), 'ancestors':ancestors})
 
