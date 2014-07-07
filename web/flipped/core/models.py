@@ -22,6 +22,15 @@ class TeachEntity(models.Model):
         if self.parent:
             self.parent.purge_video_count()
 
+    def get_ancestry(self):
+        """return ancestor list sorted from outer to inner, not including self"""
+        entity = self
+        ancestors = []
+        while entity:
+            ancestors.insert(0, entity)
+            entity = entity.parent
+        return ancestors
+
     def __unicode__(self):
         return self.title
 
