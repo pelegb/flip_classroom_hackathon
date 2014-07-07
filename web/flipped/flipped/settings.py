@@ -134,7 +134,7 @@ LOGGING = {
         },
         'file': {
             'level': 'DEBUG',
-            'class': 'logging.RotatingFileHandler',
+            'class': 'logging.handlers.RotatingFileHandler',
             'filename': '/home/flip/log/debug.log',
             'formatter': 'verbose',
             'maxBytes': 10**7,
