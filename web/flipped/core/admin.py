@@ -12,11 +12,13 @@ class TeachItemAdmin(admin.ModelAdmin):
     formfield_overrides = {
         models.TextField: {'widget': Wysihtml5TextareaWidget},
     }
+    exclude = ('video_count_cache',)
 
 class TeachTopicAdmin(admin.ModelAdmin):
     formfield_overrides = {
         models.TextField: {'widget': Wysihtml5TextareaWidget},
-    }    
+    }
+    exclude = ('video_count_cache',)
 
 
 admin.site.register(core.models.VideoPage,admin_class=VideoPageAdmin)
