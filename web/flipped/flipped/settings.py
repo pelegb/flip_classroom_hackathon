@@ -133,7 +133,7 @@ LOGGING = {
             'class': 'django.utils.log.NullHandler',
         },
         'mail_admins': {
-            'level': 'ERROR',
+            'level': 'WARNING',
             'class': 'django.utils.log.AdminEmailHandler',
             'include_html': True,
             'email_backend': 'django.core.mail.backends.filebased.EmailBackend'
@@ -142,6 +142,7 @@ LOGGING = {
             'level': 'DEBUG',
             'class': 'logging.FileHandler',
             'filename': '/home/flip/log/debug.log',
+            'formatter': 'verbose'
         },
     },
     'loggers': {
