@@ -862,8 +862,8 @@ COPY auth_user (id, password, last_login, is_superuser, username, first_name, la
 15	pbkdf2_sha256$12000$0UQOd7Qu2vPe$f6i9B5SepjcSFERAnnDnuRwgqrqfOy62HCM9d7Cpli8=	2014-06-26 01:30:10.406521-04	f	ricky_edu@yaffeonline.com	ריקי	יפה	ricky_edu@yaffeonline.com	f	t	2014-06-26 01:30:10.119109-04
 19	pbkdf2_sha256$12000$EZwxd2N85ABq$yBTTwjf6Yb0MnMhjesDJCxQrES2Va4QDJKAEbPV9Mfc=	2014-07-12 03:46:34.524327-04	f	aGo8	אביב	גונן	aviv.gonen@gmail.com	f	t	2014-07-12 03:46:34.216976-04
 12	pbkdf2_sha256$12000$yoHsHLSn2bTt$aMWQrKqZHtg78vjkGL9GBukw1hoWo/r/tVPUCJLQ5eo=	2014-04-24 02:24:24.131104-04	f	dpaluy	דוד	פלוי	dpaluy@gmail.com	f	t	2014-04-24 02:24:23.846583-04
-2	pbkdf2_sha256$12000$RJcB0SFfQ2oD$D365n99NdMYEE3Xicga0PijrzCi4KR4r2BA8gJ+6d3E=	2014-07-14 06:19:41.519213-04	t	banitt81	איתמר	בנית	banitt81@yahoo.com	t	t	2014-01-20 15:35:23-05
 16	pbkdf2_sha256$12000$aXfNQHJOalfK$VgAo0te3+q8MzBZxsf36SxKPrxEl6EEr+maVhTsV+0Y=	2014-06-30 14:12:11.408453-04	f	נועם הבר	נועם	הבר	haberjster@gmail.com	f	t	2014-06-29 06:42:07.996213-04
+2	pbkdf2_sha256$12000$RJcB0SFfQ2oD$D365n99NdMYEE3Xicga0PijrzCi4KR4r2BA8gJ+6d3E=	2014-07-14 09:11:30.512405-04	t	banitt81	איתמר	בנית	banitt81@yahoo.com	t	t	2014-01-20 15:35:23-05
 17	pbkdf2_sha256$12000$MivGh7P0FA5K$q5GNdtHRXK3NpQrVIDmeKMpx98pyochU2LX41N3VFHI=	2014-06-30 23:34:22.076562-04	f	levym	מיכאל	לוי	jlevym@gmail.com	f	t	2014-06-30 23:34:21.922236-04
 \.
 
@@ -999,6 +999,7 @@ COPY core_teachitem (id, title, description, parent_id, order_index, video_count
 24	חיבור SQL לצד שרת - פעולות בסיסיות	<p></p><div>בפרק זה נלמד כיצד לבצע באמצעות קוד הרץ בצד השרת (ASP) פעולות על מסד הנתונים בעזרת מחלקת עזר בשם MyADOHelper.</div><div><br></div><div><u>מטרות:</u></div><div>הלומדים ידעו מה תפקידה של המחלקה MyAdoHelper.</div><div>הלומדים ידעו לקשר את המחלקה MyAdoHelper.cs לאתר ב visual studio.</div><div>הלומדים ידעו לקלוט נתונים שהזין המשתמש בטופס HTML וליצור בעזרתם שאילתות SQL.</div><div>הלומדים ידעו להפעיל שאילתות על מסד הנתונים בעזרת הפעולות DoQuery, IsExist, PrintDataTable.</div><div>הלומדים ידעו לכתוב טפסים שיבצעו על מסד הנתונים את הפעולות הבאות:</div>\t<div>- הכנסת פריט חדש לטבלה במסד נתונים.</div>\t<div>- עדכון פריט במסד נתונים.</div>\t<div>- מחיקת פריט ממסד נתונים.</div>\t<div>- אחזור פריטים ממסד נתונים בעזרת prinDataTable</div><div>הלומדים ידעו ליצור אתר ובו דפים שנוצרים בעזרת מידע המצוי במסד הנתונים.</div><p></p>	11	200	4
 12	אובייקטים קבועים בשפת javascript	<div><div>שפת javascript מכילה אובייקטים (עצמים) קבועים. כל אובייקט מכיל תכונות (משתנים) ופעולות (פונקציות). שימוש באובייקטים אלה מאפשר לשנות תכונותיהם בעזרת קוד javascript.</div><div><br></div><div>מטרות:</div><div>הלומדים ידעו מהו אובייקט (עצם).<br>הלומדים ידעו להשתמש באובייקטים קבועים של javascript:<br>- אובייקט window:<br>&nbsp; - הלומדים ידעו להשתמש בתכונת status.<br>&nbsp; - הלומדים ידעו להשתמש בפעולות prompt, alert,<br>- אובייקט document:<br>&nbsp; - הלומדים ידעו להשתמש בתכונות style של אובייקט body.<br>&nbsp; - הלומדים ידעו להשתמש בפעולה document.write.<br>הלומדים ידעו ליצור באופן דינמי (בהשפעת קלט מן המשתמש) תגיות ב HTML.<br>הלומדים ידעו ליצור באופן דינמי (בהשפעת קלט מן המשתמש) תגיות מורכבות ב HTML - טבלה למשל.</div></div>	9	300	1
 17	גישה לאובייקטים דינמיים	<div><div>בפרקים ראינו כיצד ניתן לגשת ולשנותתכונותיו של אובייקט קבוע בשפה או אובייקט שיצרנו מראש ושייכנו לו תכונת id כלשהי. אולם, טכניקות אלו לא יכולות לעבוד כאשר אנו יוצרים אובייקטים באופן דינמי, כלומר, כתגובה לפעולות המשתמש. במקרה זה, לא נוכל תמיד לדעת מראש את ערך ה id של האובייקט אליו נרצה לגשת. כאן נראה כיצד ניתן לגשת לאובייקטים כאלה בעזרת פעולת getElementByID.</div><div><br></div><div><u>מטרות:<br></u>הלומדים יכירו את הפעולה getElementById<br>הלומדים ידעו לתת מזהים (id) לאובייקטים שנוצרו בעזרת קוד JS.<br>הלומדים ידעו לגשת באמצעות קוד JS לאובייקטים שנוצרו בקוד JS.</div></div>	9	800	1
+59	שיתוף סרטון ביוטיוב	<div>על מנת לקשר סרטון לאתר שיעור פתוח עליו להיות ביוטיוב.<br>כאן נראה כיצד להעלותו לשם.</div>	28	100	1
 57	סרטונים שונים - מדעי המחשב	לכאן יועלו סרטונים שטרם נוצר עבורם פרק לימוד מתאים	5	100000000	0
 56	סרטונים שונים - פיסיקה	לכאן יש להעלות סרטונים שטרם נפתח עבורם פרק לימוד מתאים.	21	100	2
 58	משוואות מקום זמן בזריקה אופקית	כאן תפותחנה משוואות מקום זמן לתנועת גופים הנזרקים בזריקה אופקית.	25	100	1
@@ -1009,7 +1010,7 @@ COPY core_teachitem (id, title, description, parent_id, order_index, video_count
 -- Name: core_teachitem_id_seq; Type: SEQUENCE SET; Schema: public; Owner: flipped
 --
 
-SELECT pg_catalog.setval('core_teachitem_id_seq', 58, true);
+SELECT pg_catalog.setval('core_teachitem_id_seq', 59, true);
 
 
 --
@@ -1033,12 +1034,13 @@ COPY core_teachtopic (id, title, description, parent_id, order_index, video_coun
 24	תנועה במישור בהשפעת כוח קבוע	פרק זה עוסק בתיאור תנועת גופים על פני מישור בהשפעתו של כוח קבוע - כלומר, בתאוצה קבועה.	16	900	1
 9	javascript	<div>על מנת ליצור דפי אינטרנט דינמיים, כלומר כאלה המסוגלים להשתנות ולהתעדכן בהתאם לפעולות המשתמש, יש צורך להריץ קוד כלשהו על מחשב המשתמש. פרק זה עוסק בשפת תסריט (script) הקרויה javascript המאפשרת ביצוע פעולות אלה.</div>	6	200	11
 17	כוחות	<div>בפרק זה נגדיר מהו כוח ונעסוק בשיטה למדידתו.</div>	16	400	1
-15	ליצור וללמד	<div>תכנית לימודים זו מכילה נושאים הקשורים ל:</div><div>- הקלטת סרטונים.</div><div>- שיעורים הפוכים.</div><div>- מחשבות על שימוש בסרטונים בכיתה.</div>	\N	300	\N
-4	מכניקה קלאסית	<div>תחום רחב בפיסיקה העוסק בחקר תנועת גופים והכוחות הפועלים עליהם. תחום זה קרוי גם מכניקה ניוטונית כיוון שחלק ניכר ממנה מבוסס על תגליותיו של אייזיק ניוטון ופיתוחיו המתמטיים.</div>	3	2147483647	7
 22	שונות - מחשבים	נושא זה נועד להכיל סרטונים שהועלו לאתר בטרם נפתח עבורם פרק לימוד מתאים.	5	100000000	0
+4	מכניקה קלאסית	<div>תחום רחב בפיסיקה העוסק בחקר תנועת גופים והכוחות הפועלים עליהם. תחום זה קרוי גם מכניקה ניוטונית כיוון שחלק ניכר ממנה מבוסס על תגליותיו של אייזיק ניוטון ופיתוחיו המתמטיים.</div>	3	2147483647	7
 25	זריקה אופקית	<div>פרק זה מתאר את אופן התנועה של גוף הנזרק בכיוון אופקי על פני כדור הארץ.</div>	24	100	1
 16	דינמיקה	<div>ענף במכניקה העוסק באופן בו כוחות ומומנטים משפיעים על תנועת גופים.</div>	4	300	7
 26	זריקה משופעת	<div>פרק זה עוסק בתיאור תנועת גופים הנזרקים בכיוון משופע על פני כדור הארץ.</div>	24	200	0
+15	ליצור וללמד	<div>תכנית לימודים זו מכילה נושאים הקשורים ל:</div><div>- הקלטת סרטונים.</div><div>- שיעורים הפוכים.</div><div>- מחשבות על שימוש בסרטונים בכיתה.</div>	\N	300	\N
+28	העלאת סרטון לשיעור פתוח	<div>כאן נלמד כיצד לבצע את הפעולות הטכניות על מנת להעלות סרטון לאתר שיעור פתוח.<br>ראשית, נעלה סרטון ליוטיוב, ולאחר מכן, נקשר אותו לשיעור פתוח.</div>	15	500	1
 \.
 
 
@@ -1046,7 +1048,7 @@ COPY core_teachtopic (id, title, description, parent_id, order_index, video_coun
 -- Name: core_teachtopic_id_seq; Type: SEQUENCE SET; Schema: public; Owner: flipped
 --
 
-SELECT pg_catalog.setval('core_teachtopic_id_seq', 27, true);
+SELECT pg_catalog.setval('core_teachtopic_id_seq', 28, true);
 
 
 --
@@ -1121,6 +1123,7 @@ COPY core_videopage (id, youtube_movie_id, upload_date, content, video_title, us
 54	oe_2V-3Bpag	2014-07-03 02:25:26.72717-04	<div>0:00 - החוק הראשון של ניוטון<br>0:20 - הגדרת המושג כוח<br>1:45 - כוח המשיכה כבסיס להגדרת יחידת מידה לכוח<br>2:44 - הגדרת יחידת המידה ניוטון<br>3:25 - מדידת גודל כוח המשיכה בעזרת יחידת ניוטון.<br>4:45 - סיכום<br><br><br></div>	הגדרת כוח ויחידת הכוח ניוטון	2	36
 55	v4sUyxVKIKo	2014-07-06 02:43:15.245075-04	להשלים	גרף מהירות זמן בתנועת גופים	2	56
 56	HwkHbTeRnJc	2014-07-10 10:00:31.220238-04	להשלים	משוואות מקום זמן בזריקה אופקית	2	58
+57	1mYpcwzLWLI	2014-07-14 09:14:18.627374-04	להשלים	העלאת סרטון ליוטיוב	2	59
 \.
 
 
@@ -1128,7 +1131,7 @@ COPY core_videopage (id, youtube_movie_id, upload_date, content, video_title, us
 -- Name: core_videopage_id_seq; Type: SEQUENCE SET; Schema: public; Owner: flipped
 --
 
-SELECT pg_catalog.setval('core_videopage_id_seq', 56, true);
+SELECT pg_catalog.setval('core_videopage_id_seq', 57, true);
 
 
 --
@@ -1340,6 +1343,10 @@ COPY django_admin_log (id, action_time, user_id, content_type_id, object_id, obj
 185	2014-07-10 09:59:27.961314-04	2	9	58	משוואות מקום זמן בזריקה אופקית	1	
 186	2014-07-14 06:20:05.332935-04	2	8	27	ביולוגיה לכיתה ז	1	
 187	2014-07-14 06:22:06.227222-04	2	8	27	ביולוגיה לכיתה ז	3	
+188	2014-07-14 09:13:14.800653-04	2	8	28	העלאת סרטון לשיעור פתוח	1	
+189	2014-07-14 09:13:58.34315-04	2	9	59	העלאת סרטון ליוטיוב	1	
+190	2014-07-14 09:15:14.630159-04	2	9	59	שיתוף סרטון ביוטיוב	2	title שונה.
+191	2014-07-14 09:15:49.351673-04	2	10	57	העלאת סרטון ליוטיוב	2	video_title שונה.
 \.
 
 
@@ -1347,7 +1354,7 @@ COPY django_admin_log (id, action_time, user_id, content_type_id, object_id, obj
 -- Name: django_admin_log_id_seq; Type: SEQUENCE SET; Schema: public; Owner: flipped
 --
 
-SELECT pg_catalog.setval('django_admin_log_id_seq', 187, true);
+SELECT pg_catalog.setval('django_admin_log_id_seq', 191, true);
 
 
 --
@@ -1422,6 +1429,7 @@ w3sk9mpq5fkr6qyucqf3x3v51uwizplw	OWQ5ZjMwNDExMzIwZDcyMGY5N2IwMjQ2YzkzNzUxODlmNjM
 k6cf80hlyr1vf1pshchvzpg1q5ne3gx4	OWQ5ZjMwNDExMzIwZDcyMGY5N2IwMjQ2YzkzNzUxODlmNjM4ODViNTp7Il9hdXRoX3VzZXJfYmFja2VuZCI6ImRqYW5nby5jb250cmliLmF1dGguYmFja2VuZHMuTW9kZWxCYWNrZW5kIiwiX2F1dGhfdXNlcl9pZCI6Mn0=	2014-05-19 14:09:04.210496-04
 vq41rbnqbpli4a7vo3qyuooqo1og40t7	OWQ5ZjMwNDExMzIwZDcyMGY5N2IwMjQ2YzkzNzUxODlmNjM4ODViNTp7Il9hdXRoX3VzZXJfYmFja2VuZCI6ImRqYW5nby5jb250cmliLmF1dGguYmFja2VuZHMuTW9kZWxCYWNrZW5kIiwiX2F1dGhfdXNlcl9pZCI6Mn0=	2014-07-14 07:19:41.524336-04
 i4jcn5a5v9fcldhs7yq9n7ey9muom7xa	ZWIyNzkxY2JmZDI4NTlkNDA4Y2MxNWU5YzIzMDQ3NDNlN2E4YWIyMjp7Il9hdXRoX3VzZXJfYmFja2VuZCI6ImRqYW5nby5jb250cmliLmF1dGguYmFja2VuZHMuTW9kZWxCYWNrZW5kIiwiX2F1dGhfdXNlcl9pZCI6NH0=	2014-05-20 17:23:22.772832-04
+16akiyl2u33j0i4kl2kytzzq13o0hhzj	OWQ5ZjMwNDExMzIwZDcyMGY5N2IwMjQ2YzkzNzUxODlmNjM4ODViNTp7Il9hdXRoX3VzZXJfYmFja2VuZCI6ImRqYW5nby5jb250cmliLmF1dGguYmFja2VuZHMuTW9kZWxCYWNrZW5kIiwiX2F1dGhfdXNlcl9pZCI6Mn0=	2014-07-14 10:11:30.523403-04
 s8lg3xk4a8aatohc27mkn6ostuqrj2xx	NmMxY2YwYjZmNTIwZDBjMDg0YTkyNmFmMjQ2OWNkMDZmNWIwYjdhZTp7Il9hdXRoX3VzZXJfYmFja2VuZCI6ImRqYW5nby5jb250cmliLmF1dGguYmFja2VuZHMuTW9kZWxCYWNrZW5kIiwiX2F1dGhfdXNlcl9pZCI6MTR9	2014-06-05 15:49:32.87722-04
 efe4f4frndh95xhyw7k3uvq6qsrsb0k9	OWQ5ZjMwNDExMzIwZDcyMGY5N2IwMjQ2YzkzNzUxODlmNjM4ODViNTp7Il9hdXRoX3VzZXJfYmFja2VuZCI6ImRqYW5nby5jb250cmliLmF1dGguYmFja2VuZHMuTW9kZWxCYWNrZW5kIiwiX2F1dGhfdXNlcl9pZCI6Mn0=	2014-06-09 14:13:52.665519-04
 ndq9mebexxs7whog2l1ceb8dynlfx3lr	OWQ5ZjMwNDExMzIwZDcyMGY5N2IwMjQ2YzkzNzUxODlmNjM4ODViNTp7Il9hdXRoX3VzZXJfYmFja2VuZCI6ImRqYW5nby5jb250cmliLmF1dGguYmFja2VuZHMuTW9kZWxCYWNrZW5kIiwiX2F1dGhfdXNlcl9pZCI6Mn0=	2014-06-09 14:23:08.509014-04
