@@ -847,13 +847,13 @@ SELECT pg_catalog.setval('auth_permission_id_seq', 42, true);
 
 COPY auth_user (id, password, last_login, is_superuser, username, first_name, last_name, email, is_staff, is_active, date_joined) FROM stdin;
 13	pbkdf2_sha256$12000$0RmRSK8MCjv1$TsNcO1G3lRD4SQf5rii1zJWOz5hdDNlutaHCxbOFjNc=	2014-04-28 15:46:32.062094-04	f	tomahidror	תום	אחי דרור	tom.ahidror@gmail.com	f	t	2014-04-28 15:46:31.915889-04
-2	pbkdf2_sha256$12000$RJcB0SFfQ2oD$D365n99NdMYEE3Xicga0PijrzCi4KR4r2BA8gJ+6d3E=	2014-07-17 13:26:10.576356-04	t	banitt81	איתמר	בנית	banitt81@yahoo.com	t	t	2014-01-20 15:35:23-05
 8	pbkdf2_sha256$12000$Tz7XNx3wlJ5S$wBk3XZBDNNZSEIfZAVvVl+//OBgXFadSInLYyV/VG8g=	2014-02-17 13:28:41.572163-05	f	noteacher	לאמורה	לאמורה	noteacher@teacher.com	f	t	2014-02-17 13:24:33-05
 3	pbkdf2_sha256$12000$VMBQ6a6xTmQs$G48leBfbt6GjHuoBkczC9MUj5v6fqemiQ0ylorJptsM=	2014-02-25 03:29:14.266951-05	t	eran	ערן	קידר	ekeydar@gmail.com	t	t	2014-01-20 15:36:44-05
 20	pbkdf2_sha256$12000$utGdGe6Jgf0J$TFHgTlsXSdXEe4uNPkss7WqeSjm4bNx8TOnVqITwXU8=	2014-07-17 19:42:02.596392-04	f	avishai	אבישי	שור	avishai.schur@gmail.com	f	t	2014-07-17 19:42:02.311184-04
 14	pbkdf2_sha256$12000$8Qrmten3AzPk$Wx7Lmfb+ZpdQkXq+72pLCeyxP3oPWU1ZTNF8NAJaaew=	2014-06-05 14:49:32.874961-04	f	אלינה	אלינה	קולטון	alinacolton@gmail.com	f	t	2014-06-05 14:49:32.603289-04
 1	pbkdf2_sha256$12000$uPlKy3Oih2iu$lr3JvTcWE1gy2vuqTL0lwCNLlpqwNm5OOhNP3TLF/Yk=	2014-01-24 06:08:48.074708-05	t	flip	פליפ	פלופ	flip@flip.com	t	t	2014-01-20 15:30:21-05
 9	pbkdf2_sha256$12000$IcUTTyyHXFrA$b4x7HiPY/iv+bx/ZJ0zYvkA/oyfieYd6wCAZ4ZmPEdE=	2014-02-28 17:56:26.595882-05	f	yoniLavi	יוני	לביא	yoni@lavi.fm	f	t	2014-02-28 17:56:26.34728-05
+2	pbkdf2_sha256$12000$RJcB0SFfQ2oD$D365n99NdMYEE3Xicga0PijrzCi4KR4r2BA8gJ+6d3E=	2014-07-20 01:07:51.817598-04	t	banitt81	איתמר	בנית	banitt81@yahoo.com	t	t	2014-01-20 15:35:23-05
 4	pbkdf2_sha256$12000$IVyD5cDON7eP$PuT0HdET8knRuOln9D8EIMtTBNT+0s83ONsJh5REP5k=	2014-07-07 15:57:39.529232-04	t	barakp	ברק	פלג	pelegb@gmail.com	t	t	2014-01-20 15:37:27-05
 5	pbkdf2_sha256$12000$B1rh8eX57hdq$4XEiOJ7EShH5BLT9Kbf+ei4cOHTwEaL9iSxocyQCYFs=	2014-02-03 14:13:02.133729-05	f	gl1000007	גלעד	לייבוביץ	gl1000007@gmail.com	f	t	2014-02-03 14:13:01.872958-05
 10	pbkdf2_sha256$12000$sHyNIpdIVU8n$VAM/x0hMFxJ9tbT5+NEBKPYgCIhaFQm7YQ4ElLbqkOE=	2014-03-03 09:10:14.378773-05	f	zoco	זוקו	ניסיון	zocomail@yahoo.com	f	t	2014-03-03 09:09:55.272732-05
@@ -1470,6 +1470,7 @@ rg4dg9efny1s29dkrxyoqhzsq86dgmd1	OWQ5ZjMwNDExMzIwZDcyMGY5N2IwMjQ2YzkzNzUxODlmNjM
 hhtjvvuwwf8dil68kbi5o6k1bex8ncyk	OWQ5ZjMwNDExMzIwZDcyMGY5N2IwMjQ2YzkzNzUxODlmNjM4ODViNTp7Il9hdXRoX3VzZXJfYmFja2VuZCI6ImRqYW5nby5jb250cmliLmF1dGguYmFja2VuZHMuTW9kZWxCYWNrZW5kIiwiX2F1dGhfdXNlcl9pZCI6Mn0=	2014-06-16 14:50:36.685532-04
 m65h20e842fxz68rds9mkucz9h4nz387	OTE2OTc2ZjQ2YmY1YmRiNzM0YzYwYTQ2MGM3ZmZhMWJiZjAxOTI0Yzp7Il9hdXRoX3VzZXJfYmFja2VuZCI6ImRqYW5nby5jb250cmliLmF1dGguYmFja2VuZHMuTW9kZWxCYWNrZW5kIiwiX2F1dGhfdXNlcl9pZCI6MjB9	2014-07-17 20:42:02.600431-04
 bsakqh1gm1j79uwgwc5nts4zit2r6aga	OWQ5ZjMwNDExMzIwZDcyMGY5N2IwMjQ2YzkzNzUxODlmNjM4ODViNTp7Il9hdXRoX3VzZXJfYmFja2VuZCI6ImRqYW5nby5jb250cmliLmF1dGguYmFja2VuZHMuTW9kZWxCYWNrZW5kIiwiX2F1dGhfdXNlcl9pZCI6Mn0=	2014-06-17 12:56:34.550427-04
+2lbzv91h9y0wvszg4nmswwhzqru4cecq	OWQ5ZjMwNDExMzIwZDcyMGY5N2IwMjQ2YzkzNzUxODlmNjM4ODViNTp7Il9hdXRoX3VzZXJfYmFja2VuZCI6ImRqYW5nby5jb250cmliLmF1dGguYmFja2VuZHMuTW9kZWxCYWNrZW5kIiwiX2F1dGhfdXNlcl9pZCI6Mn0=	2014-07-20 02:07:51.826821-04
 dgaqc96fu19qdxupp03jbb0v3dxuilkw	OWQ5ZjMwNDExMzIwZDcyMGY5N2IwMjQ2YzkzNzUxODlmNjM4ODViNTp7Il9hdXRoX3VzZXJfYmFja2VuZCI6ImRqYW5nby5jb250cmliLmF1dGguYmFja2VuZHMuTW9kZWxCYWNrZW5kIiwiX2F1dGhfdXNlcl9pZCI6Mn0=	2014-06-17 14:50:25.475564-04
 xk3jth9cm1nzislk9aohl39ykqn20xwc	MTAyMzU1YWVkNjMzMjExYjUyYWE0NzE3MThhY2Q3OGUyMGViMmUzYzp7Il9hdXRoX3VzZXJfYmFja2VuZCI6ImRqYW5nby5jb250cmliLmF1dGguYmFja2VuZHMuTW9kZWxCYWNrZW5kIiwiX2F1dGhfdXNlcl9pZCI6MTV9	2014-06-26 02:30:10.410698-04
 mulr9di0kv15c4h1i7xhzgsgipmcyhjg	ZDQ0NDJlMmNlNzljNTA0YWU4ZmJhNTQ2ZjlhZjExNGRlODVkYTNlYTp7Il9hdXRoX3VzZXJfYmFja2VuZCI6ImRqYW5nby5jb250cmliLmF1dGguYmFja2VuZHMuTW9kZWxCYWNrZW5kIiwiX2F1dGhfdXNlcl9pZCI6MTZ9	2014-06-29 07:42:08.262977-04
