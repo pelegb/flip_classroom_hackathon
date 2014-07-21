@@ -862,6 +862,7 @@ COPY auth_user (id, password, last_login, is_superuser, username, first_name, la
 7	pbkdf2_sha256$12000$CwgaDoYkLhom$3Foe4GQ86fbh6876uyVxQY+hi+UT3kF37ghOucu0HQI=	2014-02-11 01:56:15.242213-05	f	xTheBawsx	ליאור	לוי	lior.levy@hotmail.com	f	t	2014-02-11 01:55:38.844816-05
 11	pbkdf2_sha256$12000$Zpy8TeXATh1W$cUYfmw0QB3R4heBt0rasRvtqzNOHF9OXe6Vznlbc/k8=	2014-04-07 04:26:52.384281-04	f	avivsalem	אביב	סלם	avivsalem@gmail.com	f	t	2014-04-07 04:26:52.199572-04
 15	pbkdf2_sha256$12000$0UQOd7Qu2vPe$f6i9B5SepjcSFERAnnDnuRwgqrqfOy62HCM9d7Cpli8=	2014-06-26 01:30:10.406521-04	f	ricky_edu@yaffeonline.com	ריקי	יפה	ricky_edu@yaffeonline.com	f	t	2014-06-26 01:30:10.119109-04
+21	pbkdf2_sha256$12000$tFcZmIqor920$jX+eCmsQleLgR4bz9px0i9wKlHIGb0+22a4Cz/VtJjc=	2014-07-21 13:50:51.991155-04	f	dudmoryo	דוד	מור יוסף	dudmoryo@gmail.com	f	t	2014-07-21 13:50:51.847529-04
 19	pbkdf2_sha256$12000$EZwxd2N85ABq$yBTTwjf6Yb0MnMhjesDJCxQrES2Va4QDJKAEbPV9Mfc=	2014-07-12 03:46:34.524327-04	f	aGo8	אביב	גונן	aviv.gonen@gmail.com	f	t	2014-07-12 03:46:34.216976-04
 12	pbkdf2_sha256$12000$yoHsHLSn2bTt$aMWQrKqZHtg78vjkGL9GBukw1hoWo/r/tVPUCJLQ5eo=	2014-04-24 02:24:24.131104-04	f	dpaluy	דוד	פלוי	dpaluy@gmail.com	f	t	2014-04-24 02:24:23.846583-04
 16	pbkdf2_sha256$12000$aXfNQHJOalfK$VgAo0te3+q8MzBZxsf36SxKPrxEl6EEr+maVhTsV+0Y=	2014-06-30 14:12:11.408453-04	f	נועם הבר	נועם	הבר	haberjster@gmail.com	f	t	2014-06-29 06:42:07.996213-04
@@ -892,7 +893,7 @@ SELECT pg_catalog.setval('auth_user_groups_id_seq', 8, true);
 -- Name: auth_user_id_seq; Type: SEQUENCE SET; Schema: public; Owner: flipped
 --
 
-SELECT pg_catalog.setval('auth_user_id_seq', 20, true);
+SELECT pg_catalog.setval('auth_user_id_seq', 21, true);
 
 
 --
@@ -1000,8 +1001,8 @@ COPY core_teachitem (id, title, description, parent_id, order_index, video_count
 24	חיבור SQL לצד שרת - פעולות בסיסיות	<p></p><div>בפרק זה נלמד כיצד לבצע באמצעות קוד הרץ בצד השרת (ASP) פעולות על מסד הנתונים בעזרת מחלקת עזר בשם MyADOHelper.</div><div><br></div><div><u>מטרות:</u></div><div>הלומדים ידעו מה תפקידה של המחלקה MyAdoHelper.</div><div>הלומדים ידעו לקשר את המחלקה MyAdoHelper.cs לאתר ב visual studio.</div><div>הלומדים ידעו לקלוט נתונים שהזין המשתמש בטופס HTML וליצור בעזרתם שאילתות SQL.</div><div>הלומדים ידעו להפעיל שאילתות על מסד הנתונים בעזרת הפעולות DoQuery, IsExist, PrintDataTable.</div><div>הלומדים ידעו לכתוב טפסים שיבצעו על מסד הנתונים את הפעולות הבאות:</div>\t<div>- הכנסת פריט חדש לטבלה במסד נתונים.</div>\t<div>- עדכון פריט במסד נתונים.</div>\t<div>- מחיקת פריט ממסד נתונים.</div>\t<div>- אחזור פריטים ממסד נתונים בעזרת prinDataTable</div><div>הלומדים ידעו ליצור אתר ובו דפים שנוצרים בעזרת מידע המצוי במסד הנתונים.</div><p></p>	11	200	4
 12	אובייקטים קבועים בשפת javascript	<div><div>שפת javascript מכילה אובייקטים (עצמים) קבועים. כל אובייקט מכיל תכונות (משתנים) ופעולות (פונקציות). שימוש באובייקטים אלה מאפשר לשנות תכונותיהם בעזרת קוד javascript.</div><div><br></div><div>מטרות:</div><div>הלומדים ידעו מהו אובייקט (עצם).<br>הלומדים ידעו להשתמש באובייקטים קבועים של javascript:<br>- אובייקט window:<br>&nbsp; - הלומדים ידעו להשתמש בתכונת status.<br>&nbsp; - הלומדים ידעו להשתמש בפעולות prompt, alert,<br>- אובייקט document:<br>&nbsp; - הלומדים ידעו להשתמש בתכונות style של אובייקט body.<br>&nbsp; - הלומדים ידעו להשתמש בפעולה document.write.<br>הלומדים ידעו ליצור באופן דינמי (בהשפעת קלט מן המשתמש) תגיות ב HTML.<br>הלומדים ידעו ליצור באופן דינמי (בהשפעת קלט מן המשתמש) תגיות מורכבות ב HTML - טבלה למשל.</div></div>	9	300	1
 17	גישה לאובייקטים דינמיים	<div><div>בפרקים ראינו כיצד ניתן לגשת ולשנותתכונותיו של אובייקט קבוע בשפה או אובייקט שיצרנו מראש ושייכנו לו תכונת id כלשהי. אולם, טכניקות אלו לא יכולות לעבוד כאשר אנו יוצרים אובייקטים באופן דינמי, כלומר, כתגובה לפעולות המשתמש. במקרה זה, לא נוכל תמיד לדעת מראש את ערך ה id של האובייקט אליו נרצה לגשת. כאן נראה כיצד ניתן לגשת לאובייקטים כאלה בעזרת פעולת getElementByID.</div><div><br></div><div><u>מטרות:<br></u>הלומדים יכירו את הפעולה getElementById<br>הלומדים ידעו לתת מזהים (id) לאובייקטים שנוצרו בעזרת קוד JS.<br>הלומדים ידעו לגשת באמצעות קוד JS לאובייקטים שנוצרו בקוד JS.</div></div>	9	800	1
-57	סרטונים שונים - מדעי המחשב	לכאן יועלו סרטונים שטרם נוצר עבורם פרק לימוד מתאים	5	100000000	0
 59	שיתוף סרטון ביוטיוב	<div>על מנת לקשר סרטון לאתר שיעור פתוח עליו להיות ביוטיוב.<br>כאן נראה כיצד להעלותו לשם.</div>	28	100	1
+57	סרטונים שונים - מדעי המחשב	לכאן יועלו סרטונים שטרם נוצר עבורם פרק לימוד מתאים	5	100000000	0
 61	קישור סרטון מיוטיוב לשיעור פתוח	<div>כאן נלמד כיצד להעלות סרטון לשיעור פתוח לאחר שהועלה ליוטיוב.</div>	28	100	1
 56	סרטונים שונים - פיסיקה	לכאן יש להעלות סרטונים שטרם נפתח עבורם פרק לימוד מתאים.	3	100000	2
 58	משוואות מקום זמן בזריקה אופקית	כאן תפותחנה משוואות מקום זמן לתנועת גופים הנזרקים בזריקה אופקית.	25	100	1
@@ -1472,6 +1473,7 @@ m65h20e842fxz68rds9mkucz9h4nz387	OTE2OTc2ZjQ2YmY1YmRiNzM0YzYwYTQ2MGM3ZmZhMWJiZjA
 bsakqh1gm1j79uwgwc5nts4zit2r6aga	OWQ5ZjMwNDExMzIwZDcyMGY5N2IwMjQ2YzkzNzUxODlmNjM4ODViNTp7Il9hdXRoX3VzZXJfYmFja2VuZCI6ImRqYW5nby5jb250cmliLmF1dGguYmFja2VuZHMuTW9kZWxCYWNrZW5kIiwiX2F1dGhfdXNlcl9pZCI6Mn0=	2014-06-17 12:56:34.550427-04
 2lbzv91h9y0wvszg4nmswwhzqru4cecq	OWQ5ZjMwNDExMzIwZDcyMGY5N2IwMjQ2YzkzNzUxODlmNjM4ODViNTp7Il9hdXRoX3VzZXJfYmFja2VuZCI6ImRqYW5nby5jb250cmliLmF1dGguYmFja2VuZHMuTW9kZWxCYWNrZW5kIiwiX2F1dGhfdXNlcl9pZCI6Mn0=	2014-07-20 02:07:51.826821-04
 dgaqc96fu19qdxupp03jbb0v3dxuilkw	OWQ5ZjMwNDExMzIwZDcyMGY5N2IwMjQ2YzkzNzUxODlmNjM4ODViNTp7Il9hdXRoX3VzZXJfYmFja2VuZCI6ImRqYW5nby5jb250cmliLmF1dGguYmFja2VuZHMuTW9kZWxCYWNrZW5kIiwiX2F1dGhfdXNlcl9pZCI6Mn0=	2014-06-17 14:50:25.475564-04
+jxbz2o89urvc5f25wg5svm14bx3jf83q	MWQyN2I4MjFkNzM3MzAyZmNmNzVhYWM3NzgyY2ViYzY4ODE4NWMwZTp7Il9hdXRoX3VzZXJfYmFja2VuZCI6ImRqYW5nby5jb250cmliLmF1dGguYmFja2VuZHMuTW9kZWxCYWNrZW5kIiwiX2F1dGhfdXNlcl9pZCI6MjF9	2014-07-21 14:50:51.993234-04
 xk3jth9cm1nzislk9aohl39ykqn20xwc	MTAyMzU1YWVkNjMzMjExYjUyYWE0NzE3MThhY2Q3OGUyMGViMmUzYzp7Il9hdXRoX3VzZXJfYmFja2VuZCI6ImRqYW5nby5jb250cmliLmF1dGguYmFja2VuZHMuTW9kZWxCYWNrZW5kIiwiX2F1dGhfdXNlcl9pZCI6MTV9	2014-06-26 02:30:10.410698-04
 mulr9di0kv15c4h1i7xhzgsgipmcyhjg	ZDQ0NDJlMmNlNzljNTA0YWU4ZmJhNTQ2ZjlhZjExNGRlODVkYTNlYTp7Il9hdXRoX3VzZXJfYmFja2VuZCI6ImRqYW5nby5jb250cmliLmF1dGguYmFja2VuZHMuTW9kZWxCYWNrZW5kIiwiX2F1dGhfdXNlcl9pZCI6MTZ9	2014-06-29 07:42:08.262977-04
 lrfayub5d2nfomjmlnntbsz5kglsyjlo	OWQ5ZjMwNDExMzIwZDcyMGY5N2IwMjQ2YzkzNzUxODlmNjM4ODViNTp7Il9hdXRoX3VzZXJfYmFja2VuZCI6ImRqYW5nby5jb250cmliLmF1dGguYmFja2VuZHMuTW9kZWxCYWNrZW5kIiwiX2F1dGhfdXNlcl9pZCI6Mn0=	2014-06-30 13:34:54.527428-04
