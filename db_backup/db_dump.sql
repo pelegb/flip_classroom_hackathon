@@ -867,8 +867,8 @@ COPY auth_user (id, password, last_login, is_superuser, username, first_name, la
 12	pbkdf2_sha256$12000$yoHsHLSn2bTt$aMWQrKqZHtg78vjkGL9GBukw1hoWo/r/tVPUCJLQ5eo=	2014-04-24 02:24:24.131104-04	f	dpaluy	דוד	פלוי	dpaluy@gmail.com	f	t	2014-04-24 02:24:23.846583-04
 16	pbkdf2_sha256$12000$aXfNQHJOalfK$VgAo0te3+q8MzBZxsf36SxKPrxEl6EEr+maVhTsV+0Y=	2014-06-30 14:12:11.408453-04	f	נועם הבר	נועם	הבר	haberjster@gmail.com	f	t	2014-06-29 06:42:07.996213-04
 22	pbkdf2_sha256$12000$Ww6JdvOGXD8r$zlN+uoVv4+SPw1NjDkHxCm19WUwFazO5Q91RSbDdJeY=	2014-07-21 15:28:09.179641-04	f	amitaig	אמיתי	ג	amitaig@gmail.com	f	t	2014-07-21 15:28:09.03482-04
-23	pbkdf2_sha256$12000$rs6BqT4x4H0B$FE4VqMCh1Ly8UDFFnoL0EQm8LGHv6FdislJslDpP0Z4=	2014-07-26 16:57:05.58097-04	f	ag.openclassil	א	ג	ag.openclassil@gmail.com	f	t	2014-07-26 16:57:05.436199-04
 17	pbkdf2_sha256$12000$MivGh7P0FA5K$q5GNdtHRXK3NpQrVIDmeKMpx98pyochU2LX41N3VFHI=	2014-06-30 23:34:22.076562-04	f	levym	מיכאל	לוי	jlevym@gmail.com	f	t	2014-06-30 23:34:21.922236-04
+23	pbkdf2_sha256$12000$rs6BqT4x4H0B$FE4VqMCh1Ly8UDFFnoL0EQm8LGHv6FdislJslDpP0Z4=	2014-07-26 18:06:11.824129-04	f	ag.openclassil	א	ג	ag.openclassil@gmail.com	f	t	2014-07-26 16:57:05.436199-04
 \.
 
 
@@ -1006,9 +1006,9 @@ COPY core_teachitem (id, title, description, parent_id, order_index, video_count
 59	שיתוף סרטון ביוטיוב	<div>על מנת לקשר סרטון לאתר שיעור פתוח עליו להיות ביוטיוב.<br>כאן נראה כיצד להעלותו לשם.</div>	28	100	1
 61	קישור סרטון מיוטיוב לשיעור פתוח	<div>כאן נלמד כיצד להעלות סרטון לשיעור פתוח לאחר שהועלה ליוטיוב.</div>	28	100	1
 56	סרטונים שונים - פיסיקה	לכאן יש להעלות סרטונים שטרם נפתח עבורם פרק לימוד מתאים.	3	100000	2
-57	סרטונים שונים - מדעי המחשב	לכאן יועלו סרטונים שטרם נוצר עבורם פרק לימוד מתאים	5	100000000	\N
 58	משוואות מקום זמן בזריקה אופקית	כאן תפותחנה משוואות מקום זמן לתנועת גופים הנזרקים בזריקה אופקית.	25	100	1
 60	ייצוגי תנועה	בנושא זה נלמד כיצד ניתן לתאר באופן מדעי תנועת גוף לאורך קו ישר.	29	100	1
+57	סרטונים שונים - מדעי המחשב	לכאן יועלו סרטונים שטרם נוצר עבורם פרק לימוד מתאים	5	100000000	\N
 \.
 
 
@@ -1025,6 +1025,7 @@ SELECT pg_catalog.setval('core_teachitem_id_seq', 61, true);
 
 COPY core_teachtopic (id, title, description, parent_id, order_index, video_count_cache) FROM stdin;
 3	פיסיקה	<div>תחום מדעי העוסק בתיאור חוקי הטבע. הפיסיקה עוסקת בין השאר בתנועת גופים, אור, קול וחקר החלל.</div>	\N	100	\N
+5	מדעי המחשב	<div>תחום מדעי העוסק בפיתוח כלים לוגיים לפתרון בעיות, והתאמתם למערכות מחשב. בין השאר נכללים בתחום מדעי המחשב עיסוק בסיבוכיות פתרון בעיות מורכבות, וביישום מעשי של אלגוריתמים.</div>	\N	200	\N
 10	ASP	<div>ASP &nbsp;- active server page<br>טכנולוגיית ASP מקדמת אותנו צעד נוסף לכיוון יכולותיהם של אתרי אינטרנט מודרניים.<br>טכנולוגייה זו מאפשרת הרצת קוד על מחשב השרת בעת קבלת בקשהממשתמש לדף מסוים. כך, השרת יכול ליצור עבור המשתמש דף מיוחד המתאים לצרכיו וייחודי עבורו. דוגמאות טובות לשימוש ב ASP הן אתרי דוא"ל, אשר שולחים דף HTML המכיל את הודעות הדוא"ל של משתמש מסוים ברגע מסוים, או אתרי חיפוש, היוצרים דף המכיל תשובה לשאלה ששאל המשתמש זה עתה.</div>	6	300	4
 4	מכניקה קלאסית	<div>תחום רחב בפיסיקה העוסק בחקר תנועת גופים והכוחות הפועלים עליהם. תחום זה קרוי גם מכניקה ניוטונית כיוון שחלק ניכר ממנה מבוסס על תגליותיו של אייזיק ניוטון ופיתוחיו המתמטיים.</div>	3	100	10
 11	SQL	<div>SQL - structured query language<br><br>שפת SQL מגדירה דרך סטנדרטית לגשת למסדי נתונים. שפה זו תאפשר לנו ליצור ולשנות מסדי נתונים במחשב השרת ובכך לשמור נתונים באתר גם ללא נוכחות של גולשים. למשל - שמירת רשימת משתמשים רשומים, או מוצרים לרכישה באתר של חנות מקוונת.</div>	6	400	9
@@ -1041,7 +1042,6 @@ COPY core_teachtopic (id, title, description, parent_id, order_index, video_coun
 16	דינמיקה	<div>ענף במכניקה העוסק באופן בו כוחות ומומנטים משפיעים על תנועת גופים.</div>	4	300	9
 6	מבוא לתכנות בסביבת האינטרנט	<div>הפרק מבוא לתכנות בסביבת האינטרנט עוסק בהכרת הכלים הבסיסיים המשמשים כותבי אתרים. ביניהם HTML, javascript, טכנולוגיות ASP, ושפת SQL.<br>השלמת פרק זה תאפשר כתיבת אתר אינטרנט בעל חלקים דינמיים, מערכת רישום משתמשים ושימוש במסדי נתונים, הגבלת הרשאות משתמשים שונים ועוד.</div>	5	100	34
 25	זריקה אופקית	<div>פרק זה מתאר את אופן התנועה של גוף הנזרק בכיוון אופקי על פני כדור הארץ.</div>	24	100	1
-5	מדעי המחשב	<div>תחום מדעי העוסק בפיתוח כלים לוגיים לפתרון בעיות, והתאמתם למערכות מחשב. בין השאר נכללים בתחום מדעי המחשב עיסוק בסיבוכיות פתרון בעיות מורכבות, וביישום מעשי של אלגוריתמים.</div>	\N	200	\N
 13	מדריך להקלטת סרטונים	<div>כאן ניתן ללמוד איך להקליט סרטונים ללא עלות כספית, לקבל רעיונות חדשים להמחשות גרפיות מעניינות ולהכיר תוכנות הקלטה ועריכה בסיסיות.<br></div>	15	200	5
 15	ליצור וללמד	<div><div>כאן תוכלו למצוא מידע בנושאים הקשורים ל:</div><div>- פדגוגיית שיעור הפוך (כיתה הפוכה).</div><div>- איך להקליט סרטונים לימודיים.<br>- איך לשתף סרטונים לימודיים באופן כללי, ובשיעור פתוח בפרט.</div></div><div><div>- מחשבות על שימוש בסרטונים בכיתה.</div><div><br></div></div>	\N	300	\N
 28	העלאת סרטון לשיעור פתוח	<div>כאן נלמד כיצד לבצע את הפעולות הטכניות על מנת להעלות סרטון לאתר שיעור פתוח.<br>ראשית, נעלה סרטון ליוטיוב, ולאחר מכן, נקשר אותו לשיעור פתוח.</div>	15	500	2
@@ -1138,6 +1138,7 @@ COPY core_videopage (id, youtube_movie_id, upload_date, content, video_title, us
 62	zNBFm5-8hhY	2014-07-17 13:26:38.085036-04	להשלים	חיכוך קינטי	2	44
 63	mQPvcvBPufA	2014-07-17 13:39:24.733799-04	להשלים	חיכוך סטטי	2	45
 64	hHXsyHMdY_4	2014-07-26 17:02:59.74995-04	<div>00:00 - מבוא</div><div>00:10 - התפתחות מערכות מידע</div><div>01:53 - התפתחות מערכות מחשוב</div><div>03:05 - חוק מוּר והתפתחות חומרה</div><div>05:58 - מודל פון-ניומן למערכות מחשב</div>	פרק מבואות: מהו מחשב?	23	57
+65	O4xkyiBViXo	2014-07-26 18:13:04.669876-04	<div>00:10 - מבוא</div><div>00:35 - הגדרת האלגוריתם</div><div>01:42 - דוגמא לאלגוריתם - פעולת הנשימה</div><div>03:11 - תרשימי זרימה</div><div>05:15 - דוגמא נוספת לאלגוריתם וקוד - שפת התכנות "לוגו"</div><div>07:10 - סיכום</div><div><br></div><div><br></div><div><br></div><div><br></div><div><br></div><div><br></div><div><br></div>	מושגי יסוד: מהו אלגוריתם?	23	57
 \.
 
 
@@ -1145,7 +1146,7 @@ COPY core_videopage (id, youtube_movie_id, upload_date, content, video_title, us
 -- Name: core_videopage_id_seq; Type: SEQUENCE SET; Schema: public; Owner: flipped
 --
 
-SELECT pg_catalog.setval('core_videopage_id_seq', 64, true);
+SELECT pg_catalog.setval('core_videopage_id_seq', 65, true);
 
 
 --
@@ -1460,6 +1461,7 @@ b2k6a3n1meh6vrpqxg0u83ol9btgcmrb	ZWIyNzkxY2JmZDI4NTlkNDA4Y2MxNWU5YzIzMDQ3NDNlN2E
 w3sk9mpq5fkr6qyucqf3x3v51uwizplw	OWQ5ZjMwNDExMzIwZDcyMGY5N2IwMjQ2YzkzNzUxODlmNjM4ODViNTp7Il9hdXRoX3VzZXJfYmFja2VuZCI6ImRqYW5nby5jb250cmliLmF1dGguYmFja2VuZHMuTW9kZWxCYWNrZW5kIiwiX2F1dGhfdXNlcl9pZCI6Mn0=	2014-05-13 01:44:50.54743-04
 k6cf80hlyr1vf1pshchvzpg1q5ne3gx4	OWQ5ZjMwNDExMzIwZDcyMGY5N2IwMjQ2YzkzNzUxODlmNjM4ODViNTp7Il9hdXRoX3VzZXJfYmFja2VuZCI6ImRqYW5nby5jb250cmliLmF1dGguYmFja2VuZHMuTW9kZWxCYWNrZW5kIiwiX2F1dGhfdXNlcl9pZCI6Mn0=	2014-05-19 14:09:04.210496-04
 vq41rbnqbpli4a7vo3qyuooqo1og40t7	OWQ5ZjMwNDExMzIwZDcyMGY5N2IwMjQ2YzkzNzUxODlmNjM4ODViNTp7Il9hdXRoX3VzZXJfYmFja2VuZCI6ImRqYW5nby5jb250cmliLmF1dGguYmFja2VuZHMuTW9kZWxCYWNrZW5kIiwiX2F1dGhfdXNlcl9pZCI6Mn0=	2014-07-14 07:19:41.524336-04
+6qg7dvs8qv8qgedpwr7mqinihki9n78k	OGUzNWNhZTgwMTEwOTc1ZTI2ZWYzYmY3ZDBlNTA2OGZiMzY3ZmZmNDp7Il9hdXRoX3VzZXJfYmFja2VuZCI6ImRqYW5nby5jb250cmliLmF1dGguYmFja2VuZHMuTW9kZWxCYWNrZW5kIiwiX2F1dGhfdXNlcl9pZCI6MjN9	2014-07-26 19:06:11.826666-04
 i4jcn5a5v9fcldhs7yq9n7ey9muom7xa	ZWIyNzkxY2JmZDI4NTlkNDA4Y2MxNWU5YzIzMDQ3NDNlN2E4YWIyMjp7Il9hdXRoX3VzZXJfYmFja2VuZCI6ImRqYW5nby5jb250cmliLmF1dGguYmFja2VuZHMuTW9kZWxCYWNrZW5kIiwiX2F1dGhfdXNlcl9pZCI6NH0=	2014-05-20 17:23:22.772832-04
 16akiyl2u33j0i4kl2kytzzq13o0hhzj	OWQ5ZjMwNDExMzIwZDcyMGY5N2IwMjQ2YzkzNzUxODlmNjM4ODViNTp7Il9hdXRoX3VzZXJfYmFja2VuZCI6ImRqYW5nby5jb250cmliLmF1dGguYmFja2VuZHMuTW9kZWxCYWNrZW5kIiwiX2F1dGhfdXNlcl9pZCI6Mn0=	2014-07-14 10:11:30.523403-04
 s8lg3xk4a8aatohc27mkn6ostuqrj2xx	NmMxY2YwYjZmNTIwZDBjMDg0YTkyNmFmMjQ2OWNkMDZmNWIwYjdhZTp7Il9hdXRoX3VzZXJfYmFja2VuZCI6ImRqYW5nby5jb250cmliLmF1dGguYmFja2VuZHMuTW9kZWxCYWNrZW5kIiwiX2F1dGhfdXNlcl9pZCI6MTR9	2014-06-05 15:49:32.87722-04
