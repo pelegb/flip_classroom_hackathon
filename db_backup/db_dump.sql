@@ -867,6 +867,7 @@ COPY auth_user (id, password, last_login, is_superuser, username, first_name, la
 12	pbkdf2_sha256$12000$yoHsHLSn2bTt$aMWQrKqZHtg78vjkGL9GBukw1hoWo/r/tVPUCJLQ5eo=	2014-04-24 02:24:24.131104-04	f	dpaluy	דוד	פלוי	dpaluy@gmail.com	f	t	2014-04-24 02:24:23.846583-04
 16	pbkdf2_sha256$12000$aXfNQHJOalfK$VgAo0te3+q8MzBZxsf36SxKPrxEl6EEr+maVhTsV+0Y=	2014-06-30 14:12:11.408453-04	f	נועם הבר	נועם	הבר	haberjster@gmail.com	f	t	2014-06-29 06:42:07.996213-04
 22	pbkdf2_sha256$12000$Ww6JdvOGXD8r$zlN+uoVv4+SPw1NjDkHxCm19WUwFazO5Q91RSbDdJeY=	2014-07-21 15:28:09.179641-04	f	amitaig	אמיתי	ג	amitaig@gmail.com	f	t	2014-07-21 15:28:09.03482-04
+23	pbkdf2_sha256$12000$rs6BqT4x4H0B$FE4VqMCh1Ly8UDFFnoL0EQm8LGHv6FdislJslDpP0Z4=	2014-07-26 16:57:05.58097-04	f	ag.openclassil	א	ג	ag.openclassil@gmail.com	f	t	2014-07-26 16:57:05.436199-04
 17	pbkdf2_sha256$12000$MivGh7P0FA5K$q5GNdtHRXK3NpQrVIDmeKMpx98pyochU2LX41N3VFHI=	2014-06-30 23:34:22.076562-04	f	levym	מיכאל	לוי	jlevym@gmail.com	f	t	2014-06-30 23:34:21.922236-04
 \.
 
@@ -894,7 +895,7 @@ SELECT pg_catalog.setval('auth_user_groups_id_seq', 8, true);
 -- Name: auth_user_id_seq; Type: SEQUENCE SET; Schema: public; Owner: flipped
 --
 
-SELECT pg_catalog.setval('auth_user_id_seq', 22, true);
+SELECT pg_catalog.setval('auth_user_id_seq', 23, true);
 
 
 --
@@ -1481,6 +1482,7 @@ mulr9di0kv15c4h1i7xhzgsgipmcyhjg	ZDQ0NDJlMmNlNzljNTA0YWU4ZmJhNTQ2ZjlhZjExNGRlODV
 lrfayub5d2nfomjmlnntbsz5kglsyjlo	OWQ5ZjMwNDExMzIwZDcyMGY5N2IwMjQ2YzkzNzUxODlmNjM4ODViNTp7Il9hdXRoX3VzZXJfYmFja2VuZCI6ImRqYW5nby5jb250cmliLmF1dGguYmFja2VuZHMuTW9kZWxCYWNrZW5kIiwiX2F1dGhfdXNlcl9pZCI6Mn0=	2014-06-30 13:34:54.527428-04
 obtrbuuh5lxvqtd8six92eus3u2muzoy	ZDQ0NDJlMmNlNzljNTA0YWU4ZmJhNTQ2ZjlhZjExNGRlODVkYTNlYTp7Il9hdXRoX3VzZXJfYmFja2VuZCI6ImRqYW5nby5jb250cmliLmF1dGguYmFja2VuZHMuTW9kZWxCYWNrZW5kIiwiX2F1dGhfdXNlcl9pZCI6MTZ9	2014-06-30 15:12:11.411361-04
 qu8ii2ywfwcqbexwln1y025t32yl8z17	OWQ5ZjMwNDExMzIwZDcyMGY5N2IwMjQ2YzkzNzUxODlmNjM4ODViNTp7Il9hdXRoX3VzZXJfYmFja2VuZCI6ImRqYW5nby5jb250cmliLmF1dGguYmFja2VuZHMuTW9kZWxCYWNrZW5kIiwiX2F1dGhfdXNlcl9pZCI6Mn0=	2014-06-30 16:24:05.958614-04
+q0asn1hr6e0npgex7it8vcva329t5n1n	OGUzNWNhZTgwMTEwOTc1ZTI2ZWYzYmY3ZDBlNTA2OGZiMzY3ZmZmNDp7Il9hdXRoX3VzZXJfYmFja2VuZCI6ImRqYW5nby5jb250cmliLmF1dGguYmFja2VuZHMuTW9kZWxCYWNrZW5kIiwiX2F1dGhfdXNlcl9pZCI6MjN9	2014-07-26 17:57:05.583195-04
 lykm788dk9w79s7s1ec25d560eep65o7	OGY0YTcwYjNkZjdlMTgwMmZjMGYwMWE4M2U1YjZmNjVjZWYxMGRlODp7Il9hdXRoX3VzZXJfYmFja2VuZCI6ImRqYW5nby5jb250cmliLmF1dGguYmFja2VuZHMuTW9kZWxCYWNrZW5kIiwiX2F1dGhfdXNlcl9pZCI6MTd9	2014-07-01 00:34:22.078855-04
 o70bzt9ndn6jekx2oo137tinvzlpy79t	OWQ5ZjMwNDExMzIwZDcyMGY5N2IwMjQ2YzkzNzUxODlmNjM4ODViNTp7Il9hdXRoX3VzZXJfYmFja2VuZCI6ImRqYW5nby5jb250cmliLmF1dGguYmFja2VuZHMuTW9kZWxCYWNrZW5kIiwiX2F1dGhfdXNlcl9pZCI6Mn0=	2014-07-02 03:30:55.420921-04
 r5ctemtz1cs3ft9ldodrghrnvtf4zcer	OWQ5ZjMwNDExMzIwZDcyMGY5N2IwMjQ2YzkzNzUxODlmNjM4ODViNTp7Il9hdXRoX3VzZXJfYmFja2VuZCI6ImRqYW5nby5jb250cmliLmF1dGguYmFja2VuZHMuTW9kZWxCYWNrZW5kIiwiX2F1dGhfdXNlcl9pZCI6Mn0=	2014-07-03 03:21:12.589543-04
