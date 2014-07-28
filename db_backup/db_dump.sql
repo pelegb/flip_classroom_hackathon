@@ -868,7 +868,7 @@ COPY auth_user (id, password, last_login, is_superuser, username, first_name, la
 22	pbkdf2_sha256$12000$Ww6JdvOGXD8r$zlN+uoVv4+SPw1NjDkHxCm19WUwFazO5Q91RSbDdJeY=	2014-07-21 15:28:09.179641-04	f	amitaig	אמיתי	ג	amitaig@gmail.com	f	t	2014-07-21 15:28:09.03482-04
 17	pbkdf2_sha256$12000$MivGh7P0FA5K$q5GNdtHRXK3NpQrVIDmeKMpx98pyochU2LX41N3VFHI=	2014-06-30 23:34:22.076562-04	f	levym	מיכאל	לוי	jlevym@gmail.com	f	t	2014-06-30 23:34:21.922236-04
 23	pbkdf2_sha256$12000$rs6BqT4x4H0B$FE4VqMCh1Ly8UDFFnoL0EQm8LGHv6FdislJslDpP0Z4=	2014-07-26 18:06:11.824129-04	f	ag.openclassil	א	ג	ag.openclassil@gmail.com	f	t	2014-07-26 16:57:05.436199-04
-2	pbkdf2_sha256$12000$RJcB0SFfQ2oD$D365n99NdMYEE3Xicga0PijrzCi4KR4r2BA8gJ+6d3E=	2014-07-27 16:01:50.580918-04	t	banitt81	איתמר	בנית	banitt81@yahoo.com	t	t	2014-01-20 15:35:23-05
+2	pbkdf2_sha256$12000$RJcB0SFfQ2oD$D365n99NdMYEE3Xicga0PijrzCi4KR4r2BA8gJ+6d3E=	2014-07-28 14:12:11.524789-04	t	banitt81	איתמר	בנית	banitt81@yahoo.com	t	t	2014-01-20 15:35:23-05
 \.
 
 
@@ -957,10 +957,10 @@ COPY core_teachitem (id, title, description, parent_id, order_index, video_count
 8	CSS	<div>טכנולוגיית CSS מאפשרת עיצוב דפי אינטרנט באופן אחיד ללא צורך לעצב כל תגית בנפרד. בפריט זה נלמד על עיצוב דף HTML בעזרת תגית style ועל עיצוב אחיד של מספר דפי HTML באמצעות קובץ CSS.<br><br><u>מטרות:<br></u>הלומדים יכירו את תגית style.<br>הלומדים ידעו לעצב דף HTML בודד בצורה ריכוזית באמצעות עיצוב תגית מסוימת ובאמצעות יצירת מחלקות עיצוב משוייכות וחפשיות.<br>הלומדים ידעו לעצב מספר דפי HTML באמצעות קובץ CSS יחיד.</div>	7	800	1
 2	תכונות ב HTML	<div>שפת HTML מאפשרת לקבוע לתגיות מסוימות תכונות המעצבות אותן ומשפיעות על תפקודן.<br><br><u>מטרות:</u><br>הלומדים ידעו כיצד לשנות תכונותיהן של תגיות HTML.<br>הלומדים יכירו את התכונות - style-color, font-size, font-family, backgroundcolor, dir.<br>הלומדים יכירו את תגית span ויבינו את שימושיה.</div><div><br></div>	7	200	1
 3	קישורים	<div><div>קישורים הם עמוד השדרה של ההיפרטקסט ומאפשרים מעבר מהיר בין דף אינטרנט אחד למשנהו.</div><div><br></div><div><u>מטרות:<br></u>הלומדים ידעו ליצור קישורים לקובץ HTML המצוי באותה תיקיה.<br>הלומדים&nbsp;ידעו ליצור קישורים לקובץ HTML המצוי באותו מחשב בתיקיה פנימית.<br>הלומדים&nbsp;ידעו ליצור קישורים לדף אינטרנט.</div></div><div>הלומדים&nbsp;ידעו ליצור קישורים למיקום מסוים בדף HTML.</div>	7	300	1
-4	רשימות ב HTML	<div>רשימות מאפשרות ארגון נוח ומהיר של מידע בדפי HTML.<br><br><u>מטרות</u>:<br>הלומדים יכירו את תגיות ul,ol,li.<br>הלומדים ידעו ליצור רשימות ורשימות מקוננות בדפי HTML.</div>	7	400	0
 10	מבוא ל javascript	<div><div>javascript היא שפת תסריט המאפשרת הרצת קוד ללא הידור ישירות על הדפדפן של המשתמש.<br><br></div><div>מטרות:<br>הלומדים ידעו לשלב תסריט בדף HTML בעזרת תגית script.<br>הלומדים ידעו מתי מופעל תסריט JS וע"י מי.<br>הלומדים ידעו להצהיר על משתנים ולהכניס לתוכם ערכים.<br>הלומדים ידעו להשתמש בפקודות alert, ו prompt.<br>הלומדים יכירו את טיפוסי המשתנים הקיימים ב JS ויבינו כיצד הם נקבעים.<br>הלומדים יבינו את משמעותו של אופרטור '+' עבור סוגי משתנים שונים.</div></div>	9	100	2
 5	תמונות ב HTML	<div><div>תגית img מאפשרת שילוב תמונות בתוך דפי HTML.</div><div><br></div><u><div><u>מטרות:</u></div></u><div>הלומדים ידעו לשלב תמונות בתוך דפי HTML.</div><div>הלומדים&nbsp;יכירו את תכונות src, alt, height.</div></div><div>הלומדים&nbsp;ידעו להגדיר תמונה כקישור.</div>	7	500	1
 21	אובייקט response	<div><div>אובייקט response הוא אובייקט הקיים בצד השרת ואוסף לתוכו את כל המידע שיש לשלוח בסיום ריצת קוד השרת למשתמש. ללא שימוש בטכנולוגיית ASP הוא מכיל רק את התוכן המפיע בצד הלקוח של הקובץ (HTML, JS), אולם ניתן לשנות את התוכן המוכנס לתוכו במהלך ריצת הקוד בצד השרת.<br><br></div><div><u>מטרות:</u></div></div><div>הלומדים ידעו כי אובייקט response מכיל את כל המידע הנשלח את המשתמש מן השרת.</div><div>הלומדים ידעו להשתמש בפעולות - redirect,end,write.</div>	10	300	1
+4	רשימות ב HTML	<div>רשימות מאפשרות ארגון נוח ומהיר של מידע בדפי HTML.<br><br><u>מטרות</u>:<br>הלומדים יכירו את תגיות ul,ol,li.<br>הלומדים ידעו ליצור רשימות ורשימות מקוננות בדפי HTML.</div>	7	400	0
 11	מבני בקרה ב javascript	<div><div>בפרק זה נעסוק במבני בקרה בסיסיים ב javascript:</div><div>- הוראות ביצוע מותנה (if).</div><div>- הוראות ביצוע חוזר (לולאות).</div><div><br></div><div>מטרות:</div><div>הלומדים ידעו לשלב בתסריט javacsript פקודות ביצוע מותנה ושערים לוגיים.</div></div><div>הלומדים ידעו לשלב בתסריט javacsript פקודות ביצוע חוזר (for, while).</div>	9	200	1
 9	עבודה עם visual studio	<p>השימוש בתכנת notepad יעיל עד שלב מסוים, שמעבר לו רצוי לעבור לעבוד בסביבת פיתוח. כאן נלמד לעבוד עם תכנת web developer express 2008.</p><p><br></p><p>מטרות:<br>הלומדים יתקינו במחשביהם את תכנת visual studio web developer.<br>הלומדים ידעו ליצור אתר אינטרנט באמצעות התכנה, וליצור קבצי HTML בתוכו.<br>הלומדים ידעו לצפות בדפי ה HTML שיצרו בעזרת הדפדפן.</p>	6	2147483647	0
 18	האובייקטים date setInterval	<div><div>פרק זה כולל טיפול בשני אובייקטים נוספים בשפת javascript המאפשרים שיפור נראות האתר, ובין השאר הוספת שעון לאתר.</div><div><br></div><div>מטרות:</div><div>הלומדים ידעו להשתמש באובייקט date.<br>הלומדים ידעו להשתמש בפעולת setInterval.</div></div><div>הלומדים ידעו להוסיף לאתר שעון מתעדכן.</div>	9	900	0
@@ -1045,8 +1045,10 @@ COPY core_teachtopic (id, title, description, parent_id, order_index, video_coun
 13	מדריך להקלטת סרטונים	<div>כאן ניתן ללמוד איך להקליט סרטונים ללא עלות כספית, לקבל רעיונות חדשים להמחשות גרפיות מעניינות ולהכיר תוכנות הקלטה ועריכה בסיסיות.<br></div>	15	200	5
 32	ניתוח נתוני ניסוי תנועה בקו ישר	בפרק זה נלמד כיצד ניתן לנתח נתונים שהתקבלו מניסוי בו גוף נע בקו ישר על מנת לתאר את התנועה באופן המדויק ביותר.	23	400	0
 33	נפילה חופשית	בפרק זה נעסוק בתיאור אופן התנועה של חפצים הנעים תחת השפעת כוח הכובד בלבד.	23	500	0
-15	ליצור וללמד	<div><div>כאן תוכלו למצוא מידע בנושאים הקשורים ל:</div><div>- פדגוגיית שיעור הפוך (כיתה הפוכה).</div><div>- איך להקליט סרטונים לימודיים.<br>- איך לשתף סרטונים לימודיים באופן כללי, ובשיעור פתוח בפרט.</div></div><div><div>- מחשבות על שימוש בסרטונים בכיתה.</div><div><br></div></div>	\N	300	\N
+15	ליצור וללמד	<div><div>כאן תוכלו למצוא מידע בנושאים הקשורים ל:</div><div>- פדגוגיית שיעור הפוך (כיתה הפוכה).</div><div>- איך להקליט סרטונים לימודיים.<br>- איך לשתף סרטונים לימודיים באופן כללי, ובשיעור פתוח בפרט.</div></div><div><div>- מחשבות על שימוש בסרטונים בכיתה.</div><div><br></div></div>\r\n\r\n <div>\r\n\t           \r\n\t               <a rel="nofollow" target="_blank" href="/core/topic/3/">ליצור</a>\r\n\t           \r\n\t               <a rel="nofollow" target="_blank" href="/core/topic/5/">ללמד</a>\r\n\t           \r\n\t           \r\n\t       </div>	\N	300	\N
+34	ליצור	חלק זה עוסק ביצירת סרטונים	15	100	\N
 28	העלאת סרטון לשיעור פתוח	<div>כאן נלמד כיצד לבצע את הפעולות הטכניות על מנת להעלות סרטון לאתר שיעור פתוח.<br>ראשית, נעלה סרטון ליוטיוב, ולאחר מכן, נקשר אותו לשיעור פתוח.</div>	15	500	2
+35	ללמד	כאן נעסוק בפדגוגייה המשלבת סרטונים	15	200	\N
 29	מבוא לקינמטיקה - מושגי יסוד	בפרק זה נגדיר את מושגי היסוד בקינמטיקה חד מימדית.	23	100	1
 30	תנועה שוות מהירות	בפרק זה נעסוק בהגדרת תנועה קצובה, תנועה שוות מהירות ותנועה שוות מהירות למקוטעין ונלמד לתאר תנועה כזו באמצעות כלים מתמטיים.	23	200	0
 31	תנועה שוות תאוצה	בפרק זה נעסוק בהגדרת המושג תאוצה וניסוח משוואות שיתארו תנועת גוף בתאוצה קבועה	23	300	0
@@ -1057,7 +1059,7 @@ COPY core_teachtopic (id, title, description, parent_id, order_index, video_coun
 -- Name: core_teachtopic_id_seq; Type: SEQUENCE SET; Schema: public; Owner: flipped
 --
 
-SELECT pg_catalog.setval('core_teachtopic_id_seq', 33, true);
+SELECT pg_catalog.setval('core_teachtopic_id_seq', 35, true);
 
 
 --
@@ -1380,6 +1382,10 @@ COPY django_admin_log (id, action_time, user_id, content_type_id, object_id, obj
 207	2014-07-17 11:25:45.279095-04	2	8	21	שונות - פיסיקה	3	
 208	2014-07-17 11:26:03.108953-04	2	8	4	מכניקה קלאסית	2	order_index שונה.
 209	2014-07-17 11:26:21.461577-04	2	8	6	מבוא לתכנות בסביבת האינטרנט	2	order_index שונה.
+210	2014-07-28 14:17:56.996854-04	2	8	15	ליצור וללמד	2	description שונה.
+211	2014-07-28 14:54:37.767358-04	2	8	15	ליצור וללמד	2	description שונה.
+212	2014-07-28 14:55:45.164351-04	2	8	34	ליצור	1	
+213	2014-07-28 14:57:40.942852-04	2	8	35	ללמד	1	
 \.
 
 
@@ -1387,7 +1393,7 @@ COPY django_admin_log (id, action_time, user_id, content_type_id, object_id, obj
 -- Name: django_admin_log_id_seq; Type: SEQUENCE SET; Schema: public; Owner: flipped
 --
 
-SELECT pg_catalog.setval('django_admin_log_id_seq', 209, true);
+SELECT pg_catalog.setval('django_admin_log_id_seq', 213, true);
 
 
 --
@@ -1467,6 +1473,7 @@ i4jcn5a5v9fcldhs7yq9n7ey9muom7xa	ZWIyNzkxY2JmZDI4NTlkNDA4Y2MxNWU5YzIzMDQ3NDNlN2E
 imaow271qwpz1theajys0badqpkbug8d	OWQ5ZjMwNDExMzIwZDcyMGY5N2IwMjQ2YzkzNzUxODlmNjM4ODViNTp7Il9hdXRoX3VzZXJfYmFja2VuZCI6ImRqYW5nby5jb250cmliLmF1dGguYmFja2VuZHMuTW9kZWxCYWNrZW5kIiwiX2F1dGhfdXNlcl9pZCI6Mn0=	2014-07-27 17:01:50.583565-04
 s8lg3xk4a8aatohc27mkn6ostuqrj2xx	NmMxY2YwYjZmNTIwZDBjMDg0YTkyNmFmMjQ2OWNkMDZmNWIwYjdhZTp7Il9hdXRoX3VzZXJfYmFja2VuZCI6ImRqYW5nby5jb250cmliLmF1dGguYmFja2VuZHMuTW9kZWxCYWNrZW5kIiwiX2F1dGhfdXNlcl9pZCI6MTR9	2014-06-05 15:49:32.87722-04
 xoeyv6277hiw6i51hgexf3208riuq902	OWQ5ZjMwNDExMzIwZDcyMGY5N2IwMjQ2YzkzNzUxODlmNjM4ODViNTp7Il9hdXRoX3VzZXJfYmFja2VuZCI6ImRqYW5nby5jb250cmliLmF1dGguYmFja2VuZHMuTW9kZWxCYWNrZW5kIiwiX2F1dGhfdXNlcl9pZCI6Mn0=	2014-07-15 04:43:36.356263-04
+2lvxj54cbsruyb0w8r987sradkx2f0p1	OWQ5ZjMwNDExMzIwZDcyMGY5N2IwMjQ2YzkzNzUxODlmNjM4ODViNTp7Il9hdXRoX3VzZXJfYmFja2VuZCI6ImRqYW5nby5jb250cmliLmF1dGguYmFja2VuZHMuTW9kZWxCYWNrZW5kIiwiX2F1dGhfdXNlcl9pZCI6Mn0=	2014-07-28 15:12:11.527903-04
 efe4f4frndh95xhyw7k3uvq6qsrsb0k9	OWQ5ZjMwNDExMzIwZDcyMGY5N2IwMjQ2YzkzNzUxODlmNjM4ODViNTp7Il9hdXRoX3VzZXJfYmFja2VuZCI6ImRqYW5nby5jb250cmliLmF1dGguYmFja2VuZHMuTW9kZWxCYWNrZW5kIiwiX2F1dGhfdXNlcl9pZCI6Mn0=	2014-06-09 14:13:52.665519-04
 vrth3lv7alf6couzc6pixq1xda7lncle	OWQ5ZjMwNDExMzIwZDcyMGY5N2IwMjQ2YzkzNzUxODlmNjM4ODViNTp7Il9hdXRoX3VzZXJfYmFja2VuZCI6ImRqYW5nby5jb250cmliLmF1dGguYmFja2VuZHMuTW9kZWxCYWNrZW5kIiwiX2F1dGhfdXNlcl9pZCI6Mn0=	2014-07-15 12:46:14.613347-04
 ndq9mebexxs7whog2l1ceb8dynlfx3lr	OWQ5ZjMwNDExMzIwZDcyMGY5N2IwMjQ2YzkzNzUxODlmNjM4ODViNTp7Il9hdXRoX3VzZXJfYmFja2VuZCI6ImRqYW5nby5jb250cmliLmF1dGguYmFja2VuZHMuTW9kZWxCYWNrZW5kIiwiX2F1dGhfdXNlcl9pZCI6Mn0=	2014-06-09 14:23:08.509014-04
