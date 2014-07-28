@@ -135,8 +135,10 @@ class Tag(models.Model):
     def __unicode__(self):
         return self.name
     
-    
-    
-        
-    
 
+class TopicSuggestion(models.Model):
+    user = models.ForeignKey(django.contrib.auth.get_user_model(), blank=True, null=True, default=None)
+    title = models.CharField(max_length=50, blank=False, null=False)
+    description = models.TextField(blank=False, null=False)
+    parent_topic = models.ForeignKey('TeachTopic', blank=True, null=True)
+    youtube_url = models.CharField(max_length=50, blank=True, null=True)
