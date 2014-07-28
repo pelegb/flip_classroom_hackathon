@@ -12,4 +12,7 @@ urlpatterns = patterns('',
     url(r'^item/(?P<item_id>\d+)/$', views.item_view, name='item_view'),
     url(r'^videos/rate/(?P<video_id>\d+)/$', views.video_rate, name='video_rate'),
     url(r'^user/$', views.user_view, name='user_view'),
+    url(r'^suggest-topic/(?P<parent_id>\d+)/$', views.suggest_topic, name='suggest_topic'),
 )
+
+

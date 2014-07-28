@@ -26,6 +26,10 @@
         <div class="row">
         	{{topic.description | safe}}	
         </div>
+	    <br>
+        <div class="row">
+        	<a href="{% url 'core:suggest_topic' parent_id=topic.id %}">הציעו נושא לימודי חדש עבור תחום זה</a>
+        </div>
         </div> <!-- /container -->
 </div>
 {%endblock %}

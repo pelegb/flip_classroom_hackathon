@@ -54,7 +54,22 @@ class VideoForm(forms.Form):
     item = forms.ModelChoiceField(queryset=models.TeachItem.objects.all(),required=True, label=_("item"))
     #tags = forms.ModelMultipleChoiceField(queryset=models.Tag.objects.all(),required=False, label=_("tags"))
 
+
 class ReviewForm(forms.Form):
     rel = forms.IntegerField(max_value=10, min_value=1, required=False, label=_("relevancy"))
     quality = forms.IntegerField(max_value=10, min_value=1, required=False, label=_("technical quality"))
 
+
+class TopicSuggestForm(forms.Form):
+    title = forms.CharField(label=_("title"))
+    description = forms.CharField(widget=Wysihtml5TextareaWidget(), label="פירוט על התוכן שצריך להיות תחת נושא זה")
+    youtube_url = forms.URLField(label=u"קישור לסרטון בנושא",
+                                 widget=forms.TextInput(attrs={'placeholder': u'לדוגמא, https://www.youtube.com/watch?v=2H4RkudFzlc',
+                                                               'class': 'wideTextInput'}),
+                                 validators=[validate_youtube],
+                                 required=False)
+
+    def get_context(self, name, value, attrs):
+        ctx = super(TopicSuggestForm, self).get_context(name, value, attrs)
+        ctx['foo'] = 'bar'
+        return ctx
