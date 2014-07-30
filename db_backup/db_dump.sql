@@ -847,6 +847,7 @@ SELECT pg_catalog.setval('auth_permission_id_seq', 42, true);
 
 COPY auth_user (id, password, last_login, is_superuser, username, first_name, last_name, email, is_staff, is_active, date_joined) FROM stdin;
 13	pbkdf2_sha256$12000$0RmRSK8MCjv1$TsNcO1G3lRD4SQf5rii1zJWOz5hdDNlutaHCxbOFjNc=	2014-04-28 15:46:32.062094-04	f	tomahidror	תום	אחי דרור	tom.ahidror@gmail.com	f	t	2014-04-28 15:46:31.915889-04
+2	pbkdf2_sha256$12000$RJcB0SFfQ2oD$D365n99NdMYEE3Xicga0PijrzCi4KR4r2BA8gJ+6d3E=	2014-07-30 09:53:52.872809-04	t	banitt81	איתמר	בנית	banitt81@yahoo.com	t	t	2014-01-20 15:35:23-05
 8	pbkdf2_sha256$12000$Tz7XNx3wlJ5S$wBk3XZBDNNZSEIfZAVvVl+//OBgXFadSInLYyV/VG8g=	2014-02-17 13:28:41.572163-05	f	noteacher	לאמורה	לאמורה	noteacher@teacher.com	f	t	2014-02-17 13:24:33-05
 3	pbkdf2_sha256$12000$VMBQ6a6xTmQs$G48leBfbt6GjHuoBkczC9MUj5v6fqemiQ0ylorJptsM=	2014-02-25 03:29:14.266951-05	t	eran	ערן	קידר	ekeydar@gmail.com	t	t	2014-01-20 15:36:44-05
 20	pbkdf2_sha256$12000$utGdGe6Jgf0J$TFHgTlsXSdXEe4uNPkss7WqeSjm4bNx8TOnVqITwXU8=	2014-07-17 19:42:02.596392-04	f	avishai	אבישי	שור	avishai.schur@gmail.com	f	t	2014-07-17 19:42:02.311184-04
@@ -868,7 +869,6 @@ COPY auth_user (id, password, last_login, is_superuser, username, first_name, la
 22	pbkdf2_sha256$12000$Ww6JdvOGXD8r$zlN+uoVv4+SPw1NjDkHxCm19WUwFazO5Q91RSbDdJeY=	2014-07-21 15:28:09.179641-04	f	amitaig	אמיתי	ג	amitaig@gmail.com	f	t	2014-07-21 15:28:09.03482-04
 17	pbkdf2_sha256$12000$MivGh7P0FA5K$q5GNdtHRXK3NpQrVIDmeKMpx98pyochU2LX41N3VFHI=	2014-06-30 23:34:22.076562-04	f	levym	מיכאל	לוי	jlevym@gmail.com	f	t	2014-06-30 23:34:21.922236-04
 23	pbkdf2_sha256$12000$rs6BqT4x4H0B$FE4VqMCh1Ly8UDFFnoL0EQm8LGHv6FdislJslDpP0Z4=	2014-07-26 18:06:11.824129-04	f	ag.openclassil	א	ג	ag.openclassil@gmail.com	f	t	2014-07-26 16:57:05.436199-04
-2	pbkdf2_sha256$12000$RJcB0SFfQ2oD$D365n99NdMYEE3Xicga0PijrzCi4KR4r2BA8gJ+6d3E=	2014-07-30 08:22:55.96442-04	t	banitt81	איתמר	בנית	banitt81@yahoo.com	t	t	2014-01-20 15:35:23-05
 \.
 
 
@@ -1040,18 +1040,19 @@ COPY core_teachtopic (id, title, description, parent_id, order_index, video_coun
 7	HTML	<div>שפת HTML היא שפת סימון המאפשרת יצירת דפי אינטרנט. דפים אלו ייכתבו ע"י מתכנת או באמצעות קוד ויפורשו ע"י דפדפן לצורך הצגתם למשתמש.&nbsp;</div>	6	100	8
 23	קינמטיקה	<div>תחום הקינמטיקה עוסק בתיאור מתמטי של תנועת גופים. החל מהגדרת המושג מקום ועד תיאור מהירות ותאוצה כוקטורים דו מימדיים.</div>	4	100	1
 18	סוגים של כוחות	<div>נושא זה עוסק בסוגי כוחות שונים בהם אנו נתקלים במערכות מכניות, ובפרט - מתיחות, הכוח הנורמלי וכוח החיכוך.</div>	16	600	2
+6	מבוא לתכנות בסביבת האינטרנט	<div>הפרק מבוא לתכנות בסביבת האינטרנט עוסק בהכרת הכלים הבסיסיים המשמשים כותבי אתרים. ביניהם HTML, javascript, טכנולוגיות ASP, ושפת SQL.<br>השלמת פרק זה תאפשר כתיבת אתר אינטרנט בעל חלקים דינמיים, מערכת רישום משתמשים ושימוש במסדי נתונים, הגבלת הרשאות משתמשים שונים ועוד.</div>	5	200	34
 19	החוק השני של ניוטון	<div>בפרק זה נעסוק בחוק השני של ניוטון, אשר מתאר את הקשר בין כוחות לבין שינוי בתנועת גופים.<br><br><br></div>	16	700	1
 20	שימור תנע קווי	פרק זה עוסק בהגדרת המושגים תנע מותקף, מציאת הקשר ביניהם ולימוד חוק שימור התנע הקווי.	16	1000	2
 3	פיסיקה	<div>תחום מדעי העוסק בתיאור חוקי הטבע. הפיסיקה עוסקת בין השאר בתנועת גופים, אור, קול וחקר החלל.</div>	\N	100	\N
 9	javascript	<div>על מנת ליצור דפי אינטרנט דינמיים, כלומר כאלה המסוגלים להשתנות ולהתעדכן בהתאם לפעולות המשתמש, יש צורך להריץ קוד כלשהו על מחשב המשתמש. פרק זה עוסק בשפת תסריט (script) הקרויה javascript המאפשרת ביצוע פעולות אלה.</div>	6	200	11
 17	כוחות	<div>בפרק זה נגדיר מהו כוח ונעסוק בשיטה למדידתו.</div>	16	400	1
 4	מכניקה קלאסית	<div>תחום רחב בפיסיקה העוסק בחקר תנועת גופים והכוחות הפועלים עליהם. תחום זה קרוי גם מכניקה ניוטונית כיוון שחלק ניכר ממנה מבוסס על תגליותיו של אייזיק ניוטון ופיתוחיו המתמטיים.</div>	3	100	11
-6	מבוא לתכנות בסביבת האינטרנט	<div>הפרק מבוא לתכנות בסביבת האינטרנט עוסק בהכרת הכלים הבסיסיים המשמשים כותבי אתרים. ביניהם HTML, javascript, טכנולוגיות ASP, ושפת SQL.<br>השלמת פרק זה תאפשר כתיבת אתר אינטרנט בעל חלקים דינמיים, מערכת רישום משתמשים ושימוש במסדי נתונים, הגבלת הרשאות משתמשים שונים ועוד.</div>	5	100	34
 25	זריקה אופקית	<div>פרק זה מתאר את אופן התנועה של גוף הנזרק בכיוון אופקי על פני כדור הארץ.</div>	24	100	1
 16	דינמיקה	<div>ענף במכניקה העוסק באופן בו כוחות ומומנטים משפיעים על תנועת גופים.</div>	4	300	10
 31	תנועה שוות תאוצה	בפרק זה נעסוק בהגדרת המושג תאוצה וניסוח משוואות שיתארו תנועת גוף בתאוצה קבועה	23	300	0
 32	ניתוח נתוני ניסוי תנועה בקו ישר	בפרק זה נלמד כיצד ניתן לנתח נתונים שהתקבלו מניסוי בו גוף נע בקו ישר על מנת לתאר את התנועה באופן המדויק ביותר.	23	400	0
 33	נפילה חופשית	בפרק זה נעסוק בתיאור אופן התנועה של חפצים הנעים תחת השפעת כוח הכובד בלבד.	23	500	0
+37	יסודות מדעי המחשב	<div>תחום זה מכיל רעיונות ומושגי יסוד בתחום מדעי המחשב, וכולל היבטים תיאורטיים ויישומיים שלהם.<br><br></div>	5	100	0
 34	ליצור	חלק זה עוסק ביצירת סרטונים	15	100	7
 35	ללמד	כאן נעסוק בפדגוגייה המשלבת סרטונים	15	200	4
 36	שיעור הפוך	פרק זה עוסק במהות השיעור ההפוך , יתרונותיו, חסרונותיו והמלצות ליישומו.	35	100	4
@@ -1065,7 +1066,7 @@ COPY core_teachtopic (id, title, description, parent_id, order_index, video_coun
 -- Name: core_teachtopic_id_seq; Type: SEQUENCE SET; Schema: public; Owner: flipped
 --
 
-SELECT pg_catalog.setval('core_teachtopic_id_seq', 36, true);
+SELECT pg_catalog.setval('core_teachtopic_id_seq', 37, true);
 
 
 --
@@ -1420,6 +1421,8 @@ COPY django_admin_log (id, action_time, user_id, content_type_id, object_id, obj
 238	2014-07-30 04:47:03.004218-04	2	8	15	ליצור וללמד	2	description שונה.
 239	2014-07-30 08:32:31.298678-04	2	9	68	משוואות מקום זמן לזריקה משופעת	1	
 240	2014-07-30 08:33:00.716952-04	2	9	69	משוואת המסלול בזריקה משופעת	1	
+241	2014-07-30 09:55:32.723037-04	2	8	37	יסודות מדעי המחשב	1	
+242	2014-07-30 09:55:51.362697-04	2	8	6	מבוא לתכנות בסביבת האינטרנט	2	order_index שונה.
 \.
 
 
@@ -1427,7 +1430,7 @@ COPY django_admin_log (id, action_time, user_id, content_type_id, object_id, obj
 -- Name: django_admin_log_id_seq; Type: SEQUENCE SET; Schema: public; Owner: flipped
 --
 
-SELECT pg_catalog.setval('django_admin_log_id_seq', 240, true);
+SELECT pg_catalog.setval('django_admin_log_id_seq', 242, true);
 
 
 --
@@ -1520,6 +1523,7 @@ rg4dg9efny1s29dkrxyoqhzsq86dgmd1	OWQ5ZjMwNDExMzIwZDcyMGY5N2IwMjQ2YzkzNzUxODlmNjM
 gb5hmf3vi74c7i5eb928o6k0xkm4r3ed	OWQ5ZjMwNDExMzIwZDcyMGY5N2IwMjQ2YzkzNzUxODlmNjM4ODViNTp7Il9hdXRoX3VzZXJfYmFja2VuZCI6ImRqYW5nby5jb250cmliLmF1dGguYmFja2VuZHMuTW9kZWxCYWNrZW5kIiwiX2F1dGhfdXNlcl9pZCI6Mn0=	2014-07-30 09:22:55.966932-04
 hhtjvvuwwf8dil68kbi5o6k1bex8ncyk	OWQ5ZjMwNDExMzIwZDcyMGY5N2IwMjQ2YzkzNzUxODlmNjM4ODViNTp7Il9hdXRoX3VzZXJfYmFja2VuZCI6ImRqYW5nby5jb250cmliLmF1dGguYmFja2VuZHMuTW9kZWxCYWNrZW5kIiwiX2F1dGhfdXNlcl9pZCI6Mn0=	2014-06-16 14:50:36.685532-04
 m65h20e842fxz68rds9mkucz9h4nz387	OTE2OTc2ZjQ2YmY1YmRiNzM0YzYwYTQ2MGM3ZmZhMWJiZjAxOTI0Yzp7Il9hdXRoX3VzZXJfYmFja2VuZCI6ImRqYW5nby5jb250cmliLmF1dGguYmFja2VuZHMuTW9kZWxCYWNrZW5kIiwiX2F1dGhfdXNlcl9pZCI6MjB9	2014-07-17 20:42:02.600431-04
+mr8mkvm7jvo2re3fxyebto20ubv6l1fx	OWQ5ZjMwNDExMzIwZDcyMGY5N2IwMjQ2YzkzNzUxODlmNjM4ODViNTp7Il9hdXRoX3VzZXJfYmFja2VuZCI6ImRqYW5nby5jb250cmliLmF1dGguYmFja2VuZHMuTW9kZWxCYWNrZW5kIiwiX2F1dGhfdXNlcl9pZCI6Mn0=	2014-07-30 10:53:52.875441-04
 bsakqh1gm1j79uwgwc5nts4zit2r6aga	OWQ5ZjMwNDExMzIwZDcyMGY5N2IwMjQ2YzkzNzUxODlmNjM4ODViNTp7Il9hdXRoX3VzZXJfYmFja2VuZCI6ImRqYW5nby5jb250cmliLmF1dGguYmFja2VuZHMuTW9kZWxCYWNrZW5kIiwiX2F1dGhfdXNlcl9pZCI6Mn0=	2014-06-17 12:56:34.550427-04
 2lbzv91h9y0wvszg4nmswwhzqru4cecq	OWQ5ZjMwNDExMzIwZDcyMGY5N2IwMjQ2YzkzNzUxODlmNjM4ODViNTp7Il9hdXRoX3VzZXJfYmFja2VuZCI6ImRqYW5nby5jb250cmliLmF1dGguYmFja2VuZHMuTW9kZWxCYWNrZW5kIiwiX2F1dGhfdXNlcl9pZCI6Mn0=	2014-07-20 02:07:51.826821-04
 dgaqc96fu19qdxupp03jbb0v3dxuilkw	OWQ5ZjMwNDExMzIwZDcyMGY5N2IwMjQ2YzkzNzUxODlmNjM4ODViNTp7Il9hdXRoX3VzZXJfYmFja2VuZCI6ImRqYW5nby5jb250cmliLmF1dGguYmFja2VuZHMuTW9kZWxCYWNrZW5kIiwiX2F1dGhfdXNlcl9pZCI6Mn0=	2014-06-17 14:50:25.475564-04
