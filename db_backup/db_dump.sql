@@ -868,7 +868,7 @@ COPY auth_user (id, password, last_login, is_superuser, username, first_name, la
 22	pbkdf2_sha256$12000$Ww6JdvOGXD8r$zlN+uoVv4+SPw1NjDkHxCm19WUwFazO5Q91RSbDdJeY=	2014-07-21 15:28:09.179641-04	f	amitaig	אמיתי	ג	amitaig@gmail.com	f	t	2014-07-21 15:28:09.03482-04
 17	pbkdf2_sha256$12000$MivGh7P0FA5K$q5GNdtHRXK3NpQrVIDmeKMpx98pyochU2LX41N3VFHI=	2014-06-30 23:34:22.076562-04	f	levym	מיכאל	לוי	jlevym@gmail.com	f	t	2014-06-30 23:34:21.922236-04
 23	pbkdf2_sha256$12000$rs6BqT4x4H0B$FE4VqMCh1Ly8UDFFnoL0EQm8LGHv6FdislJslDpP0Z4=	2014-07-26 18:06:11.824129-04	f	ag.openclassil	א	ג	ag.openclassil@gmail.com	f	t	2014-07-26 16:57:05.436199-04
-2	pbkdf2_sha256$12000$RJcB0SFfQ2oD$D365n99NdMYEE3Xicga0PijrzCi4KR4r2BA8gJ+6d3E=	2014-07-28 15:12:32.534602-04	t	banitt81	איתמר	בנית	banitt81@yahoo.com	t	t	2014-01-20 15:35:23-05
+2	pbkdf2_sha256$12000$RJcB0SFfQ2oD$D365n99NdMYEE3Xicga0PijrzCi4KR4r2BA8gJ+6d3E=	2014-07-30 04:44:05.21064-04	t	banitt81	איתמר	בנית	banitt81@yahoo.com	t	t	2014-01-20 15:35:23-05
 \.
 
 
@@ -1011,9 +1011,9 @@ COPY core_teachitem (id, title, description, parent_id, order_index, video_count
 60	ייצוגי תנועה	בנושא זה נלמד כיצד ניתן לתאר באופן מדעי תנועת גוף לאורך קו ישר.	29	100	1
 57	סרטונים שונים - מדעי המחשב	לכאן יועלו סרטונים שטרם נוצר עבורם פרק לימוד מתאים	5	100000000	2
 62	תכנון סרטון	פרק זה עוסק בגישות ורעיונות לתכנון סרטון לשיעור הפוך	34	300	0
+63	גישות ורעיונות להקלטת סרטונים	כאן יובאו טכניקות שונות ליצירת סרטונים ורעיונות להמחשת מושגים.	34	600	0
 65	למידה לשליטה	פרק זהעוסק בפדגוגיית למידה לשליטה המשתמשת בסרטונים	35	200	0
 66	למידה מבוססת פרויקטים - PBL	בפרק זה תתואר פדגוגיית PBL הניתנת לשילוב מוצלח עם גישת שיעור הפוך.	35	300	0
-63	גישות ורעיונות להקלטת סרטונים	כאן יובאו טכניקות שונות ליצירת סרטונים ורעיונות להמחשת מושגים.	34	600	0
 \.
 
 
@@ -1045,17 +1045,17 @@ COPY core_teachtopic (id, title, description, parent_id, order_index, video_coun
 17	כוחות	<div>בפרק זה נגדיר מהו כוח ונעסוק בשיטה למדידתו.</div>	16	400	1
 16	דינמיקה	<div>ענף במכניקה העוסק באופן בו כוחות ומומנטים משפיעים על תנועת גופים.</div>	4	300	9
 6	מבוא לתכנות בסביבת האינטרנט	<div>הפרק מבוא לתכנות בסביבת האינטרנט עוסק בהכרת הכלים הבסיסיים המשמשים כותבי אתרים. ביניהם HTML, javascript, טכנולוגיות ASP, ושפת SQL.<br>השלמת פרק זה תאפשר כתיבת אתר אינטרנט בעל חלקים דינמיים, מערכת רישום משתמשים ושימוש במסדי נתונים, הגבלת הרשאות משתמשים שונים ועוד.</div>	5	100	34
-26	זריקה משופעת	<div>פרק זה עוסק בתיאור תנועת גופים הנזרקים בכיוון משופע על פני כדור הארץ.</div>	24	200	0
 25	זריקה אופקית	<div>פרק זה מתאר את אופן התנועה של גוף הנזרק בכיוון אופקי על פני כדור הארץ.</div>	24	100	1
-32	ניתוח נתוני ניסוי תנועה בקו ישר	בפרק זה נלמד כיצד ניתן לנתח נתונים שהתקבלו מניסוי בו גוף נע בקו ישר על מנת לתאר את התנועה באופן המדויק ביותר.	23	400	0
-33	נפילה חופשית	בפרק זה נעסוק בתיאור אופן התנועה של חפצים הנעים תחת השפעת כוח הכובד בלבד.	23	500	0
-15	ליצור וללמד	<div>\r\n<table cellpadding = "40">\r\n<tbody><tr> <td> <a rel="nofollow" target="_blank" href="/core/topic/34/" class="btn btn-primary btn-xlarge" role="button">ליצור</a> </td>\r\n<td> <a rel="nofollow" target="_blank" href="/core/topic/35/" class="btn btn-primary btn-xlarge" role="button">ללמד </a></td> </tr>\r\n</tbody></table>\t           \r\n</div>	\N	300	\N
+26	זריקה משופעת	<div>פרק זה עוסק בתיאור תנועת גופים הנזרקים בכיוון משופע על פני כדור הארץ.</div>	24	200	0
+30	תנועה שוות מהירות	בפרק זה נעסוק בהגדרת תנועה קצובה, תנועה שוות מהירות ותנועה שוות מהירות למקוטעין ונלמד לתאר תנועה כזו באמצעות כלים מתמטיים.	23	200	0
 34	ליצור	חלק זה עוסק ביצירת סרטונים	15	100	7
+31	תנועה שוות תאוצה	בפרק זה נעסוק בהגדרת המושג תאוצה וניסוח משוואות שיתארו תנועת גוף בתאוצה קבועה	23	300	0
+32	ניתוח נתוני ניסוי תנועה בקו ישר	בפרק זה נלמד כיצד ניתן לנתח נתונים שהתקבלו מניסוי בו גוף נע בקו ישר על מנת לתאר את התנועה באופן המדויק ביותר.	23	400	0
 35	ללמד	כאן נעסוק בפדגוגייה המשלבת סרטונים	15	200	4
 36	שיעור הפוך	פרק זה עוסק במהות השיעור ההפוך , יתרונותיו, חסרונותיו והמלצות ליישומו.	35	100	4
+33	נפילה חופשית	בפרק זה נעסוק בתיאור אופן התנועה של חפצים הנעים תחת השפעת כוח הכובד בלבד.	23	500	0
+15	ליצור וללמד	<div>\r\n<table cellpadding = "40">\r\n<tbody><tr> <td> \r\n\r\n<a  href="/core/topic/34/" class="btn btn-primary btn-xlarge" role="button">\r\nליצור</a> </td>\r\n<td> \r\n<a  href="/core/topic/35/" class="btn btn-primary btn-xlarge" role="button">\r\nללמד </a></td> </tr>\r\n</tbody></table>           \r\n</div>	\N	300	\N
 29	מבוא לקינמטיקה - מושגי יסוד	בפרק זה נגדיר את מושגי היסוד בקינמטיקה חד מימדית.	23	100	1
-30	תנועה שוות מהירות	בפרק זה נעסוק בהגדרת תנועה קצובה, תנועה שוות מהירות ותנועה שוות מהירות למקוטעין ונלמד לתאר תנועה כזו באמצעות כלים מתמטיים.	23	200	0
-31	תנועה שוות תאוצה	בפרק זה נעסוק בהגדרת המושג תאוצה וניסוח משוואות שיתארו תנועת גוף בתאוצה קבועה	23	300	0
 \.
 
 
@@ -1414,6 +1414,7 @@ COPY django_admin_log (id, action_time, user_id, content_type_id, object_id, obj
 235	2014-07-28 15:27:16.196869-04	2	8	15	ליצור וללמד	2	description שונה.
 236	2014-07-28 15:27:47.834395-04	2	8	15	ליצור וללמד	2	description שונה.
 237	2014-07-28 15:28:17.574675-04	2	8	15	ליצור וללמד	2	description שונה.
+238	2014-07-30 04:47:03.004218-04	2	8	15	ליצור וללמד	2	description שונה.
 \.
 
 
@@ -1421,7 +1422,7 @@ COPY django_admin_log (id, action_time, user_id, content_type_id, object_id, obj
 -- Name: django_admin_log_id_seq; Type: SEQUENCE SET; Schema: public; Owner: flipped
 --
 
-SELECT pg_catalog.setval('django_admin_log_id_seq', 237, true);
+SELECT pg_catalog.setval('django_admin_log_id_seq', 238, true);
 
 
 --
@@ -1508,6 +1509,7 @@ mf8mgeqc89iuvou3svepsrwkh3ti58mo	OWQ5ZjMwNDExMzIwZDcyMGY5N2IwMjQ2YzkzNzUxODlmNjM
 ndq9mebexxs7whog2l1ceb8dynlfx3lr	OWQ5ZjMwNDExMzIwZDcyMGY5N2IwMjQ2YzkzNzUxODlmNjM4ODViNTp7Il9hdXRoX3VzZXJfYmFja2VuZCI6ImRqYW5nby5jb250cmliLmF1dGguYmFja2VuZHMuTW9kZWxCYWNrZW5kIiwiX2F1dGhfdXNlcl9pZCI6Mn0=	2014-06-09 14:23:08.509014-04
 tqk5375zu0mrgnig32l1i8kg3hwvhnbd	OWQ5ZjMwNDExMzIwZDcyMGY5N2IwMjQ2YzkzNzUxODlmNjM4ODViNTp7Il9hdXRoX3VzZXJfYmFja2VuZCI6ImRqYW5nby5jb250cmliLmF1dGguYmFja2VuZHMuTW9kZWxCYWNrZW5kIiwiX2F1dGhfdXNlcl9pZCI6Mn0=	2014-07-16 02:50:49.573072-04
 bli3hjcb44h9jkf40oj8nxur50x4j7l4	OWQ5ZjMwNDExMzIwZDcyMGY5N2IwMjQ2YzkzNzUxODlmNjM4ODViNTp7Il9hdXRoX3VzZXJfYmFja2VuZCI6ImRqYW5nby5jb250cmliLmF1dGguYmFja2VuZHMuTW9kZWxCYWNrZW5kIiwiX2F1dGhfdXNlcl9pZCI6Mn0=	2014-07-17 11:38:27.80001-04
+q7htfk3lx9pw8k4mbld2lunlh46imiwm	OWQ5ZjMwNDExMzIwZDcyMGY5N2IwMjQ2YzkzNzUxODlmNjM4ODViNTp7Il9hdXRoX3VzZXJfYmFja2VuZCI6ImRqYW5nby5jb250cmliLmF1dGguYmFja2VuZHMuTW9kZWxCYWNrZW5kIiwiX2F1dGhfdXNlcl9pZCI6Mn0=	2014-07-30 05:44:05.213359-04
 rg4dg9efny1s29dkrxyoqhzsq86dgmd1	OWQ5ZjMwNDExMzIwZDcyMGY5N2IwMjQ2YzkzNzUxODlmNjM4ODViNTp7Il9hdXRoX3VzZXJfYmFja2VuZCI6ImRqYW5nby5jb250cmliLmF1dGguYmFja2VuZHMuTW9kZWxCYWNrZW5kIiwiX2F1dGhfdXNlcl9pZCI6Mn0=	2014-06-16 13:05:18.044035-04
 8n9ucxcpmqoo634bzd1s47ovdmd7hnx6	OWQ5ZjMwNDExMzIwZDcyMGY5N2IwMjQ2YzkzNzUxODlmNjM4ODViNTp7Il9hdXRoX3VzZXJfYmFja2VuZCI6ImRqYW5nby5jb250cmliLmF1dGguYmFja2VuZHMuTW9kZWxCYWNrZW5kIiwiX2F1dGhfdXNlcl9pZCI6Mn0=	2014-07-17 14:26:10.581176-04
 hhtjvvuwwf8dil68kbi5o6k1bex8ncyk	OWQ5ZjMwNDExMzIwZDcyMGY5N2IwMjQ2YzkzNzUxODlmNjM4ODViNTp7Il9hdXRoX3VzZXJfYmFja2VuZCI6ImRqYW5nby5jb250cmliLmF1dGguYmFja2VuZHMuTW9kZWxCYWNrZW5kIiwiX2F1dGhfdXNlcl9pZCI6Mn0=	2014-06-16 14:50:36.685532-04
