@@ -847,7 +847,6 @@ SELECT pg_catalog.setval('auth_permission_id_seq', 42, true);
 
 COPY auth_user (id, password, last_login, is_superuser, username, first_name, last_name, email, is_staff, is_active, date_joined) FROM stdin;
 13	pbkdf2_sha256$12000$0RmRSK8MCjv1$TsNcO1G3lRD4SQf5rii1zJWOz5hdDNlutaHCxbOFjNc=	2014-04-28 15:46:32.062094-04	f	tomahidror	תום	אחי דרור	tom.ahidror@gmail.com	f	t	2014-04-28 15:46:31.915889-04
-2	pbkdf2_sha256$12000$RJcB0SFfQ2oD$D365n99NdMYEE3Xicga0PijrzCi4KR4r2BA8gJ+6d3E=	2014-07-31 00:55:16.027653-04	t	banitt81	איתמר	בנית	banitt81@yahoo.com	t	t	2014-01-20 15:35:23-05
 8	pbkdf2_sha256$12000$Tz7XNx3wlJ5S$wBk3XZBDNNZSEIfZAVvVl+//OBgXFadSInLYyV/VG8g=	2014-02-17 13:28:41.572163-05	f	noteacher	לאמורה	לאמורה	noteacher@teacher.com	f	t	2014-02-17 13:24:33-05
 23	pbkdf2_sha256$12000$rs6BqT4x4H0B$FE4VqMCh1Ly8UDFFnoL0EQm8LGHv6FdislJslDpP0Z4=	2014-07-31 01:47:11.304932-04	f	ag.openclassil	א	ג	ag.openclassil@gmail.com	f	t	2014-07-26 16:57:05.436199-04
 3	pbkdf2_sha256$12000$VMBQ6a6xTmQs$G48leBfbt6GjHuoBkczC9MUj5v6fqemiQ0ylorJptsM=	2014-02-25 03:29:14.266951-05	t	eran	ערן	קידר	ekeydar@gmail.com	t	t	2014-01-20 15:36:44-05
@@ -855,6 +854,7 @@ COPY auth_user (id, password, last_login, is_superuser, username, first_name, la
 14	pbkdf2_sha256$12000$8Qrmten3AzPk$Wx7Lmfb+ZpdQkXq+72pLCeyxP3oPWU1ZTNF8NAJaaew=	2014-06-05 14:49:32.874961-04	f	אלינה	אלינה	קולטון	alinacolton@gmail.com	f	t	2014-06-05 14:49:32.603289-04
 1	pbkdf2_sha256$12000$uPlKy3Oih2iu$lr3JvTcWE1gy2vuqTL0lwCNLlpqwNm5OOhNP3TLF/Yk=	2014-01-24 06:08:48.074708-05	t	flip	פליפ	פלופ	flip@flip.com	t	t	2014-01-20 15:30:21-05
 9	pbkdf2_sha256$12000$IcUTTyyHXFrA$b4x7HiPY/iv+bx/ZJ0zYvkA/oyfieYd6wCAZ4ZmPEdE=	2014-02-28 17:56:26.595882-05	f	yoniLavi	יוני	לביא	yoni@lavi.fm	f	t	2014-02-28 17:56:26.34728-05
+2	pbkdf2_sha256$12000$RJcB0SFfQ2oD$D365n99NdMYEE3Xicga0PijrzCi4KR4r2BA8gJ+6d3E=	2014-07-31 02:58:15.869756-04	t	banitt81	איתמר	בנית	banitt81@yahoo.com	t	t	2014-01-20 15:35:23-05
 4	pbkdf2_sha256$12000$IVyD5cDON7eP$PuT0HdET8knRuOln9D8EIMtTBNT+0s83ONsJh5REP5k=	2014-07-07 15:57:39.529232-04	t	barakp	ברק	פלג	pelegb@gmail.com	t	t	2014-01-20 15:37:27-05
 5	pbkdf2_sha256$12000$B1rh8eX57hdq$4XEiOJ7EShH5BLT9Kbf+ei4cOHTwEaL9iSxocyQCYFs=	2014-02-03 14:13:02.133729-05	f	gl1000007	גלעד	לייבוביץ	gl1000007@gmail.com	f	t	2014-02-03 14:13:01.872958-05
 10	pbkdf2_sha256$12000$sHyNIpdIVU8n$VAM/x0hMFxJ9tbT5+NEBKPYgCIhaFQm7YQ4ElLbqkOE=	2014-03-03 09:10:14.378773-05	f	zoco	זוקו	ניסיון	zocomail@yahoo.com	f	t	2014-03-03 09:09:55.272732-05
@@ -984,8 +984,8 @@ COPY core_teachitem (id, title, description, parent_id, order_index, video_count
 34	גישות היסטוריות לתנועת גופים	<div>פרק זה עוסק בגישותיהם של הוגים מהעת העתיקה לגבי תנועת גופים, ובפרט גישתו של אריסטו ותיאוריית האימפטוס.</div>	16	200	0
 35	החוק הראשון של ניוטון	<div>פרק זה עוסק בהתנהגותם של גופים כאשר תנועתם אינה מאולצת ע"י השפעות חיצוניות - כלומר, התנהגותם ה"טבעית".</div>	16	300	2
 46	המסה האינרציאלית	<div>בפרק זה ניווכח כי יש קשר בין גודל הכוח הפועל על גוף לבין תאוצתו.<br>מטרות:<br>- הלומדים ידעו כי קיים קשר בין שקול הכוחות לבין בתאוצה בכיוון ובגודל.<br>- הלומדים ידעו כי הקשר בין גודל שקול הכוחות לבין גודל התאוצה הוא לינארי.<br>- הלומדים ידעו מהי מסה אינרציאלית.</div>	19	100	0
-42	מתיחות	<div>פרק זה סוקר את כוח המתיחות - הכוח שמפעיל חוט או חבל על הגוף הקשור אליו.<br>מטרות הלמידה:<br>- הלומדים ידעו מהו כוח המתיחות ולאילו כיוונים הוא פועל.<br>- הלומדים ידעו כי בחוט חסר משקל המתיחות אינה משתנה לאורך החוט.<br>- הלומדים ידעו כי המתיחות אינה משתנה בין מקרים בהם מפעיל הכוח "אקטיבי" (אדם המושך חבל) לבין מקרים בהם הוא "פסיבי" (חבל הקשור לקיר).<br><br></div>	18	100	0
 36	הגדרת כוח ויחידות	בפרק זה נגדיר את המושג כוח, ונגדיר את יחידת ניוטון המשמשת לכימות של הגודל "כוח".	17	100	1
+42	מתיחות	<div>פרק זה סוקר את כוח המתיחות - הכוח שמפעיל חוט או חבל על הגוף הקשור אליו.<br>מטרות הלמידה:<br>- הלומדים ידעו מהו כוח המתיחות ולאילו כיוונים הוא פועל.<br>- הלומדים ידעו כי בחוט חסר משקל המתיחות אינה משתנה לאורך החוט.<br>- הלומדים ידעו כי המתיחות אינה משתנה בין מקרים בהם מפעיל הכוח "אקטיבי" (אדם המושך חבל) לבין מקרים בהם הוא "פסיבי" (חבל הקשור לקיר).<br><br></div>	18	100	0
 43	הכוח הנורמלי	<div>פרק זה סוקר את הכוח הנורמלי - הכוח הפועל בין שני גופים בניצב למישור המגע ביניהם.<br>מטרות הלמידה:<br>- הלומדים יבינו מהו הכוח הנורמלי, וידעו לחשבו במקרים פשוטים (גוף על משטח אופקי המתמיד בתנועתו).<br>- הלומדים ידעו מה כיוונו של הכוח הנורמלי.</div>	18	200	0
 39	דינמומטר	<div>בפרק זה נעסוק באופן בו ניתן למדוד כוח תוך שימוש בקפיצים.<br>מטרות הלמידה:<br>- הלומדים ידעו כיצד פועל דינמומטר.<br>- הלומדים ידעו כיצד ניתן לתכנן דינמומטר וכיצד להשתמש בו.</div>	17	300	0
 38	קפיצים - העמקה	<div>בפרק זה נראה כיצד מתנהגים קפיצים בעת חיבורם זה לזה - חיבור בטור וחיבור במקביל.<br>מטרות הלמידה:<br>- הלומדים יבינו את הפיתוח של קבוע קפיץ שקול במקרה של חיבור קפיצים בטור ובמקביל.<br>- הלומדים ידעו כיצד לחשב קבוע קפיץ שקול בחיבור בטור ובמקביל.<br></div>	17	400	0
@@ -1049,15 +1049,16 @@ COPY core_teachtopic (id, title, description, parent_id, order_index, video_coun
 4	מכניקה קלאסית	<div>תחום רחב בפיסיקה העוסק בחקר תנועת גופים והכוחות הפועלים עליהם. תחום זה קרוי גם מכניקה ניוטונית כיוון שחלק ניכר ממנה מבוסס על תגליותיו של אייזיק ניוטון ופיתוחיו המתמטיים.</div>	3	100	11
 25	זריקה אופקית	<div>פרק זה מתאר את אופן התנועה של גוף הנזרק בכיוון אופקי על פני כדור הארץ.</div>	24	100	1
 16	דינמיקה	<div>ענף במכניקה העוסק באופן בו כוחות ומומנטים משפיעים על תנועת גופים.</div>	4	300	10
+30	תנועה שוות מהירות	בפרק זה נעסוק בהגדרת תנועה קצובה, תנועה שוות מהירות ותנועה שוות מהירות למקוטעין ונלמד לתאר תנועה כזו באמצעות כלים מתמטיים.	23	200	0
+31	תנועה שוות תאוצה	בפרק זה נעסוק בהגדרת המושג תאוצה וניסוח משוואות שיתארו תנועת גוף בתאוצה קבועה	23	300	0
+32	ניתוח נתוני ניסוי תנועה בקו ישר	בפרק זה נלמד כיצד ניתן לנתח נתונים שהתקבלו מניסוי בו גוף נע בקו ישר על מנת לתאר את התנועה באופן המדויק ביותר.	23	400	0
+33	נפילה חופשית	בפרק זה נעסוק בתיאור אופן התנועה של חפצים הנעים תחת השפעת כוח הכובד בלבד.	23	500	0
+38	ווקטורים	בפרק זה יתואר המושג ווקטור, ייצוגיו והאפשרויות לבצע על וקטורים פעולות חשבוניות	16	350	0
 34	ליצור	חלק זה עוסק ביצירת סרטונים	15	100	7
 35	ללמד	כאן נעסוק בפדגוגייה המשלבת סרטונים	15	200	4
 36	שיעור הפוך	פרק זה עוסק במהות השיעור ההפוך , יתרונותיו, חסרונותיו והמלצות ליישומו.	35	100	4
 15	ליצור וללמד	<div>\r\n<table cellpadding = "40">\r\n<tbody><tr> <td> \r\n\r\n<a  href="/core/topic/34/" class="btn btn-primary btn-xlarge" role="button">\r\nליצור</a> </td>\r\n<td> \r\n<a  href="/core/topic/35/" class="btn btn-primary btn-xlarge" role="button">\r\nללמד </a></td> </tr>\r\n</tbody></table>           \r\n</div>	\N	300	\N
 29	מבוא לקינמטיקה - מושגי יסוד	בפרק זה נגדיר את מושגי היסוד בקינמטיקה חד מימדית.	23	100	1
-30	תנועה שוות מהירות	בפרק זה נעסוק בהגדרת תנועה קצובה, תנועה שוות מהירות ותנועה שוות מהירות למקוטעין ונלמד לתאר תנועה כזו באמצעות כלים מתמטיים.	23	200	0
-31	תנועה שוות תאוצה	בפרק זה נעסוק בהגדרת המושג תאוצה וניסוח משוואות שיתארו תנועת גוף בתאוצה קבועה	23	300	0
-32	ניתוח נתוני ניסוי תנועה בקו ישר	בפרק זה נלמד כיצד ניתן לנתח נתונים שהתקבלו מניסוי בו גוף נע בקו ישר על מנת לתאר את התנועה באופן המדויק ביותר.	23	400	0
-33	נפילה חופשית	בפרק זה נעסוק בתיאור אופן התנועה של חפצים הנעים תחת השפעת כוח הכובד בלבד.	23	500	0
 37	יסודות מדעי המחשב	<div>תחום זה מכיל רעיונות ומושגי יסוד בתחום מדעי המחשב, וכולל היבטים תיאורטיים ויישומיים שלהם.<br><br></div>	5	100	0
 \.
 
@@ -1066,7 +1067,7 @@ COPY core_teachtopic (id, title, description, parent_id, order_index, video_coun
 -- Name: core_teachtopic_id_seq; Type: SEQUENCE SET; Schema: public; Owner: flipped
 --
 
-SELECT pg_catalog.setval('core_teachtopic_id_seq', 37, true);
+SELECT pg_catalog.setval('core_teachtopic_id_seq', 38, true);
 
 
 --
@@ -1423,6 +1424,7 @@ COPY django_admin_log (id, action_time, user_id, content_type_id, object_id, obj
 240	2014-07-30 08:33:00.716952-04	2	9	69	משוואת המסלול בזריקה משופעת	1	
 241	2014-07-30 09:55:32.723037-04	2	8	37	יסודות מדעי המחשב	1	
 242	2014-07-30 09:55:51.362697-04	2	8	6	מבוא לתכנות בסביבת האינטרנט	2	order_index שונה.
+243	2014-07-31 02:59:53.730431-04	2	8	38	ווקטורים	1	
 \.
 
 
@@ -1430,7 +1432,7 @@ COPY django_admin_log (id, action_time, user_id, content_type_id, object_id, obj
 -- Name: django_admin_log_id_seq; Type: SEQUENCE SET; Schema: public; Owner: flipped
 --
 
-SELECT pg_catalog.setval('django_admin_log_id_seq', 242, true);
+SELECT pg_catalog.setval('django_admin_log_id_seq', 243, true);
 
 
 --
@@ -1532,6 +1534,7 @@ jxbz2o89urvc5f25wg5svm14bx3jf83q	MWQyN2I4MjFkNzM3MzAyZmNmNzVhYWM3NzgyY2ViYzY4ODE
 w86ry7tjhwyeg69hvqh5onzoo9ko6rpu	OGUzNWNhZTgwMTEwOTc1ZTI2ZWYzYmY3ZDBlNTA2OGZiMzY3ZmZmNDp7Il9hdXRoX3VzZXJfYmFja2VuZCI6ImRqYW5nby5jb250cmliLmF1dGguYmFja2VuZHMuTW9kZWxCYWNrZW5kIiwiX2F1dGhfdXNlcl9pZCI6MjN9	2014-07-31 02:47:11.307468-04
 xk3jth9cm1nzislk9aohl39ykqn20xwc	MTAyMzU1YWVkNjMzMjExYjUyYWE0NzE3MThhY2Q3OGUyMGViMmUzYzp7Il9hdXRoX3VzZXJfYmFja2VuZCI6ImRqYW5nby5jb250cmliLmF1dGguYmFja2VuZHMuTW9kZWxCYWNrZW5kIiwiX2F1dGhfdXNlcl9pZCI6MTV9	2014-06-26 02:30:10.410698-04
 c2yvtb5lk85s7lr2al92mqqgqlh16982	Mjg3MzFiZGVkNWJkMjFjZTdhZGM2ZjkzNTYzNzQ0NzhiOGU2OWUzODp7Il9hdXRoX3VzZXJfYmFja2VuZCI6ImRqYW5nby5jb250cmliLmF1dGguYmFja2VuZHMuTW9kZWxCYWNrZW5kIiwiX2F1dGhfdXNlcl9pZCI6MjJ9	2014-07-21 16:28:09.182223-04
+9yix96c1id3je0ckyb5ifvv7pvj46w9j	OWQ5ZjMwNDExMzIwZDcyMGY5N2IwMjQ2YzkzNzUxODlmNjM4ODViNTp7Il9hdXRoX3VzZXJfYmFja2VuZCI6ImRqYW5nby5jb250cmliLmF1dGguYmFja2VuZHMuTW9kZWxCYWNrZW5kIiwiX2F1dGhfdXNlcl9pZCI6Mn0=	2014-07-31 03:58:15.872641-04
 mulr9di0kv15c4h1i7xhzgsgipmcyhjg	ZDQ0NDJlMmNlNzljNTA0YWU4ZmJhNTQ2ZjlhZjExNGRlODVkYTNlYTp7Il9hdXRoX3VzZXJfYmFja2VuZCI6ImRqYW5nby5jb250cmliLmF1dGguYmFja2VuZHMuTW9kZWxCYWNrZW5kIiwiX2F1dGhfdXNlcl9pZCI6MTZ9	2014-06-29 07:42:08.262977-04
 lrfayub5d2nfomjmlnntbsz5kglsyjlo	OWQ5ZjMwNDExMzIwZDcyMGY5N2IwMjQ2YzkzNzUxODlmNjM4ODViNTp7Il9hdXRoX3VzZXJfYmFja2VuZCI6ImRqYW5nby5jb250cmliLmF1dGguYmFja2VuZHMuTW9kZWxCYWNrZW5kIiwiX2F1dGhfdXNlcl9pZCI6Mn0=	2014-06-30 13:34:54.527428-04
 obtrbuuh5lxvqtd8six92eus3u2muzoy	ZDQ0NDJlMmNlNzljNTA0YWU4ZmJhNTQ2ZjlhZjExNGRlODVkYTNlYTp7Il9hdXRoX3VzZXJfYmFja2VuZCI6ImRqYW5nby5jb250cmliLmF1dGguYmFja2VuZHMuTW9kZWxCYWNrZW5kIiwiX2F1dGhfdXNlcl9pZCI6MTZ9	2014-06-30 15:12:11.411361-04
