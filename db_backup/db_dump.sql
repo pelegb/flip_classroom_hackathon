@@ -847,7 +847,7 @@ SELECT pg_catalog.setval('auth_permission_id_seq', 42, true);
 
 COPY auth_user (id, password, last_login, is_superuser, username, first_name, last_name, email, is_staff, is_active, date_joined) FROM stdin;
 13	pbkdf2_sha256$12000$0RmRSK8MCjv1$TsNcO1G3lRD4SQf5rii1zJWOz5hdDNlutaHCxbOFjNc=	2014-04-28 15:46:32.062094-04	f	tomahidror	תום	אחי דרור	tom.ahidror@gmail.com	f	t	2014-04-28 15:46:31.915889-04
-2	pbkdf2_sha256$12000$RJcB0SFfQ2oD$D365n99NdMYEE3Xicga0PijrzCi4KR4r2BA8gJ+6d3E=	2014-07-30 09:53:52.872809-04	t	banitt81	איתמר	בנית	banitt81@yahoo.com	t	t	2014-01-20 15:35:23-05
+2	pbkdf2_sha256$12000$RJcB0SFfQ2oD$D365n99NdMYEE3Xicga0PijrzCi4KR4r2BA8gJ+6d3E=	2014-07-31 00:55:16.027653-04	t	banitt81	איתמר	בנית	banitt81@yahoo.com	t	t	2014-01-20 15:35:23-05
 8	pbkdf2_sha256$12000$Tz7XNx3wlJ5S$wBk3XZBDNNZSEIfZAVvVl+//OBgXFadSInLYyV/VG8g=	2014-02-17 13:28:41.572163-05	f	noteacher	לאמורה	לאמורה	noteacher@teacher.com	f	t	2014-02-17 13:24:33-05
 3	pbkdf2_sha256$12000$VMBQ6a6xTmQs$G48leBfbt6GjHuoBkczC9MUj5v6fqemiQ0ylorJptsM=	2014-02-25 03:29:14.266951-05	t	eran	ערן	קידר	ekeydar@gmail.com	t	t	2014-01-20 15:36:44-05
 20	pbkdf2_sha256$12000$utGdGe6Jgf0J$TFHgTlsXSdXEe4uNPkss7WqeSjm4bNx8TOnVqITwXU8=	2014-07-17 19:42:02.596392-04	f	avishai	אבישי	שור	avishai.schur@gmail.com	f	t	2014-07-17 19:42:02.311184-04
@@ -1526,6 +1526,7 @@ m65h20e842fxz68rds9mkucz9h4nz387	OTE2OTc2ZjQ2YmY1YmRiNzM0YzYwYTQ2MGM3ZmZhMWJiZjA
 mr8mkvm7jvo2re3fxyebto20ubv6l1fx	OWQ5ZjMwNDExMzIwZDcyMGY5N2IwMjQ2YzkzNzUxODlmNjM4ODViNTp7Il9hdXRoX3VzZXJfYmFja2VuZCI6ImRqYW5nby5jb250cmliLmF1dGguYmFja2VuZHMuTW9kZWxCYWNrZW5kIiwiX2F1dGhfdXNlcl9pZCI6Mn0=	2014-07-30 10:53:52.875441-04
 bsakqh1gm1j79uwgwc5nts4zit2r6aga	OWQ5ZjMwNDExMzIwZDcyMGY5N2IwMjQ2YzkzNzUxODlmNjM4ODViNTp7Il9hdXRoX3VzZXJfYmFja2VuZCI6ImRqYW5nby5jb250cmliLmF1dGguYmFja2VuZHMuTW9kZWxCYWNrZW5kIiwiX2F1dGhfdXNlcl9pZCI6Mn0=	2014-06-17 12:56:34.550427-04
 2lbzv91h9y0wvszg4nmswwhzqru4cecq	OWQ5ZjMwNDExMzIwZDcyMGY5N2IwMjQ2YzkzNzUxODlmNjM4ODViNTp7Il9hdXRoX3VzZXJfYmFja2VuZCI6ImRqYW5nby5jb250cmliLmF1dGguYmFja2VuZHMuTW9kZWxCYWNrZW5kIiwiX2F1dGhfdXNlcl9pZCI6Mn0=	2014-07-20 02:07:51.826821-04
+gugfyo5hatwxfw6l21c31pfq85h4k78d	OWQ5ZjMwNDExMzIwZDcyMGY5N2IwMjQ2YzkzNzUxODlmNjM4ODViNTp7Il9hdXRoX3VzZXJfYmFja2VuZCI6ImRqYW5nby5jb250cmliLmF1dGguYmFja2VuZHMuTW9kZWxCYWNrZW5kIiwiX2F1dGhfdXNlcl9pZCI6Mn0=	2014-07-31 01:55:16.03651-04
 dgaqc96fu19qdxupp03jbb0v3dxuilkw	OWQ5ZjMwNDExMzIwZDcyMGY5N2IwMjQ2YzkzNzUxODlmNjM4ODViNTp7Il9hdXRoX3VzZXJfYmFja2VuZCI6ImRqYW5nby5jb250cmliLmF1dGguYmFja2VuZHMuTW9kZWxCYWNrZW5kIiwiX2F1dGhfdXNlcl9pZCI6Mn0=	2014-06-17 14:50:25.475564-04
 jxbz2o89urvc5f25wg5svm14bx3jf83q	MWQyN2I4MjFkNzM3MzAyZmNmNzVhYWM3NzgyY2ViYzY4ODE4NWMwZTp7Il9hdXRoX3VzZXJfYmFja2VuZCI6ImRqYW5nby5jb250cmliLmF1dGguYmFja2VuZHMuTW9kZWxCYWNrZW5kIiwiX2F1dGhfdXNlcl9pZCI6MjF9	2014-07-21 14:50:51.993234-04
 xk3jth9cm1nzislk9aohl39ykqn20xwc	MTAyMzU1YWVkNjMzMjExYjUyYWE0NzE3MThhY2Q3OGUyMGViMmUzYzp7Il9hdXRoX3VzZXJfYmFja2VuZCI6ImRqYW5nby5jb250cmliLmF1dGguYmFja2VuZHMuTW9kZWxCYWNrZW5kIiwiX2F1dGhfdXNlcl9pZCI6MTV9	2014-06-26 02:30:10.410698-04
