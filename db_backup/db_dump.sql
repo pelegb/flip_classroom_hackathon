@@ -848,7 +848,6 @@ SELECT pg_catalog.setval('auth_permission_id_seq', 42, true);
 COPY auth_user (id, password, last_login, is_superuser, username, first_name, last_name, email, is_staff, is_active, date_joined) FROM stdin;
 13	pbkdf2_sha256$12000$0RmRSK8MCjv1$TsNcO1G3lRD4SQf5rii1zJWOz5hdDNlutaHCxbOFjNc=	2014-04-28 15:46:32.062094-04	f	tomahidror	תום	אחי דרור	tom.ahidror@gmail.com	f	t	2014-04-28 15:46:31.915889-04
 8	pbkdf2_sha256$12000$Tz7XNx3wlJ5S$wBk3XZBDNNZSEIfZAVvVl+//OBgXFadSInLYyV/VG8g=	2014-02-17 13:28:41.572163-05	f	noteacher	לאמורה	לאמורה	noteacher@teacher.com	f	t	2014-02-17 13:24:33-05
-23	pbkdf2_sha256$12000$rs6BqT4x4H0B$FE4VqMCh1Ly8UDFFnoL0EQm8LGHv6FdislJslDpP0Z4=	2014-07-31 01:47:11.304932-04	f	ag.openclassil	א	ג	ag.openclassil@gmail.com	f	t	2014-07-26 16:57:05.436199-04
 3	pbkdf2_sha256$12000$VMBQ6a6xTmQs$G48leBfbt6GjHuoBkczC9MUj5v6fqemiQ0ylorJptsM=	2014-02-25 03:29:14.266951-05	t	eran	ערן	קידר	ekeydar@gmail.com	t	t	2014-01-20 15:36:44-05
 20	pbkdf2_sha256$12000$utGdGe6Jgf0J$TFHgTlsXSdXEe4uNPkss7WqeSjm4bNx8TOnVqITwXU8=	2014-07-17 19:42:02.596392-04	f	avishai	אבישי	שור	avishai.schur@gmail.com	f	t	2014-07-17 19:42:02.311184-04
 14	pbkdf2_sha256$12000$8Qrmten3AzPk$Wx7Lmfb+ZpdQkXq+72pLCeyxP3oPWU1ZTNF8NAJaaew=	2014-06-05 14:49:32.874961-04	f	אלינה	אלינה	קולטון	alinacolton@gmail.com	f	t	2014-06-05 14:49:32.603289-04
@@ -860,6 +859,7 @@ COPY auth_user (id, password, last_login, is_superuser, username, first_name, la
 10	pbkdf2_sha256$12000$sHyNIpdIVU8n$VAM/x0hMFxJ9tbT5+NEBKPYgCIhaFQm7YQ4ElLbqkOE=	2014-03-03 09:10:14.378773-05	f	zoco	זוקו	ניסיון	zocomail@yahoo.com	f	t	2014-03-03 09:09:55.272732-05
 18	pbkdf2_sha256$12000$IV9D9yVuRtei$0M42Xbb2JjR8YBLqOKieqTyM8YGn8FP5bHXjN7Rzk/0=	2014-07-10 01:52:07.369999-04	f	Arie	אריה	הרשקוביץ	ariehers@gmail.com	f	t	2014-07-10 01:52:07.087182-04
 6	pbkdf2_sha256$12000$188oeTJ170qT$Bby7e4xXghIMGmeJaYqP3CHa9yIMuvYN5cIM76ndiJQ=	2014-02-10 13:42:02.809739-05	f	shahar.josefbserg	shahar	josefsberg	shahar.josefsberg@gmail.com	f	t	2014-02-10 13:42:02.639976-05
+23	pbkdf2_sha256$12000$rs6BqT4x4H0B$FE4VqMCh1Ly8UDFFnoL0EQm8LGHv6FdislJslDpP0Z4=	2014-08-01 05:31:54.03738-04	f	ag.openclassil	א	ג	ag.openclassil@gmail.com	f	t	2014-07-26 16:57:05.436199-04
 7	pbkdf2_sha256$12000$CwgaDoYkLhom$3Foe4GQ86fbh6876uyVxQY+hi+UT3kF37ghOucu0HQI=	2014-02-11 01:56:15.242213-05	f	xTheBawsx	ליאור	לוי	lior.levy@hotmail.com	f	t	2014-02-11 01:55:38.844816-05
 11	pbkdf2_sha256$12000$Zpy8TeXATh1W$cUYfmw0QB3R4heBt0rasRvtqzNOHF9OXe6Vznlbc/k8=	2014-04-07 04:26:52.384281-04	f	avivsalem	אביב	סלם	avivsalem@gmail.com	f	t	2014-04-07 04:26:52.199572-04
 15	pbkdf2_sha256$12000$0UQOd7Qu2vPe$f6i9B5SepjcSFERAnnDnuRwgqrqfOy62HCM9d7Cpli8=	2014-06-26 01:30:10.406521-04	f	ricky_edu@yaffeonline.com	ריקי	יפה	ricky_edu@yaffeonline.com	f	t	2014-06-26 01:30:10.119109-04
@@ -1021,12 +1021,12 @@ COPY core_teachitem (id, title, description, parent_id, order_index, video_count
 58	משוואות מקום זמן בזריקה אופקית	כאן תפותחנה משוואות מקום זמן לתנועת גופים הנזרקים בזריקה אופקית.	25	100	1
 60	ייצוגי תנועה	בנושא זה נלמד כיצד ניתן לתאר באופן מדעי תנועת גוף לאורך קו ישר.	29	100	1
 57	סרטונים שונים - מדעי המחשב	לכאן יועלו סרטונים שטרם נוצר עבורם פרק לימוד מתאים	5	100000000	2
-63	גישות ורעיונות להקלטת סרטונים	כאן יובאו טכניקות שונות ליצירת סרטונים ורעיונות להמחשת מושגים.	34	600	0
-65	למידה לשליטה	פרק זהעוסק בפדגוגיית למידה לשליטה המשתמשת בסרטונים	35	200	0
+62	תכנון סרטון	פרק זה עוסק בגישות ורעיונות לתכנון סרטון לשיעור הפוך	34	300	0
 66	למידה מבוססת פרויקטים - PBL	בפרק זה תתואר פדגוגיית PBL הניתנת לשילוב מוצלח עם גישת שיעור הפוך.	35	300	0
 69	משוואת המסלול בזריקה משופעת	פרק זה מתאר את הקשר בין המקום בציר X למקום בציר Y בזריקה משופעת.	26	200	0
-62	תכנון סרטון	פרק זה עוסק בגישות ורעיונות לתכנון סרטון לשיעור הפוך	34	300	0
+65	למידה לשליטה	פרק זהעוסק בפדגוגיית למידה לשליטה המשתמשת בסרטונים	35	200	0
 68	משוואות מקום זמן לזריקה משופעת	כאן נלמד את הקשר בין מקומו של גוף בכל אחד משני הצירים לבין הזמן, בזריקה משופעת.	26	100	1
+63	גישות ורעיונות להקלטת סרטונים	כאן יובאו טכניקות שונות ליצירת סרטונים ורעיונות להמחשת מושגים.	34	600	0
 71	ייצוג פולרי לווקטור	בפרק זה יתואר אופן ייצוג ווקטור באמצעות גודל וכיוון	38	200	0
 \.
 
@@ -1567,6 +1567,7 @@ qu8ii2ywfwcqbexwln1y025t32yl8z17	OWQ5ZjMwNDExMzIwZDcyMGY5N2IwMjQ2YzkzNzUxODlmNjM
 q0asn1hr6e0npgex7it8vcva329t5n1n	OGUzNWNhZTgwMTEwOTc1ZTI2ZWYzYmY3ZDBlNTA2OGZiMzY3ZmZmNDp7Il9hdXRoX3VzZXJfYmFja2VuZCI6ImRqYW5nby5jb250cmliLmF1dGguYmFja2VuZHMuTW9kZWxCYWNrZW5kIiwiX2F1dGhfdXNlcl9pZCI6MjN9	2014-07-26 17:57:05.583195-04
 lykm788dk9w79s7s1ec25d560eep65o7	OGY0YTcwYjNkZjdlMTgwMmZjMGYwMWE4M2U1YjZmNjVjZWYxMGRlODp7Il9hdXRoX3VzZXJfYmFja2VuZCI6ImRqYW5nby5jb250cmliLmF1dGguYmFja2VuZHMuTW9kZWxCYWNrZW5kIiwiX2F1dGhfdXNlcl9pZCI6MTd9	2014-07-01 00:34:22.078855-04
 o70bzt9ndn6jekx2oo137tinvzlpy79t	OWQ5ZjMwNDExMzIwZDcyMGY5N2IwMjQ2YzkzNzUxODlmNjM4ODViNTp7Il9hdXRoX3VzZXJfYmFja2VuZCI6ImRqYW5nby5jb250cmliLmF1dGguYmFja2VuZHMuTW9kZWxCYWNrZW5kIiwiX2F1dGhfdXNlcl9pZCI6Mn0=	2014-07-02 03:30:55.420921-04
+7zz6b6hy2pbiqf2ipt828wa0urhqba5b	OGUzNWNhZTgwMTEwOTc1ZTI2ZWYzYmY3ZDBlNTA2OGZiMzY3ZmZmNDp7Il9hdXRoX3VzZXJfYmFja2VuZCI6ImRqYW5nby5jb250cmliLmF1dGguYmFja2VuZHMuTW9kZWxCYWNrZW5kIiwiX2F1dGhfdXNlcl9pZCI6MjN9	2014-08-01 06:31:54.040055-04
 r5ctemtz1cs3ft9ldodrghrnvtf4zcer	OWQ5ZjMwNDExMzIwZDcyMGY5N2IwMjQ2YzkzNzUxODlmNjM4ODViNTp7Il9hdXRoX3VzZXJfYmFja2VuZCI6ImRqYW5nby5jb250cmliLmF1dGguYmFja2VuZHMuTW9kZWxCYWNrZW5kIiwiX2F1dGhfdXNlcl9pZCI6Mn0=	2014-07-03 03:21:12.589543-04
 9hkqv0anik5re7hevvieiijofv573ux2	OWQ5ZjMwNDExMzIwZDcyMGY5N2IwMjQ2YzkzNzUxODlmNjM4ODViNTp7Il9hdXRoX3VzZXJfYmFja2VuZCI6ImRqYW5nby5jb250cmliLmF1dGguYmFja2VuZHMuTW9kZWxCYWNrZW5kIiwiX2F1dGhfdXNlcl9pZCI6Mn0=	2014-07-06 03:42:41.218888-04
 kb2r4rn42uyc8vjazvj1lc0i2gre5k1o	ZGVhYzMyNzNiMzdlOGNiNGE0OWFlYTFjMmNiNzVlZWNmNzNmOGJhNjp7fQ==	2014-07-07 15:06:44.217905-04
