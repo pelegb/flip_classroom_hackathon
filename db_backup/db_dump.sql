@@ -859,7 +859,6 @@ COPY auth_user (id, password, last_login, is_superuser, username, first_name, la
 10	pbkdf2_sha256$12000$sHyNIpdIVU8n$VAM/x0hMFxJ9tbT5+NEBKPYgCIhaFQm7YQ4ElLbqkOE=	2014-03-03 09:10:14.378773-05	f	zoco	זוקו	ניסיון	zocomail@yahoo.com	f	t	2014-03-03 09:09:55.272732-05
 18	pbkdf2_sha256$12000$IV9D9yVuRtei$0M42Xbb2JjR8YBLqOKieqTyM8YGn8FP5bHXjN7Rzk/0=	2014-07-10 01:52:07.369999-04	f	Arie	אריה	הרשקוביץ	ariehers@gmail.com	f	t	2014-07-10 01:52:07.087182-04
 6	pbkdf2_sha256$12000$188oeTJ170qT$Bby7e4xXghIMGmeJaYqP3CHa9yIMuvYN5cIM76ndiJQ=	2014-02-10 13:42:02.809739-05	f	shahar.josefbserg	shahar	josefsberg	shahar.josefsberg@gmail.com	f	t	2014-02-10 13:42:02.639976-05
-23	pbkdf2_sha256$12000$rs6BqT4x4H0B$FE4VqMCh1Ly8UDFFnoL0EQm8LGHv6FdislJslDpP0Z4=	2014-08-01 05:31:54.03738-04	f	ag.openclassil	א	ג	ag.openclassil@gmail.com	f	t	2014-07-26 16:57:05.436199-04
 7	pbkdf2_sha256$12000$CwgaDoYkLhom$3Foe4GQ86fbh6876uyVxQY+hi+UT3kF37ghOucu0HQI=	2014-02-11 01:56:15.242213-05	f	xTheBawsx	ליאור	לוי	lior.levy@hotmail.com	f	t	2014-02-11 01:55:38.844816-05
 11	pbkdf2_sha256$12000$Zpy8TeXATh1W$cUYfmw0QB3R4heBt0rasRvtqzNOHF9OXe6Vznlbc/k8=	2014-04-07 04:26:52.384281-04	f	avivsalem	אביב	סלם	avivsalem@gmail.com	f	t	2014-04-07 04:26:52.199572-04
 15	pbkdf2_sha256$12000$0UQOd7Qu2vPe$f6i9B5SepjcSFERAnnDnuRwgqrqfOy62HCM9d7Cpli8=	2014-06-26 01:30:10.406521-04	f	ricky_edu@yaffeonline.com	ריקי	יפה	ricky_edu@yaffeonline.com	f	t	2014-06-26 01:30:10.119109-04
@@ -867,6 +866,7 @@ COPY auth_user (id, password, last_login, is_superuser, username, first_name, la
 19	pbkdf2_sha256$12000$EZwxd2N85ABq$yBTTwjf6Yb0MnMhjesDJCxQrES2Va4QDJKAEbPV9Mfc=	2014-07-12 03:46:34.524327-04	f	aGo8	אביב	גונן	aviv.gonen@gmail.com	f	t	2014-07-12 03:46:34.216976-04
 12	pbkdf2_sha256$12000$yoHsHLSn2bTt$aMWQrKqZHtg78vjkGL9GBukw1hoWo/r/tVPUCJLQ5eo=	2014-04-24 02:24:24.131104-04	f	dpaluy	דוד	פלוי	dpaluy@gmail.com	f	t	2014-04-24 02:24:23.846583-04
 16	pbkdf2_sha256$12000$aXfNQHJOalfK$VgAo0te3+q8MzBZxsf36SxKPrxEl6EEr+maVhTsV+0Y=	2014-06-30 14:12:11.408453-04	f	נועם הבר	נועם	הבר	haberjster@gmail.com	f	t	2014-06-29 06:42:07.996213-04
+23	pbkdf2_sha256$12000$rs6BqT4x4H0B$FE4VqMCh1Ly8UDFFnoL0EQm8LGHv6FdislJslDpP0Z4=	2014-08-08 05:01:14.596701-04	f	ag.openclassil	א	ג	ag.openclassil@gmail.com	f	t	2014-07-26 16:57:05.436199-04
 22	pbkdf2_sha256$12000$Ww6JdvOGXD8r$zlN+uoVv4+SPw1NjDkHxCm19WUwFazO5Q91RSbDdJeY=	2014-07-21 15:28:09.179641-04	f	amitaig	אמיתי	ג	amitaig@gmail.com	f	t	2014-07-21 15:28:09.03482-04
 17	pbkdf2_sha256$12000$MivGh7P0FA5K$q5GNdtHRXK3NpQrVIDmeKMpx98pyochU2LX41N3VFHI=	2014-06-30 23:34:22.076562-04	f	levym	מיכאל	לוי	jlevym@gmail.com	f	t	2014-06-30 23:34:21.922236-04
 \.
@@ -1532,6 +1532,7 @@ w3sk9mpq5fkr6qyucqf3x3v51uwizplw	OWQ5ZjMwNDExMzIwZDcyMGY5N2IwMjQ2YzkzNzUxODlmNjM
 k6cf80hlyr1vf1pshchvzpg1q5ne3gx4	OWQ5ZjMwNDExMzIwZDcyMGY5N2IwMjQ2YzkzNzUxODlmNjM4ODViNTp7Il9hdXRoX3VzZXJfYmFja2VuZCI6ImRqYW5nby5jb250cmliLmF1dGguYmFja2VuZHMuTW9kZWxCYWNrZW5kIiwiX2F1dGhfdXNlcl9pZCI6Mn0=	2014-05-19 14:09:04.210496-04
 vq41rbnqbpli4a7vo3qyuooqo1og40t7	OWQ5ZjMwNDExMzIwZDcyMGY5N2IwMjQ2YzkzNzUxODlmNjM4ODViNTp7Il9hdXRoX3VzZXJfYmFja2VuZCI6ImRqYW5nby5jb250cmliLmF1dGguYmFja2VuZHMuTW9kZWxCYWNrZW5kIiwiX2F1dGhfdXNlcl9pZCI6Mn0=	2014-07-14 07:19:41.524336-04
 6qg7dvs8qv8qgedpwr7mqinihki9n78k	OGUzNWNhZTgwMTEwOTc1ZTI2ZWYzYmY3ZDBlNTA2OGZiMzY3ZmZmNDp7Il9hdXRoX3VzZXJfYmFja2VuZCI6ImRqYW5nby5jb250cmliLmF1dGguYmFja2VuZHMuTW9kZWxCYWNrZW5kIiwiX2F1dGhfdXNlcl9pZCI6MjN9	2014-07-26 19:06:11.826666-04
+foakidsedvn6q589tbt120lkdqolnkpr	OGUzNWNhZTgwMTEwOTc1ZTI2ZWYzYmY3ZDBlNTA2OGZiMzY3ZmZmNDp7Il9hdXRoX3VzZXJfYmFja2VuZCI6ImRqYW5nby5jb250cmliLmF1dGguYmFja2VuZHMuTW9kZWxCYWNrZW5kIiwiX2F1dGhfdXNlcl9pZCI6MjN9	2014-08-08 06:01:14.602712-04
 i4jcn5a5v9fcldhs7yq9n7ey9muom7xa	ZWIyNzkxY2JmZDI4NTlkNDA4Y2MxNWU5YzIzMDQ3NDNlN2E4YWIyMjp7Il9hdXRoX3VzZXJfYmFja2VuZCI6ImRqYW5nby5jb250cmliLmF1dGguYmFja2VuZHMuTW9kZWxCYWNrZW5kIiwiX2F1dGhfdXNlcl9pZCI6NH0=	2014-05-20 17:23:22.772832-04
 16akiyl2u33j0i4kl2kytzzq13o0hhzj	OWQ5ZjMwNDExMzIwZDcyMGY5N2IwMjQ2YzkzNzUxODlmNjM4ODViNTp7Il9hdXRoX3VzZXJfYmFja2VuZCI6ImRqYW5nby5jb250cmliLmF1dGguYmFja2VuZHMuTW9kZWxCYWNrZW5kIiwiX2F1dGhfdXNlcl9pZCI6Mn0=	2014-07-14 10:11:30.523403-04
 imaow271qwpz1theajys0badqpkbug8d	OWQ5ZjMwNDExMzIwZDcyMGY5N2IwMjQ2YzkzNzUxODlmNjM4ODViNTp7Il9hdXRoX3VzZXJfYmFja2VuZCI6ImRqYW5nby5jb250cmliLmF1dGguYmFja2VuZHMuTW9kZWxCYWNrZW5kIiwiX2F1dGhfdXNlcl9pZCI6Mn0=	2014-07-27 17:01:50.583565-04
