@@ -853,7 +853,6 @@ COPY auth_user (id, password, last_login, is_superuser, username, first_name, la
 14	pbkdf2_sha256$12000$8Qrmten3AzPk$Wx7Lmfb+ZpdQkXq+72pLCeyxP3oPWU1ZTNF8NAJaaew=	2014-06-05 14:49:32.874961-04	f	אלינה	אלינה	קולטון	alinacolton@gmail.com	f	t	2014-06-05 14:49:32.603289-04
 1	pbkdf2_sha256$12000$uPlKy3Oih2iu$lr3JvTcWE1gy2vuqTL0lwCNLlpqwNm5OOhNP3TLF/Yk=	2014-01-24 06:08:48.074708-05	t	flip	פליפ	פלופ	flip@flip.com	t	t	2014-01-20 15:30:21-05
 9	pbkdf2_sha256$12000$IcUTTyyHXFrA$b4x7HiPY/iv+bx/ZJ0zYvkA/oyfieYd6wCAZ4ZmPEdE=	2014-02-28 17:56:26.595882-05	f	yoniLavi	יוני	לביא	yoni@lavi.fm	f	t	2014-02-28 17:56:26.34728-05
-2	pbkdf2_sha256$12000$RJcB0SFfQ2oD$D365n99NdMYEE3Xicga0PijrzCi4KR4r2BA8gJ+6d3E=	2014-07-31 02:58:15.869756-04	t	banitt81	איתמר	בנית	banitt81@yahoo.com	t	t	2014-01-20 15:35:23-05
 4	pbkdf2_sha256$12000$IVyD5cDON7eP$PuT0HdET8knRuOln9D8EIMtTBNT+0s83ONsJh5REP5k=	2014-07-07 15:57:39.529232-04	t	barakp	ברק	פלג	pelegb@gmail.com	t	t	2014-01-20 15:37:27-05
 5	pbkdf2_sha256$12000$B1rh8eX57hdq$4XEiOJ7EShH5BLT9Kbf+ei4cOHTwEaL9iSxocyQCYFs=	2014-02-03 14:13:02.133729-05	f	gl1000007	גלעד	לייבוביץ	gl1000007@gmail.com	f	t	2014-02-03 14:13:01.872958-05
 10	pbkdf2_sha256$12000$sHyNIpdIVU8n$VAM/x0hMFxJ9tbT5+NEBKPYgCIhaFQm7YQ4ElLbqkOE=	2014-03-03 09:10:14.378773-05	f	zoco	זוקו	ניסיון	zocomail@yahoo.com	f	t	2014-03-03 09:09:55.272732-05
@@ -868,6 +867,7 @@ COPY auth_user (id, password, last_login, is_superuser, username, first_name, la
 16	pbkdf2_sha256$12000$aXfNQHJOalfK$VgAo0te3+q8MzBZxsf36SxKPrxEl6EEr+maVhTsV+0Y=	2014-06-30 14:12:11.408453-04	f	נועם הבר	נועם	הבר	haberjster@gmail.com	f	t	2014-06-29 06:42:07.996213-04
 23	pbkdf2_sha256$12000$rs6BqT4x4H0B$FE4VqMCh1Ly8UDFFnoL0EQm8LGHv6FdislJslDpP0Z4=	2014-08-08 05:01:14.596701-04	f	ag.openclassil	א	ג	ag.openclassil@gmail.com	f	t	2014-07-26 16:57:05.436199-04
 22	pbkdf2_sha256$12000$Ww6JdvOGXD8r$zlN+uoVv4+SPw1NjDkHxCm19WUwFazO5Q91RSbDdJeY=	2014-07-21 15:28:09.179641-04	f	amitaig	אמיתי	ג	amitaig@gmail.com	f	t	2014-07-21 15:28:09.03482-04
+2	pbkdf2_sha256$12000$RJcB0SFfQ2oD$D365n99NdMYEE3Xicga0PijrzCi4KR4r2BA8gJ+6d3E=	2014-08-18 13:12:34.719648-04	t	banitt81	איתמר	בנית	banitt81@yahoo.com	t	t	2014-01-20 15:35:23-05
 17	pbkdf2_sha256$12000$MivGh7P0FA5K$q5GNdtHRXK3NpQrVIDmeKMpx98pyochU2LX41N3VFHI=	2014-06-30 23:34:22.076562-04	f	levym	מיכאל	לוי	jlevym@gmail.com	f	t	2014-06-30 23:34:21.922236-04
 \.
 
@@ -986,6 +986,7 @@ COPY core_teachitem (id, title, description, parent_id, order_index, video_count
 25	הפעולה executeDataTable	<div><div>בפרק זה נלמד כיצד ניתן לאחזר מצד השרת נתונים השמורים במסד הנתונים באופן בו ניתן לעשות בהם שימוש שאינו הדפסה פשוטה של טבלת HTML.</div><div><br><u>מטרות:</u></div><div>הלומדים יכירו את הטיפוס DataTable.</div></div><div>הלומדים יבינו את המגבלות בשימוש בפעולה PrintDataTable.</div><div>הלומדים ידעו להשתמש בפעולה ExecuteDataTable ולחלץ באמצעותה כל נתוון המצוי במסד הנתונים.</div><div>הלומדים ידעו לייצר קוד HTML שיוכנס לצד הלקוח מתוך אובייקט DataTable.</div>	11	300	1
 72	ייצוג קרטזי לווקטור	כאן תתואר דרך לייצג ווקטור באמצעות חלוקתו לרכיבים קרטזיים.	38	300	0
 32	עריכת סרטונים	<div>כאן תמצאו הסברים על עריכת וידאו בסיסית.</div>	34	200	2
+76	הגדרת המושג מהירות	בפרק זה נגדיר מהי תנועה שוות מהירות ומה מהמשועת המושג מהירות בתנועה מסוג זה.	30	100	\N
 74	חיבור ווקטורים	בפרק זה נלמד כיצד לחבר ווקטורים	38	500	1
 70	מהו ווקטור	בפרק זה תתואר מהותו של המושג ווקטור, וההבדל בינו לבין סקלר.	38	100	1
 44	כוח החיכוך הקינטי	<div>פרק זה סוקר את כוח החיכוך הקינטי - הכוח הפועל בין שני גופים במקביל למישור המגע ביניהם, כאשר הם מחליקים זה על זה.<br><br>מטרות הלימוד:<br>- הלומדים יבינו באילו מקרים פועל כוח החיכוך הקינטי.<br>- הלומדים ידעו לחשב את גדלו של כוח החיכוך הקינטי.<br>- הלומדים ידעו מה כיוון פעולתו של כוח החיכוך הקינטי.</div>	18	300	1
@@ -1007,6 +1008,7 @@ COPY core_teachitem (id, title, description, parent_id, order_index, video_count
 53	חוק שימור התנע הקווי	בפרק זה נכליל את הרעיון של שימור תנע על מערכות מורכבות, המכילות יותר משני גופים.	20	400	0
 55	התנגשויות	בפרק זה נלמד על השפעת שימור התנע על התנהגות גופים המתנגשים זה עם זה.	20	450	0
 73	המרת ווקטור בין ייצוגים שונים	כאן נלמד כיצד להמיר ייצוג פולרי של ווקטור לייצוג קרטזי ולהיפך.	38	400	0
+77	משוואת מקום זמן בתנועה שוות מהירות	בפרק זה נשתמש בהגדרת המהירות על מנת למצוא קשר מתמטי בין מקום לזמן עבור גוף הנע בתנועה שוות מהירות.	30	200	\N
 75	מכפלת ווקטור בסקלר	בפרק זה תתואר מכפלה של ווקטור בסקלר.	38	600	0
 54	רתע	בפרק זה נלמד על השלכות חוק שימור התנע במקרים בהם שני גופים או יותר נפרדים זה מזה.	20	500	1
 49	הכוח כווקטור	<div>בפרק זה נראה כי ניתן להתייחס לכוח כוקטור ובהתאם לכך לחבר כוחות.<br>מטרול הלימוד:<br>- הלומדים ידעו כי שקול הכוחות הוא הוקטור המתקבל מחיבור וקטורי כל הכוחות הפועלים על גוף.<br>- הלומדים ידעו כי הגוף מאיץ בהתאם לגדלו וכיוונו של שקול הכוחות.<br>- הלומדים ידעו לחבר כוחות ולחשב שקול כוחות על גוף.</div>	38	800	0
@@ -1035,7 +1037,7 @@ COPY core_teachitem (id, title, description, parent_id, order_index, video_count
 -- Name: core_teachitem_id_seq; Type: SEQUENCE SET; Schema: public; Owner: flipped
 --
 
-SELECT pg_catalog.setval('core_teachitem_id_seq', 75, true);
+SELECT pg_catalog.setval('core_teachitem_id_seq', 77, true);
 
 
 --
@@ -1051,27 +1053,27 @@ COPY core_teachtopic (id, title, description, parent_id, order_index, video_coun
 12	קוד צד שרת - נושאים מתקדמים	<div>פרק זה מכיל עיסוק בשני אובייקטים הקיימים בצד שרת ומאפשרים שמירת מידע במעבר בין דפים שונים ובין משתמשים שונים - אובייקט session ואובייקט applictaion.<br>בעזרת שני אובייקטים אלו יכול השרת להעביר מידע בין דפי האתר לגבי משתמש מסוים ולהעביר מידע בין משתמשים שונים באותו האתר.</div>	6	500	2
 26	זריקה משופעת	<div>פרק זה עוסק בתיאור תנועת גופים הנזרקים בכיוון משופע על פני כדור הארץ.</div>	24	200	1
 7	HTML	<div>שפת HTML היא שפת סימון המאפשרת יצירת דפי אינטרנט. דפים אלו ייכתבו ע"י מתכנת או באמצעות קוד ויפורשו ע"י דפדפן לצורך הצגתם למשתמש.&nbsp;</div>	6	100	8
-23	קינמטיקה	<div>תחום הקינמטיקה עוסק בתיאור מתמטי של תנועת גופים. החל מהגדרת המושג מקום ועד תיאור מהירות ותאוצה כוקטורים דו מימדיים.</div>	4	100	1
+23	קינמטיקה	<div>תחום הקינמטיקה עוסק בתיאור מתמטי של תנועת גופים. החל מהגדרת המושג מקום ועד תיאור מהירות ותאוצה כוקטורים דו מימדיים.</div>	4	100	\N
 18	סוגים של כוחות	<div>נושא זה עוסק בסוגי כוחות שונים בהם אנו נתקלים במערכות מכניות, ובפרט - מתיחות, הכוח הנורמלי וכוח החיכוך.</div>	16	600	2
 6	מבוא לתכנות בסביבת האינטרנט	<div>הפרק מבוא לתכנות בסביבת האינטרנט עוסק בהכרת הכלים הבסיסיים המשמשים כותבי אתרים. ביניהם HTML, javascript, טכנולוגיות ASP, ושפת SQL.<br>השלמת פרק זה תאפשר כתיבת אתר אינטרנט בעל חלקים דינמיים, מערכת רישום משתמשים ושימוש במסדי נתונים, הגבלת הרשאות משתמשים שונים ועוד.</div>	5	200	34
 19	החוק השני של ניוטון	<div>בפרק זה נעסוק בחוק השני של ניוטון, אשר מתאר את הקשר בין כוחות לבין שינוי בתנועת גופים.<br><br><br></div>	16	700	1
 20	שימור תנע קווי	פרק זה עוסק בהגדרת המושגים תנע מותקף, מציאת הקשר ביניהם ולימוד חוק שימור התנע הקווי.	16	1000	2
-3	פיסיקה	<div>תחום מדעי העוסק בתיאור חוקי הטבע. הפיסיקה עוסקת בין השאר בתנועת גופים, אור, קול וחקר החלל.</div>	\N	100	\N
+4	מכניקה קלאסית	<div>תחום רחב בפיסיקה העוסק בחקר תנועת גופים והכוחות הפועלים עליהם. תחום זה קרוי גם מכניקה ניוטונית כיוון שחלק ניכר ממנה מבוסס על תגליותיו של אייזיק ניוטון ופיתוחיו המתמטיים.</div>	3	100	\N
 9	javascript	<div>על מנת ליצור דפי אינטרנט דינמיים, כלומר כאלה המסוגלים להשתנות ולהתעדכן בהתאם לפעולות המשתמש, יש צורך להריץ קוד כלשהו על מחשב המשתמש. פרק זה עוסק בשפת תסריט (script) הקרויה javascript המאפשרת ביצוע פעולות אלה.</div>	6	200	11
 17	כוחות	<div>בפרק זה נגדיר מהו כוח ונעסוק בשיטה למדידתו.</div>	16	400	1
+3	פיסיקה	<div>תחום מדעי העוסק בתיאור חוקי הטבע. הפיסיקה עוסקת בין השאר בתנועת גופים, אור, קול וחקר החלל.</div>	\N	100	\N
 25	זריקה אופקית	<div>פרק זה מתאר את אופן התנועה של גוף הנזרק בכיוון אופקי על פני כדור הארץ.</div>	24	100	1
-4	מכניקה קלאסית	<div>תחום רחב בפיסיקה העוסק בחקר תנועת גופים והכוחות הפועלים עליהם. תחום זה קרוי גם מכניקה ניוטונית כיוון שחלק ניכר ממנה מבוסס על תגליותיו של אייזיק ניוטון ופיתוחיו המתמטיים.</div>	3	100	13
-33	נפילה חופשית	בפרק זה נעסוק בתיאור אופן התנועה של חפצים הנעים תחת השפעת כוח הכובד בלבד.	23	500	0
 38	ווקטורים	בפרק זה יתואר המושג ווקטור, ייצוגיו והאפשרויות לבצע על וקטורים פעולות חשבוניות	16	800	2
+31	תנועה שוות תאוצה	בפרק זה נעסוק בהגדרת המושג תאוצה וניסוח משוואות שיתארו תנועת גוף בתאוצה קבועה	23	300	0
+32	ניתוח נתוני ניסוי תנועה בקו ישר	בפרק זה נלמד כיצד ניתן לנתח נתונים שהתקבלו מניסוי בו גוף נע בקו ישר על מנת לתאר את התנועה באופן המדויק ביותר.	23	400	0
+33	נפילה חופשית	בפרק זה נעסוק בתיאור אופן התנועה של חפצים הנעים תחת השפעת כוח הכובד בלבד.	23	500	0
 34	ליצור	חלק זה עוסק ביצירת סרטונים	15	100	7
+30	תנועה שוות מהירות	בפרק זה נעסוק בהגדרת תנועה קצובה, תנועה שוות מהירות ותנועה שוות מהירות למקוטעין ונלמד לתאר תנועה כזו באמצעות כלים מתמטיים.	23	200	\N
 35	ללמד	כאן נעסוק בפדגוגייה המשלבת סרטונים	15	200	4
 36	שיעור הפוך	פרק זה עוסק במהות השיעור ההפוך , יתרונותיו, חסרונותיו והמלצות ליישומו.	35	100	4
 15	ליצור וללמד	<div>\r\n<table cellpadding = "40">\r\n<tbody><tr> <td> \r\n\r\n<a  href="/core/topic/34/" class="btn btn-primary btn-xlarge" role="button">\r\nליצור</a> </td>\r\n<td> \r\n<a  href="/core/topic/35/" class="btn btn-primary btn-xlarge" role="button">\r\nללמד </a></td> </tr>\r\n</tbody></table>           \r\n</div>	\N	300	\N
 29	מבוא לקינמטיקה - מושגי יסוד	בפרק זה נגדיר את מושגי היסוד בקינמטיקה חד מימדית.	23	100	1
 37	יסודות מדעי המחשב	<div>תחום זה מכיל רעיונות ומושגי יסוד בתחום מדעי המחשב, וכולל היבטים תיאורטיים ויישומיים שלהם.<br><br></div>	5	100	0
-30	תנועה שוות מהירות	בפרק זה נעסוק בהגדרת תנועה קצובה, תנועה שוות מהירות ותנועה שוות מהירות למקוטעין ונלמד לתאר תנועה כזו באמצעות כלים מתמטיים.	23	200	0
-31	תנועה שוות תאוצה	בפרק זה נעסוק בהגדרת המושג תאוצה וניסוח משוואות שיתארו תנועת גוף בתאוצה קבועה	23	300	0
-32	ניתוח נתוני ניסוי תנועה בקו ישר	בפרק זה נלמד כיצד ניתן לנתח נתונים שהתקבלו מניסוי בו גוף נע בקו ישר על מנת לתאר את התנועה באופן המדויק ביותר.	23	400	0
 \.
 
 
@@ -1164,6 +1166,8 @@ COPY core_videopage (id, youtube_movie_id, upload_date, content, video_title, us
 66	NihH9ZGI4Pk	2014-07-30 08:33:37.657639-04	0:00 - הקדמה.<br>0:50 - דוגמא - תותח היורה בשיפוע.<br>1:15 - פירוק מהירות התחלתית לרכיבים קרטזיים.<br>1:40 - השאלה - מה הטווח האופקי של הירי?<br>1:55 - מציאת משך המעוף באמצעות משוואת Y כנגד T.<br>4:10 - סיכום התנהגות הפגז בציר Y.<br>5:00 - מציאת טווח הירי.	זריקה בשיפוע	2	68
 67	xUXmDPOLZt4	2014-07-31 03:08:18.309019-04	להשלים	חיבור ווקטורים	2	74
 68	prLfMFTvOew	2014-07-31 03:20:21.094283-04	להשלים	מהו סקלר ומהו ווקטור	2	70
+69	QLFN27EGlG8	2014-08-18 13:22:43.813547-04	<div>0:00 - מבוא ותוכן הסרטון.<br>0:46 - דוגמאות לתנועה.<br>1:00 - הגדרת תנועה קצובה.<br>1:40 - גילוי קשר בין מקום לזמן.<br>3:20 - הגדרת המושג מהירות.<br>4:30 - שימושים להגדרת מהירות.<br>4:52 - מהירות שלילית ומשמעותה.<br>5:20 - נקודה למחשבה וסיכום.<br><br></div>	מושג המהירות בתנועה שוות מהירות	2	76
+70	4l61Na3F5BA	2014-08-18 13:32:30.785544-04	<div>0:00 - התבוננות בדוגמה - חרוז שוקע במים.<br>0:55 - הגוף נע בתנועה קצובה וחישוב המהירות.<br>1:55 - הצגת שאלה - מה היה מקום הגוף ברגע מסוים?<br>2:15 - פיתוח משוואת מקום זמן לתנועה שוות מהירות מתוך הגדרת מהירות.<br>3:45 - הצבת הנתונים של התנועה שהוצגה בתחילת הסרטון וקבלת קשר מקום זמן לתנועה זו.<br>4:35 - הכללת הפתרון לשימוש עבור כל תנועה שוות מהירות.<br>5:32 - סיכום<br><br></div>	משוואת מקום זמן בתנועה קצובה	2	77
 \.
 
 
@@ -1171,7 +1175,7 @@ COPY core_videopage (id, youtube_movie_id, upload_date, content, video_title, us
 -- Name: core_videopage_id_seq; Type: SEQUENCE SET; Schema: public; Owner: flipped
 --
 
-SELECT pg_catalog.setval('core_videopage_id_seq', 68, true);
+SELECT pg_catalog.setval('core_videopage_id_seq', 70, true);
 
 
 --
@@ -1450,6 +1454,8 @@ COPY django_admin_log (id, action_time, user_id, content_type_id, object_id, obj
 252	2014-07-31 03:06:44.55897-04	2	9	75	מכפלת ווקטור בסקלר	1	
 253	2014-07-31 03:06:56.416264-04	2	9	49	הכוח כוקטור	2	order_index שונה.
 254	2014-07-31 03:07:15.358365-04	2	9	49	הכוח כווקטור	2	title שונה.
+255	2014-08-18 13:14:58.124033-04	2	9	76	הגדרת המושג מהירות	1	
+256	2014-08-18 13:15:49.392473-04	2	9	77	משוואת מקום זמן בתנועה שוות מהירות	1	
 \.
 
 
@@ -1457,7 +1463,7 @@ COPY django_admin_log (id, action_time, user_id, content_type_id, object_id, obj
 -- Name: django_admin_log_id_seq; Type: SEQUENCE SET; Schema: public; Owner: flipped
 --
 
-SELECT pg_catalog.setval('django_admin_log_id_seq', 254, true);
+SELECT pg_catalog.setval('django_admin_log_id_seq', 256, true);
 
 
 --
@@ -1536,6 +1542,7 @@ foakidsedvn6q589tbt120lkdqolnkpr	OGUzNWNhZTgwMTEwOTc1ZTI2ZWYzYmY3ZDBlNTA2OGZiMzY
 i4jcn5a5v9fcldhs7yq9n7ey9muom7xa	ZWIyNzkxY2JmZDI4NTlkNDA4Y2MxNWU5YzIzMDQ3NDNlN2E4YWIyMjp7Il9hdXRoX3VzZXJfYmFja2VuZCI6ImRqYW5nby5jb250cmliLmF1dGguYmFja2VuZHMuTW9kZWxCYWNrZW5kIiwiX2F1dGhfdXNlcl9pZCI6NH0=	2014-05-20 17:23:22.772832-04
 16akiyl2u33j0i4kl2kytzzq13o0hhzj	OWQ5ZjMwNDExMzIwZDcyMGY5N2IwMjQ2YzkzNzUxODlmNjM4ODViNTp7Il9hdXRoX3VzZXJfYmFja2VuZCI6ImRqYW5nby5jb250cmliLmF1dGguYmFja2VuZHMuTW9kZWxCYWNrZW5kIiwiX2F1dGhfdXNlcl9pZCI6Mn0=	2014-07-14 10:11:30.523403-04
 imaow271qwpz1theajys0badqpkbug8d	OWQ5ZjMwNDExMzIwZDcyMGY5N2IwMjQ2YzkzNzUxODlmNjM4ODViNTp7Il9hdXRoX3VzZXJfYmFja2VuZCI6ImRqYW5nby5jb250cmliLmF1dGguYmFja2VuZHMuTW9kZWxCYWNrZW5kIiwiX2F1dGhfdXNlcl9pZCI6Mn0=	2014-07-27 17:01:50.583565-04
+na9n6h8ezlrikx3xu41d4qrbtwebzubo	OWQ5ZjMwNDExMzIwZDcyMGY5N2IwMjQ2YzkzNzUxODlmNjM4ODViNTp7Il9hdXRoX3VzZXJfYmFja2VuZCI6ImRqYW5nby5jb250cmliLmF1dGguYmFja2VuZHMuTW9kZWxCYWNrZW5kIiwiX2F1dGhfdXNlcl9pZCI6Mn0=	2014-08-18 14:12:34.722185-04
 s8lg3xk4a8aatohc27mkn6ostuqrj2xx	NmMxY2YwYjZmNTIwZDBjMDg0YTkyNmFmMjQ2OWNkMDZmNWIwYjdhZTp7Il9hdXRoX3VzZXJfYmFja2VuZCI6ImRqYW5nby5jb250cmliLmF1dGguYmFja2VuZHMuTW9kZWxCYWNrZW5kIiwiX2F1dGhfdXNlcl9pZCI6MTR9	2014-06-05 15:49:32.87722-04
 xoeyv6277hiw6i51hgexf3208riuq902	OWQ5ZjMwNDExMzIwZDcyMGY5N2IwMjQ2YzkzNzUxODlmNjM4ODViNTp7Il9hdXRoX3VzZXJfYmFja2VuZCI6ImRqYW5nby5jb250cmliLmF1dGguYmFja2VuZHMuTW9kZWxCYWNrZW5kIiwiX2F1dGhfdXNlcl9pZCI6Mn0=	2014-07-15 04:43:36.356263-04
 2lvxj54cbsruyb0w8r987sradkx2f0p1	OWQ5ZjMwNDExMzIwZDcyMGY5N2IwMjQ2YzkzNzUxODlmNjM4ODViNTp7Il9hdXRoX3VzZXJfYmFja2VuZCI6ImRqYW5nby5jb250cmliLmF1dGguYmFja2VuZHMuTW9kZWxCYWNrZW5kIiwiX2F1dGhfdXNlcl9pZCI6Mn0=	2014-07-28 15:12:11.527903-04
