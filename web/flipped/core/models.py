@@ -1,5 +1,7 @@
 from django.db import models
 from django.db.models.aggregates import Avg, Count
+from django.db.models.signals import pre_delete
+from django.dispatch import receiver
 import django.contrib.auth
 import sys
 
@@ -81,7 +83,6 @@ class TeachTopic(TeachEntity):
 
         return self.video_count_cache
 
-
 class VideoPage(models.Model):
     VIDEO_TITLE_LENGTH = 50
     
@@ -95,6 +96,11 @@ class VideoPage(models.Model):
     
     def __unicode__(self):
         return self.video_title
+    
+    def delete(self, *args, **kwargs):
+        teach_item_id = self.teach_item.id
+        super(VideoPage, self).delete(*args, **kwargs)
+        TeachItem.objects.filter(id=teach_item_id)[0].purge_video_count()
     
     def _fetch_rating(self, context):
         rating = RatingReview.objects.filter(video__id=self.id, context=context).aggregate(count=Count('rate'),average=Avg('rate'))
@@ -136,7 +142,11 @@ class Tag(models.Model):
         return self.name
     
     
-    
+@receiver(pre_delete, sender=VideoPage, dispatch_uid='purge_video_count_on_video_deletion')
+def purge_video_count_on_video_deletion(sender, instance, using, **kwargs):
+    instance.teach_item.purge_video_count()    
         
     
-
+@receiver(pre_delete, sender=TeachEntity, dispatch_uid='purge_video_count_on_teach_entity_deletion')
+def purge_video_count_on_teach_entity_deletion(sender, instance, using, **kwargs):
+    instance.purge_video_count()    
