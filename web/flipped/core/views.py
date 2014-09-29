@@ -1,8 +1,10 @@
+from collections import defaultdict
 from core.models import RatingReview
 from django.contrib.auth.decorators import login_required
 from django.core.urlresolvers import reverse
 from django.http.response import HttpResponseRedirect, HttpResponse
 from django.shortcuts import render, get_object_or_404
+from django.utils.translation import ugettext
 from models import TeachItem, TeachTopic, VideoPage
 import common.utils
 import forms
@@ -75,6 +77,7 @@ def add_video(request,video_id=None):
             initial['link'] = 'http://www.youtube.com/watch?v=%s' % (video.youtube_movie_id)
             initial['item'] = video.teach_item
             initial['edited_id'] = video.id
+            initial['category'] = video.categroy
             form = forms.VideoForm(initial=initial)
     elif request.method == 'POST':
         form = forms.VideoForm(request.POST)
@@ -87,6 +90,7 @@ def add_video(request,video_id=None):
             v.youtube_movie_id = common.utils.parse_video_id_from_link(form.cleaned_data['link'])
             v.video_title = form.cleaned_data['title']
             v.teach_item = form.cleaned_data['item']
+            v.category = form.cleaned_data['category']
             v.user = request.user
             v.save()
             v.tags.clear()
@@ -109,10 +113,16 @@ def topic_view(request, topic_id):
 
 def item_view(request,item_id):
     item = get_object_or_404(TeachItem, pk=item_id)
-    videos = list(VideoPage.objects.filter(teach_item=item))
+    videos = VideoPage.objects.filter(teach_item=item)
+    videos_dict = defaultdict(list)
+    for v in videos:
+        videos_dict[ugettext(v.category + '_plural')].append(v)
+    for _, videos_cat in videos_dict.iteritems():
+        videos_cat.sort(key=lambda video: video.relevancy_rating()['average'], reverse=True)
+    
     ancestors = item.get_ancestry()
     ancestors = ancestors[:-1]
-    return render(request,'core/item_view.html', {'item': item, 'videos':sorted(videos, key=lambda video: video.relevancy_rating()['average'], reverse=True), 'ancestors':ancestors})
+    return render(request,'core/item_view.html', {'item': item, 'videos_dict':dict(videos_dict), 'ancestors':ancestors})
 
 @login_required
 def user_view(request):

@@ -2,6 +2,7 @@
 
 from __future__ import unicode_literals
 from common.utils import parse_video_id_from_link
+from core.models import VideoPage
 from django.core.exceptions import ValidationError
 from django.utils.translation import ugettext_lazy as _
 from flipped.settings import GOOGLE_API_KEY
@@ -51,6 +52,8 @@ class VideoForm(forms.Form):
                                                           'required':True}))
 
     content = forms.CharField(widget=Wysihtml5TextareaWidget(),label=_("content"))
+    category = forms.ChoiceField(choices=VideoPage.CATEGORY_DESCRIPTION_CHOICES, required=True, label=_('category'), 
+                                 widget=forms.Select(attrs={'class':'wideTextInput', 'required':True}),)
     item = forms.ModelChoiceField(queryset=models.TeachItem.objects.all(),required=True, label=_("item"))
     #tags = forms.ModelMultipleChoiceField(queryset=models.Tag.objects.all(),required=False, label=_("tags"))
 

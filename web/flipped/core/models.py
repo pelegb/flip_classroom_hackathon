@@ -2,6 +2,7 @@ from django.db import models
 from django.db.models.aggregates import Avg, Count
 from django.db.models.signals import pre_delete
 from django.dispatch import receiver
+from django.utils.translation import ugettext_lazy as _
 import django.contrib.auth
 import sys
 
@@ -85,6 +86,15 @@ class TeachTopic(TeachEntity):
 
 class VideoPage(models.Model):
     VIDEO_TITLE_LENGTH = 50
+    LESSON = 'LESSON'
+    DEMONSTRATION = 'DEMONSTRATION'
+    EXPERIMENT = 'EXPERIMENT'
+    PROBLEM_SOLVING = 'PROBLEM_SOLVING'
+    ADVANCED = 'ADVANCED'
+    OTHER = 'OTHER'
+    CATEGORY_VALUES = (LESSON, DEMONSTRATION, EXPERIMENT, PROBLEM_SOLVING, ADVANCED, OTHER)
+    CATEGORY_CHOICES = [(category, _(category)) for category in CATEGORY_VALUES]
+    CATEGORY_DESCRIPTION_CHOICES = [(category, _(category+'_description')) for category in CATEGORY_VALUES]
     
     youtube_movie_id = models.CharField(max_length=25)
     upload_date      = models.DateTimeField('date uploaded to our site',auto_now_add=True)
@@ -93,6 +103,7 @@ class VideoPage(models.Model):
     user             = models.ForeignKey(django.contrib.auth.get_user_model())
     teach_item       = models.ForeignKey(TeachItem, blank=True, null=True)
     tags             = models.ManyToManyField('Tag',related_name='videos',blank=True,null=True)
+    category         = models.CharField(max_length=40, choices=CATEGORY_CHOICES, default=LESSON)
     
     def __unicode__(self):
         return self.video_title

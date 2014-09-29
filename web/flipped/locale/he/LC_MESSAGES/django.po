@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-04-29 00:24+0300\n"
+"POT-Creation-Date: 2014-09-29 22:15+0300\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -68,44 +68,58 @@ msgstr "התחבר"
 msgid "sign up"
 msgstr "הירשם"
 
-#: .\core\forms.py:32
+#: .\core\forms.py:33
 msgid "Invalid YouTube URL"
 msgstr "יש להזין כתובת יוטיוב תקינה"
 
-#: .\core\forms.py:38
+#: .\core\forms.py:39
 #, python-format
 msgid "Video could not be found on YouTube for ID: %(id)s"
 msgstr "לא נמצא סרטון יוטיוב עם מזהה: %(id)s"
 
-#: .\core\forms.py:43
+#: .\core\forms.py:44
 msgid "link"
 msgstr "קישור"
 
-#: .\core\forms.py:48
+#: .\core\forms.py:49
 msgid "title"
 msgstr "כותרת"
 
-#: .\core\forms.py:53
+#: .\core\forms.py:54
 msgid "content"
 msgstr "תוכן"
 
-#: .\core\forms.py:54
+#: .\core\forms.py:55
+msgid "category"
+msgstr "סוג סרט"
+
+#: .\core\forms.py:57
 msgid "item"
 msgstr "פריט"
 
-#: .\core\forms.py:58 .\core\templates\core\item_view.html:22
+#: .\core\forms.py:61 .\core\templates\core\item_view.html:22
 #: .\core\templates\core\user_view.html:21
 #: .\core\templates\core\video_detail.html:32
 msgid "relevancy"
 msgstr "רלוונטיות"
 
-#: .\core\forms.py:59 .\core\templates\core\item_view.html:20
+#: .\core\forms.py:62 .\core\templates\core\item_view.html:20
 #: .\core\templates\core\user_view.html:19
 #: .\core\templates\core\video_detail.html:30
 msgid "technical quality"
 msgstr "איכות טכנית"
 
+#: .\core\models.py:97
+msgid "_description"
+msgstr ""
+
+#: .\core\views.py:122
+#, fuzzy
+msgid "_plural"
+msgstr "אחרים"
+
 #: .\core\templates\core\item_view.html:19
+#: .\core\templates\core\video_detail.html:23
 msgid "uploaded by"
 msgstr "הועלה ע\"י"
 
@@ -186,20 +200,71 @@ msgstr "סיסמא"
 msgid "Password change successful"
 msgstr "הסיסמא שונתה בהצלחה"
 
-#~ msgid "tags"
-#~ msgstr "תגיות"
+msgid "LESSON"
+msgstr "שיעור"
 
-#~ msgid "uploaded"
-#~ msgstr "הועלה ע\"י"
+msgid "LESSON_plural"
+msgstr "שיעורים"
 
-#~ msgid "openclass"
-#~ msgstr "שיעור פתוח"
+msgid "LESSON_description"
+msgstr "שיעור - לימוד מקיף של הנושא על פי היעדים המוגדרים"
 
-#~ msgid "raters"
-#~ msgstr "מדרגים"
+msgid "DEMONSTRATION"
+msgstr "הדגמה"
 
-#~ msgid "average"
-#~ msgstr "ממוצע"
+msgid "DEMONSTRATION_plural"
+msgstr "הדגמות"
 
-#~ msgid "count"
-#~ msgstr "מספר"
+msgid "DEMONSTRATION_description"
+msgstr "הדגמה - דוגמה ליישום של הנושא או חלקו"
+
+msgid "EXPERIMENT"
+msgstr "ניסוי"
+
+msgid "EXPERIMENT_plural"
+msgstr "ניסויים"
+
+msgid "EXPERIMENT_description"
+msgstr "ניסוי - הצגת מערכת של ניסוי ותוצאותיו"
+
+msgid "PROBLEM_SOLVING"
+msgstr "פתרון תרגיל"
+
+msgid "PROBLEM_SOLVING_plural"
+msgstr "פתרונות תרגילים"
+
+msgid "PROBLEM_SOLVING_description"
+msgstr "פתרון תרגיל"
+
+msgid "ADVANCED"
+msgstr "העמקה"
+
+msgid "ADVANCED_plural"
+msgstr "העמקות"
+
+msgid "ADVANCED_description"
+msgstr "העמקה - העמקה באחד או יותר מיעדי הנושא"
+
+msgid "OTHER"
+msgstr "אחר"
+
+msgid "OTHER_description"
+msgstr "אחר - סרטון רלוונטי ומעניין שאינו מתאים לאפשרויות שלעיל"
+
+msgid "tags"
+msgstr "תגיות"
+
+msgid "uploaded"
+msgstr "הועלה ע\"י"
+
+msgid "openclass"
+msgstr "שיעור פתוח"
+
+msgid "raters"
+msgstr "מדרגים"
+
+msgid "average"
+msgstr "ממוצע"
+
+msgid "count"
+msgstr "מספר"
