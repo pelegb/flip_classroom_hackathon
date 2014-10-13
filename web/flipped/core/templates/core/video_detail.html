@@ -20,10 +20,9 @@
 			<div class="span10 mini-layout-body">
 
 				<h1>{{ video.video_title }}</h1>
-				<p> {% trans 'uploaded by' %} <b>{{ video.user.get_full_name }}</b>
-					  בתאריך {{video.upload_date.day}} ל{{video.upload_date.month | heb_month }} {{video.upload_date.year}}
+				<p> {% blocktrans with channel=video.youtube_channel user_name=video.user.get_full_name day=video.upload_date.day month=video.upload_date.month|heb_month  year=video.upload_date.year %}By {{ channel}}, uploaded by {{ user_name }} on {{ day }} {{ month }} {{ year }}{% endblocktrans %}
 					  {% if perms.core.change_videopage %}
-						(<a href="/core/edit-video/{{video.id}}/">ערוך</a>) 
+						(<a href="/core/edit-video/{{video.id}}/">{% trans 'edit' %}</a>) 
 					  {% endif %}
 					  </p>
 				<p>

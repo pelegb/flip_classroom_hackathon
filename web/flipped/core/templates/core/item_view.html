@@ -16,7 +16,7 @@
 	           <h3>{{ category }}</h3>
 		        <ul>
 		       		{% for video in videos %}
-			            <li><a href="../../videos/{{ video.id }}/">{{ video }}</a>, {% trans 'uploaded by' %} <b>{{ video.user.get_full_name }}</b>, <br>
+			            <li><a href="../../videos/{{ video.id }}/">{{ video }}</a>, {% blocktrans with channel=video.youtube_channel user_name=video.user.get_full_name %}By {{ channel}}, uploaded by {{ user_name }}{% endblocktrans %} <br>
 			               <span>{% trans 'technical quality' %}:</span>
 		                   <span id="rate_quality_{{ video.id }}"></span>
 		                   <span>{% trans 'relevancy' %}:</span>

@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-09-29 22:15+0300\n"
+"POT-Creation-Date: 2014-10-13 23:18+0300\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -51,77 +51,77 @@ msgstr "נושאי לימוד"
 msgid "upload video"
 msgstr "העלאת סרטון"
 
-#: .\common\templates\common\incl_top.html:52
+#: .\common\templates\common\incl_top.html:54
 #: .\core\templates\core\user_view.html:8
 msgid "hello"
 msgstr "שלום"
 
-#: .\common\templates\common\incl_top.html:53
+#: .\common\templates\common\incl_top.html:55
 msgid "log out"
 msgstr "התנתק"
 
-#: .\common\templates\common\incl_top.html:55
+#: .\common\templates\common\incl_top.html:57
 msgid "log in"
 msgstr "התחבר"
 
-#: .\common\templates\common\incl_top.html:56
+#: .\common\templates\common\incl_top.html:58
 msgid "sign up"
 msgstr "הירשם"
 
-#: .\core\forms.py:33
+#: .\core\forms.py:32
 msgid "Invalid YouTube URL"
 msgstr "יש להזין כתובת יוטיוב תקינה"
 
-#: .\core\forms.py:39
+#: .\core\forms.py:37
 #, python-format
 msgid "Video could not be found on YouTube for ID: %(id)s"
 msgstr "לא נמצא סרטון יוטיוב עם מזהה: %(id)s"
 
-#: .\core\forms.py:44
+#: .\core\forms.py:42
 msgid "link"
 msgstr "קישור"
 
-#: .\core\forms.py:49
+#: .\core\forms.py:47
 msgid "title"
 msgstr "כותרת"
 
-#: .\core\forms.py:54
+#: .\core\forms.py:52
 msgid "content"
 msgstr "תוכן"
 
-#: .\core\forms.py:55
+#: .\core\forms.py:53
 msgid "category"
 msgstr "סוג סרט"
 
-#: .\core\forms.py:57
+#: .\core\forms.py:55
 msgid "item"
 msgstr "פריט"
 
-#: .\core\forms.py:61 .\core\templates\core\item_view.html:22
+#: .\core\forms.py:60 .\core\templates\core\item_view.html:22
 #: .\core\templates\core\user_view.html:21
-#: .\core\templates\core\video_detail.html:32
+#: .\core\templates\core\video_detail.html:31
 msgid "relevancy"
 msgstr "רלוונטיות"
 
-#: .\core\forms.py:62 .\core\templates\core\item_view.html:20
+#: .\core\forms.py:61 .\core\templates\core\item_view.html:20
 #: .\core\templates\core\user_view.html:19
-#: .\core\templates\core\video_detail.html:30
+#: .\core\templates\core\video_detail.html:29
 msgid "technical quality"
 msgstr "איכות טכנית"
 
-#: .\core\models.py:97
+#: .\core\models.py:98
 msgid "_description"
 msgstr ""
 
-#: .\core\views.py:122
+#: .\core\views.py:124
 #, fuzzy
 msgid "_plural"
 msgstr "אחרים"
 
 #: .\core\templates\core\item_view.html:19
-#: .\core\templates\core\video_detail.html:23
-msgid "uploaded by"
-msgstr "הועלה ע\"י"
+#, python-format
+msgid "By %(channel)s, uploaded by %(user_name)s"
+msgstr "מאת %(channel)s, הועלה ע\"י %(user_name)s"
 
 #: .\core\templates\core\item_view.html:32
 msgid "Be the first to upload a video"
@@ -135,7 +135,17 @@ msgstr "הסרטונים שלך:"
 msgid "change your password"
 msgstr "שנה את סיסמתי"
 
-#: .\core\templates\core\video_detail.html:72
+#: .\core\templates\core\video_detail.html:23
+#, python-format
+msgid "By %(channel)s, uploaded by %(user_name)s on %(day)s %(month)s %(year)s"
+msgstr ""
+"מאת %(channel)s, הועלה ע\"י %(user_name)s בתאריך %(day)s ל%(month)s %(year)s"
+
+#: .\core\templates\core\video_detail.html:25
+msgid "edit"
+msgstr "ערוך"
+
+#: .\core\templates\core\video_detail.html:71
 msgid "rate"
 msgstr "דרג"
 
@@ -192,7 +202,6 @@ msgid "Password (again)"
 msgstr "סיסמא חדשה (שוב)"
 
 #: .\fc_user\templates\fc_user\password_change.html:39
-#, fuzzy
 msgid "Change my password"
 msgstr "סיסמא"
 
@@ -250,21 +259,3 @@ msgstr "אחר"
 
 msgid "OTHER_description"
 msgstr "אחר - סרטון רלוונטי ומעניין שאינו מתאים לאפשרויות שלעיל"
-
-msgid "tags"
-msgstr "תגיות"
-
-msgid "uploaded"
-msgstr "הועלה ע\"י"
-
-msgid "openclass"
-msgstr "שיעור פתוח"
-
-msgid "raters"
-msgstr "מדרגים"
-
-msgid "average"
-msgstr "ממוצע"
-
-msgid "count"
-msgstr "מספר"

@@ -24,7 +24,7 @@ DEBUG = True
 
 TEMPLATE_DEBUG = True
 
-ALLOWED_HOSTS = [] #['127.0.0.1', 'the-openclass.org']
+ALLOWED_HOSTS = []  # ['127.0.0.1', 'the-openclass.org']
 
 DEBUG_TOOLBAR_PATCH_SETTINGS = False
 INTERNAL_IPS = ('127.0.0.1',)
@@ -75,7 +75,7 @@ WSGI_APPLICATION = 'flipped.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE':'django.db.backends.postgresql_psycopg2',
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
         'NAME': 'flipped',
         'USER': 'flipped',
         'PASSWORD': 'flipped',
@@ -107,13 +107,13 @@ STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 LOGIN_URL = '/fc_user/login/'
 LOGIN_REDIRECT_URL = '/common/home/'
 
-SESSION_COOKIE_AGE = 3600 # in seconds
+SESSION_COOKIE_AGE = 3600  # in seconds
 
-LOCALE_PATHS = (os.path.join(BASE_DIR,'locale'),)
+LOCALE_PATHS = (os.path.join(BASE_DIR, 'locale'),)
 
 from django.conf import global_settings
 TEMPLATE_CONTEXT_PROCESSORS = global_settings.TEMPLATE_CONTEXT_PROCESSORS + (
-	"common.processors.topics",
+    "common.processors.topics",
 )
 
 GOOGLE_API_KEY = 'AIzaSyCoW4x6Mck2P9VIHwC0um11QNf2RBPavAs'
@@ -136,7 +136,7 @@ LOGGING = {
             'class': 'logging.handlers.RotatingFileHandler',
             'filename': '/home/flip/log/debug.log',
             'formatter': 'verbose',
-            'maxBytes': 10**7,
+            'maxBytes': 10 ** 7,
             'backupCount': 10
         },
     },

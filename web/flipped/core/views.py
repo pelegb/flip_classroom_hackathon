@@ -9,62 +9,64 @@ from models import TeachItem, TeachTopic, VideoPage
 import common.utils
 import forms
 import json
-# Create your views here.
+from common.utils import request_youtube_info
+
 
 def get_global_ratings(video):
-    from django.db.models import Avg,Count
-    total_quality = RatingReview.objects.filter(context='quality',video=video).aggregate(count=Count('rate'),average=Avg('rate'))
+    from django.db.models import Avg, Count
+    total_quality = RatingReview.objects.filter(context='quality', video=video).aggregate(count=Count('rate'), average=Avg('rate'))
     rate_quality = dict(average=int(round(total_quality['average'] or 0)),
                         count=total_quality['count'])
 
-    total_rel = RatingReview.objects.filter(context='rel',video=video).aggregate(count=Count('rate'),average=Avg('rate'))
+    total_rel = RatingReview.objects.filter(context='rel', video=video).aggregate(count=Count('rate'), average=Avg('rate'))
     rate_rel = dict(average=int(round(total_rel['average'] or 0)),
                     count=total_rel['count'])
 
-    return dict(rate_quality=rate_quality,rate_rel=rate_rel)
+    return dict(rate_quality=rate_quality, rate_rel=rate_rel)
+
 
 def video_detail(request, video_id):
 
     video = get_object_or_404(VideoPage, pk=video_id)
     ancestors = video.teach_item.get_ancestry()
-    ctx = dict(video = video, ancestors = ancestors)
+    ctx = dict(video=video, ancestors=ancestors)
     ctx.update(get_global_ratings(video))
 
     if request.user.is_authenticated():
         try:
-            ctx['rate_quality']['cur'] = RatingReview.objects.get(user=request.user,context='quality',video=video).rate
+            ctx['rate_quality']['cur'] = RatingReview.objects.get(user=request.user, context='quality', video=video).rate
         except RatingReview.DoesNotExist:
             ctx['rate_quality']['cur'] = ''
         try:
-            ctx['rate_rel']['cur'] = RatingReview.objects.get(user=request.user,context='rel',video=video).rate
+            ctx['rate_rel']['cur'] = RatingReview.objects.get(user=request.user, context='rel', video=video).rate
         except RatingReview.DoesNotExist:
             ctx['rate_rel']['cur'] = ''
     return render(request, 'core/video_detail.html', ctx)
 
+
 @login_required
-def video_rate(request,video_id):
+def video_rate(request, video_id):
     if request.method == 'POST':
         video = get_object_or_404(VideoPage, pk=video_id)
         try:
             if request.user.is_authenticated():
                 for context_tuple in RatingReview.context_choices:
                     context = context_tuple[0]
-                    rate =  int(request.POST['rating_%s' % (context)])
-                    review,created = RatingReview.objects.get_or_create(user=request.user,video=video,context=context,defaults={'rate':rate})
+                    rate = int(request.POST['rating_%s' % (context)])
+                    review, created = RatingReview.objects.get_or_create(user=request.user, video=video, context=context, defaults={'rate': rate})
                     # if not new - must update the rate
                     if not created:
                         review.rate = rate
                         review.save()
                 result = get_global_ratings(video)
-                return HttpResponse(status=201,content=json.dumps(result),content_type='application/json')
-        except Exception,e:
+                return HttpResponse(status=201, content=json.dumps(result), content_type='application/json')
+        except Exception, e:
             error_dict = dict(error=unicode(e))
-            return HttpResponse(status=400,content=json.dumps(error_dict),content_type='application/json')
-
+            return HttpResponse(status=400, content=json.dumps(error_dict), content_type='application/json')
 
 
 @login_required
-def add_video(request,video_id=None):
+def add_video(request, video_id=None):
     if request.method == 'GET':
         if not video_id:
             form = forms.VideoForm()
@@ -92,26 +94,29 @@ def add_video(request,video_id=None):
             v.teach_item = form.cleaned_data['item']
             v.category = form.cleaned_data['category']
             v.user = request.user
+            v.youtube_channel = request_youtube_info(video_id=v.youtube_movie_id, part='snippet')['items'][0]['snippet']['channelTitle']
             v.save()
             v.tags.clear()
-            #for t in form.cleaned_data['tags']:
+            # for t in form.cleaned_data['tags']:
             #    v.tags.add(t)
 
             v.teach_item.purge_video_count()
 
-            return HttpResponseRedirect(reverse('core:video_detail',kwargs=dict(video_id=v.id)))
+            return HttpResponseRedirect(reverse('core:video_detail', kwargs=dict(video_id=v.id)))
         else:
             print form.errors
-    return render(request,'core/add_video.html',dict(form=form))
+    return render(request, 'core/add_video.html', dict(form=form))
+
 
 def topic_view(request, topic_id):
     topic = get_object_or_404(TeachTopic, pk=topic_id)
     subtree = topic.get_subtree()
     ancestors = topic.get_ancestry()
     ancestors = ancestors[:-1]
-    return render(request,'core/topic_view.html', {'topic': topic, 'subtree':subtree, 'ancestors': ancestors})
+    return render(request, 'core/topic_view.html', {'topic': topic, 'subtree': subtree, 'ancestors': ancestors})
 
-def item_view(request,item_id):
+
+def item_view(request, item_id):
     item = get_object_or_404(TeachItem, pk=item_id)
     videos = VideoPage.objects.filter(teach_item=item)
     videos_dict = defaultdict(list)
@@ -119,10 +124,11 @@ def item_view(request,item_id):
         videos_dict[ugettext(v.category + '_plural')].append(v)
     for _, videos_cat in videos_dict.iteritems():
         videos_cat.sort(key=lambda video: video.relevancy_rating()['average'], reverse=True)
-    
+
     ancestors = item.get_ancestry()
     ancestors = ancestors[:-1]
-    return render(request,'core/item_view.html', {'item': item, 'videos_dict':dict(videos_dict), 'ancestors':ancestors})
+    return render(request, 'core/item_view.html', {'item': item, 'videos_dict': dict(videos_dict), 'ancestors': ancestors})
+
 
 @login_required
 def user_view(request):
