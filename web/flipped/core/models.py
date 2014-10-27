@@ -54,23 +54,16 @@ class TeachTopic(TeachEntity):
     entity_type = "topic"
 
     def get_subtree(self, outer_call=True):
-        """Create a list of direct child items and all descendant topics rooted in this topic
-         The inner hierarchy (in|de)denting is signified using 'in' and 'out' strings"""
-
         if outer_call:
-            # in the original outer call, we don't need to add the current topic, but we do add all its direct items
-            subtree = []
-            child_entities = sorted(list(self.teachitem_set.all()) + list(self.teachtopic_set.all()),
-                                    key=lambda x: x.order_index)
+            child_entities = sorted(list(self.teachitem_set.all()) + list(self.teachtopic_set.all()), key=lambda x: x.order_index)
         else:
-            subtree = [self]
             child_entities = self.teachtopic_set.order_by('order_index')
 
-        for child_entity in child_entities:
-            if child_entity.entity_type == "topic":
-                subtree.extend(["in"] + child_entity.get_subtree(outer_call=False) + ["out"])
-            else:
-                subtree.extend(["in", child_entity, "out"])
+        subtree = []
+        for child in child_entities:
+            subtree.append(child)
+            if child.entity_type == 'topic':
+                subtree.extend(child.get_subtree(outer_call=False))
 
         return subtree
 

@@ -11,23 +11,39 @@
         {% endif %}
 
         <h1>{{ topic.title }}</h1>
-        {% for entity in subtree %}
-            {% if entity == "in" %}
-            <ul>
-            {% elif entity == "out" %}
-            </ul>
-            {% else %}
-            <li>
-	          <a href="../../{{ entity.entity_type }}/{{ entity.id }}/">{{ entity }}</a>
-	          <span dir="rtl">({{entity.video_count}})</span>
-            </li>
-            {% endif %}
-        {% endfor %}
+        <div id="subtree">
+        </div>
         <div class="row">
         	{{topic.description | safe}}	
         </div>
         </div> <!-- /container -->
 </div>
+
+  <script>
+  $(function () {
+    $('#subtree').jstree({'core' : {
+        'data' : [
+            {% for entity in subtree %}
+                { "id" : "{{ entity.id }}", 
+                {% if topic.id == entity.parent_id %}
+                    "parent" : "#", 
+                {% else %}
+                    "parent" : "{{ entity.parent_id }}", 
+                {% endif %}
+                "text" : "{{ entity }} ({{ entity.video_count }})",
+                {% if entity.entity_type == 'topic' %}
+                    "a_attr" : { "href" : "{% url 'core:topic_view' entity.id %}" },
+                {% else %}
+                    "a_attr" : { "href" : "{% url 'core:item_view' entity.id %}" },
+                {% endif %} 
+                "state" : { "opened" : true } },
+            {% endfor %}
+        ]
+    } }).on("select_node.jstree", function(e,data) {
+        document.location.href = data.node.a_attr.href;
+    });
+  });
+  </script>
 {%endblock %}
 
 
