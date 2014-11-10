@@ -1,6 +1,7 @@
 from collections import defaultdict
 from common.utils import request_youtube_info
 from core.models import RatingReview
+from core.utils import get_jstree_data
 from django.contrib.auth.decorators import login_required
 from django.core.urlresolvers import reverse
 from django.http.response import HttpResponseRedirect, HttpResponse
@@ -114,11 +115,7 @@ def topic_view(request, topic_id):
     ancestors = ancestors[:-1]
 
     subtree = topic.get_subtree()
-    tree_data = [{'id': entity.id,
-                  'parent': '#' if topic.id == entity.parent_id else entity.parent_id,
-                  'text': u'%s (%s)' % (unicode(entity), entity.video_count()),
-                  'a_attr': {'href': reverse('core:topic_view' if entity.entity_type == 'topic' else 'core:item_view', args=(entity.id,))},
-                  'state': {'opened': True}} for entity in subtree]
+    tree_data = get_jstree_data(subtree, topic.id)
     return render(request, 'core/topic_view.html', {'topic': topic, 'tree_data': json.dumps(tree_data), 'ancestors': ancestors})
 
 
