@@ -1,4 +1,5 @@
 from collections import defaultdict
+from common.utils import request_youtube_info
 from core.models import RatingReview
 from django.contrib.auth.decorators import login_required
 from django.core.urlresolvers import reverse
@@ -9,7 +10,6 @@ from models import TeachItem, TeachTopic, VideoPage
 import common.utils
 import forms
 import json
-from common.utils import request_youtube_info
 
 
 def get_global_ratings(video):
@@ -110,10 +110,16 @@ def add_video(request, video_id=None):
 
 def topic_view(request, topic_id):
     topic = get_object_or_404(TeachTopic, pk=topic_id)
-    subtree = topic.get_subtree()
     ancestors = topic.get_ancestry()
     ancestors = ancestors[:-1]
-    return render(request, 'core/topic_view.html', {'topic': topic, 'subtree': subtree, 'ancestors': ancestors})
+
+    subtree = topic.get_subtree()
+    tree_data = [{'id': entity.id,
+                  'parent': '#' if topic.id == entity.parent_id else entity.parent_id,
+                  'text': u'%s (%s)' % (unicode(entity), entity.video_count()),
+                  'a_attr': {'href': reverse('core:topic_view' if entity.entity_type == 'topic' else 'core:item_view', args=(entity.id,))},
+                  'state': {'opened': True}} for entity in subtree]
+    return render(request, 'core/topic_view.html', {'topic': topic, 'tree_data': json.dumps(tree_data), 'ancestors': ancestors})
 
 
 def item_view(request, item_id):
