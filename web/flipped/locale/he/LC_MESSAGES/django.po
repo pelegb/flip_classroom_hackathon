@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-10-13 23:18+0300\n"
+"POT-Creation-Date: 2014-12-15 21:44+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -20,13 +20,11 @@ msgstr ""
 
 #: .\common\templates\common\home.html:8
 msgid "Welcome"
-msgstr "ברוכים הבאים ל\"שיעור פתוח\""
+msgstr "שיעור פתוח"
 
 #: .\common\templates\common\home.html:9
 msgid "Please feel free to view the video items"
-msgstr ""
-"אתם מוזמנים להיכנס לתכניות הלימודים ולצפות בסרטונים וכן להרשם וליצור סרטונים "
-"עבור תכניות אלה"
+msgstr "שיעור פתוח הוא מאגר סרטונים לימודיים שמשתמשים יוצרים"
 
 #: .\common\templates\common\home.html:23
 msgid "Uploaded recently:"
@@ -37,91 +35,104 @@ msgid "published"
 msgstr "הועלה ב-"
 
 #: .\common\templates\common\incl_top.html:7
-#: .\common\templates\common\incl_top.html:29
+#: .\common\templates\common\incl_top.html:31
 msgid "Open Class"
 msgstr "שיעור פתוח"
 
-#: .\common\templates\common\incl_top.html:34
+#: .\common\templates\common\incl_top.html:37
 msgid "teach topics"
 msgstr "נושאי לימוד"
 
-#: .\common\templates\common\incl_top.html:47
+#: .\common\templates\common\incl_top.html:44
 #: .\core\templates\core\user_view.html:14
 #: .\core\templates\core\user_view.html:31
 msgid "upload video"
 msgstr "העלאת סרטון"
 
-#: .\common\templates\common\incl_top.html:54
+#: .\common\templates\common\incl_top.html:45
+msgid "about us"
+msgstr "אודות"
+
+#: .\common\templates\common\incl_top.html:49
 #: .\core\templates\core\user_view.html:8
 msgid "hello"
 msgstr "שלום"
 
-#: .\common\templates\common\incl_top.html:55
+#: .\common\templates\common\incl_top.html:50
 msgid "log out"
 msgstr "התנתק"
 
-#: .\common\templates\common\incl_top.html:57
+#: .\common\templates\common\incl_top.html:52
 msgid "log in"
 msgstr "התחבר"
 
-#: .\common\templates\common\incl_top.html:58
+#: .\common\templates\common\incl_top.html:53
 msgid "sign up"
 msgstr "הירשם"
 
-#: .\core\forms.py:32
+#: .\core\forms.py:33
 msgid "Invalid YouTube URL"
 msgstr "יש להזין כתובת יוטיוב תקינה"
 
-#: .\core\forms.py:37
+#: .\core\forms.py:38
 #, python-format
 msgid "Video could not be found on YouTube for ID: %(id)s"
 msgstr "לא נמצא סרטון יוטיוב עם מזהה: %(id)s"
 
-#: .\core\forms.py:42
+#: .\core\forms.py:43
 msgid "link"
 msgstr "קישור"
 
-#: .\core\forms.py:47
+#: .\core\forms.py:48
 msgid "title"
 msgstr "כותרת"
 
-#: .\core\forms.py:52
+#: .\core\forms.py:53
 msgid "content"
 msgstr "תוכן"
 
-#: .\core\forms.py:53
+#: .\core\forms.py:54
 msgid "category"
 msgstr "סוג סרט"
 
-#: .\core\forms.py:55
+#: .\core\forms.py:56
 msgid "item"
 msgstr "פריט"
 
-#: .\core\forms.py:60 .\core\templates\core\item_view.html:22
-#: .\core\templates\core\user_view.html:21
-#: .\core\templates\core\video_detail.html:31
-msgid "relevancy"
-msgstr "רלוונטיות"
-
-#: .\core\forms.py:61 .\core\templates\core\item_view.html:20
-#: .\core\templates\core\user_view.html:19
-#: .\core\templates\core\video_detail.html:29
-msgid "technical quality"
-msgstr "איכות טכנית"
-
-#: .\core\models.py:98
+#: .\core\models.py:88
 msgid "_description"
 msgstr ""
 
-#: .\core\views.py:124
+#: .\core\views.py:134
 #, fuzzy
 msgid "_plural"
 msgstr "אחרים"
+
+#: .\core\templates\core\add_video.html:21
+#, fuzzy
+msgid "Update"
+msgstr "דרג"
+
+#: .\core\templates\core\add_video.html:23
+msgid "Add"
+msgstr "הוסף"
 
 #: .\core\templates\core\item_view.html:19
 #, python-format
 msgid "By %(channel)s, uploaded by %(user_name)s"
 msgstr "מאת %(channel)s, הועלה ע\"י %(user_name)s"
+
+#: .\core\templates\core\item_view.html:20
+#: .\core\templates\core\user_view.html:19
+#: .\core\templates\core\video_detail.html:29
+msgid "technical quality"
+msgstr "איכות טכנית"
+
+#: .\core\templates\core\item_view.html:22
+#: .\core\templates\core\user_view.html:21
+#: .\core\templates\core\video_detail.html:31
+msgid "relevancy"
+msgstr "רלוונטיות"
 
 #: .\core\templates\core\item_view.html:32
 msgid "Be the first to upload a video"
