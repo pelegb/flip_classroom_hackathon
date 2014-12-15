@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-12-15 21:44+0200\n"
+"POT-Creation-Date: 2014-12-15 21:56+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -53,20 +53,24 @@ msgstr "העלאת סרטון"
 msgid "about us"
 msgstr "אודות"
 
-#: .\common\templates\common\incl_top.html:49
+#: .\common\templates\common\incl_top.html:46
+msgid "contact us"
+msgstr "צור קשר"
+
+#: .\common\templates\common\incl_top.html:50
 #: .\core\templates\core\user_view.html:8
 msgid "hello"
 msgstr "שלום"
 
-#: .\common\templates\common\incl_top.html:50
+#: .\common\templates\common\incl_top.html:51
 msgid "log out"
 msgstr "התנתק"
 
-#: .\common\templates\common\incl_top.html:52
+#: .\common\templates\common\incl_top.html:53
 msgid "log in"
 msgstr "התחבר"
 
-#: .\common\templates\common\incl_top.html:53
+#: .\common\templates\common\incl_top.html:54
 msgid "sign up"
 msgstr "הירשם"
 
