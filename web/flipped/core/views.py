@@ -131,13 +131,16 @@ def item_view(request, item_id):
     videos = VideoPage.objects.filter(teach_item=item)
     videos_dict = defaultdict(list)
     for v in videos:
-        videos_dict[ugettext(v.category + '_plural')].append(v)
-    for _, videos_cat in videos_dict.iteritems():
-        videos_cat.sort(key=lambda video: video.relevancy_rating()['average'], reverse=True)
+        videos_dict[v.category].append(v)
+
+    videos_list = [(ugettext(category + '_plural'), videos_dict[category]) for category in VideoPage.CATEGORY_VALUES]
+
+    for category, v in videos_list:
+        v.sort(key=lambda video: video.relevancy_rating()['average'], reverse=True)
 
     ancestors = item.get_ancestry()
     ancestors = ancestors[:-1]
-    return render(request, 'core/item_view.html', {'item': item, 'videos_dict': dict(videos_dict), 'ancestors': ancestors})
+    return render(request, 'core/item_view.html', {'item': item, 'videos_list': videos_list, 'ancestors': ancestors})
 
 
 @login_required

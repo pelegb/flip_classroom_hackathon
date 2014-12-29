@@ -274,3 +274,6 @@ msgstr "אחר"
 
 msgid "OTHER_description"
 msgstr "אחר - סרטון רלוונטי ומעניין שאינו מתאים לאפשרויות שלעיל"
+
+msgid "OTHER_plural"
+msgstr "אחר"
