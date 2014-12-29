@@ -26,36 +26,28 @@
 
 <div class="navbar navbar-inverse navbar-fixed-top">
 	<div class="navbar-inner">
-		<div class="container-fluid">
-		    <div class="navbar-header" height="20px">
-		    <a class="brand" href="/"> {% trans 'Open Class' %}</a>
-			</div>
-			<div class="nav-collapse collapse">
-				<ul class="nav">
-
-					<li class="dropdown">
-						<a href="#" class="dropdown-toggle" data-toggle="dropdown">{% trans 'teach topics' %}<b class="caret"></b></a>
-						<ul class="dropdown-menu">
-						{% for topic in topics %}
-                            <li><a href="{% url 'core:topic_view' topic.id %}">{{ topic }}</a></li>
-						{% endfor %}
-						</ul>
-					</li>
-					<li><a href="{% url 'core:add_video' %}"><font color="#F1AE47">{% trans 'upload video' %}</font></a></li>
-					<li><a href="{% url 'common:about_us' %}">{% trans 'about us' %}</a></li>
-					<li><a href="mailto:info@the-openclass.org">{% trans 'contact us' %}</a></li>
+        <a class="brand" href="/"><img style="height: 75px;" id="logo-img" alt="open-class-logo" src="{% static 'common/img/logo-small-inverse.png' %}"></a>
+		<ul class="nav">
+  			<li class="dropdown">
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown">{% trans 'teach topics' %}<b class="caret"></b></a>
+				<ul class="dropdown-menu">
+				{% for topic in topics %}
+                    <li><a href="{% url 'core:topic_view' topic.id %}">{{ topic }}</a></li>
+				{% endfor %}
 				</ul>
-				<ul class="nav pull-right">
-					{% if user.is_active %}
-					<li><a href="{% url 'core:user_view' %}">{% trans 'hello' %} {{user.first_name}}</a></li>
-					<li><a href="{% url 'fc_user:logout' %}">{% trans 'log out' %}</a></li>
-					{% else %}
-					<li><a href="{% url 'fc_user:login' %}">{% trans 'log in' %}</a></li>
-					<li><a href="{% url 'fc_user:register' %}">{% trans 'sign up' %}</a></li>
-					{% endif %}
-					<!-- <li><a href="https://docs.google.com/document/d/1f0GZ4QR1_zJh3ZjPEP8Nux1dKcYXwzCCVWAsTMBCq8c/edit?usp=sharing"><font color="#F1AE47">יום הדרכה ב- 14.10</font></a></li>-->
-				</ul>
-			</div>
-		</div>
+			</li>
+			<li><a href="{% url 'core:add_video' %}"><font color="#F1AE47">{% trans 'upload video' %}</font></a></li>
+			<li><a href="{% url 'common:about_us' %}">{% trans 'about us' %}</a></li>
+			<li><a href="mailto:info@the-openclass.org">{% trans 'contact us' %}</a></li>
+		</ul>
+		<ul class="nav pull-right">
+		{% if user.is_active %}
+		    <li><a href="{% url 'core:user_view' %}">{% trans 'hello' %} {{user.first_name}}</a></li>
+			<li><a href="{% url 'fc_user:logout' %}">{% trans 'log out' %}</a></li>
+		{% else %}
+			<li><a href="{% url 'fc_user:login' %}">{% trans 'log in' %}</a></li>
+			<li><a href="{% url 'fc_user:register' %}">{% trans 'sign up' %}</a></li>
+		{% endif %}
+		</ul>
 	</div>
 </div>

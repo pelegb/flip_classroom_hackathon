@@ -1,5 +1,5 @@
 body {
-    padding-top: 60px;
+    padding-top: 100px;
     padding-bottom: 40px;
 }
 
@@ -28,5 +28,8 @@ body {
     -webkit-border-radius: 8px;
        -moz-border-radius: 8px;
             border-radius: 8px;
-    }
- 
+}
+
+.navbar .nav>li>a {
+    padding-top: 30px;
+}
