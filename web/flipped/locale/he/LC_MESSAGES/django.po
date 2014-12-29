@@ -101,7 +101,7 @@ msgstr "סוג סרט"
 
 #: .\core\forms.py:56
 msgid "item"
-msgstr "פריט"
+msgstr "נושא לימוד"
 
 #: .\core\models.py:88
 msgid "_description"
