@@ -53,17 +53,14 @@ class TeachItem(TeachEntity):
 class TeachTopic(TeachEntity):
     entity_type = "topic"
 
-    def get_subtree(self, outer_call=True):
-        if outer_call:
-            child_entities = sorted(list(self.teachitem_set.all()) + list(self.teachtopic_set.all()), key=lambda x: x.order_index)
-        else:
-            child_entities = self.teachtopic_set.order_by('order_index')
+    def get_subtree(self):
+        child_entities = sorted(list(self.teachitem_set.all()) + list(self.teachtopic_set.all()), key=lambda x: x.order_index)
 
         subtree = []
         for child in child_entities:
             subtree.append(child)
             if child.entity_type == 'topic':
-                subtree.extend(child.get_subtree(outer_call=False))
+                subtree.extend(child.get_subtree())
 
         return subtree
 
