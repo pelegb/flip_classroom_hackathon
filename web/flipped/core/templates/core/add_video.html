@@ -40,7 +40,8 @@ $(function () {
   'core' : {
       'data' : {{ jstree_data | safe }}
   } }).on("select_node.jstree", function(e,data) {
-      document.getElementById('id_item').value = data.node.id;
+      console.log(data.node)
+      document.getElementById('id_item').value = data.node.original.real_id;
       document.getElementById('subtree_search').value = data.node.text;
   });
   var to = false;
