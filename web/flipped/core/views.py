@@ -82,7 +82,7 @@ def add_video(request, video_id=None):
             initial['link'] = 'http://www.youtube.com/watch?v=%s' % (video.youtube_movie_id)
             initial['item'] = video.teach_item
             initial['edited_id'] = video.id
-            initial['category'] = video.categroy
+            initial['category'] = video.category
             form = forms.VideoForm(initial=initial)
     elif request.method == 'POST':
         form = forms.VideoForm(request.POST)

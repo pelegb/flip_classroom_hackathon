@@ -9,26 +9,14 @@
 	<div class="container-fluid">
 		<form action="/core/add-video/" method="post">
 			{% csrf_token %}
-		    {% for field in form.visible_fields %}
-		        <div class="fieldWrapper">
-		            {{ field.errors }}
-		            {{ field.label_tag }} {{ field }}
-		        </div>
-		    {% endfor %}
-			<div class="fieldWrapper">
+ 			{{ form.as_p }}
+ 			<div class="fieldWrapper">
                 {{ form.item.label_tag }}
-                {{ form.item }}
                 <input type="text" id="subtree_search" value="" class="input">
             </div>
 			<div id="subtree">
             </div>
-			<input type="submit" value=
-			{% if form.edited_id.value %}
-                {% trans 'Update' %}
-			{% else %}
-                {% trans 'Add' %}
-			{% endif %}
-			/>
+			<input type="submit" value="{% if form.edited_id.value %}{% trans 'Update' %}{% else %}{% trans 'Add' %}{% endif %}"/>
 		</form>
 	</div>
 	<!-- /container -->
