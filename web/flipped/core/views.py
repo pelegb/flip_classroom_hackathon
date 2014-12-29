@@ -108,12 +108,12 @@ def add_video(request, video_id=None):
             return HttpResponseRedirect(reverse('core:video_detail', kwargs=dict(video_id=v.id)))
         else:
             print form.errors
-    return render(request, 'core/add_video.html', dict(form=form))
-#     root_topics = list(topics(request)['topics'])
-#     root_subtree = list(itertools.chain.from_iterable(map(lambda topic: topic.get_subtree(), root_topics)))
-#     root_topics.extend(root_subtree)
-#     jstree_data = get_jstree_data(root_topics, None, opened=False, enable_items_only=True)
-#     return render(request, 'core/add_video.html', dict(form=form, jstree_data=json.dumps(jstree_data)))
+
+    root_topics = list(topics(request)['topics'])
+    root_subtree = list(itertools.chain.from_iterable(map(lambda topic: topic.get_subtree(), root_topics)))
+    root_topics.extend(root_subtree)
+    jstree_data = get_jstree_data(root_topics, None, opened=False, enable_items_only=True, include_video_count=False)
+    return render(request, 'core/add_video.html', dict(form=form, jstree_data=json.dumps(jstree_data)))
 
 
 def topic_view(request, topic_id):

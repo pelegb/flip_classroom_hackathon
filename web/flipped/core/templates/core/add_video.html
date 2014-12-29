@@ -1,28 +1,51 @@
 {% extends "common/base.html" %}
-{% block content %}
-
+{% load i18n %}
 {% load staticfiles %}
+{% block content %}
 
 {{form.media}}
 
 <div class="container">
-
-
 	<div class="container-fluid">
 		<form action="/core/add-video/" method="post">
 			{% csrf_token %}
 			{{form.as_p}}
+			<div class="fieldWrapper">
+                {{ form.item.label_tag }}
+                <input type="text" id="subtree_search" value="" class="input">
+            </div>
+			<div id="subtree">
+            </div>
 			<input type="submit" value=
 			{% if form.edited_id.value %}
-			"שנה"
+                {% trans 'Update' %}
 			{% else %}
-			"הוסף"
+                {% trans 'Add' %}
 			{% endif %}
 			/>
-			</p>
 		</form>
 	</div>
 	<!-- /container -->
 </div>
+
+<script>
+$(function () {
+  $('#subtree').jstree({'plugins' : [ 'search' ],
+  'core' : {
+      'data' : {{ jstree_data | safe }}
+  } }).on("select_node.jstree", function(e,data) {
+      document.getElementById('id_item').value = data.node.id;
+      document.getElementById('subtree_search').value = data.node.text;
+  });
+  var to = false;
+  $('#subtree_search').keyup(function () {
+    if(to) { clearTimeout(to); }
+    to = setTimeout(function () {
+      var v = $('#subtree_search').val();
+      $('#subtree').jstree(true).search(v);
+    }, 250);
+  });
+});
+</script>
 
 {% endblock %}

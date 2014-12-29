@@ -52,10 +52,5 @@ class VideoForm(forms.Form):
     content = forms.CharField(widget=Wysihtml5TextareaWidget(), label=_("content"))
     category = forms.ChoiceField(choices=VideoPage.CATEGORY_DESCRIPTION_CHOICES, required=True, label=_('category'),
                                  widget=forms.Select(attrs={'class': 'wideTextInput', 'required': True}),)
-    item = forms.ModelChoiceField(queryset=models.TeachItem.objects.all(), required=True, label=_("item"))
+    item = forms.ModelChoiceField(widget=forms.HiddenInput(), queryset=models.TeachItem.objects.all(), required=True, label=_("item"))
     # tags = forms.ModelMultipleChoiceField(queryset=models.Tag.objects.all(),required=False, label=_("tags"))
-
-
-class ReviewForm(forms.Form):
-    rel = forms.IntegerField(max_value=10, min_value=1, required=False, label=_("relevancy"))
-    quality = forms.IntegerField(max_value=10, min_value=1, required=False, label=_("technical quality"))
