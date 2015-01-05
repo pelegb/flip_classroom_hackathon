@@ -115,7 +115,7 @@ msgstr "אחרים"
 #: .\core\templates\core\add_video.html:21
 #, fuzzy
 msgid "Update"
-msgstr "דרג"
+msgstr "עדכן"
 
 #: .\core\templates\core\add_video.html:23
 msgid "Add"
