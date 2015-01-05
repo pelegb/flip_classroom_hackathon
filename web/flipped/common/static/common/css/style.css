@@ -11,9 +11,10 @@ body {
 	height: 28px;
 }
 
-#id_content {
+.vLargeTextField {
 	width: 400px;
 }
+
 
 .wideTextInput {
     width:50%;

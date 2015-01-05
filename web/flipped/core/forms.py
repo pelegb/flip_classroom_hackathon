@@ -54,3 +54,14 @@ class VideoForm(forms.Form):
                                  widget=forms.Select(attrs={'class': 'wideTextInput', 'required': True}),)
     item = forms.ModelChoiceField(widget=forms.HiddenInput(), queryset=models.TeachItem.objects.all(), required=True, label=_("item"))
     # tags = forms.ModelMultipleChoiceField(queryset=models.Tag.objects.all(),required=False, label=_("tags"))
+
+
+class TopicSuggestForm(forms.Form):
+    title = forms.CharField(label=_("title"), widget=forms.TextInput(attrs={'class': 'wideTextInput'}))
+    email = forms.EmailField(label=_("email"), widget=forms.EmailInput(attrs={'class': 'wideTextInput'}), required=False)
+    description = forms.CharField(widget=Wysihtml5TextareaWidget(), label="פירוט על התוכן שצריך להיות תחת נושא זה")
+    youtube_url = forms.URLField(label=u"קישור לסרטון בנושא",
+                                 widget=forms.TextInput(attrs={'placeholder': u'לדוגמא, https://www.youtube.com/watch?v=2H4RkudFzlc',
+                                                               'class': 'wideTextInput'}),
+                                 validators=[validate_youtube],
+                                 required=False)

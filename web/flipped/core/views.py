@@ -8,7 +8,7 @@ from django.core.urlresolvers import reverse
 from django.http.response import HttpResponseRedirect, HttpResponse
 from django.shortcuts import render, get_object_or_404
 from django.utils.translation import ugettext
-from models import TeachItem, TeachTopic, VideoPage
+from models import TeachItem, TeachTopic, VideoPage, TopicSuggestion
 import common.utils
 import forms
 import itertools
@@ -147,3 +147,23 @@ def item_view(request, item_id):
 def user_view(request):
     videos = VideoPage.objects.filter(user=request.user)
     return render(request, 'core/user_view.html', {'videos': videos})
+
+
+def suggest_topic(request, parent_id):
+    if request.method == 'GET':
+        form = forms.TopicSuggestForm()
+    elif request.method == 'POST':
+        form = forms.TopicSuggestForm(request.POST)
+        if form.is_valid():
+            s = TopicSuggestion()
+            s.user = request.user if request.user.is_authenticated() else None
+            s.title = form.cleaned_data['title']
+            s.email = form.clean_data['email']
+            s.description = form.cleaned_data['description']
+            s.parent_topic = get_object_or_404(TeachTopic, pk=parent_id)
+            s.youtube_url = form.cleaned_data['youtube_url']
+            s.save()
+            return HttpResponseRedirect(reverse('core:topic_view', kwargs=dict(topic_id=parent_id)))
+        else:
+            print form.errors
+    return render(request, 'core/suggest_topic.html', dict(form=form, parent_id=parent_id))
