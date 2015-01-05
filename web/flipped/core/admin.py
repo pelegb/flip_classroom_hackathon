@@ -27,6 +27,7 @@ admin.site.register(core.models.RatingReview)
 admin.site.register(core.models.TeachItem,admin_class=TeachItemAdmin)
 admin.site.register(core.models.TeachTopic,admin_class=TeachTopicAdmin)
 admin.site.register(core.models.Tag)
+admin.site.register(core.models.TopicSuggestion)
 
 
 

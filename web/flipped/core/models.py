@@ -147,6 +147,15 @@ class Tag(models.Model):
         return self.name
 
 
+class TopicSuggestion(models.Model):
+    user = models.ForeignKey(django.contrib.auth.get_user_model(), blank=True, null=True, default=None)
+    email = models.EmailField(max_length=254, blank=True, null=True, default=None)
+    title = models.CharField(max_length=50, blank=False, null=False)
+    description = models.TextField(blank=False, null=False)
+    parent_topic = models.ForeignKey('TeachTopic', blank=True, null=True)
+    youtube_url = models.CharField(max_length=50, blank=True, null=True)
+
+
 @receiver(pre_delete, sender=VideoPage, dispatch_uid='purge_video_count_on_video_deletion')
 def purge_video_count_on_video_deletion(sender, instance, using, **kwargs):
     instance.teach_item.purge_video_count()
