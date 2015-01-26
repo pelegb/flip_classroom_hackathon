@@ -32,7 +32,7 @@ def video_detail(request, video_id):
 
     video = get_object_or_404(VideoPage, pk=video_id)
     ancestors = video.teach_item.get_ancestry()
-    ctx = dict(video=video, ancestors=ancestors)
+    ctx = dict(video=video, ancestors=ancestors, title=video.video_title)
     ctx.update(get_global_ratings(video))
 
     if request.user.is_authenticated():
@@ -123,7 +123,7 @@ def topic_view(request, topic_id):
 
     subtree = topic.get_subtree()
     tree_data = get_jstree_data(subtree, topic.id, opened=False)
-    return render(request, 'core/topic_view.html', {'topic': topic, 'tree_data': json.dumps(tree_data), 'ancestors': ancestors})
+    return render(request, 'core/topic_view.html', {'topic': topic, 'tree_data': json.dumps(tree_data), 'ancestors': ancestors, 'title': topic.title})
 
 
 def item_view(request, item_id):
@@ -140,13 +140,13 @@ def item_view(request, item_id):
 
     ancestors = item.get_ancestry()
     ancestors = ancestors[:-1]
-    return render(request, 'core/item_view.html', {'item': item, 'videos_list': videos_list, 'ancestors': ancestors})
+    return render(request, 'core/item_view.html', {'item': item, 'videos_list': videos_list, 'ancestors': ancestors, 'title': item.title})
 
 
 @login_required
 def user_view(request):
     videos = VideoPage.objects.filter(user=request.user)
-    return render(request, 'core/user_view.html', {'videos': videos})
+    return render(request, 'core/user_view.html', {'videos': videos, 'title': request.user.get_full_name()})
 
 
 def suggest_topic(request, parent_id):
