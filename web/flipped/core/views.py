@@ -47,22 +47,27 @@ def video_detail(request, video_id):
     return render(request, 'core/video_detail.html', ctx)
 
 
-@login_required
 def video_rate(request, video_id):
     if request.method == 'POST':
         video = get_object_or_404(VideoPage, pk=video_id)
         try:
-            if request.user.is_authenticated():
-                for context_tuple in RatingReview.context_choices:
-                    context = context_tuple[0]
-                    rate = int(request.POST['rating_%s' % (context)])
+            for context_tuple in RatingReview.context_choices:
+                context = context_tuple[0]
+                rate = int(request.POST['rating_%s' % context])
+                if request.user.is_authenticated():
                     review, created = RatingReview.objects.get_or_create(user=request.user, video=video, context=context, defaults={'rate': rate})
                     # if not new - must update the rate
                     if not created:
                         review.rate = rate
                         review.save()
-                result = get_global_ratings(video)
-                return HttpResponse(status=201, content=json.dumps(result), content_type='application/json')
+                else:
+                    if request.session.get('has_rated', False):
+                        review = RatingReview.objects.create(user=None, video=video, context=context, rate=rate)
+                        request.sessionp['has_rated'] = True
+                    else:
+                        return HttpResponse(status=403, content=ugettext("You've already rated this video"))
+            result = get_global_ratings(video)
+            return HttpResponse(status=201, content=json.dumps(result), content_type='application/json')
         except Exception, e:
             error_dict = dict(error=unicode(e))
             return HttpResponse(status=400, content=json.dumps(error_dict), content_type='application/json')

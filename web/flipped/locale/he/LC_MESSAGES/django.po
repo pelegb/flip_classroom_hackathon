@@ -8,195 +8,191 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-12-15 21:56+0200\n"
+"POT-Creation-Date: 2015-03-02 21:16+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: \n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-#: .\common\templates\common\home.html:8
+#: common/templates/common/home.html:8
 msgid "Welcome"
 msgstr "שיעור פתוח"
 
-#: .\common\templates\common\home.html:9
+#: common/templates/common/home.html:9
 msgid "Please feel free to view the video items"
 msgstr "שיעור פתוח הוא מאגר סרטונים לימודיים שמשתמשים יוצרים"
 
-#: .\common\templates\common\home.html:23
+#: common/templates/common/home.html:23
 msgid "Uploaded recently:"
 msgstr "הועלה לאחרונה:"
 
-#: .\common\templates\common\home.html:30
+#: common/templates/common/home.html:30
 msgid "published"
 msgstr "הועלה ב-"
 
-#: .\common\templates\common\incl_top.html:7
-#: .\common\templates\common\incl_top.html:31
+#: common/templates/common/incl_top.html:8
 msgid "Open Class"
 msgstr "שיעור פתוח"
 
-#: .\common\templates\common\incl_top.html:37
+#: common/templates/common/incl_top.html:33
 msgid "teach topics"
 msgstr "נושאי לימוד"
 
-#: .\common\templates\common\incl_top.html:44
-#: .\core\templates\core\user_view.html:14
-#: .\core\templates\core\user_view.html:31
+#: common/templates/common/incl_top.html:40
+#: core/templates/core/user_view.html:14 core/templates/core/user_view.html:31
 msgid "upload video"
 msgstr "העלאת סרטון"
 
-#: .\common\templates\common\incl_top.html:45
+#: common/templates/common/incl_top.html:41
 msgid "about us"
 msgstr "אודות"
 
-#: .\common\templates\common\incl_top.html:46
+#: common/templates/common/incl_top.html:42
 msgid "contact us"
 msgstr "צור קשר"
 
-#: .\common\templates\common\incl_top.html:50
-#: .\core\templates\core\user_view.html:8
+#: common/templates/common/incl_top.html:46
+#: core/templates/core/user_view.html:8
 msgid "hello"
 msgstr "שלום"
 
-#: .\common\templates\common\incl_top.html:51
+#: common/templates/common/incl_top.html:47
 msgid "log out"
 msgstr "התנתק"
 
-#: .\common\templates\common\incl_top.html:53
+#: common/templates/common/incl_top.html:49
 msgid "log in"
 msgstr "התחבר"
 
-#: .\common\templates\common\incl_top.html:54
+#: common/templates/common/incl_top.html:50
 msgid "sign up"
 msgstr "הירשם"
 
-#: .\core\forms.py:33
+#: core/forms.py:32
 msgid "Invalid YouTube URL"
 msgstr "יש להזין כתובת יוטיוב תקינה"
 
-#: .\core\forms.py:38
+#: core/forms.py:37
 #, python-format
 msgid "Video could not be found on YouTube for ID: %(id)s"
 msgstr "לא נמצא סרטון יוטיוב עם מזהה: %(id)s"
 
-#: .\core\forms.py:43
+#: core/forms.py:42
 msgid "link"
 msgstr "קישור"
 
-#: .\core\forms.py:48
+#: core/forms.py:47 core/forms.py:60
 msgid "title"
 msgstr "כותרת"
 
-#: .\core\forms.py:53
+#: core/forms.py:52
 msgid "content"
 msgstr "תוכן"
 
-#: .\core\forms.py:54
+#: core/forms.py:53
 msgid "category"
 msgstr "סוג סרט"
 
-#: .\core\forms.py:56
+#: core/forms.py:55
 msgid "item"
 msgstr "נושא לימוד"
 
-#: .\core\models.py:88
-msgid "_description"
-msgstr ""
+#: core/forms.py:61 fc_user/forms.py:6
+msgid "email"
+msgstr "דואל"
 
-#: .\core\views.py:134
+#: core/views.py:68
+msgid "You've already rated this video"
+msgstr "סרטון זה כבר דורג"
+
+#: core/views.py:141
 #, fuzzy
 msgid "_plural"
 msgstr "אחרים"
 
-#: .\core\templates\core\add_video.html:21
+#: core/templates/core/add_video.html:19
 #, fuzzy
 msgid "Update"
 msgstr "עדכן"
 
-#: .\core\templates\core\add_video.html:23
+#: core/templates/core/add_video.html:19
 msgid "Add"
 msgstr "הוסף"
 
-#: .\core\templates\core\item_view.html:19
+#: core/templates/core/item_view.html:20
 #, python-format
 msgid "By %(channel)s, uploaded by %(user_name)s"
 msgstr "מאת %(channel)s, הועלה ע\"י %(user_name)s"
 
-#: .\core\templates\core\item_view.html:20
-#: .\core\templates\core\user_view.html:19
-#: .\core\templates\core\video_detail.html:29
+#: core/templates/core/item_view.html:21 core/templates/core/user_view.html:19
+#: core/templates/core/video_detail.html:29
 msgid "technical quality"
 msgstr "איכות טכנית"
 
-#: .\core\templates\core\item_view.html:22
-#: .\core\templates\core\user_view.html:21
-#: .\core\templates\core\video_detail.html:31
+#: core/templates/core/item_view.html:23 core/templates/core/user_view.html:21
+#: core/templates/core/video_detail.html:31
 msgid "relevancy"
 msgstr "רלוונטיות"
 
-#: .\core\templates\core\item_view.html:32
+#: core/templates/core/item_view.html:34
 msgid "Be the first to upload a video"
 msgstr "רוצים להיות הראשונים? העלו סרטון"
 
-#: .\core\templates\core\user_view.html:13
+#: core/templates/core/user_view.html:13
 msgid "the videos you uploaded:"
 msgstr "הסרטונים שלך:"
 
-#: .\core\templates\core\user_view.html:35
+#: core/templates/core/user_view.html:35
 msgid "change your password"
 msgstr "שנה את סיסמתי"
 
-#: .\core\templates\core\video_detail.html:23
+#: core/templates/core/video_detail.html:23
 #, python-format
 msgid "By %(channel)s, uploaded by %(user_name)s on %(day)s %(month)s %(year)s"
 msgstr ""
 "מאת %(channel)s, הועלה ע\"י %(user_name)s בתאריך %(day)s ל%(month)s %(year)s"
 
-#: .\core\templates\core\video_detail.html:25
+#: core/templates/core/video_detail.html:25
 msgid "edit"
 msgstr "ערוך"
 
-#: .\core\templates\core\video_detail.html:71
+#: core/templates/core/video_detail.html:70
 msgid "rate"
 msgstr "דרג"
 
-#: .\fc_user\forms.py:4
+#: fc_user/forms.py:4
 msgid "username"
 msgstr "שם משתמש"
 
-#: .\fc_user\forms.py:5
+#: fc_user/forms.py:5
 msgid "password"
 msgstr "סיסמא"
 
-#: .\fc_user\forms.py:6
-msgid "email"
-msgstr "דואל"
-
-#: .\fc_user\forms.py:7
+#: fc_user/forms.py:7
 msgid "first_name"
 msgstr "שם פרטי"
 
-#: .\fc_user\forms.py:8
+#: fc_user/forms.py:8
 msgid "last_name"
 msgstr "שם משפחה"
 
-#: .\fc_user\templates\fc_user\password_change.html:11
+#: fc_user/templates/fc_user/password_change.html:11
 msgid "Please correct the error below."
 msgstr "נא לתקן את השגיאה מתחת."
 
-#: .\fc_user\templates\fc_user\password_change.html:11
+#: fc_user/templates/fc_user/password_change.html:11
 msgid "Please correct the errors below."
 msgstr "נא לתקן את השגיאות מתחת."
 
-#: .\fc_user\templates\fc_user\password_change.html:15
+#: fc_user/templates/fc_user/password_change.html:15
 msgid "Password change"
 msgstr "שינוי סיסמא"
 
-#: .\fc_user\templates\fc_user\password_change.html:17
+#: fc_user/templates/fc_user/password_change.html:17
 msgid ""
 "Please enter your old password, for security's sake, and then enter your new "
 "password twice so we can verify you typed it in correctly."
@@ -204,23 +200,23 @@ msgstr ""
 "נא להזין את סיסמתך הישנה, לצרכי אבטחה, ולאחר מכן את סיסמתך החדשה פעמיים כדי "
 "שנוכל לוודא שהקלדת אותה כראוי."
 
-#: .\fc_user\templates\fc_user\password_change.html:23
+#: fc_user/templates/fc_user/password_change.html:23
 msgid "Old password"
 msgstr "סיסמא ישנה"
 
-#: .\fc_user\templates\fc_user\password_change.html:28
+#: fc_user/templates/fc_user/password_change.html:28
 msgid "New password"
 msgstr "סיסמא חדשה"
 
-#: .\fc_user\templates\fc_user\password_change.html:33
+#: fc_user/templates/fc_user/password_change.html:33
 msgid "Password (again)"
 msgstr "סיסמא חדשה (שוב)"
 
-#: .\fc_user\templates\fc_user\password_change.html:39
+#: fc_user/templates/fc_user/password_change.html:39
 msgid "Change my password"
 msgstr "סיסמא"
 
-#: .\fc_user\templates\fc_user\password_change_done.html:7
+#: fc_user/templates/fc_user/password_change_done.html:7
 msgid "Password change successful"
 msgstr "הסיסמא שונתה בהצלחה"
 
