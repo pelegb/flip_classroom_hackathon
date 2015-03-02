@@ -44,3 +44,4 @@ web/.idea/
 local_settings.py
 .idea
 env_osx
+.python-version
