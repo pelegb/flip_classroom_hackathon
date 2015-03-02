@@ -134,7 +134,7 @@ LOGGING = {
         'file': {
             'level': 'DEBUG',
             'class': 'logging.handlers.RotatingFileHandler',
-            'filename': '/home/flip/log/debug.log',
+            'filename': '%s/log/debug.log' % os.getenv('HOME'),
             'formatter': 'verbose',
             'maxBytes': 10 ** 7,
             'backupCount': 10
