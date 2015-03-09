@@ -41,6 +41,8 @@ def create_new():
 @task
 def update_host():
     """ general host update """
+    sudo('echo deb http://apt.newrelic.com/debian/ newrelic non-free > /etc/apt/sources.list.d/newrelic.list')
+    sudo('wget -O- https://download.newrelic.com/548C16BF.gpg | apt-key add -')
     sudo('apt-get update')
     sudo('apt-get --yes -q upgrade')
 
@@ -55,6 +57,7 @@ def update_apt(package=None):
                 'python-pip',
                 'libpq-dev',
                 'python-dev',
+                'newrelic-sysmond'
     	)
 
     for p in packages:
@@ -99,6 +102,12 @@ def update_pip():
     put('files/server_requirements.txt','/tmp/server_requirements.txt')
     sudo('pip install -r /tmp/server_requirements.txt')
 
+
+@task
+def update_newrelic_config():
+    run('newrelic-admin generate-config %s newrelic.ini' % env.new_relic_key)
+    sudo('nrsysmond-config --set license_key=%s' % env.new_relic_key)
+    sudo('service newrelic-sysmond restart')
     
 @task
 def update_conf():
