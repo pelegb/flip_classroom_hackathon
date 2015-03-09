@@ -8,12 +8,14 @@ import tempfile
 env.hosts = ['107.170.4.199']
 env.user = 'flip'
 
+
 # Ec2 configuration
 
 env.django_base_dir = os.path.join('/home/%s/' % (env.user),'flip_classroom_hackathon/web/flipped')
 env.repo = 'https://github.com/adamatan/flip_classroom_hackathon.git'
 env.repo_dir = 'flip_classroom_hackathon'  #dir after clone
 env.dns = 'the-openclass.org'
+env.new_relic_key = 'd89f0ba6cb16fd69396907526703743e4bbc9e4d'
 
 def get_ctx():
     ctx = {
@@ -94,6 +96,9 @@ def update_pip():
     sudo('pip install setuptools --no-use-wheel --upgrade')
     put('files/requirements.txt','/tmp/requirements.txt')
     sudo('pip install -r /tmp/requirements.txt')
+    put('files/server_requirements.txt','/tmp/server_requirements.txt')
+    sudo('pip install -r /tmp/server_requirements.txt')
+
     
 @task
 def update_conf():
