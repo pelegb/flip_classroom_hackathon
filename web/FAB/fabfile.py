@@ -1,4 +1,4 @@
-from fabric.api import * #@UnusedWildImport
+from fabric.api import *
 import fabric.contrib.files
 import os
 import tempfile
@@ -13,7 +13,7 @@ env.user = 'flip'
 
 env.django_base_dir = os.path.join('/home/%s/' % (env.user),'flip_classroom_hackathon/web/flipped')
 env.repo = 'https://github.com/adamatan/flip_classroom_hackathon.git'
-env.repo_dir = 'flip_classroom_hackathon'  #dir after clone
+env.repo_dir = 'flip_classroom_hackathon'  # dir after clone
 env.dns = 'the-openclass.org'
 env.new_relic_key = 'd89f0ba6cb16fd69396907526703743e4bbc9e4d'
 
@@ -57,7 +57,8 @@ def update_apt(package=None):
                 'python-pip',
                 'libpq-dev',
                 'python-dev',
-                'newrelic-sysmond'
+                'newrelic-sysmond',
+                's3cmd'
     	)
 
     for p in packages:
@@ -108,7 +109,8 @@ def update_newrelic_config():
     run('newrelic-admin generate-config %s newrelic.ini' % env.new_relic_key)
     sudo('nrsysmond-config --set license_key=%s' % env.new_relic_key)
     sudo('service newrelic-sysmond restart')
-    
+
+
 @task
 def update_conf():
     """ update conf file for supervisor/nginx """
