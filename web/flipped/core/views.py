@@ -63,7 +63,7 @@ def video_rate(request, video_id):
                 else:
                     if request.session.get('has_rated', False):
                         review = RatingReview.objects.create(user=None, video=video, context=context, rate=rate)
-                        request.sessionp['has_rated'] = True
+                        request.session['has_rated'] = True
                     else:
                         return HttpResponse(status=403, content=ugettext("You've already rated this video"))
             result = get_global_ratings(video)
@@ -71,6 +71,8 @@ def video_rate(request, video_id):
         except Exception, e:
             error_dict = dict(error=unicode(e))
             return HttpResponse(status=400, content=json.dumps(error_dict), content_type='application/json')
+    else:
+        HttpResponse(status=405);
 
 
 @login_required
