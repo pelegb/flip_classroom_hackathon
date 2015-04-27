@@ -24,7 +24,7 @@ msgstr "שיעור פתוח"
 
 #: common/templates/common/home.html:9
 msgid "Please feel free to view the video items"
-msgstr "שיעור פתוח הוא מאגר סרטונים לימודיים שמשתמשים יוצרים"
+msgstr "שיעור פתוח הוא מאגר סרטונים לימודיים שמשתמשים יוצרים, המאורגן לפי תוכנית הלימודים בישראל"
 
 #: common/templates/common/home.html:23
 msgid "Uploaded recently:"
