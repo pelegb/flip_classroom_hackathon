@@ -51,9 +51,9 @@ def video_detail(request, video_id):
 
 
 def video_rate(request, video_id):
-    if request.method == 'POST':
+    try:
         video = get_object_or_404(VideoPage, pk=video_id)
-        try:
+        if request.method == 'POST':
             for context_tuple in RatingReview.context_choices:
                 context = context_tuple[0]
                 rate = int(request.POST['rating_%s' % context])
@@ -70,13 +70,12 @@ def video_rate(request, video_id):
                         request.session['has_rated'] = True
                     else:
                         return HttpResponse(status=403, content=ugettext("You've already rated this video"))
-            result = get_global_ratings(video)
-            return HttpResponse(status=201, content=json.dumps(result), content_type='application/json')
-        except Exception, e:
-            error_dict = dict(error=unicode(e))
-            return HttpResponse(status=400, content=json.dumps(error_dict), content_type='application/json')
-    else:
-        return HttpResponse(status=405)
+
+        result = get_global_ratings(video)
+        return HttpResponse(status=201, content=json.dumps(result), content_type='application/json')
+    except Exception, e:
+        error_dict = dict(error=unicode(e))
+        return HttpResponse(status=400, content=json.dumps(error_dict), content_type='application/json')
 
 
 @login_required
