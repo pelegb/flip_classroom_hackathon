@@ -46,3 +46,4 @@ local_settings.py
 .idea
 env_osx
 .python-version
+db_dump.sql
