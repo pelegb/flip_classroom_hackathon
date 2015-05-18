@@ -9,3 +9,6 @@ def home(request):
 
 def about_us(request):
     return render(request, 'common/about_us.html')
+
+def help(request):
+    return render(request, 'common/help.html')

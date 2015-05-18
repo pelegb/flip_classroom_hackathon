@@ -38,8 +38,8 @@
 				</ul>
 			</li>
 			<li><a href="{% url 'core:add_video' %}"><font color="#F1AE47">{% trans 'upload video' %}</font></a></li>
+            <li><a href="{% url 'common:help' %}">{% trans 'want to help?' %}</a></li>
 			<li><a href="{% url 'common:about_us' %}">{% trans 'about us' %}</a></li>
-			<li><a href="mailto:info@the-openclass.org">{% trans 'contact us' %}</a></li>
 		</ul>
 		<ul class="nav pull-right">
 		{% if user.is_active %}

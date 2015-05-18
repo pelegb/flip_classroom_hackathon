@@ -1,13 +1,33 @@
-<div class="container">
-    <hr>
-<footer>
-    <a href="http://creativecommons.org/licenses/by-nc/4.0/">
-        <img src="/static/common/img/CC-BY-NC.png" />
-התוכן באתר ברשיון קריאייטיב קומונס. תנאי השימוש בסרטונים מפורטים באתר יוטיוב
-    </a>
- </footer>
+{% load i18n %}
+<hr>
 
-</div>
+<footer>
+    <div class="container">
+    <div class="row-fluid">
+        <div class="span8">
+            <a href="http://creativecommons.org/licenses/by-nc/4.0/">
+            <img src="/static/common/img/CC-BY-NC.png" />
+התוכן באתר ברשיון קריאייטיב קומונס. תנאי השימוש בסרטונים מפורטים באתר יוטיוב
+            </a>
+        </div>
+        <div class="pull-right">
+            <a href="mailto:info@the-openclass.org">{% trans 'contact us' %}</a>
+        </div>
+    </div>
+    </div>
+<!--    <ul class="inline">
+        <li>
+            <a href="http://creativecommons.org/licenses/by-nc/4.0/">
+            <img src="/static/common/img/CC-BY-NC.png" />
+התוכן באתר ברשיון קריאייטיב קומונס. תנאי השימוש בסרטונים מפורטים באתר יוטיוב
+            </a>
+        </li>
+        <li class="pull-right">
+            <a href="mailto:info@the-openclass.org">{% trans 'contact us' %}</a>
+
+        </li>
+    </ul>-->
+ </footer>
 
 
 <script>

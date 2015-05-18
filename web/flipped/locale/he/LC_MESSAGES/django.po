@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-03-02 21:16+0000\n"
+"POT-Creation-Date: 2015-05-18 18:40+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -18,13 +18,21 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
+#: common/templates/common/help.html:18 common/templates/common/help.html:22
+#: common/templates/common/incl_bottom.html:14
+#: common/templates/common/incl_bottom.html:26
+msgid "contact us"
+msgstr "צור קשר"
+
 #: common/templates/common/home.html:8
 msgid "Welcome"
 msgstr "שיעור פתוח"
 
 #: common/templates/common/home.html:9
 msgid "Please feel free to view the video items"
-msgstr "שיעור פתוח הוא מאגר סרטונים לימודיים שמשתמשים יוצרים, המאורגן לפי תוכנית הלימודים בישראל"
+msgstr ""
+"שיעור פתוח הוא מאגר סרטונים לימודיים שמשתמשים יוצרים, המאורגן לפי תוכנית "
+"הלימודים בישראל"
 
 #: common/templates/common/home.html:23
 msgid "Uploaded recently:"
@@ -48,12 +56,12 @@ msgid "upload video"
 msgstr "העלאת סרטון"
 
 #: common/templates/common/incl_top.html:41
-msgid "about us"
-msgstr "אודות"
+msgid "want to help?"
+msgstr "רוצה לעזור?"
 
 #: common/templates/common/incl_top.html:42
-msgid "contact us"
-msgstr "צור קשר"
+msgid "about us"
+msgstr "אודות"
 
 #: common/templates/common/incl_top.html:46
 #: core/templates/core/user_view.html:8
@@ -105,11 +113,16 @@ msgstr "נושא לימוד"
 msgid "email"
 msgstr "דואל"
 
-#: core/views.py:68
+#: core/models.py:88
+#, fuzzy
+msgid "_description"
+msgstr "אחר - סרטון רלוונטי ומעניין שאינו מתאים לאפשרויות שלעיל"
+
+#: core/views.py:72
 msgid "You've already rated this video"
 msgstr "סרטון זה כבר דורג"
 
-#: core/views.py:141
+#: core/views.py:148
 #, fuzzy
 msgid "_plural"
 msgstr "אחרים"
@@ -267,9 +280,6 @@ msgstr "העמקה - העמקה באחד או יותר מיעדי הנושא"
 
 msgid "OTHER"
 msgstr "אחר"
-
-msgid "OTHER_description"
-msgstr "אחר - סרטון רלוונטי ומעניין שאינו מתאים לאפשרויות שלעיל"
 
 msgid "OTHER_plural"
 msgstr "אחר"
