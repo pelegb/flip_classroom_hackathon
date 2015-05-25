@@ -65,12 +65,11 @@ def video_rate(request, video_id):
                         review.rate = rate
                         review.save()
                 else:
-                    if request.session.get('has_rated', False):
-                        review = RatingReview.objects.create(user=None, video=video, context=context, rate=rate)
-                        request.session['has_rated'] = True
-                    else:
+                    key = 'has_rated' + str(video_id) + context
+                    if request.session.get(key, False):
                         return HttpResponse(status=403, content=ugettext("You've already rated this video"))
-
+                    review = RatingReview.objects.create(user=None, video=video, context=context, rate=rate)
+                    request.session[key] = True
         result = get_global_ratings(video)
         return HttpResponse(status=201, content=json.dumps(result), content_type='application/json')
     except Exception, e:
