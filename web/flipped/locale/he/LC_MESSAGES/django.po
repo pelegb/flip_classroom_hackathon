@@ -281,5 +281,8 @@ msgstr "העמקה - העמקה באחד או יותר מיעדי הנושא"
 msgid "OTHER"
 msgstr "אחר"
 
+msgid "OTHER_description"
+msgstr "אחר - סרטון רלוונטי ומעניין שאינו מתאים לאפשרויות שלעיל"
+
 msgid "OTHER_plural"
 msgstr "אחר"
