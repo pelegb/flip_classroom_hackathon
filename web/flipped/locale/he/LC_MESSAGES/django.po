@@ -35,7 +35,7 @@ msgstr ""
 "הלימודים בישראל"
 
 #: common/templates/common/home.html:19
-msgid "teacher"
+msgid "teachers guide"
 msgstr "שיעור פתוח - מדריך למורה"
 
 #: common/templates/common/home.html:24
