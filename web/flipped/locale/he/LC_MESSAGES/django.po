@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-05-18 18:40+0000\n"
+"POT-Creation-Date: 2015-07-13 17:52+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -34,11 +34,15 @@ msgstr ""
 "שיעור פתוח הוא מאגר סרטונים לימודיים שמשתמשים יוצרים, המאורגן לפי תוכנית "
 "הלימודים בישראל"
 
-#: common/templates/common/home.html:23
+#: common/templates/common/home.html:19
+msgid "teacher"
+msgstr "שיעור פתוח - מדריך למורה"
+
+#: common/templates/common/home.html:24
 msgid "Uploaded recently:"
 msgstr "הועלה לאחרונה:"
 
-#: common/templates/common/home.html:30
+#: common/templates/common/home.html:31
 msgid "published"
 msgstr "הועלה ב-"
 
@@ -118,11 +122,11 @@ msgstr "דואל"
 msgid "_description"
 msgstr "אחר - סרטון רלוונטי ומעניין שאינו מתאים לאפשרויות שלעיל"
 
-#: core/views.py:72
+#: core/views.py:70
 msgid "You've already rated this video"
 msgstr "סרטון זה כבר דורג"
 
-#: core/views.py:148
+#: core/views.py:147
 #, fuzzy
 msgid "_plural"
 msgstr "אחרים"
