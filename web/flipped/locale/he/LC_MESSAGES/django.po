@@ -36,7 +36,7 @@ msgstr ""
 
 #: common/templates/common/home.html:19
 msgid "teachers guide"
-msgstr "שיעור פתוח - מדריך למורה"
+msgstr "שיעור הפוך - מדריך למורה"
 
 #: common/templates/common/home.html:24
 msgid "Uploaded recently:"
