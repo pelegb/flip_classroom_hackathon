@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-07-13 17:52+0000\n"
+"POT-Creation-Date: 2015-07-20 18:57+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -196,6 +196,18 @@ msgstr "שם פרטי"
 #: fc_user/forms.py:8
 msgid "last_name"
 msgstr "שם משפחה"
+
+#: fc_user/templates/fc_user/login.html:8
+msgid "Your username and password didn't match. Please try again."
+msgstr "שם המשתמש או הסיסמה שגויים"
+
+#: fc_user/templates/fc_user/login.html:12
+msgid "Please login"
+msgstr "אנא התחבר"
+
+#: fc_user/templates/fc_user/login.html:22
+msgid "Want to join? Just signup"
+msgstr "רוצה להצטרף? פשוט תירשם"
 
 #: fc_user/templates/fc_user/password_change.html:11
 msgid "Please correct the error below."
