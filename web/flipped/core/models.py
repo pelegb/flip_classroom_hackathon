@@ -14,7 +14,7 @@ class TeachEntity(models.Model):
     title = models.CharField(max_length=50)
     description = models.TextField()
     parent = models.ForeignKey('TeachTopic', blank=True, null=True)
-    order_index = models.PositiveIntegerField(default=sys.maxint)
+    order_index = models.PositiveIntegerField(default=2147483647)
 
     video_count_cache = models.PositiveIntegerField(null=True, default=None)
 
