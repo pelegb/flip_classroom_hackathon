@@ -1,10 +1,9 @@
+from django.conf.global_settings import AUTH_USER_MODEL
 from django.db import models
 from django.db.models.aggregates import Avg, Count
-from django.db.models.signals import pre_delete
+from django.db.models.signals import pre_delete, pre_save
 from django.dispatch import receiver
 from django.utils.translation import ugettext_lazy as _
-import django.contrib.auth
-import sys
 
 
 class TeachEntity(models.Model):
@@ -92,7 +91,7 @@ class VideoPage(models.Model):
     upload_date = models.DateTimeField('date uploaded to our site', auto_now_add=True)
     content = models.TextField()
     video_title = models.CharField(max_length=VIDEO_TITLE_LENGTH)
-    user = models.ForeignKey(django.contrib.auth.get_user_model())
+    user = models.ForeignKey(AUTH_USER_MODEL)
     teach_item = models.ForeignKey(TeachItem, blank=True, null=True)
     tags = models.ManyToManyField('Tag', related_name='videos', blank=True, null=True)
     category = models.CharField(max_length=40, choices=CATEGORY_CHOICES, default=LESSON)
@@ -121,7 +120,7 @@ class Review(models.Model):
     class Meta:
         abstract = True
     video = models.ForeignKey(VideoPage)
-    user = models.ForeignKey(django.contrib.auth.get_user_model(), blank=True, null=True, default=None)
+    user = models.ForeignKey(AUTH_USER_MODEL, blank=True, null=True, default=None)
 
 
 class RatingReview(Review):
@@ -148,7 +147,7 @@ class Tag(models.Model):
 
 
 class TopicSuggestion(models.Model):
-    user = models.ForeignKey(django.contrib.auth.get_user_model(), blank=True, null=True, default=None)
+    user = models.ForeignKey(AUTH_USER_MODEL, blank=True, null=True, default=None)
     email = models.EmailField(max_length=254, blank=True, null=True, default=None)
     title = models.CharField(max_length=50, blank=False, null=False)
     description = models.TextField(blank=False, null=False)
@@ -164,3 +163,13 @@ def purge_video_count_on_video_deletion(sender, instance, using, **kwargs):
 @receiver(pre_delete, sender=TeachEntity, dispatch_uid='purge_video_count_on_teach_entity_deletion')
 def purge_video_count_on_teach_entity_deletion(sender, instance, using, **kwargs):
     instance.purge_video_count()
+
+@receiver(pre_save, sender=VideoPage, dispatch_uid='purge_video_count_on_video_relation_update')
+def purge_video_count_on_video_relation_update(sender, instance, raw, using, update_fields, **kwargs):
+    if len({'teach_item', 'teach_item_id'} & update_fields) > 0:
+        instance.teach_item.purge_video_count()
+
+@receiver(pre_save, sender=TeachEntity, dispatch_uid='purge_video_count_on_teach_entity_relation_update')
+def purge_video_count_on_teach_entity_relation_update(sender, instance, raw, using, update_fields, **kwargs):
+    if len({'parent', 'parent_id'} & update_fields) > 0:
+        instance.parent.purge_video_count()

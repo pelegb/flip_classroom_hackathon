@@ -7,7 +7,7 @@ from django.contrib.auth.decorators import login_required
 from django.core.urlresolvers import reverse
 from django.http.response import HttpResponseRedirect, HttpResponse
 from django.shortcuts import render, get_object_or_404
-from django.utils.translation import ugettext
+from django.utils.translation import ugettext_lazy
 from models import TeachItem, TeachTopic, VideoPage, TopicSuggestion
 import common.utils
 import forms
@@ -67,7 +67,7 @@ def video_rate(request, video_id):
                 else:
                     key = 'has_rated' + str(video_id) + context
                     if request.session.get(key, False):
-                        return HttpResponse(status=403, content=ugettext("You've already rated this video"))
+                        return HttpResponse(status=403, content=ugettext_lazy("You've already rated this video"))
                     review = RatingReview.objects.create(user=None, video=video, context=context, rate=rate)
                     request.session[key] = True
         result = get_global_ratings(video)
@@ -144,7 +144,7 @@ def item_view(request, item_id):
     for v in videos:
         videos_dict[v.category].append(v)
 
-    videos_list = [(ugettext(category + '_plural'), videos_dict[category]) for category in VideoPage.CATEGORY_VALUES]
+    videos_list = [(ugettext_lazy(category + '_plural'), videos_dict[category]) for category in VideoPage.CATEGORY_VALUES]
 
     for category, v in videos_list:
         v.sort(key=lambda video: video.relevancy_rating()['average'], reverse=True)

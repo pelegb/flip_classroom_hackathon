@@ -1,11 +1,7 @@
 from django.shortcuts import render
 import forms
 from django.http.response import HttpResponseRedirect
-from django.template.context import RequestContext
-from django.core.urlresolvers import reverse
 from django.contrib.auth import login,authenticate
-from django.utils.translation import ugettext as _
-from django.http import HttpResponse
 
 def register(request):
     if request.method == 'GET':
