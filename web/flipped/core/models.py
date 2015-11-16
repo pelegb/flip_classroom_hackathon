@@ -166,10 +166,10 @@ def purge_video_count_on_teach_entity_deletion(sender, instance, using, **kwargs
 
 @receiver(pre_save, sender=VideoPage, dispatch_uid='purge_video_count_on_video_relation_update')
 def purge_video_count_on_video_relation_update(sender, instance, raw, using, update_fields, **kwargs):
-    if len({'teach_item', 'teach_item_id'} & update_fields) > 0:
+    if update_fields and len({'teach_item', 'teach_item_id'} & update_fields) > 0:
         instance.teach_item.purge_video_count()
 
 @receiver(pre_save, sender=TeachEntity, dispatch_uid='purge_video_count_on_teach_entity_relation_update')
 def purge_video_count_on_teach_entity_relation_update(sender, instance, raw, using, update_fields, **kwargs):
-    if len({'parent', 'parent_id'} & update_fields) > 0:
+    if update_fields and len({'parent', 'parent_id'} & update_fields) > 0:
         instance.parent.purge_video_count()
