@@ -7,117 +7,155 @@
 <!-- Go to www.addthis.com/dashboard to customize your tools -->
 <script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-55ede337b184b492" async="async"></script>
 
-
-<div class="container">
-
-	<!-- Main hero unit for a primary marketing message or call to action -->
-	<div class="container-fluid">
-		<div class="row-fluid">
-			<div class="span2">
-				<h4>תגיות</h4>
-				{% for t in video.tags.all %}
-				<div class="topic_button">
-					<a class="btn btn-info btn-medium">{{t.name}}  <span class="badge badge-info">{{t.videos.count}}</span></a>
-				</div>
-				{% endfor %}
-			</div>
-				
-			<div class="span10 mini-layout-body">
-
-				<h1>{{ video.video_title }}</h1>
-				<p> {% blocktrans with channel=video.youtube_channel user_name=video.user.get_full_name day=video.upload_date.day month=video.upload_date.month|heb_month  year=video.upload_date.year %}By {{ channel}}, uploaded by {{ user_name }} on {{ day }} {{ month }} {{ year }}{% endblocktrans %}
-					  {% if perms.core.change_videopage %}
-						(<a href="/core/edit-video/{{video.id}}/">{% trans 'edit' %}</a>) 
-					  {% endif %}
-					  </p>
-				<p>
-					<span><b>{% trans 'technical quality' %}</b></span>
-					<span id="rate_quality"></span>
-    	             <span><b>{% trans 'relevancy' %}</b></span>
-    	             <span id="rate_rel"></span>
-				</p>
-				<script>
-					showRating('rate_quality',{{ rate_quality.count }},{{ rate_quality.average }});
-					showRating('rate_rel',{{ rate_rel.count }},{{ rate_rel.average }});
-				</script>
-				<p>
-                    {% if ancestors %}
-                        {% for ancestor in ancestors %}
-                            {% if forloop.first %} {% else %} >> {% endif %}
-                            {% if forloop.last %} 
-                                <a href="../../item/{{ ancestor.id }}/">{{ ancestor }}</a>
-                            {% else %} 
-                                <a href="../../topic/{{ ancestor.id }}/">{{ ancestor }}</a> 
-                            {% endif %}
-                        {% endfor %}
+<div class="container-fluid">
+    <div class="row-fluid">
+        <div class="span10 offset1">
+            <div class="row-fluid">
+                {% if ancestors %}
+                <p>
+                    {% for ancestor in ancestors %}
+                        {% if forloop.first %} {% else %} >> {% endif %}
+                        {% if forloop.last %}
+                            <a href="../../item/{{ ancestor.id }}/">{{ ancestor }}</a>
+                        {% else %}
+                            <a href="../../topic/{{ ancestor.id }}/">{{ ancestor }}</a>
+                        {% endif %}
+                    {% endfor %}
+                    </p>
+                {% endif %}
+                <h1>{{ video.video_title }}</h1>
+                <p>
+                    {% blocktrans with channel=video.youtube_channel user_name=video.user.get_full_name day=video.upload_date.day month=video.upload_date.month|heb_month  year=video.upload_date.year %}By {{ channel}}, uploaded by {{ user_name }} on {{ day }} {{ month }} {{ year }}{% endblocktrans %}
+                    {% if perms.core.change_videopage %}
+                        (<a href="/core/edit-video/{{video.id}}/">{% trans 'edit' %}</a>)
                     {% endif %}
-				</p>
-
-				<iframe width="800" height="500" src="//www.youtube.com/embed/{{ video.youtube_movie_id }}" frameborder="0" allowfullscreen></iframe>
-
-                <div class="mini-layout-body">
-                {{ video.content | safe }}
+                </p>
+                <p>
+                    <span><b>{% trans 'technical quality' %}</b></span>
+                    <span id="rate_quality"></span>
+                     <span><b>{% trans 'relevancy' %}</b></span>
+                     <span id="rate_rel"></span>
+                </p>
+                <script>
+                    showRating('rate_quality',{{ rate_quality.count }},{{ rate_quality.average }});
+                    showRating('rate_rel',{{ rate_rel.count }},{{ rate_rel.average }});
+                </script>
+            </div>
+            <section id="media-content" class="row-fluid">
+                <iframe  src="//www.youtube.com/embed/{{ video.youtube_movie_id }}" frameborder="0" allowfullscreen style="width: 800px; height: 500px"></iframe>
+            </section>
+            <div class="row-fluid">
+                <div class="span6">
+                    {{ video.content | safe }}
                 </div>
+                <!--        <div class="span2 mini-layout-body">
+                            <i class="fa fa-pencil fa-2x"></i> ערוך
+                        </div>-->
+            </div>
+            <div class="row-fluid">
                 <form id="rate_video_form">
-                <div class="control-group">
-                    <label class="control-label" for="id_quality">איכות טכנית:</label>
-                    <div class="controls field-quality">
-                        <input class="rating" id="rating_quality" name="rating_quality" type="number" data-max="10" data-min="1" value="{{rate_quality.cur}}"/>
+                    <div class="control-group">
+                        <label class="control-label" for="id_quality">איכות טכנית:</label>
+                        <div class="controls field-quality">
+                            <input class="rating" id="rating_quality" name="rating_quality" type="number" data-max="10" data-min="1" value="{{rate_quality.cur}}"/>
+                        </div>
                     </div>
-                </div>
-                <div class="control-group">
-                    <label class="control-label" for="id_relevance">רלבנטיות:</label>
-                    <div class="controls field-relevance">
-                        <input class="rating" id="rating_rel" name="rating_rel" type="number" data-max="10" data-min="1" value="{{rate_rel.cur}}"/>
+                    <div class="control-group">
+                        <label class="control-label" for="id_relevance">רלבנטיות:</label>
+                        <div class="controls field-relevance">
+                            <input class="rating" id="rating_rel" name="rating_rel" type="number" data-max="10" data-min="1" value="{{rate_rel.cur}}"/>
+                        </div>
                     </div>
-                </div>
-                {% csrf_token %}
-                <p><input type="submit" value="{% trans 'rate' %}">
+                    {% csrf_token %}
+                    <input type="submit" value="{% trans 'rate' %}">
                     <span id="form_result" class="hidden">
                     <span id="form_result" class="label label-success">
-                    הדירוג נשלח בהצלחה
+                            הדירוג נשלח בהצלחה
                     </span>
                     </span>
-                </p>
                 </form>
-                <script>
-                    function isLegal(rate) {
-                        return (!isNaN(rate) && rate >= 1 && rate <= 10);
-                    }
-                    $("#rate_video_form").submit(function() {
-                        var rating_quality = $("#rating_quality").val();
-                        var rating_rel = $("#rating_rel").val();
-                        if (!isLegal(rating_quality) || !isLegal(rating_rel)) {
-                            alert('Rating is not legal');
-                            return false;
-                        }
-                        $.ajax({
-                            url : '/core/videos/rate/{{video.id}}/',
-                            method : 'POST',
-                            data : {
-                                rating_quality : rating_quality,
-                                rating_rel : rating_rel,
-                                csrfmiddlewaretoken : $("#rate_video_form input[name=csrfmiddlewaretoken]").val()
-                            },
-                            success : function(data) {
-                                $("#form_result").removeClass("hidden");
-                                showRating('rate_quality',data.rate_quality.count,data.rate_quality.average);
-                                showRating('rate_rel',data.rate_rel.count,data.rate_rel.average);
-                                setTimeout(function() {
-                                    $("#form_result").addClass("hidden");
-                                }, 3000);
-                            },
-                            error : function(xhr,status,err ) {
-                                alert(status + ' : ' + err + '\n' + xhr.responseText);
-                            }
-                        });
-                        return false;
-                    });
-                </script>
-			</div>
-		</div>
-		<!-- /container -->
-	</div>
+            </div>
+        </div>
+    </div>
 </div>
+
+<script>
+function isLegal(rate) {
+    return (!isNaN(rate) && rate >= 1 && rate <= 10);
+}
+
+$("#rate_video_form").submit(function() {
+    var rating_quality = $("#rating_quality").val();
+    var rating_rel = $("#rating_rel").val();
+    if (!isLegal(rating_quality) || !isLegal(rating_rel)) {
+        alert('Rating is not legal');
+        return false;
+    }
+    $.ajax({
+        url : '/core/videos/rate/{{video.id}}/',
+        method : 'POST',
+        data : {
+            rating_quality : rating_quality,
+            rating_rel : rating_rel,
+            csrfmiddlewaretoken : $("#rate_video_form input[name=csrfmiddlewaretoken]").val()
+        },
+        success : function(data) {
+            $("#form_result").removeClass("hidden");
+            showRating('rate_quality',data.rate_quality.count,data.rate_quality.average);
+            showRating('rate_rel',data.rate_rel.count,data.rate_rel.average);
+            setTimeout(function() {
+                $("#form_result").addClass("hidden");
+            }, 3000);
+        },
+        error : function(xhr,status,err ) {
+            alert(status + ' : ' + err + '\n' + xhr.responseText);
+        }
+    });
+    return false;
+});
+</script>
+
+<script>// By Chris Coyier & tweaked by Mathias Bynens
+
+$(function() {
+
+	// Find all YouTube videos
+	var $allVideos = $("iframe[src^='//www.youtube.com']"),
+
+    // The element that is fluid width
+    $fluidEl = $("#media-content");
+
+	// Figure out and save aspect ratio for each video
+	$allVideos.each(function() {
+
+		$(this)
+			.data('aspectRatio', this.height / this.width)
+
+			// and remove the hard coded width/height
+			.removeAttr('height')
+			.removeAttr('width');
+
+	});
+
+	// When the window is resized
+	// (You'll probably want to debounce this)
+	$(window).resize(function() {
+
+		var newWidth = $fluidEl.width();
+
+		// Resize all videos according to their own aspect ratio
+		$allVideos.each(function() {
+
+			var $el = $(this);
+			$el
+				.width(newWidth)
+				.height(newWidth * $el.data('aspectRatio'));
+
+		});
+
+	// Kick off one resize to fix all videos on page load
+	}).resize();
+
+});
+</script>
 {% endblock %}
-ערוך
