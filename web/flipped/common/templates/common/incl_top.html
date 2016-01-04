@@ -1,9 +1,9 @@
 {% load staticfiles %}
 {% load i18n %}
 
-<!DOCTYPE HTML>
+<!DOCTYPE html>
 <html>
-	<head>
+    <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
@@ -17,41 +17,43 @@
         <link rel="stylesheet" type="text/css" href="{% static 'common/css/jstree/style.min.css' %}" />
         <link rel="stylesheet" type="text/css" href="{% static 'common/css/font-awesome.min.css' %}" />
     </head>
-<body>
 
-<script src="{% static 'common/js/jquery-2.1.1.min.js' %}"></script>
-<script src="{% static 'common/js/bootstrap.min.js' %}"></script>
-<script src="{% static 'common/js/collapse.js' %}"></script>
-<!-- TAKEN FROM https://github.com/javiertoledo/bootstrap-rating-input -->
-<script src="{% static 'common/js/bootstrap23-rating-input.min.js' %}"></script>
-<script src="{% static 'common/js/rating.js' %}"></script>
-<script src="{% static 'common/js/jstree.min.js' %}"></script>
+    <body>
 
-
-<div class="navbar navbar-inverse navbar-fixed-top">
-	<div class="navbar-inner">
-        <a class="brand" href="/"><img style="height: 75px;" id="logo-img" alt="open-class-logo" src="{% static 'common/img/logo-small-inverse.png' %}"></a>
-		<ul class="nav">
-  			<li class="dropdown">
-                <a href="#" class="dropdown-toggle" data-toggle="dropdown">{% trans 'teach topics' %}<b class="caret"></b></a>
-				<ul class="dropdown-menu">
-				{% for topic in topics %}
-                    <li><a href="{% url 'core:topic_view' topic.id %}">{{ topic }}</a></li>
-				{% endfor %}
-				</ul>
-			</li>
-			<li><a href="{% url 'core:add_video' %}"><font color="#F1AE47">{% trans 'upload video' %}</font></a></li>
-            <li><a href="{% url 'common:help' %}">{% trans 'want to help?' %}</a></li>
-			<li><a href="{% url 'common:about_us' %}">{% trans 'about us' %}</a></li>
-		</ul>
-		<ul class="nav pull-right">
-		{% if user.is_active %}
-		    <li><a href="{% url 'core:user_view' %}">{% trans 'hello' %} {{user.first_name}}</a></li>
-			<li><a href="{% url 'fc_user:logout' %}">{% trans 'log out' %}</a></li>
-		{% else %}
-			<li><a href="{% url 'fc_user:login' %}">{% trans 'log in' %}</a></li>
-			<li><a href="{% url 'fc_user:register' %}">{% trans 'sign up' %}</a></li>
-		{% endif %}
-		</ul>
-	</div>
-</div>
+        <div class="navbar navbar-inverse navbar-fixed-top">
+            <div class="navbar-inner">
+                <div class="container-fluid">
+                    <button type="button" class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a class="brand" href="/"><img style="height: 75px;" id="logo-img" alt="open-class-logo" src="{% static 'common/img/logo-small-inverse.png' %}"></a>
+                    <div class="nav-collapse collapse">
+                        <ul class="nav">
+                            <li class="dropdown">
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown">{% trans 'teach topics' %}<b class="caret"></b></a>
+                                <ul class="dropdown-menu">
+                                {% for topic in topics %}
+                                    <li><a href="{% url 'core:topic_view' topic.id %}">{{ topic }}</a></li>
+                                {% endfor %}
+                                </ul>
+                            </li>
+                            <li><a href="{% url 'core:add_video' %}"><font color="#F1AE47">{% trans 'upload video' %}</font></a></li>
+                            <li><a href="{% url 'common:help' %}">{% trans 'want to help?' %}</a></li>
+                            <li><a href="{% url 'common:about_us' %}">{% trans 'about us' %}</a></li>
+                        </ul>
+                        <ul class="nav pull-right">
+                        {% if user.is_active %}
+                            <li><a href="{% url 'core:user_view' %}">{% trans 'hello' %} {{user.first_name}}</a></li>
+                            <li><a href="{% url 'fc_user:logout' %}">{% trans 'log out' %}</a></li>
+                        {% else %}
+                            <li><a href="{% url 'fc_user:login' %}">{% trans 'log in' %}</a></li>
+                            <li><a href="{% url 'fc_user:register' %}">{% trans 'sign up' %}</a></li>
+                        {% endif %}
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>

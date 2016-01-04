@@ -1,19 +1,20 @@
+{% load staticfiles %}
 {% load i18n %}
 <hr>
 
 <footer>
-    <div class="container">
-    <div class="row-fluid">
-        <div class="span8">
-            <a href="http://creativecommons.org/licenses/by-nc/4.0/">
-            <img src="/static/common/img/CC-BY-NC.png" />
+    <div class="container-fluid">
+        <div class="row-fluid">
+            <div class="span8">
+                <a href="http://creativecommons.org/licenses/by-nc/4.0/">
+                <img src="/static/common/img/CC-BY-NC.png" />
 התוכן באתר ברשיון קריאייטיב קומונס. תנאי השימוש בסרטונים מפורטים באתר יוטיוב
-            </a>
+                </a>
+            </div>
+            <div class="span4">
+                <a href="mailto:info@the-openclass.org">{% trans 'contact us' %}</a>
+            </div>
         </div>
-        <div class="pull-right">
-            <a href="mailto:info@the-openclass.org">{% trans 'contact us' %}</a>
-        </div>
-    </div>
     </div>
 <!--    <ul class="inline">
         <li>
@@ -29,6 +30,14 @@
     </ul>-->
  </footer>
 
+
+<script src="{% static 'common/js/jquery-2.1.1.min.js' %}"></script>
+<script src="{% static 'common/js/bootstrap.min.js' %}"></script>
+<script src="{% static 'common/js/collapse.js' %}"></script>
+<!-- TAKEN FROM https://github.com/javiertoledo/bootstrap-rating-input -->
+<script src="{% static 'common/js/bootstrap23-rating-input.min.js' %}"></script>
+<script src="{% static 'common/js/rating.js' %}"></script>
+<script src="{% static 'common/js/jstree.min.js' %}"></script>
 
 <script>
   (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
