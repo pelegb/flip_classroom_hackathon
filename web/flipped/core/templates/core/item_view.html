@@ -6,9 +6,11 @@
             <!-- Main hero unit for a primary marketing message or call to action -->
             <div class="container-fluid">
             {% if ancestors %}
-            {% for ancestor in ancestors %}
-            <a href="../../topic/{{ ancestor.id }}/">{{ ancestor }}</a> >>
-            {% endfor %}
+                <p>
+                {% for ancestor in ancestors %}
+                    <a href="../../topic/{{ ancestor.id }}/">{{ ancestor }}</a> >>
+                {% endfor %}
+                </p>
             {% endif %}
 
             <h1>{{ item.title }}</h1>
