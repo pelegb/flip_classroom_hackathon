@@ -4,6 +4,7 @@ from __future__ import unicode_literals
 from common.utils import parse_video_id_from_link, request_youtube_info
 from core.models import VideoPage
 from django.core.exceptions import ValidationError
+from django.core.urlresolvers import reverse
 from django.utils.translation import ugettext_lazy as _
 from wysihtml5.widgets import Wysihtml5TextareaWidget
 import floppyforms as forms
@@ -35,6 +36,12 @@ def validate_youtube(value):
         assert request_youtube_info(video_id=video_id, part='id')['pageInfo']['totalResults'] == 1
     except:
         raise ValidationError(_(u'Video could not be found on YouTube for ID: %(id)s') % {'id': video_id})
+
+    try:
+        video = VideoPage.objects.get(youtube_movie_id=video_id)
+        assert video is None
+    except:
+        raise ValidationError(_(u'Video already exists: %(url)s') % {'url': reverse('core:video_detail', args=[video.id])})
 
 
 class VideoForm(forms.Form):
