@@ -4,6 +4,12 @@
    Author's custom styles
    ========================================================================== */
 
+.navbar-fixed-top, .navbar-fixed-bottom, .navbar-static-top {
+    margin-left: 0px;
+}
+
+
+
 
 
 
