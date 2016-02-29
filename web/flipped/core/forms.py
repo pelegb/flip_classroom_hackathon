@@ -39,7 +39,8 @@ def validate_youtube(value):
 
     try:
         video = VideoPage.objects.get(youtube_movie_id=video_id)
-        assert video is None
+    except VideoPage.DoesNotExist:
+        pass
     except:
         raise ValidationError(_(u'Video already exists: %(url)s') % {'url': reverse('core:video_detail', args=[video.id])})
 
