@@ -4,6 +4,7 @@ from wysihtml5.widgets import Wysihtml5TextareaWidget
 import core.models
 
 class VideoPageAdmin(admin.ModelAdmin):
+    list_display = ('id', 'video_title', 'youtube_movie_id')
     formfield_overrides = {
         models.TextField: {'widget': Wysihtml5TextareaWidget},
     }
