@@ -1,0 +1,19 @@
+body {
+    padding-top: 70px;
+}
+
+.wysihtml5-sandbox {
+    direction:rtl;
+}
+
+.controls input {
+	height: 28px;
+}
+
+.vLargeTextField {
+	width: 400px;
+}
+
+.wideTextInput {
+    width:50%;
+}
