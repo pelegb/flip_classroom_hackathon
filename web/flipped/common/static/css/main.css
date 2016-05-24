@@ -2,6 +2,20 @@ body {
     padding-top: 70px;
 }
 
+.navbar {
+    min-height: 60px;
+}
+
+.navbar .navbar-collapse {
+    padding-top: 5px;
+}
+
+.navbar-brand>img {
+  height: 250%;
+  margin-top: -15%;
+  width: auto;
+}
+
 .wysihtml5-sandbox {
     direction:rtl;
 }
