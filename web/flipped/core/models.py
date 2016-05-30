@@ -52,6 +52,9 @@ class TeachItem(TeachEntity):
 class TeachTopic(TeachEntity):
     entity_type = "topic"
 
+    def children(self):
+        return sorted(list(self.teachitem_set.all()) + list(self.teachtopic_set.all()), key=lambda x: x.order_index)
+
     def get_subtree(self):
         child_entities = sorted(list(self.teachitem_set.all()) + list(self.teachtopic_set.all()), key=lambda x: x.order_index)
 
