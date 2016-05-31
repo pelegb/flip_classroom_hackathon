@@ -10,21 +10,41 @@
         </h1>
     </div>
 
-
     {% for topic in topics %}
-    <div class="row">
-        <a href="{% url 'core:topic_view' topic.id %}">
-            <div class="col-md-3"><h3>{{ topic }}</h3></div>
-        </a>
-        <div class="col-md-9">
-            {% for child in topic.children %}
-            <a href="{% url 'core:topic_view' child.id">
-                <div class="row-fluid"><h5>{{ child }}</h5></div>
+    <div class="row row-eq-height top-buffer">
+        <div class="col-md-3 bg-primary">
+            <a class="flex-full-height" href="{% url 'core:topic_view' topic.id %}">
+                <div class="bg-primary"><h3>{{ topic }}</h3></div>
             </a>
-            {% endfor %}
+        </div>
+        <div class="col-md-6">
+            <div class="row">
+                {% for child in topic.children %}
+                <div class="col-xs-6">
+                    <a href="{% url 'core:topic_view' child.id %}">
+                        <h5>{{ child }}</h5>
+                    </a>
+                </div>
+                {% endfor %}
+            </div>
         </div>
     </div>
     {% endfor %}
+
+    <div class="row top-buffer">
+        <h3>{% trans 'Uploaded recently:' %}</h3>
+    </div>
+
+    <div class="row">
+        {% for video in feed %}
+        <div class="col-md-2">
+            <a href="{% url 'core:video_detail' video.id %}">
+                <img src="http://img.youtube.com/vi/{{ video.youtube_movie_id }}/0.jpg" width="100%">
+                {{ video.video_title }}</a> <br>
+            {% trans 'published' %} {{ video.upload_date | date:'j/n/y' }}
+        </div>
+        {% endfor %}
+    </div>
 </div>
 
 {% endblock %}

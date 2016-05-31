@@ -16,6 +16,30 @@ body {
   width: auto;
 }
 
+.top-buffer {
+    margin-top:20px;
+}
+
+/*
+ * Row with equal height columns
+ * --------------------------------------------------
+ */
+.row-eq-height {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display:         flex;
+}
+
+.row-eq-height > [class*='col-'] {
+  display: flex;
+  flex-direction: column;
+}
+
+.row-eq-height a {
+    flex: 1;
+}
+
 .wysihtml5-sandbox {
     direction:rtl;
 }
