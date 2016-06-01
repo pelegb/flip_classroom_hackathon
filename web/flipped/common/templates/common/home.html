@@ -12,7 +12,7 @@
 
     {% for topic in topics %}
     <div class="row row-eq-height top-buffer">
-        <div class="col-md-3 bg-primary">
+        <div class="col-md-3 col-md-offset-1 bg-primary">
             <a href="{% url 'core:topic_view' topic.id %}">
                 <div class="bg-primary"><h3>{{ topic }}</h3></div>
             </a>
