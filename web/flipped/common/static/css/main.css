@@ -1,5 +1,6 @@
 body {
     padding-top: 60px;
+    padding-bottom: 20px;
 }
 
 .navbar {
@@ -45,6 +46,18 @@ body {
 }
 }
 
+.row-vcenter {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display:         flex;
+    align-items: center;
+}
+
+.block-align-left {
+    float: left;
+    clear: left;
+}
 
 .wysihtml5-sandbox {
     direction:rtl;
