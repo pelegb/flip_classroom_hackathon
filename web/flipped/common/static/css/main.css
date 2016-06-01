@@ -11,9 +11,9 @@ body {
 }
 
 .navbar-brand>img {
-  height: 250%;
-  margin-top: -15%;
-  width: auto;
+    height: 250%;
+    margin-top: -15%;
+    width: auto;
 }
 
 .top-buffer {
@@ -27,17 +27,17 @@ body {
  * --------------------------------------------------
  */
 .row-eq-height {
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display:         flex;
-  flex-wrap: wrap;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display:         flex;
+    flex-wrap: wrap;
 }
 
 .row-eq-height > [class*='col-'] {
-  display: flex;
-  flex-direction: column;
-  border-radius: 5px;
+    display: flex;
+    flex-direction: column;
+    border-radius: 5px;
 }
 
 .row-eq-height a {
