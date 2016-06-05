@@ -46,17 +46,9 @@ body {
 }
 }
 
-.row-vcenter {
-    display: -webkit-box;
-    display: -webkit-flex;
-    display: -ms-flexbox;
-    display:         flex;
-    align-items: center;
-}
-
-.block-align-left {
-    float: left;
-    clear: left;
+.list-inline-spread>li {
+    padding-right: 15px;
+    padding-left: 15px;
 }
 
 .wysihtml5-sandbox {

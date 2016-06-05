@@ -3,28 +3,16 @@
 
 <footer>
     <div class="container top-buffer">
-        <div class="row top-buffer">
-            <div class="col-xs-3 col-xs-offset-3 col-sm-1 col-sm-offset-5 col-md-1 col-md-offset-5">
-                <a href="{% url 'common:about_us' %}">{% trans 'about us' %}</a>
-            </div>
-            <div class="col-xs-3 col-sm-3 col-md-2">
-                <a href="mailto:info@the-openclass.org">{% trans 'contact us' %}</a>
-            </div>
-        </div>
-        <div class="row top-buffer row-vcenter">
-            <div class="col-xs-4 col-sm-2 col-sm-offset-1 col-md-2 col-md-offset-3">
-                <a href="http://creativecommons.org/licenses/by-nc/4.0/">
-                    <img src="{% static 'img/CC-BY-NC.png' %}" class="img-responsive block-align-left"/>
-                </a>
-            </div>
-            <div class="col-xs-8 col-sm-9 col-md-8">
-                <a href="http://creativecommons.org/licenses/by-nc/4.0/">
-                    התוכן באתר ברשיון קריאייטיב קומונס. תנאי השימוש בסרטונים מפורטים באתר יוטיוב
-                </a>
-            </div>
-        </div>
-
-        </div>
+        <hr>
+        <ul class="list-inline text-center list-inline-spread">
+            <li><a href="{% url 'common:about_us' %}">{% trans 'about us' %}</a></li>
+            <li><a href="{% url 'common:help' %}">{% trans 'want to help?' %}</a></li>
+            <li><a href="mailto:info@the-openclass.org">{% trans 'contact us' %}</a></li>
+        </ul>
+        <a href="http://creativecommons.org/licenses/by-nc/4.0/">
+            <img src="{% static 'img/CC-BY-NC.png' %}"/>
+            התוכן באתר ברשיון קריאייטיב קומונס. תנאי השימוש בסרטונים מפורטים באתר יוטיוב
+        </a>
     </div>
 </footer>
 
@@ -49,6 +37,8 @@
        'hitCallback': function(){document.location = url;}
      });
   }
+
+
 
 
 
