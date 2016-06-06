@@ -38,7 +38,7 @@ footer {
     margin-top:20px;
 }
 
-@media (min-width: 992px) {
+@media (min-width: 768px) {
 /*
  * Row with equal height columns
  * http://getbootstrap.com.vn/examples/equal-height-columns/
@@ -55,10 +55,9 @@ footer {
 .row-eq-height > [class*='col-'] {
     display: flex;
     flex-direction: column;
-    border-radius: 5px;
 }
 
-.row-eq-height a {
+.row-eq-height .panel {
     flex: 1;
 }
 }

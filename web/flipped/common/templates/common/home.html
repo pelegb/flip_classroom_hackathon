@@ -10,26 +10,29 @@
         </h1>
     </div>
 
-    {% for topic in topics %}
-    <div class="row row-eq-height top-buffer">
-        <div class="col-md-3 col-md-offset-1 bg-primary">
-            <a href="{% url 'core:topic_view' topic.id %}">
-                <div class="bg-primary"><h3>{{ topic }}</h3></div>
-            </a>
-        </div>
-        <div class="col-md-6">
-            <div class="row">
-                {% for child in topic.children %}
-                <div class="col-xs-6">
-                    <a href="{% url 'core:topic_view' child.id %}">
-                        <h5>{{ child }}</h5>
+    <div class="row row-eq-height">
+        {% for topic in topics %}
+        <div class="col-sm-6 col-md-4">
+            <div class="panel panel-primary">
+                <div class="panel-heading">
+                    <a href="{% url 'core:topic_view' topic.id %}" class="bg-primary">
+                        <h3 class="panel-title">{{ topic }}</h3>
                     </a>
                 </div>
-                {% endfor %}
+
+                <div class="panel-body">
+                    <ul class="list-inline">
+                        {% for child in topic.children %}
+                        <a href="{% url 'core:topic_view' child.id %}">
+                            <li>{{ child }}</li>
+                        </a>
+                        {% endfor %}
+                    </ul>
+                </div>
             </div>
         </div>
+        {% endfor %}
     </div>
-    {% endfor %}
 
     <div class="row top-buffer">
         <h3>{% trans 'Uploaded recently:' %}</h3>
