@@ -16,7 +16,7 @@
             <div class="panel panel-primary">
                 <div class="panel-heading">
                     <a href="{% url 'core:topic_view' topic.id %}" class="bg-primary">
-                        <h3 class="panel-title">{{ topic }}</h3>
+                        <h3 class="panel-title">{{ topic }}<div class="pull-left">{{topic.video_count}} <span class="glyphicon glyphicon-film" aria-hidden="true"></span></div></h3>
                     </a>
                 </div>
 
