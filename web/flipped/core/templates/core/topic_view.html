@@ -1,42 +1,92 @@
 {% extends "common/base.html" %}
+{% load i18n %}
 {% load staticfiles %}
-
 {% block content %}
 
 <div class="container">
 
-    <!-- Main hero unit for a primary marketing message or call to action -->
-    <div class="container-fluid">
-        {% if ancestors %}
-            {% for ancestor in ancestors %}
-                <a href="../../topic/{{ ancestor.id }}/">{{ ancestor }}</a> >>
-            {% endfor %}
-        {% endif %}
+    {% if ancestors %}
+    {% for ancestor in ancestors %}
+    <a href="../../topic/{{ ancestor.id }}/">{{ ancestor }}</a> >>
+    {% endfor %}
+    {% endif %}
 
+
+    <div class="row">
         <h1>{{ topic.title }}</h1>
-        <div id="subtree">
+        <p>{{topic.description | safe}}</p>
+    </div>
+
+    <div class="row row-eq-height top-buffer">
+        {% for child in topic.children %}
+        <div class="col-sm-6 col-md-4">
+            {% if child.entity_type == 'topic' %}
+
+            <div class="panel panel-primary">
+                <div class="panel-heading">
+                    <a href="{% url 'core:topic_view' child.id %}" class="bg-primary">
+                        <h3 class="panel-title">{{ child }}
+                            <div class="pull-left">{{child.video_count}} <span class="glyphicon glyphicon-film"
+                                                                               aria-hidden="true"></span></div>
+                        </h3>
+                    </a>
+                </div>
+                <div class="panel-body">
+                    <ul class="list-inline">
+                        {% for grandchild in child.children %}
+                        {% if granchild.entity_type == 'topic' %}
+                        <a href="{% url 'core:topic_view' grandchild.id %}">
+                            <li>{{ grandchild }}</li>
+                        </a>
+                        {% else %}
+                        <a href="{% url 'core:item_view' grandchild.id %}">
+                            <li>{{ grandchild }}</li>
+                        </a>
+                        {% endif %}
+                        {% endfor %}
+                    </ul>
+                </div>
+            </div>
+            {% else %}
+            <div class="panel panel-info">
+                <div class="panel-heading">
+                    <a href="{% url 'core:item_view' child.id %}" class="bg-info">
+                        <h3 class="panel-title">{{ child }}
+                        </h3>
+                    </a>
+                </div>
+                <div class="panel-body">
+                    <ul class="list-inline">
+                        {% for grandchild in child.children %}
+                        <a href="{% url 'core:video_detail' grandchild.id %}">
+                            <li><span class="glyphicon glyphicon-film"
+                                      aria-hidden="true"></span> {{ grandchild }}
+                            </li>
+                        </a>
+                        {% endfor %}
+                        {% if child.more_children %}
+                        <a href="{% url 'core:item_view' child.id %}">
+                            <br>
+                            <li>
+                            <span class="glyphicon glyphicon-plus"
+                                  aria-hidden="true"></span>
+                                {% trans 'more' %} {{child.video_count | add:'-5'}}
+                            </li>
+                        </a>
+                        {% endif %}
+                    </ul>
+                </div>
+            </div>
+            {% endif %}
+
         </div>
-        <div class="row">
-        	{{topic.description | safe}}	
-        </div>
-	    <br>
-        <div class="row">
-        	<a href="{% url 'core:suggest_topic' parent_id=topic.id %}">הציעו נושא לימודי חדש עבור תחום זה</a>
-        </div>
+        {% endfor %}
+    </div>
+    <div class="row">
+        <a href="{% url 'core:suggest_topic' parent_id=topic.id %}">הציעו נושא לימודי חדש עבור תחום זה</a>
     </div>
 </div>
 
-<script src="{% static 'common/js/jstree.min.js' %}"></script>
-
-<script>
-$(function () {
-    $('#subtree').jstree({'core' : {
-        'data' : {{ tree_data | safe }}
-    } }).on("select_node.jstree", function(e,data) {
-        document.location.href = data.node.a_attr.href;
-    });
-});
-</script>
 {%endblock %}
 
 

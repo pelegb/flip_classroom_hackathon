@@ -48,6 +48,12 @@ class TeachItem(TeachEntity):
 
         return self.video_count_cache
 
+    def children(self):
+        return self.videopage_set.all()[:5] if self.videopage_set.count() > 5 else self.videopage_set.all()
+
+    def more_children(self):
+        return self.videopage_set.count() > 5
+
 
 class TeachTopic(TeachEntity):
     entity_type = "topic"
