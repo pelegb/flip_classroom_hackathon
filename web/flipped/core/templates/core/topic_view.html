@@ -83,7 +83,9 @@
         {% endfor %}
     </div>
     <div class="row">
-        <a href="{% url 'core:suggest_topic' parent_id=topic.id %}">הציעו נושא לימודי חדש עבור תחום זה</a>
+        <div class="col-sm-12">
+            <a href="{% url 'core:suggest_topic' parent_id=topic.id %}">הציעו נושא לימודי חדש עבור תחום זה</a>
+        </div>
     </div>
 </div>
 
