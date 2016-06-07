@@ -12,7 +12,7 @@
                 {% for ancestor in ancestors %}
                 <li><a href="{% url 'core:topic_view' ancestor.id %}">{{ ancestor }}</a></li>
                 {% endfor %}
-
+                <li class="active">{{ topic }}</li>
             </ol>
         </div>
     </div>
