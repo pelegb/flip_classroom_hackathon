@@ -5,7 +5,7 @@ from core.models import RatingReview
 from core.utils import get_jstree_data
 from django.contrib.auth.decorators import login_required
 from django.core.urlresolvers import reverse
-from django.http.response import HttpResponseRedirect, HttpResponse
+from django.http.response import HttpResponseRedirect, HttpResponse, Http404
 from django.shortcuts import render, get_object_or_404
 from django.utils.translation import ugettext_lazy
 from models import TeachItem, TeachTopic, VideoPage, TopicSuggestion
@@ -127,14 +127,26 @@ def add_video(request, video_id=None):
 
 
 def topic_view(request, topic_id):
-    topic = get_object_or_404(TeachTopic, pk=topic_id)
+    topic_qs = TeachTopic.objects.select_related('parent', 'parent__parent',
+                                                 'parent__parent__parent')  # improve ancestor query
+    try:
+        topic = topic_qs.get(id=topic_id)
+    except TeachTopic.model.DoesNotExist:
+        raise Http404('No %s matches the given query.' % TeachTopic.model._meta.object_name)
+
+    topic_children = TeachTopic.objects.prefetch_related('teachtopic_set', 'teachitem_set').filter(
+        parent=topic)  # improve teach topic children query
+    item_children = TeachItem.objects.prefetch_related('videopage_set').filter(
+        parent=topic)  # improve teach item children query
+
+    children = sorted(list(topic_children) + list(item_children), key=lambda x: x.order_index)
     ancestors = topic.get_ancestry()
     ancestors = ancestors[:-1]
 
-    subtree = topic.get_subtree()
-    tree_data = get_jstree_data(subtree, topic.id, opened=False)
+    children_tuple = map(lambda x: (x, x.children(), len(x.children())), children)
+
     return render(request, 'core/topic_view.html',
-                  {'topic': topic, 'tree_data': json.dumps(tree_data), 'ancestors': ancestors, 'title': topic.title})
+                  {'topic': topic, 'children': children_tuple, 'ancestors': ancestors, 'title': topic.title})
 
 
 def item_view(request, item_id):
@@ -144,7 +156,8 @@ def item_view(request, item_id):
     for v in videos:
         videos_dict[v.category].append(v)
 
-    videos_list = [(ugettext_lazy(category + '_plural'), videos_dict[category]) for category in VideoPage.CATEGORY_VALUES]
+    videos_list = [(ugettext_lazy(category + '_plural'), videos_dict[category]) for category in
+                   VideoPage.CATEGORY_VALUES]
 
     for category, v in videos_list:
         v.sort(key=lambda video: video.relevancy_rating()['average'], reverse=True)

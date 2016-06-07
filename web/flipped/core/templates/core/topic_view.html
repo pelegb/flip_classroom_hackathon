@@ -5,20 +5,28 @@
 
 <div class="container">
 
-    {% if ancestors %}
-    {% for ancestor in ancestors %}
-    <a href="../../topic/{{ ancestor.id }}/">{{ ancestor }}</a> >>
-    {% endfor %}
-    {% endif %}
-
-
     <div class="row">
-        <h1>{{ topic.title }}</h1>
-        <p>{{topic.description | safe}}</p>
+        <div class="col-xs-12">
+            <ol class="breadcrumb">
+                <li><a href="{% url 'common:home' %}">{% trans 'Home' %}</a></li>
+                {% for ancestor in ancestors %}
+                <li><a href="{% url 'core:topic_view' ancestor.id %}">{{ ancestor }}</a></li>
+                {% endfor %}
+
+            </ol>
+        </div>
     </div>
 
+    <div class="row">
+        <div class="col-xs-12">
+            <h1>{{ topic.title }}</h1>
+            <p>{{topic.description | safe}}</p>
+        </div>
+    </div>
+
+
     <div class="row row-eq-height top-buffer">
-        {% for child in topic.children %}
+        {% for child, grandchildren, num_grandchildren in children %}
         <div class="col-sm-6 col-md-4">
             {% if child.entity_type == 'topic' %}
 
@@ -33,8 +41,8 @@
                 </div>
                 <div class="panel-body">
                     <ul class="list-inline">
-                        {% for grandchild in child.children %}
-                        {% if granchild.entity_type == 'topic' %}
+                        {% for grandchild in grandchildren %}
+                        {% if grandchild.entity_type == 'topic' %}
                         <a href="{% url 'core:topic_view' grandchild.id %}">
                             <li>{{ grandchild }}</li>
                         </a>
@@ -57,14 +65,14 @@
                 </div>
                 <div class="panel-body">
                     <ul class="list-inline">
-                        {% for grandchild in child.children %}
+                        {% for grandchild in grandchildren|slice:':5' %}
                         <a href="{% url 'core:video_detail' grandchild.id %}">
                             <li><span class="glyphicon glyphicon-film"
                                       aria-hidden="true"></span> {{ grandchild }}
                             </li>
                         </a>
                         {% endfor %}
-                        {% if child.more_children %}
+                        {% if num_grandchildren > 5 %}
                         <a href="{% url 'core:item_view' child.id %}">
                             <br>
                             <li>
