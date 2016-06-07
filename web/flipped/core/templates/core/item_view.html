@@ -2,44 +2,45 @@
 {% load i18n %}
 {% block content %}
 
-        <div class="container">
-            <!-- Main hero unit for a primary marketing message or call to action -->
-            <div class="container-fluid">
-            {% if ancestors %}
-                <p>
+<div class="container">
+    <div class="row">
+        <div class="col-xs-12">
+            <ol class="breadcrumb">
+                <li><a href="{% url 'common:home' %}">{% trans 'Home' %}</a></li>
                 {% for ancestor in ancestors %}
-                    <a href="../../topic/{{ ancestor.id }}/">{{ ancestor }}</a> >>
+                <li><a href="{% url 'core:topic_view' ancestor.id %}">{{ ancestor }}</a></li>
                 {% endfor %}
-                </p>
-            {% endif %}
-
-            <h1>{{ item.title }}</h1>
-	           {% for category, videos in videos_list %}
-		           {% if videos %} 
-		           <h3>{{ category }}</h3>
-			        <ul>
-			       		{% for video in videos %}
-				            <li><a href="../../videos/{{ video.id }}/">{{ video }}</a>, {% blocktrans with channel=video.youtube_channel user_name=video.user.get_full_name %}By {{ channel}}, uploaded by {{ user_name }}{% endblocktrans %} <br>
-				               <span>{% trans 'technical quality' %}:</span>
-			                   <span id="rate_quality_{{ video.id }}"></span>
-			                   <span>{% trans 'relevancy' %}:</span>
-			                   <span id="rate_rel_{{ video.id }}"></span>
-				            </li>
-				            <script>
-			                        showRating('rate_quality_{{ video.id }}',{{ video.quality_rating.count }},{{ video.quality_rating.average }});
-			                        showRating('rate_rel_{{ video.id }}',{{ video.relevancy_rating.count }},{{ video.relevancy_rating.average }});
-			                </script>
-			        	{% endfor %}
-		        	</ul>
-		           {% endif %}
-               {% empty %}
-        	   <h3><a href="{% url 'core:add_video' %}"><font color="#F1AE47">{% trans 'Be the first to upload a video' %}</font></a></h3>
-	           {% endfor %}
-			<div class="row">
-        		{{item.description | safe}}
+                <li class="active">{{ item }}</li>
+            </ol>
         </div>
-        </div> <!-- /container -->
-</div>
+    </div>
+
+    <div class="row">
+        <div class="col-xs-12">
+            <h1>{{ item }}</h1>
+            <p>{{item.description | safe}}</p>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-xs-12">
+            {% for category, videos in videos_list %}
+            {% if videos %}
+            <h3>{{ category }}</h3>
+            <ul>
+                {% for video in videos %}
+                <li><a href="{% url 'core:video_detail' video.id %}/">{{ video }}</a>,
+                    {% blocktrans with channel=video.youtube_channel user_name=video.user.get_full_name %}By {{channel}}, uploaded by {{ user_name }}{% endblocktrans %} <br>
+                </li>
+                {% endfor %}
+            </ul>
+            {% endif %}
+            {% empty %}
+            <h3><a href="{% url 'core:add_video' %}"><font color="#F1AE47">{% trans 'Be the first to upload a video'%}</font></a></h3>
+            {% endfor %}
+        </div>
+    </div>
+</div> <!-- /container -->
 
 {% endblock %}
 

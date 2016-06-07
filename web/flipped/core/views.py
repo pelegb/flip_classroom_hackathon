@@ -127,8 +127,7 @@ def add_video(request, video_id=None):
 
 
 def topic_view(request, topic_id):
-    topic_qs = TeachTopic.objects.select_related('parent', 'parent__parent',
-                                                 'parent__parent__parent')  # improve ancestor query
+    topic_qs = TeachTopic.objects.select_related('parent__parent__parent__parent')  # improve ancestor query
     try:
         topic = topic_qs.get(id=topic_id)
     except TeachTopic.model.DoesNotExist:
@@ -150,17 +149,19 @@ def topic_view(request, topic_id):
 
 
 def item_view(request, item_id):
-    item = get_object_or_404(TeachItem, pk=item_id)
-    videos = VideoPage.objects.filter(teach_item=item)
+    item_qs = TeachItem.objects.select_related('parent__parent__parent__parent')  # improve ancestor query
+    try:
+        item = item_qs.get(id=item_id)
+    except TeachItem.model.DoesNotExist:
+        raise Http404('No %s matches the given query.' % TeachItem.model._meta.object_name)
+
+    videos = VideoPage.objects.filter(teach_item=item).select_related('user')
     videos_dict = defaultdict(list)
     for v in videos:
         videos_dict[v.category].append(v)
 
     videos_list = [(ugettext_lazy(category + '_plural'), videos_dict[category]) for category in
                    VideoPage.CATEGORY_VALUES]
-
-    for category, v in videos_list:
-        v.sort(key=lambda video: video.relevancy_rating()['average'], reverse=True)
 
     ancestors = item.get_ancestry()
     ancestors = ancestors[:-1]
