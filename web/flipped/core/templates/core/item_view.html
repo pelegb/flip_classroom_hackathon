@@ -26,14 +26,22 @@
         <div class="col-xs-12">
             {% for category, videos in videos_list %}
             {% if videos %}
-            <h3>{{ category }}</h3>
-            <ul>
+            <div class="row">
+                <div class="col-xs-12">
+                    <h3>{{ category }}</h3>
+                </div>
+            </div>
+            <div class="row">
                 {% for video in videos %}
-                <li><a href="{% url 'core:video_detail' video.id %}/">{{ video }}</a>,
+                <div class="col-xs-2">
+                    <a href="{% url 'core:video_detail' video.id %}">
+                        <img src="http://img.youtube.com/vi/{{ video.youtube_movie_id }}/0.jpg" class="img-responsive">
+                        {{ video }}
+                    </a>,
                     {% blocktrans with channel=video.youtube_channel user_name=video.user.get_full_name %}By {{channel}}, uploaded by {{ user_name }}{% endblocktrans %} <br>
-                </li>
+                </div>
                 {% endfor %}
-            </ul>
+            </div>
             {% endif %}
             {% empty %}
             <h3><a href="{% url 'core:add_video' %}"><font color="#F1AE47">{% trans 'Be the first to upload a video'%}</font></a></h3>
