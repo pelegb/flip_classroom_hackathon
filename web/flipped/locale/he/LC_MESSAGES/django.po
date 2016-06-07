@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-07-20 18:57+0000\n"
+"POT-Creation-Date: 2016-06-07 12:18+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -19,8 +19,7 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
 #: common/templates/common/help.html:18 common/templates/common/help.html:22
-#: common/templates/common/incl_bottom.html:14
-#: common/templates/common/incl_bottom.html:26
+#: common/templates/common/incl_bottom.html:10
 msgid "contact us"
 msgstr "צור קשר"
 
@@ -34,102 +33,113 @@ msgstr ""
 "שיעור פתוח הוא מאגר סרטונים לימודיים שמשתמשים יוצרים, המאורגן לפי תוכנית "
 "הלימודים בישראל"
 
-#: common/templates/common/home.html:19
-msgid "teachers guide"
-msgstr "שיעור הפוך - מדריך למורה"
-
-#: common/templates/common/home.html:24
+#: common/templates/common/home.html:38 common/templates/common/home.html:65
 msgid "Uploaded recently:"
 msgstr "הועלה לאחרונה:"
 
-#: common/templates/common/home.html:31
+#: common/templates/common/home.html:47 common/templates/common/home.html:73
 msgid "published"
 msgstr "הועלה ב-"
 
-#: common/templates/common/incl_top.html:8
+#: common/templates/common/home.html:59
+msgid "teachers guide"
+msgstr "שיעור הפוך - מדריך למורה"
+
+#: common/templates/common/incl_bottom.html:8
+#: common/templates/common/incl_top.html:90
+msgid "about us"
+msgstr "אודות"
+
+#: common/templates/common/incl_bottom.html:9
+#: common/templates/common/incl_top.html:89
+msgid "want to help?"
+msgstr "רוצה לעזור?"
+
+#: common/templates/common/incl_top.html:11
+#: common/templates/common/incl_top.html:13
 msgid "Open Class"
 msgstr "שיעור פתוח"
 
-#: common/templates/common/incl_top.html:33
+#: common/templates/common/incl_top.html:46
+msgid "Search box"
+msgstr "תיבת חיפוש"
+
+#: common/templates/common/incl_top.html:49
+msgid "Search"
+msgstr "חפש"
+
+#: common/templates/common/incl_top.html:53
+msgid "Not a student?"
+msgstr "לא תלמיד?"
+
+#: common/templates/common/incl_top.html:82
 msgid "teach topics"
 msgstr "נושאי לימוד"
 
-#: common/templates/common/incl_top.html:40
+#: common/templates/common/incl_top.html:87
 #: core/templates/core/user_view.html:14 core/templates/core/user_view.html:31
 msgid "upload video"
 msgstr "העלאת סרטון"
 
-#: common/templates/common/incl_top.html:41
-msgid "want to help?"
-msgstr "רוצה לעזור?"
-
-#: common/templates/common/incl_top.html:42
-msgid "about us"
-msgstr "אודות"
-
-#: common/templates/common/incl_top.html:46
+#: common/templates/common/incl_top.html:94
 #: core/templates/core/user_view.html:8
 msgid "hello"
 msgstr "שלום"
 
-#: common/templates/common/incl_top.html:47
+#: common/templates/common/incl_top.html:95
 msgid "log out"
 msgstr "התנתק"
 
-#: common/templates/common/incl_top.html:49
+#: common/templates/common/incl_top.html:97
 msgid "log in"
 msgstr "התחבר"
 
-#: common/templates/common/incl_top.html:50
+#: common/templates/common/incl_top.html:98
 msgid "sign up"
 msgstr "הירשם"
 
-#: core/forms.py:32
+#: core/forms.py:33
 msgid "Invalid YouTube URL"
 msgstr "יש להזין כתובת יוטיוב תקינה"
 
-#: core/forms.py:37
+#: core/forms.py:38
 #, python-format
 msgid "Video could not be found on YouTube for ID: %(id)s"
 msgstr "לא נמצא סרטון יוטיוב עם מזהה: %(id)s"
 
 #: core/forms.py:42
+#, python-format
+msgid "Video already exists: %(url)s"
+msgstr "סרטון קיים: %(url)s"
+
+#: core/forms.py:50
 msgid "link"
 msgstr "קישור"
 
-#: core/forms.py:47 core/forms.py:60
+#: core/forms.py:55 core/forms.py:68
 msgid "title"
 msgstr "כותרת"
 
-#: core/forms.py:52
+#: core/forms.py:60
 msgid "content"
 msgstr "תוכן"
 
-#: core/forms.py:53
+#: core/forms.py:61
 msgid "category"
 msgstr "סוג סרט"
 
-#: core/forms.py:55
+#: core/forms.py:63
 msgid "item"
 msgstr "נושא לימוד"
 
-#: core/forms.py:61 fc_user/forms.py:6
+#: core/forms.py:69 fc_user/forms.py:6
 msgid "email"
 msgstr "דואל"
 
-#: core/models.py:88
+#: core/models.py:93
 #, fuzzy
 msgid "_description"
 msgstr "אחר - סרטון רלוונטי ומעניין שאינו מתאים לאפשרויות שלעיל"
-
-#: core/views.py:70
-msgid "You've already rated this video"
-msgstr "סרטון זה כבר דורג"
-
-#: core/views.py:147
-#, fuzzy
-msgid "_plural"
-msgstr "אחרים"
 
 #: core/templates/core/add_video.html:19
 #, fuzzy
@@ -140,46 +150,68 @@ msgstr "עדכן"
 msgid "Add"
 msgstr "הוסף"
 
-#: core/templates/core/item_view.html:20
+#: core/templates/core/item_view.html:9 core/templates/core/search.html:11
+#: core/templates/core/topic_view.html:11
+#: core/templates/core/video_detail.html:15
+msgid "Home"
+msgstr "דף הבית"
+
+#: core/templates/core/item_view.html:40
 #, python-format
 msgid "By %(channel)s, uploaded by %(user_name)s"
 msgstr "מאת %(channel)s, הועלה ע\"י %(user_name)s"
 
-#: core/templates/core/item_view.html:21 core/templates/core/user_view.html:19
-#: core/templates/core/video_detail.html:29
-msgid "technical quality"
-msgstr "איכות טכנית"
-
-#: core/templates/core/item_view.html:23 core/templates/core/user_view.html:21
-#: core/templates/core/video_detail.html:31
-msgid "relevancy"
-msgstr "רלוונטיות"
-
-#: core/templates/core/item_view.html:34
+#: core/templates/core/item_view.html:46
 msgid "Be the first to upload a video"
 msgstr "רוצים להיות הראשונים? העלו סרטון"
+
+#: core/templates/core/search.html:12
+msgid "Search page"
+msgstr "דף חיפוש"
+
+#: core/templates/core/search.html:19 core/views.py:180
+#, python-format
+msgid "Results for %(q)s"
+msgstr "תוצאות עבור %(q)s"
+
+#: core/templates/core/search.html:77 core/templates/core/topic_view.html:81
+msgid "more"
+msgstr "עוד"
 
 #: core/templates/core/user_view.html:13
 msgid "the videos you uploaded:"
 msgstr "הסרטונים שלך:"
 
+#: core/templates/core/user_view.html:19
+msgid "technical quality"
+msgstr "איכות טכנית"
+
+#: core/templates/core/user_view.html:21
+msgid "relevancy"
+msgstr "רלוונטיות"
+
 #: core/templates/core/user_view.html:35
 msgid "change your password"
 msgstr "שנה את סיסמתי"
 
-#: core/templates/core/video_detail.html:23
+#: core/templates/core/video_detail.html:32
 #, python-format
 msgid "By %(channel)s, uploaded by %(user_name)s on %(day)s %(month)s %(year)s"
 msgstr ""
 "מאת %(channel)s, הועלה ע\"י %(user_name)s בתאריך %(day)s ל%(month)s %(year)s"
 
-#: core/templates/core/video_detail.html:25
+#: core/templates/core/video_detail.html:34
 msgid "edit"
 msgstr "ערוך"
 
-#: core/templates/core/video_detail.html:70
-msgid "rate"
-msgstr "דרג"
+#: core/views.py:70
+msgid "You've already rated this video"
+msgstr "סרטון זה כבר דורג"
+
+#: core/views.py:163
+#, fuzzy
+msgid "_plural"
+msgstr "אחרים"
 
 #: fc_user/forms.py:4
 msgid "username"
@@ -248,6 +280,9 @@ msgstr "סיסמא"
 #: fc_user/templates/fc_user/password_change_done.html:7
 msgid "Password change successful"
 msgstr "הסיסמא שונתה בהצלחה"
+
+msgid "rate"
+msgstr "דרג"
 
 msgid "LESSON"
 msgstr "שיעור"
