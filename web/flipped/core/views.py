@@ -169,6 +169,17 @@ def item_view(request, item_id):
                   {'item': item, 'videos_list': videos_list, 'ancestors': ancestors, 'title': item.title})
 
 
+def search(request):
+    q = request.GET.get('q')
+    topics = TeachTopic.objects.prefetch_related('teachtopic_set', 'teachitem_set').filter(title__icontains=q)
+    items = TeachItem.objects.prefetch_related('videopage_set').filter(title__icontains=q)
+    children = sorted(list(topics) + list(items), key=lambda x: x.order_index)
+    children_tuple = map(lambda x: (x, x.children(), len(x.children())), children)
+
+    return render(request, 'core/search.html',
+                  {'children': children_tuple, 'q': q, 'title': ugettext_lazy('Results for %(q)s') % {'q': q}})
+
+
 @login_required
 def user_view(request):
     videos = VideoPage.objects.filter(user=request.user)

@@ -41,7 +41,7 @@
 
         <!-- Collect the nav links, forms, and other content for toggling -->
         <div class="collapse navbar-collapse">
-            <form class="navbar-form navbar-right" role="search">
+            <form class="navbar-form navbar-right" role="search" id="search">
                 <div class="form-group">
                     <input type="text" class="form-control" placeholder="{% trans 'Search box' %}">
                 </div>
@@ -56,6 +56,14 @@
     </div><!-- /.container-fluid -->
 </nav>
 
+<script>
+$(function() {
+  $('form#search').submit(function(event) {
+    event.preventDefault();
+    window.location = "{% url 'core:search' %}" + "?q=" + $('input').val();
+  });
+});
+</script>
 <!--
 <div class="navbar navbar-inverse navbar-fixed-top">
     <div class="navbar-inner">
