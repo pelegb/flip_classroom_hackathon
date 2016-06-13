@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-06-13 20:59+0000\n"
+"POT-Creation-Date: 2016-06-13 21:10+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -100,7 +100,7 @@ msgstr "דף הבית"
 
 #: common/templates/common/teacher.html:11
 #: common/templates/common/teacher.html:16
-msgid "Teacher\\'s page"
+msgid "Teachers page"
 msgstr "דף למורה"
 
 #: core/forms.py:33

@@ -3,9 +3,9 @@
 {% load staticfiles %}
 {% block content %}
 
-{{form.media}}
-
 <div class="container">
+    {{form.media}}
+
     <form action="/core/add-video/" method="post">
         {% csrf_token %}
         {{ form.as_p }}
