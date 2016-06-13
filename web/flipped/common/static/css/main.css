@@ -38,6 +38,10 @@ footer {
     margin-top:20px;
 }
 
+.bottom-buffer {
+    margin-bottom:20px;
+}
+
 @media (min-width: 768px) {
 /*
  * Row with equal height columns
@@ -81,4 +85,12 @@ footer {
 
 .wideTextInput {
     width:50%;
+}
+
+#add-video>a{
+    color: #E19E37;
+}
+
+#add-video a:hover {
+    color: #FFBD5B;
 }

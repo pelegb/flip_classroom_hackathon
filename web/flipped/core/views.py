@@ -1,11 +1,10 @@
 from collections import defaultdict
-from common.processors import topics
 from common.utils import request_youtube_info
 from core.models import RatingReview
 from core.utils import get_jstree_data
 from django.contrib.auth.decorators import login_required
 from django.core.urlresolvers import reverse
-from django.http.response import HttpResponseRedirect, HttpResponse, Http404
+from django.http.response import HttpResponseRedirect, Http404
 from django.shortcuts import render, get_object_or_404
 from django.utils.translation import ugettext_lazy
 from models import TeachItem, TeachTopic, VideoPage, TopicSuggestion
@@ -50,31 +49,31 @@ def video_detail(request, video_id):
     return render(request, 'core/video_detail.html', ctx)
 
 
-def video_rate(request, video_id):
-    try:
-        video = get_object_or_404(VideoPage, pk=video_id)
-        if request.method == 'POST':
-            for context_tuple in RatingReview.context_choices:
-                context = context_tuple[0]
-                rate = int(request.POST['rating_%s' % context])
-                if request.user.is_authenticated():
-                    review, created = RatingReview.objects.get_or_create(user=request.user, video=video,
-                                                                         context=context, defaults={'rate': rate})
-                    # if not new - must update the rate
-                    if not created:
-                        review.rate = rate
-                        review.save()
-                else:
-                    key = 'has_rated' + str(video_id) + context
-                    if request.session.get(key, False):
-                        return HttpResponse(status=403, content=ugettext_lazy("You've already rated this video"))
-                    review = RatingReview.objects.create(user=None, video=video, context=context, rate=rate)
-                    request.session[key] = True
-        result = get_global_ratings(video)
-        return HttpResponse(status=201, content=json.dumps(result), content_type='application/json')
-    except Exception, e:
-        error_dict = dict(error=unicode(e))
-        return HttpResponse(status=400, content=json.dumps(error_dict), content_type='application/json')
+# def video_rate(request, video_id):
+#     try:
+#         video = get_object_or_404(VideoPage, pk=video_id)
+#         if request.method == 'POST':
+#             for context_tuple in RatingReview.context_choices:
+#                 context = context_tuple[0]
+#                 rate = int(request.POST['rating_%s' % context])
+#                 if request.user.is_authenticated():
+#                     review, created = RatingReview.objects.get_or_create(user=request.user, video=video,
+#                                                                          context=context, defaults={'rate': rate})
+#                     # if not new - must update the rate
+#                     if not created:
+#                         review.rate = rate
+#                         review.save()
+#                 else:
+#                     key = 'has_rated' + str(video_id) + context
+#                     if request.session.get(key, False):
+#                         return HttpResponse(status=403, content=ugettext_lazy("You've already rated this video"))
+#                     review = RatingReview.objects.create(user=None, video=video, context=context, rate=rate)
+#                     request.session[key] = True
+#         result = get_global_ratings(video)
+#         return HttpResponse(status=201, content=json.dumps(result), content_type='application/json')
+#     except Exception, e:
+#         error_dict = dict(error=unicode(e))
+#         return HttpResponse(status=400, content=json.dumps(error_dict), content_type='application/json')
 
 
 @login_required
@@ -88,7 +87,7 @@ def add_video(request, video_id=None):
             initial['content'] = video.content
             initial['tags'] = video.tags.all()
             initial['title'] = video.video_title
-            initial['link'] = 'http://www.youtube.com/watch?v=%s' % (video.youtube_movie_id)
+            initial['link'] = 'http://www.youtube.com/watch?v=%s' % video.youtube_movie_id
             initial['item'] = video.teach_item
             initial['edited_id'] = video.id
             initial['category'] = video.category
@@ -119,7 +118,7 @@ def add_video(request, video_id=None):
         else:
             print form.errors
 
-    root_topics = list(topics(request)['topics'])
+    root_topics = list(TeachTopic.objects.root_topics(for_teacher=False))
     root_subtree = list(itertools.chain.from_iterable(map(lambda topic: topic.get_subtree(), root_topics)))
     root_topics.extend(root_subtree)
     jstree_data = get_jstree_data(root_topics, None, opened=False, enable_items_only=True, include_video_count=False)
@@ -131,7 +130,7 @@ def topic_view(request, topic_id):
     try:
         topic = topic_qs.get(id=topic_id)
     except TeachTopic.model.DoesNotExist:
-        raise Http404('No %s matches the given query.' % TeachTopic.model._meta.object_name)
+        raise Http404('No TeachTopic matches the given query.')
 
     topic_children = TeachTopic.objects.prefetch_related('teachtopic_set', 'teachitem_set').filter(
         parent=topic)  # improve teach topic children query
@@ -153,7 +152,7 @@ def item_view(request, item_id):
     try:
         item = item_qs.get(id=item_id)
     except TeachItem.model.DoesNotExist:
-        raise Http404('No %s matches the given query.' % TeachItem.model._meta.object_name)
+        raise Http404('No TeachItem matches the given query.')
 
     videos = VideoPage.objects.filter(teach_item=item).select_related('user')
     videos_dict = defaultdict(list)

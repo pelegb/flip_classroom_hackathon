@@ -49,8 +49,10 @@
                                                                     aria-hidden="true"></span> {% trans 'Search' %}
                 </button>
             </form>
+
             <ul class="nav navbar-nav navbar-left">
-                <li><a href="#">{% trans 'Not a student?' %}</a></li>
+                <li id="add-video"><a href="{% url 'core:add_video' %}"><strong>{% trans 'upload video' %}</strong></a></li>
+                <li><a href="{% url 'common:teacher' %}">{% trans 'Not a student?' %}</a></li>
             </ul>
         </div><!-- /.navbar-collapse -->
     </div><!-- /.container-fluid -->
@@ -77,18 +79,6 @@ $(function() {
             <a class="brand" href="/"><img style="height: 75px;" id="logo-img" alt="open-class-logo"
                                            src="{% static 'img/logo-small-inverse.png' %}"></a>
             <div class="nav-collapse collapse">
-                <ul class="nav">
-                    <li class="dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">{% trans 'teach topics' %}<b
-                                class="caret"></b></a>
-                        <ul class="dropdown-menu">
-                        </ul>
-                    </li>
-                    <li><a href="{% url 'core:add_video' %}"><font color="#F1AE47">{% trans 'upload video' %}</font></a>
-                    </li>
-                    <li><a href="{% url 'common:help' %}">{% trans 'want to help?' %}</a></li>
-                    <li><a href="{% url 'common:about_us' %}">{% trans 'about us' %}</a></li>
-                </ul>
                 <ul class="nav pull-right">
                     {% if user.is_active %}
                     <li><a href="{% url 'core:user_view' %}">{% trans 'hello' %} {{user.first_name}}</a></li>

@@ -52,14 +52,23 @@ class TeachItem(TeachEntity):
         return self.videopage_set.all()
 
 
+class TeachTopicManger(models.Manager):
+    def root_topics(self, for_teacher=False):
+        return self.filter(parent__isnull=True, for_teacher=for_teacher)
+
+
 class TeachTopic(TeachEntity):
+    objects = TeachTopicManger()
     entity_type = "topic"
+
+    for_teacher = models.BooleanField(default=False)
 
     def children(self):
         return sorted(list(self.teachitem_set.all()) + list(self.teachtopic_set.all()), key=lambda x: x.order_index)
 
     def get_subtree(self):
-        child_entities = sorted(list(self.teachitem_set.all()) + list(self.teachtopic_set.all()), key=lambda x: x.order_index)
+        child_entities = sorted(list(self.teachitem_set.all()) + list(self.teachtopic_set.all()),
+                                key=lambda x: x.order_index)
 
         subtree = []
         for child in child_entities:
@@ -111,7 +120,8 @@ class VideoPage(models.Model):
         TeachItem.objects.filter(id=teach_item_id)[0].purge_video_count()
 
     def _fetch_rating(self, context):
-        rating = RatingReview.objects.filter(video__id=self.id, context=context).aggregate(count=Count('rate'), average=Avg('rate'))
+        rating = RatingReview.objects.filter(video__id=self.id, context=context).aggregate(count=Count('rate'),
+                                                                                           average=Avg('rate'))
         rating['average'] = int(round(rating['average'])) if rating['average'] else 0
         return rating
 
@@ -125,6 +135,7 @@ class VideoPage(models.Model):
 class Review(models.Model):
     class Meta:
         abstract = True
+
     video = models.ForeignKey(VideoPage)
     user = models.ForeignKey(AUTH_USER_MODEL, blank=True, null=True, default=None)
 
@@ -170,10 +181,12 @@ def purge_video_count_on_video_deletion(sender, instance, using, **kwargs):
 def purge_video_count_on_teach_entity_deletion(sender, instance, using, **kwargs):
     instance.purge_video_count()
 
+
 @receiver(pre_save, sender=VideoPage, dispatch_uid='purge_video_count_on_video_relation_update')
 def purge_video_count_on_video_relation_update(sender, instance, raw, using, update_fields, **kwargs):
     if update_fields and len({'teach_item', 'teach_item_id'} & update_fields) > 0:
         instance.teach_item.purge_video_count()
+
 
 @receiver(pre_save, sender=TeachEntity, dispatch_uid='purge_video_count_on_teach_entity_relation_update')
 def purge_video_count_on_teach_entity_relation_update(sender, instance, raw, using, update_fields, **kwargs):
