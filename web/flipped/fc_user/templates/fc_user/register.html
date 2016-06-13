@@ -4,17 +4,13 @@
 
 <div class="container">
 
-	<!-- Main hero unit for a primary marketing message or call to action -->
-	<div class="container-fluid">
-		<form action="/fc_user/register/" method="post">
-			{% csrf_token %}
-			{{form.as_p}}
-			<p>
-				<input type="submit" value="הרשם"  class="btn btn-success"/>
-			</p>
-		</form>
-	</div>
-	<!-- /container -->
+    <form action="/fc_user/register/" method="post">
+        {% csrf_token %}
+        {{form.as_p}}
+        <p>
+            <input type="submit" value="הרשם" class="btn btn-success"/>
+        </p>
+    </form>
 </div>
 
 {% endblock %}

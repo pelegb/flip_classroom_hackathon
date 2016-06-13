@@ -3,22 +3,21 @@
 {% load i18n %}
 
 <div class="container">
-	<div class="container-fluid">
-		{% if form.errors %}
-		<p>{% trans "Your username and password didn't match. Please try again." %}</p>
-		{% endif %}
-
-        <div class="span4">
+    {% if form.errors %}
+    <p>{% trans "Your username and password didn't match. Please try again." %}</p>
+    {% endif %}
+    <div class="row">
+        <div class="col-md-4">
             <p>{% trans 'Please login' %} </p>
             <form method="post" action="/fc_user/login/">
-            {% csrf_token %}
-            {{ form.as_p }}
+                {% csrf_token %}
+                {{ form.as_p }}
 
-            <input type="submit" value="login" />
-            <input type="hidden" name="next" value="{{ next }}" />
+                <input type="submit" value="login"/>
+                <input type="hidden" name="next" value="{{ next }}"/>
             </form>
         </div>
-        <div class="span7">
+        <div class="col-md-8">
             <h2><a href="{% url 'fc_user:register' %}">{% trans 'Want to join? Just signup' %}</a></h2>
         </div>
     </div>
