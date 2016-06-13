@@ -6,23 +6,23 @@
 {{form.media}}
 
 <div class="container">
-	<div class="container-fluid">
-		<form action="/core/add-video/" method="post">
-			{% csrf_token %}
- 			{{ form.as_p }}
- 			<div class="fieldWrapper">
-                {{ form.item.label_tag }}
-                <input type="text" id="subtree_search" value="" class="input">
-            </div>
-			<div id="subtree">
-            </div>
-			<input type="submit" value="{% if form.edited_id.value %}{% trans 'Update' %}{% else %}{% trans 'Add' %}{% endif %}"/>
-		</form>
-	</div>
-	<!-- /container -->
+    <form action="/core/add-video/" method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <div class="fieldWrapper">
+            {{ form.item.label_tag }}
+            <input type="text" id="subtree_search" value="" class="input">
+        </div>
+        <div id="subtree">
+        </div>
+        <input type="submit"
+               value="{% if form.edited_id.value %}{% trans 'Update' %}{% else %}{% trans 'Add' %}{% endif %}"/>
+    </form>
 </div>
 
-<script src="{% static 'common/js/jstree.min.js' %}"></script>
+<link rel="stylesheet" href="{% static 'jstree/dist/themes/default/style.min.css' %}">
+<link rel="stylesheet" href="{% static 'jstree/dist/themes/default-dark/style.min.css' %}">
+<script src="{% static 'jstree/dist/jstree.min.js' %}"></script>
 
 <script>
 $(function () {
@@ -43,6 +43,7 @@ $(function () {
     }, 250);
   });
 });
+
 </script>
 
 {% endblock %}
