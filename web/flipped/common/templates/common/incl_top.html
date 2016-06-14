@@ -51,23 +51,19 @@
             </form>
 
             <ul class="nav navbar-nav navbar-left">
+                <li id="add-video"><a href="{% url 'core:add_video' %}"><span class="glyphicon glyphicon-upload"
+                                                                              aria-hidden="true"></span> <strong>{% trans 'upload video' %}</strong></a></li>
                 {% if user.is_active %}
                 <li class="dropdown">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
                        aria-expanded="false">{{user.get_full_name}} <span class="caret"></span></a>
                     <ul class="dropdown-menu">
-                        <li id="add-video"><a href="{% url 'core:add_video' %}"><span class="glyphicon glyphicon-upload"
-                                                                                      aria-hidden="true"></span>
-                            <strong>{% trans 'upload video' %}</strong></a></li>
-                        <li role="separator" class="divider"></li>
                         <li><a href="{% url 'common:teacher' %}">{% trans 'Creators area' %}</a></li>
                         <li><a href="{% url 'core:user_view' %}">{% trans 'my videos' %} </a></li>
                         <li><a href="{% url 'fc_user:logout' %}">{% trans 'log out' %}</a></li>
                     </ul>
                 </li>
                 {% else %}
-                <li id="add-video"><a href="{% url 'core:add_video' %}"><span class="glyphicon glyphicon-upload"
-                                                                              aria-hidden="true"></span> <strong>{% trans 'upload video' %}</strong></a></li>
                 {% url 'common:teacher' as teacher_url %}
                 {% if request.path_info != teacher_url %}
                 <li><a href="{{ teacher_url }}">{% trans 'Creators area' %}</a></li>
