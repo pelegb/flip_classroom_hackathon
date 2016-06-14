@@ -15,15 +15,15 @@
 
     <link rel="stylesheet" type="text/css"
           href="https://fonts.googleapis.com/css?family=Arimo:400,400italic,700,700italic&subset=hebrew,latin">
-    <link rel="stylesheet" type="text/css" href="{% static 'bootstrap/dist/css/bootstrap.min.css' %}">
-    <link rel="stylesheet" type="text/css" href="{% static 'normalize-css/normalize.css' %}">
-    <link rel="stylesheet" type="text/css" href="{% static 'css/main.css' %}">
-    <link rel="stylesheet" type="text/css" href="{% static 'bootstrap-rtl/dist/css/bootstrap-rtl.min.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'common/bootstrap/dist/css/bootstrap.min.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'common/normalize-css/normalize.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'common/css/main.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'common/bootstrap-rtl/dist/css/bootstrap-rtl.min.css' %}">
 </head>
 
 <body>
-<script src="{% static 'jquery/dist/jquery.min.js' %}"></script>
-<script src="{% static 'bootstrap/dist/js/bootstrap.min.js' %}"></script>
+<script src="{% static 'common/jquery/dist/jquery.min.js' %}"></script>
+<script src="{% static 'common/bootstrap/dist/js/bootstrap.min.js' %}"></script>
 
 <nav class="navbar navbar-inverse navbar-fixed-top">
     <div class="container">
@@ -36,7 +36,7 @@
                 <span class="icon-bar"></span>
             </button>
             <a class="navbar-brand" href="{% url 'common:home' %}"><img alt="The Open Classroom"
-                                                                        src="{% static 'img/logo-small-inverse.png' %}"></a>
+                                                                        src="{% static 'common/img/logo-small-inverse.png' %}"></a>
         </div>
 
         <!-- Collect the nav links, forms, and other content for toggling -->
@@ -85,35 +85,4 @@ $(function() {
     window.location = "{% url 'core:search' %}" + "?q=" + $('input').val();
   });
 });
-
-
-
-
 </script>
-<!--
-<div class="navbar navbar-inverse navbar-fixed-top">
-    <div class="navbar-inner">
-        <div class="container-fluid">
-            <button type="button" class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-            </button>
-            <a class="brand" href="/"><img style="height: 75px;" id="logo-img" alt="open-class-logo"
-                                           src="{% static 'img/logo-small-inverse.png' %}"></a>
-            <div class="nav-collapse collapse">
-                <ul class="nav pull-right">
-                    {% if user.is_active %}
-                    <li><a href="{% url 'core:user_view' %}">{% trans 'hello' %} {{user.first_name}}</a></li>
-                    <li><a href="{% url 'fc_user:logout' %}">{% trans 'log out' %}</a></li>
-                    {% else %}
-                    <li><a href="{% url 'fc_user:login' %}">{% trans 'log in' %}</a></li>
-                    <li><a href="{% url 'fc_user:register' %}">{% trans 'sign up' %}</a></li>
-                    {% endif %}
-                </ul>
-            </div>
-        </div>
-    </div>
-</div>
--->
