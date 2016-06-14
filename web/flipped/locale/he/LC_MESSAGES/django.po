@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-06-14 08:51+0000\n"
+"POT-Creation-Date: 2016-06-14 17:39+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -71,24 +71,29 @@ msgstr "חפש"
 msgid "upload video"
 msgstr "העלאת סרטון"
 
-#: common/templates/common/incl_top.html:56
+#: common/templates/common/incl_top.html:58
 msgid "Creators area"
 msgstr "אזור היוצרים"
 
-#: common/templates/common/incl_top.html:87
+#: common/templates/common/incl_top.html:66
+msgid "my videos"
+msgstr "הסרטונים שלי"
+
+#: common/templates/common/incl_top.html:67
+#: common/templates/common/incl_top.html:103
+msgid "log out"
+msgstr "התנתק"
+
+#: common/templates/common/incl_top.html:102
 #: core/templates/core/user_view.html:8
 msgid "hello"
 msgstr "שלום"
 
-#: common/templates/common/incl_top.html:88
-msgid "log out"
-msgstr "התנתק"
-
-#: common/templates/common/incl_top.html:90
+#: common/templates/common/incl_top.html:105
 msgid "log in"
 msgstr "התחבר"
 
-#: common/templates/common/incl_top.html:91
+#: common/templates/common/incl_top.html:106
 msgid "sign up"
 msgstr "הירשם"
 
