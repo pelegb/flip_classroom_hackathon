@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-06-13 21:10+0000\n"
+"POT-Creation-Date: 2016-06-14 08:51+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -41,7 +41,7 @@ msgstr "הועלה לאחרונה:"
 msgid "published"
 msgstr "הועלה ב-"
 
-#: common/templates/common/home.html:59 common/templates/common/teacher.html:56
+#: common/templates/common/home.html:59 common/templates/common/teacher.html:59
 msgid "teachers guide"
 msgstr "שיעור הפוך - מדריך למורה"
 
@@ -66,29 +66,29 @@ msgstr "תיבת חיפוש"
 msgid "Search"
 msgstr "חפש"
 
-#: common/templates/common/incl_top.html:54
+#: common/templates/common/incl_top.html:55
 #: core/templates/core/user_view.html:14 core/templates/core/user_view.html:31
 msgid "upload video"
 msgstr "העלאת סרטון"
 
-#: common/templates/common/incl_top.html:55
-msgid "Not a student?"
-msgstr "לא תלמיד?"
+#: common/templates/common/incl_top.html:56
+msgid "Creators area"
+msgstr "אזור היוצרים"
 
-#: common/templates/common/incl_top.html:84
+#: common/templates/common/incl_top.html:87
 #: core/templates/core/user_view.html:8
 msgid "hello"
 msgstr "שלום"
 
-#: common/templates/common/incl_top.html:85
+#: common/templates/common/incl_top.html:88
 msgid "log out"
 msgstr "התנתק"
 
-#: common/templates/common/incl_top.html:87
+#: common/templates/common/incl_top.html:90
 msgid "log in"
 msgstr "התחבר"
 
-#: common/templates/common/incl_top.html:88
+#: common/templates/common/incl_top.html:91
 msgid "sign up"
 msgstr "הירשם"
 
@@ -101,7 +101,7 @@ msgstr "דף הבית"
 #: common/templates/common/teacher.html:11
 #: common/templates/common/teacher.html:16
 msgid "Teachers page"
-msgstr "דף למורה"
+msgstr "אזור ליוצרים"
 
 #: core/forms.py:33
 msgid "Invalid YouTube URL"

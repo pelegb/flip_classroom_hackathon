@@ -51,8 +51,15 @@
             </form>
 
             <ul class="nav navbar-nav navbar-left">
-                <li id="add-video"><a href="{% url 'core:add_video' %}"><strong>{% trans 'upload video' %}</strong></a></li>
-                <li><a href="{% url 'common:teacher' %}">{% trans 'Not a student?' %}</a></li>
+                <li id="add-video"><a href="{% url 'core:add_video' %}"><span class="glyphicon glyphicon-upload"
+                                                                              aria-hidden="true"></span> <strong>{% trans 'upload video' %}</strong></a></li>
+                {% comment %}
+                {% if request.path_info != "/common/teacher/" %}
+                {% endcomment %}
+                {% url 'common:teacher' as teacher_url %}
+                {% if request.path_info != teacher_url %}
+                <li><a href="{{ teacher_url }}">{% trans 'Creators area' %}</a></li>
+                {% endif %}
             </ul>
         </div><!-- /.navbar-collapse -->
     </div><!-- /.container-fluid -->
@@ -65,6 +72,8 @@ $(function() {
     window.location = "{% url 'core:search' %}" + "?q=" + $('input').val();
   });
 });
+
+
 </script>
 <!--
 <div class="navbar navbar-inverse navbar-fixed-top">
