@@ -42,7 +42,11 @@
                         <div class="panel-body">
                             <ul class="list-inline">
                                 {% for child in topic.children %}
+                                {% if child.entity_type == 'topic' %}
                                 <a href="{% url 'core:topic_view' child.id %}">
+                                {% else %}
+                                <a href="{% url 'core:item_view' child.id %}">
+                                {% endif %}
                                     <li>{{ child }}</li>
                                 </a>
                                 {% endfor %}
