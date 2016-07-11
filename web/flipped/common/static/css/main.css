@@ -53,15 +53,21 @@ footer {
     display: -webkit-flex;
     display: -ms-flexbox;
     display:         flex;
+    -webkit-flex-wrap: wrap;
     flex-wrap: wrap;
 }
 
 .row-eq-height > [class*='col-'] {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
     display: flex;
+    -webkit-flex-direction: column;
     flex-direction: column;
 }
 
 .row-eq-height .panel {
+    -webkit-flex: 1;
     flex: 1;
 }
 }
