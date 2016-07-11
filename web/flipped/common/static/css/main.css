@@ -28,9 +28,12 @@ footer {
     padding-top: 5px;
 }
 
+.navbar-brand {
+    padding: 3px 0px 0px 0px;
+}
+
 .navbar-brand>img {
-    height: 250%;
-    margin-top: -15%;
+    height: 110%;
     width: auto;
 }
 
