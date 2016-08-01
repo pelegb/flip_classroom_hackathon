@@ -22,36 +22,32 @@
         </div>
     </div>
 
+    {% for category, videos in videos_list %}
+    {% if videos %}
     <div class="row">
         <div class="col-xs-12">
-            {% for category, videos in videos_list %}
-            {% if videos %}
-            <div class="row">
-                <div class="col-xs-12">
-                    <h3>{{ category }}</h3>
-                </div>
-            </div>
-            {% for video in videos %}
-            {% if forloop.counter0|divisibleby:6 %}
-            {% if not forloop.first %}
-            </div>
-            {% endif %}
-            <div class="row">
-            {% endif %}
-                <div class="col-md-3 col-sm-4 col-xs-6">
-                    <a href="{% url 'core:video_detail' video.id %}">
-                        <img src="http://img.youtube.com/vi/{{ video.youtube_movie_id }}/0.jpg" class="img-responsive">
-                        {{ video }}</a>,
-                        {% blocktrans with channel=video.youtube_channel user_name=video.user.get_full_name %}By {{channel}}, uploaded by {{ user_name }}{% endblocktrans %} <br>
-                </div>
-            {% endfor %}
-            </div>
-            {% endif %}
-            {% empty %}
-            <h3><a href="{% url 'core:add_video' %}"><font color="#F1AE47">{% trans 'Be the first to upload a video'%}</font></a></h3>
-            {% endfor %}
+            <h3>{{ category }}</h3>
         </div>
     </div>
+    <div class="row row-eq-height">
+    {% for video in videos %}
+        <div class="col-md-3 col-sm-4 col-xs-6">
+            <a href="{% url 'core:video_detail' video.id %}">
+                <img src="http://img.youtube.com/vi/{{ video.youtube_movie_id }}/0.jpg" class="img-responsive">
+                {{ video }}</a>,
+                {% blocktrans with channel=video.youtube_channel user_name=video.user.get_full_name %}By {{channel}}, uploaded by {{ user_name }}{% endblocktrans %} <br>
+        </div>
+        {% if forloop.counter|divisibleby:2 %}
+        <div class="clearfix visible-xs-block"></div>
+        {% endif %}
+    {% endfor %}
+    </div>
+    {% endif %}
+    {% empty %}
+    <div class="row">
+        <h3><a href="{% url 'core:add_video' %}"><font color="#F1AE47">{% trans 'Be the first to upload a video'%}</font></a></h3>
+    </div>
+    {% endfor %}
 </div> <!-- /container -->
 
 {% endblock %}
