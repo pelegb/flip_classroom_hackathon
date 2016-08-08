@@ -1,7 +1,7 @@
 Django==1.8.11
 django-debug-toolbar==1.4
 django-extensions==1.2.5
-django-floppyforms==1.1
+django-floppyforms==1.6.2
 django-wysihtml5==1.2b1
 ecdsa==0.10
 Fabric==1.8.1

@@ -1,0 +1,52 @@
+{% extends "common/base.html" %}
+{% block content %}
+{% load i18n %}
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-8 col-md-offset-2 col-xs-10 col-xs-offset-1">
+            <div class="row row-eq-height top-buffer">
+                <div class="col-sm-6 col-xs-12">
+                    <div class="panel panel-primary">
+                        <div class="panel-heading">
+                            {% trans 'Please login' %}
+                        </div>
+
+                        <div class="panel-body">
+                            <form class="form-horizontal" method="post" action="{% url 'fc_user:login' %}">
+                                {% csrf_token %}
+                                {{ login_form.as_p }}
+                                <input type="hidden" name="next" value="{{ next }}"/>
+                                <p>
+                                    <input type="submit" value="{% trans 'Login' %}" class="btn btn-success"/>
+                                </p>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-sm-6 col-xs-12">
+                    <div class="panel panel-primary">
+                        <div class="panel-heading">
+                            {% trans 'Please register' %}
+                        </div>
+
+                        <div class="panel-body">
+                            <form class="form-horizontal" method="post" action="{% url 'fc_user:register' %}">
+                                {% csrf_token %}
+                                {{ register_form.as_p }}
+                                <p>
+                                    <input type="submit" value="{% trans 'Register' %}" class="btn btn-success"/>
+                                </p>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+
+

@@ -39,18 +39,20 @@ def validate_youtube(value):
 
     try:
         video = VideoPage.objects.get(youtube_movie_id=video_id)
-        raise ValidationError(_(u'Video already exists: %(url)s') % {'url': reverse('core:video_detail', args=[video.id])})
+        raise ValidationError(
+            _(u'Video already exists: %(url)s') % {'url': reverse('core:video_detail', args=[video.id])})
     except VideoPage.DoesNotExist:
         pass
 
 
-
 class VideoForm(forms.Form):
+
     edited_id = forms.IntegerField(widget=forms.HiddenInput(), initial=0)
     link = forms.URLField(label=_("link"),
-                          widget=forms.TextInput(attrs={'placeholder': u'לדוגמא, https://www.youtube.com/watch?v=2H4RkudFzlc',
-                                                        'class': 'wideTextInput',
-                                                        'required': True}),
+                          widget=forms.TextInput(
+                              attrs={'placeholder': u'לדוגמא, https://www.youtube.com/watch?v=2H4RkudFzlc',
+                                     'class': 'wideTextInput',
+                                     'required': True}),
                           validators=[validate_youtube])
     title = forms.CharField(max_length=models.VideoPage.VIDEO_TITLE_LENGTH, label=_("title"),
                             widget=forms.TextInput(attrs={'placeholder': u'לדוגמא, ״הדגמת תנועת מטוטלת, מורה - איתמר״',
@@ -59,17 +61,21 @@ class VideoForm(forms.Form):
 
     content = forms.CharField(widget=Wysihtml5TextareaWidget(), label=_("content"))
     category = forms.ChoiceField(choices=VideoPage.CATEGORY_DESCRIPTION_CHOICES, required=True, label=_('category'),
-                                 widget=forms.Select(attrs={'class': 'wideTextInput', 'required': True}),)
-    item = forms.ModelChoiceField(widget=forms.HiddenInput(), queryset=models.TeachItem.objects.all(), required=True, label=_("item"))
+                                 widget=forms.Select(attrs={'class': 'wideTextInput', 'required': True}), )
+    item = forms.ModelChoiceField(widget=forms.HiddenInput(), queryset=models.TeachItem.objects.all(), required=True,
+                                  label=_("item"))
     # tags = forms.ModelMultipleChoiceField(queryset=models.Tag.objects.all(),required=False, label=_("tags"))
 
 
 class TopicSuggestForm(forms.Form):
+
     title = forms.CharField(label=_("title"), widget=forms.TextInput(attrs={'class': 'wideTextInput'}))
-    email = forms.EmailField(label=_("email"), widget=forms.EmailInput(attrs={'class': 'wideTextInput'}), required=False)
+    email = forms.EmailField(label=_("email"), widget=forms.EmailInput(attrs={'class': 'wideTextInput'}),
+                             required=False)
     description = forms.CharField(widget=Wysihtml5TextareaWidget(), label="פירוט על התוכן שצריך להיות תחת נושא זה")
     youtube_url = forms.URLField(label=u"קישור לסרטון בנושא",
-                                 widget=forms.TextInput(attrs={'placeholder': u'לדוגמא, https://www.youtube.com/watch?v=2H4RkudFzlc',
-                                                               'class': 'wideTextInput'}),
+                                 widget=forms.TextInput(
+                                     attrs={'placeholder': u'לדוגמא, https://www.youtube.com/watch?v=2H4RkudFzlc',
+                                            'class': 'wideTextInput'}),
                                  validators=[validate_youtube],
                                  required=False)
