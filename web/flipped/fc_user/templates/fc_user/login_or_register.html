@@ -16,10 +16,11 @@
                             <form class="form-horizontal" method="post" action="{% url 'fc_user:login' %}">
                                 {% csrf_token %}
                                 {{ login_form.as_p }}
-                                <input type="hidden" name="next" value="{{ next }}"/>
+                                <br>
                                 <p>
                                     <input type="submit" value="{% trans 'Login' %}" class="btn btn-success"/>
                                 </p>
+                                <input type="hidden" name="next" value="{{ next }}"/>
                             </form>
                         </div>
                     </div>
@@ -35,9 +36,11 @@
                             <form class="form-horizontal" method="post" action="{% url 'fc_user:register' %}">
                                 {% csrf_token %}
                                 {{ register_form.as_p }}
+                                <br>
                                 <p>
                                     <input type="submit" value="{% trans 'Register' %}" class="btn btn-success"/>
                                 </p>
+                                <input type="hidden" name="next" value="{{ next }}"/>
                             </form>
                         </div>
                     </div>
