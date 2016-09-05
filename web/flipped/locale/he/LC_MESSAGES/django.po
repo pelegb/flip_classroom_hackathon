@@ -241,8 +241,6 @@ msgid "Login"
 msgstr "התחבר"
 
 #: fc_user/templates/fc_user/login_or_register.html:32
-#, fuzzy
-#| msgid "Please login"
 msgid "Please register"
 msgstr "אנא הרשם"
 
