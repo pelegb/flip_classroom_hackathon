@@ -19,6 +19,36 @@
     <link rel="stylesheet" type="text/css" href="{% static 'normalize-css/normalize.css' %}">
     <link rel="stylesheet" type="text/css" href="{% static 'css/main.css' %}">
     <link rel="stylesheet" type="text/css" href="{% static 'bootstrap-rtl/dist/css/bootstrap-rtl.min.css' %}">
+
+    <script type="application/ld+json">
+    {% if ld_json %}
+        {{ ld_json }}
+    {% else %}
+    {
+        "@context": "http://schema.org",
+        "@type": "WebSite",
+        "name": "The Open Class",
+        "alternateName": "שיעור פתוח",
+        "url": "http://the-openclass.org",
+        "author": {
+            "@type": "Organization",
+            "url": "http://the-openclass.org",
+            "logo": "http://the-openclass.org{% static 'img/logo-small-inverse.png' %}",
+            "contactPoint": [{
+                "@type": "ContactPoint",
+                "email": "info@the-openclass.org",
+                "contactType": "customer service",
+                "url": "http://the-openclass.org"
+            }]
+        },
+        "potentialAction": {
+            "@type": "SearchAction",
+            "target": "http://the-openclass.org/core/search/?q={search_term_string}",
+            "query-input": "required name=search_term_string"
+        }
+    }
+    {% endif %}
+    </script>
 </head>
 
 <body>
