@@ -4,6 +4,7 @@ import forms
 from django.http.response import HttpResponseRedirect
 from django.contrib.auth import login, authenticate
 from django.contrib.auth.models import User
+from django.utils.translation import ugettext as _
 
 
 def register(request):
@@ -28,4 +29,4 @@ def register(request):
         next = request.POST.get('next')
     login_form = forms.AuthenticationForm()
     return render(request, 'fc_user/login_or_register.html',
-                  dict(register_form=register_form, login_form=login_form, next=next))
+                  dict(register_form=register_form, login_form=login_form, next=next, title=_('Login')))

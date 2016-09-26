@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-09-05 19:23+0000\n"
+"POT-Creation-Date: 2016-09-26 20:03+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -45,7 +45,7 @@ msgstr "הועלה ב-"
 msgid "teachers guide"
 msgstr "שיעור הפוך - מדריך למורה"
 
-#: common/templates/common/incl_bottom.html:8
+#: common/templates/common/incl_bottom.html:8 common/views.py:14
 msgid "about us"
 msgstr "אודות"
 
@@ -58,42 +58,44 @@ msgstr "רוצה לעזור?"
 msgid "Open Class"
 msgstr "שיעור פתוח"
 
-#: common/templates/common/incl_top.html:46
+#: common/templates/common/incl_top.html:76
 msgid "Search box"
 msgstr "תיבת חיפוש"
 
-#: common/templates/common/incl_top.html:49
+#: common/templates/common/incl_top.html:79
 msgid "Search"
 msgstr "חפש"
 
-#: common/templates/common/incl_top.html:55
+#: common/templates/common/incl_top.html:85
 #: core/templates/core/user_view.html:14 core/templates/core/user_view.html:31
 msgid "upload video"
 msgstr "העלאת סרטון"
 
-#: common/templates/common/incl_top.html:61
-#: common/templates/common/incl_top.html:69
+#: common/templates/common/incl_top.html:91
+#: common/templates/common/incl_top.html:99
+#: common/templates/common/teacher.html:11
+#: common/templates/common/teacher.html:16 common/views.py:24
 msgid "Creators area"
 msgstr "אזור היוצרים"
 
-#: common/templates/common/incl_top.html:62
+#: common/templates/common/incl_top.html:92
 msgid "my videos"
 msgstr "הסרטונים שלי"
 
-#: common/templates/common/incl_top.html:63
+#: common/templates/common/incl_top.html:93
 msgid "log out"
 msgstr "התנתק"
 
-#: common/templates/common/teacher.html:10 core/templates/core/item_view.html:9
-#: core/templates/core/search.html:11 core/templates/core/topic_view.html:11
-#: core/templates/core/video_detail.html:15
+#: common/templates/common/teacher.html:10 common/views.py:10
+#: core/templates/core/item_view.html:9 core/templates/core/search.html:11
+#: core/templates/core/topic_view.html:11
+#: core/templates/core/video_detail.html:11
 msgid "Home"
 msgstr "דף הבית"
 
-#: common/templates/common/teacher.html:11
-#: common/templates/common/teacher.html:16
-msgid "Teachers page"
-msgstr "אזור ליוצרים"
+#: common/views.py:18
+msgid "help"
+msgstr "עזרה"
 
 #: core/forms.py:33
 msgid "Invalid YouTube URL"
@@ -189,13 +191,13 @@ msgstr "רלוונטיות"
 msgid "change your password"
 msgstr "שנה את סיסמתי"
 
-#: core/templates/core/video_detail.html:32
+#: core/templates/core/video_detail.html:28
 #, python-format
 msgid "By %(channel)s, uploaded by %(user_name)s on %(day)s %(month)s %(year)s"
 msgstr ""
 "מאת %(channel)s, הועלה ע\"י %(user_name)s בתאריך %(day)s ל%(month)s %(year)s"
 
-#: core/templates/core/video_detail.html:34
+#: core/templates/core/video_detail.html:30
 msgid "edit"
 msgstr "ערוך"
 
@@ -236,7 +238,7 @@ msgid "Your username and password didn't match. Please try again."
 msgstr "שם המשתמש או הסיסמה שגויים"
 
 #: fc_user/templates/fc_user/login.html:23
-#: fc_user/templates/fc_user/login_or_register.html:21
+#: fc_user/templates/fc_user/login_or_register.html:21 fc_user/views.py:32
 msgid "Login"
 msgstr "התחבר"
 
@@ -267,9 +269,8 @@ msgid ""
 "Please enter your old password, for security's sake, and then enter your new "
 "password twice so we can verify you typed it in correctly."
 msgstr ""
-"נא להזין את סיסמתך הישנה, לצרכי אבטחה, ולאחר מכן את סיסמתך החדשה פעמיים "
-"כדי שנוכל לוודא שהקלדת אותה כראוי."
-
+"נא להזין את סיסמתך הישנה, לצרכי אבטחה, ולאחר מכן את סיסמתך החדשה פעמיים כדי "
+"שנוכל לוודא שהקלדת אותה כראוי."
 
 #: fc_user/templates/fc_user/password_change.html:26
 msgid "Old password"
