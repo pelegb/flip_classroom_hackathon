@@ -12,3 +12,10 @@ def get_jstree_data(subtree, topic_id, opened=True, enable_items_only=False, inc
                   'real_id': entity.id}
                  for entity in subtree]
     return tree_data
+
+
+def get_video_structured_data(video):
+    return {'@type': 'VideoObject', 'name': video.video_title, 'description': video.content,
+                       'thumbnailUrl': 'http://img.youtube.com/vi/%s/0.jpg'%video.youtube_movie_id,
+                       'uploadDate': video.upload_date,
+                       'embedUrl': 'http://www.youtube.com/embed/%s'%video.youtube_movie_id}

@@ -1,7 +1,7 @@
 from collections import defaultdict
 from common.utils import request_youtube_info
 from core.models import RatingReview
-from core.utils import get_jstree_data
+from core.utils import get_jstree_data, get_video_structured_data
 from django.contrib.auth.decorators import login_required
 from django.core.serializers.json import DjangoJSONEncoder
 from django.core.urlresolvers import reverse
@@ -48,11 +48,7 @@ def video_detail(request, video_id):
         except RatingReview.DoesNotExist:
             ctx['rate_rel']['cur'] = ''
 
-    structured_data = {'@type': 'VideoObject', 'name': video.video_title, 'description': video.content,
-                       'thumbnailUrl': 'http://img.youtube.com/vi/%s/0.jpg'%video.youtube_movie_id,
-                       'uploadDate': video.upload_date,
-                       'embedUrl': 'http://www.youtube.com/embed/%s'%video.youtube_movie_id}
-    ctx['ld_json'] = json.dumps(structured_data, cls=DjangoJSONEncoder)
+    ctx['ld_json'] = json.dumps(get_video_structured_data(video), cls=DjangoJSONEncoder)
     return render(request, 'core/video_detail.html', ctx)
 
 
@@ -172,8 +168,10 @@ def item_view(request, item_id):
     ancestors = item.get_ancestry()
     ancestors = ancestors[:-1]
 
+    structured_data = {'@type': 'VideoGallery', 'video': map(get_video_structured_data, videos)}
+    ld_json = json.dumps(structured_data, cls=DjangoJSONEncoder)
     return render(request, 'core/item_view.html',
-                  {'item': item, 'videos_list': videos_list, 'ancestors': ancestors, 'title': item.title})
+                  {'item': item, 'videos_list': videos_list, 'ancestors': ancestors, 'title': item.title, 'ld_json': ld_json})
 
 
 def search(request):
