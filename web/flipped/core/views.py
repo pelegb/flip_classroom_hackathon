@@ -1,7 +1,7 @@
 from collections import defaultdict
 from common.utils import request_youtube_info
 from core.models import RatingReview
-from core.utils import get_jstree_data, get_video_structured_data
+from core.utils import get_jstree_data, get_video_structured_data, get_ancestors_structured_data
 from django.contrib.auth.decorators import login_required
 from django.core.serializers.json import DjangoJSONEncoder
 from django.core.urlresolvers import reverse
@@ -48,7 +48,9 @@ def video_detail(request, video_id):
         except RatingReview.DoesNotExist:
             ctx['rate_rel']['cur'] = ''
 
-    ctx['ld_json'] = json.dumps(get_video_structured_data(video), cls=DjangoJSONEncoder)
+    structured_data = [get_video_structured_data(video),
+                       {'@type': 'BreadcrumbList', 'itemListElement': get_ancestors_structured_data(ancestors) + [{'@type': 'ListItem', 'position': len(ancestors)+1, 'item': {'@id': reverse('core:video_detail', args=(video.id,)), 'name': unicode(video)}}]}]
+    ctx['ld_json'] = json.dumps(structured_data, cls=DjangoJSONEncoder)[1:-1]
     return render(request, 'core/video_detail.html', ctx)
 
 
@@ -141,13 +143,16 @@ def topic_view(request, topic_id):
         parent=topic)  # improve teach item children query
 
     children = sorted(list(topic_children) + list(item_children), key=lambda x: x.order_index)
-    ancestors = topic.get_ancestry()
-    ancestors = ancestors[:-1]
+    breadcrumbs = topic.get_ancestry()
+    ancestors = breadcrumbs[:-1]
 
     children_tuple = map(lambda x: (x, x.children(), len(x.children())), children)
 
+    structured_data = {'@type': 'BreadcrumbList', 'itemListElement': get_ancestors_structured_data(breadcrumbs)}
+    ld_json = json.dumps(structured_data, cls=DjangoJSONEncoder)
+
     return render(request, 'core/topic_view.html',
-                  {'topic': topic, 'children': children_tuple, 'ancestors': ancestors, 'title': topic.title})
+                  {'topic': topic, 'children': children_tuple, 'ancestors': ancestors, 'title': topic.title, 'ld_json': ld_json})
 
 
 def item_view(request, item_id):
@@ -165,11 +170,12 @@ def item_view(request, item_id):
     videos_list = [(ugettext_lazy(category + '_plural'), videos_dict[category]) for category in
                    VideoPage.CATEGORY_VALUES]
 
-    ancestors = item.get_ancestry()
-    ancestors = ancestors[:-1]
+    breadcrumbs = item.get_ancestry()
+    ancestors = breadcrumbs[:-1]
 
-    structured_data = {'@type': 'VideoGallery', 'video': map(get_video_structured_data, videos)}
-    ld_json = json.dumps(structured_data, cls=DjangoJSONEncoder)
+    structured_data = [{'@type': 'VideoGallery', 'video': map(get_video_structured_data, videos)},
+                       {'@type': 'BreadcrumbList', 'itemListElement': get_ancestors_structured_data(breadcrumbs)}]
+    ld_json = json.dumps(structured_data, cls=DjangoJSONEncoder)[1:-1]
     return render(request, 'core/item_view.html',
                   {'item': item, 'videos_list': videos_list, 'ancestors': ancestors, 'title': item.title, 'ld_json': ld_json})
 
