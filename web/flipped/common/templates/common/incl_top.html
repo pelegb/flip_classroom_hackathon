@@ -22,10 +22,16 @@
 
     <script type="application/ld+json">
     {% if ld_json %}
-        {{ ld_json }}
+    {
+        "@context": "http://schema.org",
+        "@graph":
+        [
+        {{ ld_json | safe }}
+        ,{
     {% else %}
     {
         "@context": "http://schema.org",
+    {% endif %}
         "@type": "WebSite",
         "name": "The Open Class",
         "alternateName": "שיעור פתוח",
@@ -47,6 +53,8 @@
             "query-input": "required name=search_term_string"
         }
     }
+    {% if ld_json %}
+    ]}
     {% endif %}
     </script>
 </head>

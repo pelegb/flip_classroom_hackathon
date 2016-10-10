@@ -3,6 +3,7 @@ from common.utils import request_youtube_info
 from core.models import RatingReview
 from core.utils import get_jstree_data
 from django.contrib.auth.decorators import login_required
+from django.core.serializers.json import DjangoJSONEncoder
 from django.core.urlresolvers import reverse
 from django.http.response import HttpResponseRedirect, Http404
 from django.shortcuts import render, get_object_or_404
@@ -46,6 +47,12 @@ def video_detail(request, video_id):
             ctx['rate_rel']['cur'] = RatingReview.objects.get(user=request.user, context='rel', video=video).rate
         except RatingReview.DoesNotExist:
             ctx['rate_rel']['cur'] = ''
+
+    structured_data = {'@type': 'VideoObject', 'name': video.video_title, 'description': video.content,
+                       'thumbnailUrl': 'http://img.youtube.com/vi/%s/0.jpg'%video.youtube_movie_id,
+                       'uploadDate': video.upload_date,
+                       'embedUrl': 'http://www.youtube.com/embed/%s'%video.youtube_movie_id}
+    ctx['ld_json'] = json.dumps(structured_data, cls=DjangoJSONEncoder)
     return render(request, 'core/video_detail.html', ctx)
 
 
@@ -164,6 +171,7 @@ def item_view(request, item_id):
 
     ancestors = item.get_ancestry()
     ancestors = ancestors[:-1]
+
     return render(request, 'core/item_view.html',
                   {'item': item, 'videos_list': videos_list, 'ancestors': ancestors, 'title': item.title})
 
