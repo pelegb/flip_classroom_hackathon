@@ -58,7 +58,8 @@ def update_apt(package=None):
                 'libpq-dev',
                 'python-dev',
                 'newrelic-sysmond',
-                's3cmd'
+                's3cmd',
+                'unattended-upgrades'
     	)
 
     for p in packages:
