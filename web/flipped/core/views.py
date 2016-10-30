@@ -182,13 +182,18 @@ def item_view(request, item_id):
 
 def search(request):
     q = request.GET.get('q')
-    topics = TeachTopic.objects.prefetch_related('teachtopic_set', 'teachitem_set').filter(title__icontains=q)
-    items = TeachItem.objects.prefetch_related('videopage_set').filter(title__icontains=q)
-    children = sorted(list(topics) + list(items), key=lambda x: x.order_index)
-    children_tuple = map(lambda x: (x, x.children(), len(x.children())), children)
+    if q:
+        topics = TeachTopic.objects.prefetch_related('teachtopic_set', 'teachitem_set').filter(title__icontains=q)
+        items = TeachItem.objects.prefetch_related('videopage_set').filter(title__icontains=q)
+        children = sorted(list(topics) + list(items), key=lambda x: x.order_index)
+        children_tuple = map(lambda x: (x, x.children(), len(x.children())), children)
+        title = ugettext_lazy('Results for %(q)s') % {'q': q}
+    else:
+        children_tuple = []
+        title = ugettext_lazy('Search page')
 
     return render(request, 'core/search.html',
-                  {'children': children_tuple, 'q': q, 'title': ugettext_lazy('Results for %(q)s') % {'q': q}})
+                  {'children': children_tuple, 'title': title})
 
 
 @login_required

@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-09-26 20:03+0000\n"
+"POT-Creation-Date: 2016-10-30 08:03+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -58,31 +58,31 @@ msgstr "רוצה לעזור?"
 msgid "Open Class"
 msgstr "שיעור פתוח"
 
-#: common/templates/common/incl_top.html:76
+#: common/templates/common/incl_top.html:84
 msgid "Search box"
 msgstr "תיבת חיפוש"
 
-#: common/templates/common/incl_top.html:79
+#: common/templates/common/incl_top.html:87
 msgid "Search"
 msgstr "חפש"
 
-#: common/templates/common/incl_top.html:85
+#: common/templates/common/incl_top.html:93
 #: core/templates/core/user_view.html:14 core/templates/core/user_view.html:31
 msgid "upload video"
 msgstr "העלאת סרטון"
 
-#: common/templates/common/incl_top.html:91
 #: common/templates/common/incl_top.html:99
+#: common/templates/common/incl_top.html:107
 #: common/templates/common/teacher.html:11
 #: common/templates/common/teacher.html:16 common/views.py:24
 msgid "Creators area"
 msgstr "אזור היוצרים"
 
-#: common/templates/common/incl_top.html:92
+#: common/templates/common/incl_top.html:100
 msgid "my videos"
 msgstr "הסרטונים שלי"
 
-#: common/templates/common/incl_top.html:93
+#: common/templates/common/incl_top.html:101
 msgid "log out"
 msgstr "התנתק"
 
@@ -158,11 +158,11 @@ msgstr "מאת %(channel)s, הועלה ע\"י %(user_name)s"
 msgid "Be the first to upload a video"
 msgstr "רוצים להיות הראשונים? העלו סרטון"
 
-#: core/templates/core/search.html:12
+#: core/templates/core/search.html:12 core/views.py:193
 msgid "Search page"
 msgstr "דף חיפוש"
 
-#: core/templates/core/search.html:19 core/views.py:179
+#: core/templates/core/search.html:19 core/views.py:190
 #, python-format
 msgid "Results for %(q)s"
 msgstr "תוצאות עבור %(q)s"
@@ -201,7 +201,7 @@ msgstr ""
 msgid "edit"
 msgstr "ערוך"
 
-#: core/views.py:162
+#: core/views.py:170
 #, fuzzy
 msgid "_plural"
 msgstr "אחרים"
