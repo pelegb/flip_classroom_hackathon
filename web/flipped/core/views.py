@@ -48,9 +48,9 @@ def video_detail(request, video_id):
         except RatingReview.DoesNotExist:
             ctx['rate_rel']['cur'] = ''
 
-    structured_data = {'@type': 'BreadcrumbList', 'itemListElement': get_ancestors_structured_data(ancestors) + [
+    structured_data = [{'@type': 'BreadcrumbList', 'itemListElement': get_ancestors_structured_data(ancestors) + [
         {'@type': 'ListItem', 'position': len(ancestors) + 1,
-         'item': {'@id': reverse('core:video_detail', args=(video.id,)), 'name': unicode(video)}}]}
+         'item': {'@id': reverse('core:video_detail', args=(video.id,)), 'name': unicode(video)}}]}]
     ctx['ld_json'] = json.dumps(structured_data, cls=DjangoJSONEncoder)[1:-1]
     return render(request, 'core/video_detail.html', ctx)
 
