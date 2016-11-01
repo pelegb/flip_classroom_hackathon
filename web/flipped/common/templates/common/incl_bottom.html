@@ -22,7 +22,7 @@
   m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
   })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
 
-  ga('create', 'UA-46460590-2', 'the-openclass.org');
+  ga('create', {% if debug %} 'UA-46460590-1' {% else %} 'UA-46460590-2' {% endif %}, 'the-openclass.org');
   ga('send', 'pageview');
 
   /**
