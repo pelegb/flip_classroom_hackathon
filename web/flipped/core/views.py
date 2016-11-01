@@ -48,8 +48,9 @@ def video_detail(request, video_id):
         except RatingReview.DoesNotExist:
             ctx['rate_rel']['cur'] = ''
 
-    structured_data = [get_video_structured_data(video),
-                       {'@type': 'BreadcrumbList', 'itemListElement': get_ancestors_structured_data(ancestors) + [{'@type': 'ListItem', 'position': len(ancestors)+1, 'item': {'@id': reverse('core:video_detail', args=(video.id,)), 'name': unicode(video)}}]}]
+    structured_data = {'@type': 'BreadcrumbList', 'itemListElement': get_ancestors_structured_data(ancestors) + [
+        {'@type': 'ListItem', 'position': len(ancestors) + 1,
+         'item': {'@id': reverse('core:video_detail', args=(video.id,)), 'name': unicode(video)}}]}
     ctx['ld_json'] = json.dumps(structured_data, cls=DjangoJSONEncoder)[1:-1]
     return render(request, 'core/video_detail.html', ctx)
 
@@ -152,7 +153,8 @@ def topic_view(request, topic_id):
     ld_json = json.dumps(structured_data, cls=DjangoJSONEncoder)
 
     return render(request, 'core/topic_view.html',
-                  {'topic': topic, 'children': children_tuple, 'ancestors': ancestors, 'title': topic.title, 'ld_json': ld_json})
+                  {'topic': topic, 'children': children_tuple, 'ancestors': ancestors, 'title': topic.title,
+                   'ld_json': ld_json})
 
 
 def item_view(request, item_id):
@@ -177,7 +179,8 @@ def item_view(request, item_id):
                        {'@type': 'BreadcrumbList', 'itemListElement': get_ancestors_structured_data(breadcrumbs)}]
     ld_json = json.dumps(structured_data, cls=DjangoJSONEncoder)[1:-1]
     return render(request, 'core/item_view.html',
-                  {'item': item, 'videos_list': videos_list, 'ancestors': ancestors, 'title': item.title, 'ld_json': ld_json})
+                  {'item': item, 'videos_list': videos_list, 'ancestors': ancestors, 'title': item.title,
+                   'ld_json': ld_json})
 
 
 def search(request):
