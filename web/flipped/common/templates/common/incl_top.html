@@ -75,12 +75,12 @@
             "name": videoResult.snippet.title,
             "description": videoResult.snippet.description,
             "thumbnailUrl": videoResult.snippet.thumbnails.standard.url,
-            "uploadedDate": videoResult.snippet.publishedAt,
+            "uploadDate": videoResult.snippet.publishedAt,
             "duration": videoResult.contentDetails.duration,
             "embedUrl": "https://www.youtube.com/embed/" + videoResult.id,
             "interactionCount":  videoResult.statistics.viewCount
         });
-        document.querySelector('head').appendChild(el);
+        document.querySelector('body').appendChild(el);
     };
 
     function handleAPILoaded() {
