@@ -59,6 +59,7 @@
     </script>
 
     {% if video %}
+    <script src="https://apis.google.com/js/api.js"></script>
     <script>
     function getVideoIds() {
         return "{{ video.youtube_movie_id }}"
@@ -113,9 +114,11 @@
     function loadClient() {
         gapi.load('client', start);
     }
+
+    loadClient();
     </script>
-    <script async defer src="https://apis.google.com/js/api.js" onload="loadClient()"
-      onreadystatechange="if (this.readyState === 'complete') this.onload()"></script>
+    <!--<script async defer src="https://apis.google.com/js/api.js" onload="loadClient()"-->
+      <!--onreadystatechange="if (this.readyState === 'complete') this.onload()"></script>-->
     {% endif %}
 
 </head>
