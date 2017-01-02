@@ -91,6 +91,7 @@ class TeachTopic(TeachEntity):
 
 class VideoPage(models.Model):
     VIDEO_TITLE_LENGTH = 50
+    VIDEO_DESCRIPTION_LENGTH = 512
     LESSON = 'LESSON'
     DEMONSTRATION = 'DEMONSTRATION'
     EXPERIMENT = 'EXPERIMENT'
@@ -105,7 +106,12 @@ class VideoPage(models.Model):
     youtube_channel = models.CharField(max_length=200)
     upload_date = models.DateTimeField('date uploaded to our site', auto_now_add=True)
     content = models.TextField()
+
     video_title = models.CharField(max_length=VIDEO_TITLE_LENGTH)
+    video_description = models.CharField(max_length=VIDEO_DESCRIPTION_LENGTH, null=True)
+    video_upload_date = models.DateTimeField('date uploaded to Youtube', null=True)
+    video_duration = models.CharField(max_length=20, null=True)
+
     user = models.ForeignKey(AUTH_USER_MODEL)
     teach_item = models.ForeignKey(TeachItem, blank=True, null=True)
     tags = models.ManyToManyField('Tag', related_name='videos', blank=True, null=True)
