@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-10-30 08:03+0000\n"
+"POT-Creation-Date: 2017-02-07 12:57+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -89,7 +89,7 @@ msgstr "התנתק"
 #: common/templates/common/teacher.html:10 common/views.py:10
 #: core/templates/core/item_view.html:9 core/templates/core/search.html:11
 #: core/templates/core/topic_view.html:11
-#: core/templates/core/video_detail.html:11
+#: core/templates/core/video_detail.html:12
 msgid "Home"
 msgstr "דף הבית"
 
@@ -135,7 +135,7 @@ msgstr "נושא לימוד"
 msgid "email"
 msgstr "דואל"
 
-#: core/models.py:102
+#: core/models.py:103
 #, fuzzy
 msgid "_description"
 msgstr "אחר - סרטון רלוונטי ומעניין שאינו מתאים לאפשרויות שלעיל"
@@ -158,14 +158,9 @@ msgstr "מאת %(channel)s, הועלה ע\"י %(user_name)s"
 msgid "Be the first to upload a video"
 msgstr "רוצים להיות הראשונים? העלו סרטון"
 
-#: core/templates/core/search.html:12 core/views.py:193
+#: core/templates/core/search.html:12 core/views.py:201
 msgid "Search page"
 msgstr "דף חיפוש"
-
-#: core/templates/core/search.html:19 core/views.py:190
-#, python-format
-msgid "Results for %(q)s"
-msgstr "תוצאות עבור %(q)s"
 
 #: core/templates/core/search.html:77 core/templates/core/topic_view.html:81
 msgid "more"
@@ -191,20 +186,37 @@ msgstr "רלוונטיות"
 msgid "change your password"
 msgstr "שנה את סיסמתי"
 
-#: core/templates/core/video_detail.html:28
+#: core/templates/core/video_detail.html:29
 #, python-format
 msgid "By %(channel)s, uploaded by %(user_name)s on %(day)s %(month)s %(year)s"
 msgstr ""
 "מאת %(channel)s, הועלה ע\"י %(user_name)s בתאריך %(day)s ל%(month)s %(year)s"
 
-#: core/templates/core/video_detail.html:30
+#: core/templates/core/video_detail.html:31
 msgid "edit"
 msgstr "ערוך"
 
-#: core/views.py:170
+#: core/templates/core/video_detail.html:55
+msgid "Previous"
+msgstr "הקודם:"
+
+#: core/templates/core/video_detail.html:60
+msgid "More"
+msgstr "עוד:"
+
+#: core/templates/core/video_detail.html:65
+msgid "Next"
+msgstr "הבא:"
+
+#: core/views.py:178
 #, fuzzy
 msgid "_plural"
 msgstr "אחרים"
+
+#: core/views.py:198
+#, python-format
+msgid "Results for %(q)s"
+msgstr "תוצאות עבור %(q)s"
 
 #: fc_user/forms.py:10
 #, fuzzy, python-format

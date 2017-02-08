@@ -1,7 +1,7 @@
 from collections import defaultdict
 from common.utils import request_youtube_info
 from core.models import RatingReview
-from core.utils import get_jstree_data, get_video_structured_data, get_ancestors_structured_data
+from core.utils import get_jstree_data, get_video_structured_data, get_ancestors_structured_data, get_next_and_prev
 from django.contrib.auth.decorators import login_required
 from django.core.serializers.json import DjangoJSONEncoder
 from django.core.urlresolvers import reverse
@@ -34,7 +34,8 @@ def get_global_ratings(video):
 def video_detail(request, video_id):
     video = get_object_or_404(VideoPage, pk=video_id)
     ancestors = video.teach_item.get_ancestry()
-    ctx = dict(video=video, ancestors=ancestors, title=video.video_title)
+    next_item, prev_item = get_next_and_prev(ancestors[-2], video.teach_item)
+    ctx = dict(video=video, ancestors=ancestors, title=video.video_title, next=next_item, prev=prev_item)
     ctx.update(get_global_ratings(video))
 
     if request.user.is_authenticated():

@@ -103,3 +103,9 @@ footer {
 #add-video a:hover {
     color: #FFBD5B;
 }
+
+.nav-button {
+    white-space: normal;
+    vertical-align: top;
+}
+

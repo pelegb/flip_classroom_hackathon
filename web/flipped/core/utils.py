@@ -36,3 +36,11 @@ def get_ancestor_structured_data(args):
 
 def get_ancestors_structured_data(ancestors):
     return map(get_ancestor_structured_data, zip(ancestors, range(len(ancestors))))
+
+
+def get_next_and_prev(teach_topic, teach_item):
+    teach_entity_list = sorted(list(teach_topic.teachtopic_set.all()) + list(teach_topic.teachitem_set.all()), key=lambda x: x.order_index)
+    index = teach_entity_list.index(teach_item)
+    prev_item = teach_entity_list[index-1] if index > 0 else None
+    next_item = teach_entity_list[index+1] if index < len(teach_entity_list) - 1 else None
+    return next_item, prev_item
