@@ -79,8 +79,8 @@
   firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
 
   var player;
+  var prevPlayerPlaying = false;
   function onYouTubeIframeAPIReady() {
-    console.log('aaaa');
     player = new YT.Player('youtube-iframe', {
         events: {
           'onStateChange': onPlayerStateChange
@@ -90,13 +90,19 @@
 
   function onPlayerStateChange(event) {
     if (event.data == YT.PlayerState.ENDED) {
-     ga('send', 'event', 'video.view', 'ended', player.getVideoData().video_id, {
-       'transport': 'beacon'
-     });
+        ga('send', 'event', 'video.view', 'ended', player.getVideoData().video_id, {
+            'transport': 'beacon'
+        });
     } else if (event.data == YT.PlayerState.PLAYING) {
-     ga('send', 'event', 'video.view', 'playing', player.getVideoData().video_id, {
-       'transport': 'beacon'
-     });
+        ga('send', 'event', 'video.view', 'playing', player.getVideoData().video_id, {
+            'transport': 'beacon'
+        });
+        if (!prevPlayerPlaying) {
+            ga('send', 'event', 'video.view', 'starting', player.getVideoData().video_id, {
+                'transport': 'beacon'
+            });
+        }
+        prevPlayerPlaying = true;
     }
   }
 </script>
