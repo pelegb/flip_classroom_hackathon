@@ -51,17 +51,17 @@
         <div class="col-md-8 text-center">
                 <div class="btn-group btn-group-justified " role="group">
                     {% if prev %}
-                    <a href="{{ prev | teach_entity_url }}" role="button" class="btn btn-primary nav-button">
+                    <a id="previous-button" href="{{ prev | teach_entity_url }}" role="button" class="btn btn-primary nav-button">
                         <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>{% trans 'Previous' %}<br>
                         {{ prev }}
                     </a>
                     {% endif %}
-                    <a href="{{ video.teach_item | teach_entity_url }}" role="button" class="btn btn-primary nav-button">
+                    <a id="more-button" href="{{ video.teach_item | teach_entity_url }}" role="button" class="btn btn-primary nav-button">
                         <span class="glyphicon glyphicon-chevron-down" aria-hidden="true"></span> {% trans 'More' %}<br>
                         {{ video.teach_item }}
                     </a>
                     {% if next %}
-                    <a href="{{ next | teach_entity_url }}" role="button" class="btn btn-primary nav-button">
+                    <a id="next-button" href="{{ next | teach_entity_url }}" role="button" class="btn btn-primary nav-button">
                         {% trans 'Next' %}<span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span><br>
                         {{ next }}
                     </a>
@@ -105,5 +105,23 @@
         prevPlayerPlaying = true;
     }
   }
+</script>
+
+<script type="text/javascript">
+    $("#previous-button").click(function() {
+        ga('send', 'event', 'video_page.navigation', 'previous', {
+            'transport': 'beacon'
+        });
+    });
+    $("#more-button").click(function() {
+        ga('send', 'event', 'video_page.navigation', 'more', {
+            'transport': 'beacon'
+        });
+    });
+    $("#next-button").click(function() {
+        ga('send', 'event', 'video_page.navigation', 'next', {
+            'transport': 'beacon'
+        });
+    });
 </script>
 {% endblock %}
