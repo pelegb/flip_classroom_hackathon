@@ -5,7 +5,7 @@ import tempfile
 
 # Configuration for DigitalOcean
 # You need to create the user manually
-env.hosts = ['107.170.4.199']
+env.hosts = ['95.85.30.156']
 env.user = 'flip'
 
 
@@ -35,13 +35,17 @@ def create_new():
     update_apt()
     update_pip()
     update_git()
+    update_newrelic_config()
     update_conf()
+    put_local_settings()
     db_first_time()
+    collect_static()
+
     
 @task
 def update_host():
     """ general host update """
-    sudo('echo deb http://apt.newrelic.com/debian/ newrelic non-free > /etc/apt/sources.list.d/newrelic.list')
+    sudo('echo deb http://apt.newrelic.com/debian/ newrelic non-free > sudo tee /etc/apt/sources.list.d/newrelic.list')
     sudo('wget -O- https://download.newrelic.com/548C16BF.gpg | apt-key add -')
     sudo('apt-get update')
     sudo('apt-get --yes -q upgrade')
@@ -59,7 +63,8 @@ def update_apt(package=None):
                 'python-dev',
                 'newrelic-sysmond',
                 's3cmd',
-                'unattended-upgrades'
+                'unattended-upgrades',
+                'gunicorn'
     	)
 
     for p in packages:
@@ -81,6 +86,9 @@ def update_git():
         with cd(env.repo_dir):
             run('git pull')
 
+
+@task
+def collect_static():
     # collect static
     with cd(env.django_base_dir):
         run('python manage.py collectstatic --noinput')
@@ -89,6 +97,7 @@ def update_git():
 @task 
 def update_site():
     update_git()
+    collect_static()
     with cd(env.django_base_dir):
         run('python manage.py migrate')
     reload_gunicorn()
@@ -98,7 +107,7 @@ def update_site():
 def update_pip():
     """ updates/install all pip packages """
     sudo('pip install --upgrade pip')
-    sudo('pip install setuptools --no-use-wheel --upgrade')
+    sudo('pip install setuptools --upgrade')
     put('files/requirements.txt','/tmp/requirements.txt')
     sudo('pip install -r /tmp/requirements.txt')
     put('files/server_requirements.txt','/tmp/server_requirements.txt')
