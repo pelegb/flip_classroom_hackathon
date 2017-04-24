@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-02-07 12:57+0000\n"
+"POT-Creation-Date: 2017-04-24 18:10+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -66,23 +66,31 @@ msgstr "תיבת חיפוש"
 msgid "Search"
 msgstr "חפש"
 
-#: common/templates/common/incl_top.html:93
+#: common/templates/common/incl_top.html:94
+msgid "Syllabuses"
+msgstr "סילבוסים"
+
+#: common/templates/common/incl_top.html:96
+msgid "Mathematics 5 units"
+msgstr "מתמטיקה 5 יחֿֿ\"ל"
+
+#: common/templates/common/incl_top.html:100
 #: core/templates/core/user_view.html:14 core/templates/core/user_view.html:31
 msgid "upload video"
 msgstr "העלאת סרטון"
 
-#: common/templates/common/incl_top.html:99
-#: common/templates/common/incl_top.html:107
+#: common/templates/common/incl_top.html:106
+#: common/templates/common/incl_top.html:114
 #: common/templates/common/teacher.html:11
 #: common/templates/common/teacher.html:16 common/views.py:24
 msgid "Creators area"
 msgstr "אזור היוצרים"
 
-#: common/templates/common/incl_top.html:100
+#: common/templates/common/incl_top.html:107
 msgid "my videos"
 msgstr "הסרטונים שלי"
 
-#: common/templates/common/incl_top.html:101
+#: common/templates/common/incl_top.html:108
 msgid "log out"
 msgstr "התנתק"
 
