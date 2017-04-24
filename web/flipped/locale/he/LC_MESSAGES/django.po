@@ -75,8 +75,6 @@ msgid "Mathematics 5 units"
 msgstr "מתמטיקה 5 יחֿֿ\"ל"
 
 #: common/templates/common/incl_top.html:97
-#, fuzzy
-#| msgid "Mathematics 5 units"
 msgid "Mathematics 4 units"
 msgstr "מתמטיקה 4 יחֿֿ\"ל"
 
