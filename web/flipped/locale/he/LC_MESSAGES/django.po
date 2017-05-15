@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-04-24 19:31+0000\n"
+"POT-Creation-Date: 2017-05-15 19:30+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -78,23 +78,28 @@ msgstr "מתמטיקה 5 יחֿֿ\"ל"
 msgid "Mathematics 4 units"
 msgstr "מתמטיקה 4 יחֿֿ\"ל"
 
-#: common/templates/common/incl_top.html:101
+#: common/templates/common/incl_top.html:98
+#| msgid "Mathematics 5 units"
+msgid "Mathematics 3 units"
+msgstr "מתמטיקה 3 יחֿֿ\"ל"
+
+#: common/templates/common/incl_top.html:102
 #: core/templates/core/user_view.html:14 core/templates/core/user_view.html:31
 msgid "upload video"
 msgstr "העלאת סרטון"
 
-#: common/templates/common/incl_top.html:107
-#: common/templates/common/incl_top.html:115
+#: common/templates/common/incl_top.html:108
+#: common/templates/common/incl_top.html:116
 #: common/templates/common/teacher.html:11
 #: common/templates/common/teacher.html:16 common/views.py:24
 msgid "Creators area"
 msgstr "אזור היוצרים"
 
-#: common/templates/common/incl_top.html:108
+#: common/templates/common/incl_top.html:109
 msgid "my videos"
 msgstr "הסרטונים שלי"
 
-#: common/templates/common/incl_top.html:109
+#: common/templates/common/incl_top.html:110
 msgid "log out"
 msgstr "התנתק"
 
@@ -208,15 +213,39 @@ msgstr ""
 msgid "edit"
 msgstr "ערוך"
 
-#: core/templates/core/video_detail.html:55
+#: core/templates/core/video_detail.html:46
+msgid "Help open-classroom to improve the site"
+msgstr ""
+
+#: core/templates/core/video_detail.html:53
+msgid "Does this video fit this item?"
+msgstr ""
+
+#: core/templates/core/video_detail.html:56
+msgid "Yes"
+msgstr ""
+
+#: core/templates/core/video_detail.html:59
+msgid "No"
+msgstr ""
+
+#: core/templates/core/video_detail.html:62
+msgid "Don't know"
+msgstr ""
+
+#: core/templates/core/video_detail.html:67
+msgid "Thanks"
+msgstr ""
+
+#: core/templates/core/video_detail.html:81
 msgid "Previous"
 msgstr "הקודם:"
 
-#: core/templates/core/video_detail.html:60
+#: core/templates/core/video_detail.html:86
 msgid "More"
 msgstr "עוד:"
 
-#: core/templates/core/video_detail.html:65
+#: core/templates/core/video_detail.html:91
 msgid "Next"
 msgstr "הבא:"
 
