@@ -49,24 +49,26 @@
     </div>
     <div class="row top-buffer">
         <div class="col-md-8 text-center">
-                <div class="btn-group btn-group-justified " role="group">
-                    {% if prev %}
-                    <a id="previous-button" href="{{ prev | teach_entity_url }}" role="button" class="btn btn-primary nav-button">
-                        <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>{% trans 'Previous' %}<br>
-                        {{ prev }}
-                    </a>
-                    {% endif %}
-                    <a id="more-button" href="{{ video.teach_item | teach_entity_url }}" role="button" class="btn btn-primary nav-button">
-                        <span class="glyphicon glyphicon-chevron-down" aria-hidden="true"></span> {% trans 'More' %}<br>
-                        {{ video.teach_item }}
-                    </a>
-                    {% if next %}
-                    <a id="next-button" href="{{ next | teach_entity_url }}" role="button" class="btn btn-primary nav-button">
-                        {% trans 'Next' %}<span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span><br>
-                        {{ next }}
-                    </a>
-                    {% endif %}
-                </div>
+            <div class="btn-group btn-group-justified " role="group">
+                {% if prev %}
+                <a id="previous-button" href="{{ prev | teach_entity_url }}" role="button"
+                   class="btn btn-primary nav-button">
+                    <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>{% trans 'Previous' %}<br>
+                    {{ prev }}
+                </a>
+                {% endif %}
+                <a id="more-button" href="{{ video.teach_item | teach_entity_url }}" role="button"
+                   class="btn btn-primary nav-button">
+                    <span class="glyphicon glyphicon-chevron-down" aria-hidden="true"></span> {% trans 'More' %}<br>
+                    {{ video.teach_item }}
+                </a>
+                {% if next %}
+                <a id="next-button" href="{{ next | teach_entity_url }}" role="button"
+                   class="btn btn-primary nav-button">
+                    {% trans 'Next' %}<span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span><br>
+                    {{ next }}
+                </a>
+                {% endif %}
             </div>
         </div>
     </div>
@@ -105,6 +107,7 @@
         prevPlayerPlaying = true;
     }
   }
+
 </script>
 
 <script type="text/javascript">
@@ -123,5 +126,6 @@
             'transport': 'beacon'
         });
     });
+
 </script>
 {% endblock %}
