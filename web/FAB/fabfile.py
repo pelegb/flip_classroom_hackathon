@@ -6,6 +6,7 @@ import tempfile
 # Configuration for DigitalOcean
 # You need to create the user manually
 env.hosts = ['95.85.30.156']
+# env.hosts = ['107.170.4.199']
 env.user = 'flip'
 
 
