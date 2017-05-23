@@ -15,11 +15,13 @@ ipaddress==1.0.18
 ipython==1.1.0
 packaging==16.8
 paramiko==2.1.2
+progressbar2==3.20.0
 psycopg2==2.6.1
 pyasn1==0.2.3
 pycparser==2.17
 pycrypto==2.6.1
 pyparsing==2.2.0
+python-utils==2.1.0
 pytz==2015.7
 requests==2.2.1
 six==1.10.0
