@@ -1,9 +1,7 @@
-import csv
-
 import progressbar
 from django.core.management import BaseCommand
 
-from common.utils import request_youtube_related_videos, UnicodeWriter
+from common.utils import request_youtube_related_videos, UnicodeWriter, request_youtube_info
 from core.models import VideoPage
 
 
@@ -16,7 +14,7 @@ class Command(BaseCommand):
     def handle(self, *args, **options):
         with open(options['output_file'], 'wb') as f:
             writer = UnicodeWriter(f)
-            writer.writerow(['Video Id', 'Published At', 'Title', 'Description', 'Channel'])
+            writer.writerow(['Video Id', 'Published At', 'Title', 'Description', 'Channel', 'Duration'])
 
             related_video_ids = set()
             video_count = VideoPage.objects.count()
@@ -30,10 +28,12 @@ class Command(BaseCommand):
                             try:
                                 VideoPage.objects.get(youtube_movie_id=related_video_id)
                             except VideoPage.DoesNotExist:
+                                video_info = request_youtube_info(related_video_id, part='contentDetails')['items'][0]
                                 writer.writerow([related_video_id, related_video['snippet']['publishedAt'],
                                                  related_video['snippet']['title'],
                                                  related_video['snippet']['description'],
-                                                 related_video['snippet']['channelTitle']])
+                                                 related_video['snippet']['channelTitle'],
+                                                 video_info['contentDetails']['duration']])
                             except:
                                 pass
                     bar.update(i)
