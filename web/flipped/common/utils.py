@@ -28,6 +28,12 @@ def request_youtube_related_videos(video_id):
     return r.json()
 
 
+def request_youtube_captions(video_id, part='snippet'):
+    r = requests.get('https://www.googleapis.com/youtube/v3/captions',
+                     params={'key': GOOGLE_API_KEY, 'part': part, 'videoId': video_id})
+    return r.json()
+
+
 class UnicodeWriter:
     """
     A CSV writer which will write rows to CSV file "f",
