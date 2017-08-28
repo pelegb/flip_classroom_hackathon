@@ -138,6 +138,46 @@ class VideoPage(models.Model):
         return self._fetch_rating(RatingReview.context_choices[1][0])
 
 
+class CandidateVideoPage(models.Model):
+    VIDEO_TITLE_LENGTH = 50
+    VIDEO_DESCRIPTION_LENGTH = 512
+    RELATED_VIDEO = 'related_video'
+    REASONS = (RELATED_VIDEO,)
+    STATE_CANDIDATE = 'candidate'
+    STATE_PROMOTED = 'promoted'
+    STATES = (STATE_CANDIDATE, STATE_PROMOTED, 'irrelevant', 'review later')
+
+    youtube_movie_id = models.CharField(max_length=25, unique=True)
+    youtube_channel = models.CharField(max_length=200)
+
+    video_title = models.CharField(max_length=VIDEO_TITLE_LENGTH)
+    video_description = models.CharField(max_length=VIDEO_DESCRIPTION_LENGTH, null=True)
+    video_upload_date = models.DateTimeField('date uploaded to Youtube', null=True)
+    video_duration = models.CharField(max_length=20, null=True)
+    video_subtitles = models.CharField(max_length=256, null=True)
+
+    candidate_reason = models.CharField(max_length=40, choices=[(x, x) for x in REASONS], default=RELATED_VIDEO)
+
+    related_video_page = models.ForeignKey(VideoPage, blank=True, null=True, related_name='candidate_videos')
+    video_page = models.OneToOneField(VideoPage, blank=True, null=True)
+
+    state = models.CharField(max_length=40, choices=[(x, x) for x in STATES], default=STATE_CANDIDATE)
+
+    def __unicode__(self):
+        return self.video_title
+
+    def hebrew(self):
+        return any(u"\u0590" <= c <= u"\u05EA" for c in self.video_title) or \
+               any(u"\u0590" <= c <= u"\u05EA" for c in self.video_description)
+
+    hebrew.boolean = True
+
+    def hebrew_subtitles(self):
+        return bool(self.video_subtitles) and ('he' in self.video_subtitles or 'iw' in self.video_subtitles)
+
+    hebrew_subtitles.boolean = True
+
+
 class Review(models.Model):
     class Meta:
         abstract = True

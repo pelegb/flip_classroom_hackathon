@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-05-15 19:30+0000\n"
+"POT-Creation-Date: 2017-08-28 19:01+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -79,7 +79,6 @@ msgid "Mathematics 4 units"
 msgstr "מתמטיקה 4 יחֿֿ\"ל"
 
 #: common/templates/common/incl_top.html:98
-#| msgid "Mathematics 5 units"
 msgid "Mathematics 3 units"
 msgstr "מתמטיקה 3 יחֿֿ\"ל"
 
@@ -113,6 +112,14 @@ msgstr "דף הבית"
 #: common/views.py:18
 msgid "help"
 msgstr "עזרה"
+
+#: core/admin.py:32
+msgid "subtitles"
+msgstr "כתוביות"
+
+#: core/admin.py:45
+msgid "video duration"
+msgstr "משך"
 
 #: core/forms.py:33
 msgid "Invalid YouTube URL"
@@ -157,6 +164,30 @@ msgstr "דואל"
 msgid "_description"
 msgstr "אחר - סרטון רלוונטי ומעניין שאינו מתאים לאפשרויות שלעיל"
 
+#: core/templates/admin/core/candidatevideopage/submit_line.html:3
+msgid "Save"
+msgstr "שמירה"
+
+#: core/templates/admin/core/candidatevideopage/submit_line.html:4
+msgid "Promote"
+msgstr "קידום"
+
+#: core/templates/admin/core/candidatevideopage/submit_line.html:7
+msgid "Delete"
+msgstr "מחיקה"
+
+#: core/templates/admin/core/candidatevideopage/submit_line.html:9
+msgid "Save as new"
+msgstr "שמירה כחדש"
+
+#: core/templates/admin/core/candidatevideopage/submit_line.html:10
+msgid "Save and add another"
+msgstr "שמירה והוספת אחר"
+
+#: core/templates/admin/core/candidatevideopage/submit_line.html:11
+msgid "Save and continue editing"
+msgstr "שמירה והמשך עריכה"
+
 #: core/templates/core/add_video.html:19
 #, fuzzy
 msgid "Update"
@@ -175,7 +206,7 @@ msgstr "מאת %(channel)s, הועלה ע\"י %(user_name)s"
 msgid "Be the first to upload a video"
 msgstr "רוצים להיות הראשונים? העלו סרטון"
 
-#: core/templates/core/search.html:12 core/views.py:201
+#: core/templates/core/search.html:12 core/views.py:199
 msgid "Search page"
 msgstr "דף חיפוש"
 
@@ -213,48 +244,24 @@ msgstr ""
 msgid "edit"
 msgstr "ערוך"
 
-#: core/templates/core/video_detail.html:46
-msgid "Help open-classroom to improve the site"
-msgstr ""
-
-#: core/templates/core/video_detail.html:53
-msgid "Does this video fit this item?"
-msgstr ""
-
 #: core/templates/core/video_detail.html:56
-msgid "Yes"
-msgstr ""
-
-#: core/templates/core/video_detail.html:59
-msgid "No"
-msgstr ""
-
-#: core/templates/core/video_detail.html:62
-msgid "Don't know"
-msgstr ""
-
-#: core/templates/core/video_detail.html:67
-msgid "Thanks"
-msgstr ""
-
-#: core/templates/core/video_detail.html:81
 msgid "Previous"
 msgstr "הקודם:"
 
-#: core/templates/core/video_detail.html:86
+#: core/templates/core/video_detail.html:62
 msgid "More"
 msgstr "עוד:"
 
-#: core/templates/core/video_detail.html:91
+#: core/templates/core/video_detail.html:68
 msgid "Next"
 msgstr "הבא:"
 
-#: core/views.py:178
+#: core/views.py:176
 #, fuzzy
 msgid "_plural"
 msgstr "אחרים"
 
-#: core/views.py:198
+#: core/views.py:196
 #, python-format
 msgid "Results for %(q)s"
 msgstr "תוצאות עבור %(q)s"
