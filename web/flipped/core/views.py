@@ -140,7 +140,7 @@ def topic_view(request, topic_id):
     topic_qs = TeachTopic.objects.select_related('parent__parent__parent__parent')  # improve ancestor query
     try:
         topic = topic_qs.get(id=topic_id)
-    except TeachTopic.model.DoesNotExist:
+    except TeachTopic.DoesNotExist:
         raise Http404('No TeachTopic matches the given query.')
 
     topic_children = TeachTopic.objects.prefetch_related('teachtopic_set', 'teachitem_set').filter(
