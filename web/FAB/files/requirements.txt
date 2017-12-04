@@ -16,7 +16,7 @@ ipython==1.1.0
 packaging==16.8
 paramiko==2.1.2
 progressbar2==3.20.0
-psycopg2==2.6.1
+psycopg2==2.7.3.2
 pyasn1==0.2.3
 pycparser==2.17
 pycrypto==2.6.1

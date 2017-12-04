@@ -3,9 +3,10 @@ from django.db import models
 from django.db.models import Q
 from django.utils.html import format_html
 from django.utils.translation import ugettext_lazy as _
-
 from wysihtml5.widgets import Wysihtml5TextareaWidget
+
 import core.models
+from reverseadmin import ReverseModelAdmin
 
 
 class VideoPageAdmin(admin.ModelAdmin):
@@ -61,42 +62,40 @@ class VideoDurationListFilter(admin.SimpleListFilter):
         return queryset
 
 
-from reverseadmin import ReverseModelAdmin, ReverseInlineModelAdmin
-
-
 class CandidateVideoPageAdmin(ReverseModelAdmin):
     list_display = ('video_title', 'state', 'video_duration', 'hebrew', 'hebrew_subtitles')
     list_filter = ('state', VideoDurationListFilter, SubtitlesListFilter)
 
     inline_type = 'stacked'
     inline_reverse = (
-        ('video_page',
-         {'fields': ('category', 'teach_item', 'video_title'), 'save_model': lambda request, obj, form, change: None}),
+        ('video_page', {'fields': ('category', 'teach_item', 'video_title', 'user')}),
     )
 
-    readonly_fields = ('youtube_movie_id_html', 'youtube_channel', 'video_title', 'video_description', 'video_upload_date',
-                       'video_duration', 'video_subtitles', 'candidate_reason', 'related_video_page', 'video_page')
+    readonly_fields = (
+        'youtube_movie_id_html', 'youtube_channel', 'video_title', 'video_description', 'video_upload_date',
+        'video_duration', 'video_subtitles', 'candidate_reason', 'related_video_page', 'video_page')
 
     exclude = ['youtube_movie_id']
 
     def youtube_movie_id_html(self, instance):
-        return format_html('<a href=https://www.youtube.com/watch?v={} target="_blank">{}</a>', instance.youtube_movie_id, instance.youtube_movie_id)
+        return format_html('<a href=https://www.youtube.com/watch?v={} target="_blank">{}</a>',
+                           instance.youtube_movie_id, instance.youtube_movie_id)
 
     youtube_movie_id_html.short_description = 'Youtube movie id'
 
-    def save_model(self, request, obj, form, change):
+    def response_change(self, request, obj):
         if obj.state != core.models.CandidateVideoPage.STATE_PROMOTED and "_promote" in request.POST:
-            v = core.models.VideoPage(youtube_movie_id=obj.youtube_movie_id, video_title=obj.video_title,
-                                      teach_item_id=form.data['form-0-teach_item'],
-                                      category=form.data['form-0-category'],
-                                      user=request.user, youtube_channel=obj.youtube_channel,
-                                      video_description=obj.video_description,
-                                      video_upload_date=obj.video_upload_date, video_duration=obj.video_duration)
-            v.save()
-            obj.state = core.models.CandidateVideoPage.STATE_PROMOTED
-            obj.video_page = v
+            obj.video_page.youtube_movie_id = obj.youtube_movie_id
+            obj.video_page.video_title = obj.video_title
+            obj.video_page.youtube_channel = obj.youtube_channel
+            obj.video_page.video_description = obj.video_description
+            obj.video_page.video_upload_date = obj.video_upload_date
+            obj.video_page.video_duration = obj.video_duration
+            obj.video_page.save()
 
-        super(CandidateVideoPageAdmin, self).save_model(request, obj, form, change)
+            obj.state = core.models.CandidateVideoPage.STATE_PROMOTED
+
+        return super(CandidateVideoPageAdmin, self).response_change(request, obj)
 
 
 admin.site.register(core.models.CandidateVideoPage, admin_class=CandidateVideoPageAdmin)

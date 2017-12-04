@@ -3,7 +3,6 @@ adminreverse from here http://djangosnippets.org/snippets/2032/
 changed for working with ForeignKeys and updated for Django 1.8
 via: https://gist.github.com/joshkel/d051b329501273967506
 '''
-from core.models import CandidateVideoPage, VideoPage
 
 '''
 reverseadmin
@@ -64,11 +63,11 @@ GitHub gist.
 from django.contrib.admin import ModelAdmin
 from django.contrib.admin.options import InlineModelAdmin
 from django.contrib.admin.utils import flatten_fieldsets
+from django.core.exceptions import ObjectDoesNotExist
 from django.db.models import OneToOneField, ForeignKey
 from django.forms import ModelForm
 from django.forms.models import BaseModelFormSet, modelformset_factory
 from django.utils.functional import curry
-from django.core.exceptions import ObjectDoesNotExist, ValidationError
 
 
 class ReverseInlineFormSet(BaseModelFormSet):
@@ -184,6 +183,7 @@ class ReverseInlineModelAdmin(InlineModelAdmin):
         if self.parent_model._meta.model_name == 'candidatevideopage' and self.model._meta.model_name == 'videopage':
             factory.form.base_fields['teach_item'].initial = obj.related_video_page.teach_item
             factory.form.base_fields['video_title'].initial = obj.video_title
+            factory.form.base_fields['user'].initial = request.user
         return factory
 
 
