@@ -37,8 +37,6 @@ nosetests.xml
 .settings
 
 db.sqlite3
-*~
-\#*
 web/.idea/
 web/flipped/.idea
 local_settings.py

@@ -9,23 +9,23 @@ env.hosts = ['95.85.30.156']
 # env.hosts = ['107.170.4.199']
 env.user = 'flip'
 
-
 # Ec2 configuration
 
-env.django_base_dir = os.path.join('/home/%s/' % (env.user),'flip_classroom_hackathon/web/flipped')
+env.django_base_dir = os.path.join('/home/%s/' % (env.user), 'flip_classroom_hackathon/web/flipped')
 env.repo = 'https://github.com/adamatan/flip_classroom_hackathon.git'
 env.repo_dir = 'flip_classroom_hackathon'  # dir after clone
 env.dns = 'the-openclass.org'
 env.new_relic_key = 'd89f0ba6cb16fd69396907526703743e4bbc9e4d'
 
+
 def get_ctx():
     ctx = {
-           'HOME' : '/home/' + env.user,
-            'IP' : env.host,
-            'USER' : env.user,
-            'DJANGO_BASE_DIR' : env.django_base_dir,
-            'DNS' : env.dns
-            }
+        'HOME': '/home/' + env.user,
+        'IP': env.host,
+        'USER': env.user,
+        'DJANGO_BASE_DIR': env.django_base_dir,
+        'DNS': env.dns
+    }
     return ctx
 
 
@@ -42,23 +42,27 @@ def create_new():
     db_first_time()
     collect_static()
 
-    
+
 @task
 def update_host():
     """ general host update """
     sudo('echo deb http://apt.newrelic.com/debian/ newrelic non-free > sudo tee /etc/apt/sources.list.d/newrelic.list')
     sudo('wget -O- https://download.newrelic.com/548C16BF.gpg | apt-key add -')
+    sudo(
+        'echo deb http://apt.postgresql.org/pub/repos/apt/ xenial-pgdg main > sudo tee /etc/apt/sources.list.d/pgdg.list')
+    sudo('wget --quiet -O - https://www.postgresql.org/media/keys/ACCC4CF8.asc | sudo apt-key add -')
     sudo('apt-get update')
     sudo('apt-get --yes -q upgrade')
+
 
 @task
 def update_apt(package=None):
     """ updates/install all apt packages """
     packages = ('git',
-    			'nginx',
-    			'postgresql-client',
-    			'postgresql',
-    			'supervisor',
+                'nginx',
+                'postgresql-client',
+                'postgresql',
+                'supervisor',
                 'python-pip',
                 'libpq-dev',
                 'python-dev',
@@ -66,16 +70,13 @@ def update_apt(package=None):
                 's3cmd',
                 'unattended-upgrades',
                 'gunicorn'
-    	)
+                )
 
     for p in packages:
         if not package or p == package:
             print 'Installing package ' + p
             sudo('apt-get install -q --yes --upgrade %s' % (p))
 
-def get_basedir(dir):
-    dir = dir.rstrip('/')
-    return dir.rpartition('/')[0]
 
 @task
 def update_git():
@@ -93,25 +94,25 @@ def collect_static():
     # collect static
     with cd(env.django_base_dir):
         run('python manage.py collectstatic --noinput')
-    
-    
-@task 
+
+
+@task
 def update_site():
     update_git()
     collect_static()
     with cd(env.django_base_dir):
         run('python manage.py migrate')
     reload_gunicorn()
-    
-           
+
+
 @task
 def update_pip():
     """ updates/install all pip packages """
     sudo('pip install --upgrade pip')
     sudo('pip install setuptools --upgrade')
-    put('files/requirements.txt','/tmp/requirements.txt')
+    put('files/requirements.txt', '/tmp/requirements.txt')
     sudo('pip install -r /tmp/requirements.txt')
-    put('files/server_requirements.txt','/tmp/server_requirements.txt')
+    put('files/server_requirements.txt', '/tmp/server_requirements.txt')
     sudo('pip install -r /tmp/server_requirements.txt')
 
 
@@ -126,10 +127,10 @@ def update_newrelic_config():
 def update_conf():
     """ update conf file for supervisor/nginx """
     ctx = get_ctx()
-    
+
     run('mkdir -p log')
     run('mkdir -p bin')
-    
+
     # copy gunicorn script
     fabric.contrib.files.upload_template('files/run_gunicorn.sh',
                                          'bin',
@@ -137,7 +138,7 @@ def update_conf():
                                          )
     with cd('bin'):
         run('chmod +x run_gunicorn.sh')
-        
+
     # NGINX
     fabric.contrib.files.upload_template('files/nginx/flip.conf',
                                          '/etc/nginx/sites-available/',
@@ -147,7 +148,7 @@ def update_conf():
     sudo('rm -f /etc/nginx/sites-enabled/default')
     sudo('ln -s /etc/nginx/sites-available/flip.conf /etc/nginx/sites-enabled/flip.conf')
     # This is an issue in DigitalOcean
-    fabric.contrib.files.uncomment('/etc/nginx/nginx.conf','server_names_hash_bucket_size',use_sudo=True)
+    fabric.contrib.files.uncomment('/etc/nginx/nginx.conf', 'server_names_hash_bucket_size', use_sudo=True)
     sudo('service nginx reload')
     sudo('service nginx restart')
 
@@ -160,9 +161,11 @@ def update_conf():
     sudo('supervisorctl update')
     sudo('supervisorctl restart flip')
 
-@task 
+
+@task
 def status():
     sudo('supervisorctl status')
+
 
 @task
 def db_first_time():
@@ -170,8 +173,8 @@ def db_first_time():
     with cd(env.django_base_dir):
         run('python manage.py sqlcreate --router=default| sudo -u postgres psql')
         run('python manage.py syncdb --noinput')
-        
-        
+
+
 @task
 def db_reset():
     """ Reset (deletes and recreate) Postgres DB """
@@ -179,21 +182,24 @@ def db_reset():
         run('echo "DROP DATABASE flipped;" | sudo -u postgres psql')
         run('python manage.py sqlcreate --router=default| grep -v "CREATE USER" | sudo -u postgres psql')
         run('python manage.py syncdb --noinput')
-        
+
+
 @task
 def reload_gunicorn():
     """ reload the gunicorn process """
     run('kill -HUP `cat %(HOME)s/flipped.id`' % get_ctx())
 
+
 @task
 def put_local_settings():
     ctx = get_ctx()
-    
+
     with cd(env.django_base_dir):
         fabric.contrib.files.upload_template('files/local_settings.template.py',
-                                         'local_settings.py',
-                                         context=ctx)
+                                             'local_settings.py',
+                                             context=ctx)
     reload_gunicorn()
+
 
 @task
 def get_logs():
