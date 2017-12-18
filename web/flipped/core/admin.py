@@ -1,3 +1,6 @@
+import itertools
+import json
+
 from django.contrib import admin
 from django.db import models
 from django.db.models import Q
@@ -6,6 +9,7 @@ from django.utils.translation import ugettext_lazy as _
 from wysihtml5.widgets import Wysihtml5TextareaWidget
 
 import core.models
+from core.utils import get_jstree_data
 from reverseadmin import ReverseModelAdmin
 
 
@@ -96,6 +100,15 @@ class CandidateVideoPageAdmin(ReverseModelAdmin):
             obj.state = core.models.CandidateVideoPage.STATE_PROMOTED
 
         return super(CandidateVideoPageAdmin, self).response_change(request, obj)
+
+    def change_view(self, request, object_id, form_url='', extra_context=None):
+        extra_context = extra_context or {}
+        root_topics = list(core.models.TeachTopic.objects.root_topics(for_teacher=False))
+        root_subtree = list(itertools.chain.from_iterable(map(lambda topic: topic.get_subtree(), root_topics)))
+        root_topics.extend(root_subtree)
+        extra_context['jstree_data'] = json.dumps(get_jstree_data(root_topics, None, opened=False, enable_items_only=True,
+                                      include_video_count=False))
+        return super(ReverseModelAdmin, self).change_view(request, object_id, form_url, extra_context=extra_context)
 
 
 admin.site.register(core.models.CandidateVideoPage, admin_class=CandidateVideoPageAdmin)

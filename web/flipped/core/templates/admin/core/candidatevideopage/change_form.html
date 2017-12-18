@@ -1,5 +1,58 @@
 {% extends "admin/change_form.html" %}
 
 {% load core_tags %}
+{% load staticfiles %}
 
 {% block submit_buttons_bottom %}{% submit_row %}{% endblock %}
+
+{% block admin_change_form_document_ready %}
+    <script type="text/javascript">
+        (function($) {
+            $(document).ready(function() {
+                $('.add-another').click(function(e) {
+                    e.preventDefault();
+                    showAddAnotherPopup(this);
+                });
+                $('.related-lookup').click(function(e) {
+                    e.preventDefault();
+                    showRelatedObjectLookupPopup(this);
+                });
+            {% if adminform and add %}
+                $('form#{{ opts.model_name }}_form :input:visible:enabled:first').focus()
+            {% endif %}
+            });
+        })(django.jQuery);
+    </script>
+
+    <input type="text" id="subtree_search" value="" class="input">
+    <div id="subtree"></div>
+
+    <script src="https://code.jquery.com/jquery-2.2.4.min.js"></script>
+
+    <link rel="stylesheet" href="{% static 'jstree/dist/themes/default/style.min.css' %}">
+    <link rel="stylesheet" href="{% static 'jstree/dist/themes/default-dark/style.min.css' %}">
+    <script src="{% static 'jstree/dist/jstree.min.js' %}"></script>
+
+    <script>
+    $(function () {
+      $('#subtree').jstree({'plugins' : [ 'search' ],
+      'core' : {
+          'data' : {{ jstree_data | safe }}
+      } }).on("select_node.jstree", function(e,data) {
+          console.log(data.node)
+          document.getElementById('id_form-0-teach_item').value = data.node.original.real_id;
+          document.getElementById('subtree_search').value = data.node.text;
+      });
+      var to = false;
+      $('#subtree_search').keyup(function () {
+        if(to) { clearTimeout(to); }
+        to = setTimeout(function () {
+          var v = $('#subtree_search').val();
+          $('#subtree').jstree(true).search(v);
+        }, 250);
+      });
+    });
+
+</script>
+
+{% endblock %}
