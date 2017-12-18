@@ -108,7 +108,7 @@ class CandidateVideoPageAdmin(ReverseModelAdmin):
         root_topics.extend(root_subtree)
         extra_context['jstree_data'] = json.dumps(get_jstree_data(root_topics, None, opened=False, enable_items_only=True,
                                       include_video_count=False))
-        return super(ReverseModelAdmin, self).change_view(request, object_id, form_url, extra_context=extra_context)
+        return super(CandidateVideoPageAdmin, self).change_view(request, object_id, form_url, extra_context=extra_context)
 
 
 admin.site.register(core.models.CandidateVideoPage, admin_class=CandidateVideoPageAdmin)
