@@ -17,11 +17,14 @@ class Command(BaseCommand):
         with progressbar.ProgressBar(max_value=video_count) as bar:
             for i, video in zip(range(video_count), VideoPage.objects.all()):
                 related_videos = request_youtube_related_videos(video.youtube_movie_id)
-                for related_video in related_videos['items']:
-                    related_video_id = related_video['id']['videoId']
-                    if self._validate_duplicates(related_video_id) and \
-                            self._validate_existence(related_video_id):
-                        self._create_candidate(related_video, video)
+                if 'items' in related_videos:
+                    for related_video in related_videos['items']:
+                        related_video_id = related_video['id']['videoId']
+                        if self._validate_duplicates(related_video_id) and \
+                                self._validate_existence(related_video_id):
+                            self._create_candidate(related_video, video)
+                else:
+                    print related_videos
                 bar.update(i)
 
     def _validate_duplicates(self, related_video_id):
