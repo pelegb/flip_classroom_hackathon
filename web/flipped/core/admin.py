@@ -102,6 +102,10 @@ class CandidateVideoPageAdmin(ReverseModelAdmin):
             obj.video_page_id = obj.video_page.id
             obj.state = core.models.CandidateVideoPage.STATE_PROMOTED
 
+        if obj.state != core.models.CandidateVideoPage.STATE_PROMOTED and obj.video_page:
+            obj.video_page.delete()
+            obj.video_page = None
+
         return super(CandidateVideoPageAdmin, self).response_change(request, obj)
 
     def change_view(self, request, object_id, form_url='', extra_context=None):
