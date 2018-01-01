@@ -165,7 +165,7 @@ def item_view(request, item_id):
     item_qs = TeachItem.objects.select_related('parent__parent__parent__parent')  # improve ancestor query
     try:
         item = item_qs.get(id=item_id)
-    except TeachItem.model.DoesNotExist:
+    except TeachItem.DoesNotExist:
         raise Http404('No TeachItem matches the given query.')
 
     videos = VideoPage.objects.filter(teach_item=item).select_related('user')
