@@ -89,6 +89,8 @@ class CandidateVideoPageAdmin(ReverseModelAdmin):
 
     def response_change(self, request, obj):
         if obj.state != core.models.CandidateVideoPage.STATE_PROMOTED and "_promote" in request.POST:
+            if not obj.video_page:
+                obj.video_page = core.models.VideoPage(user=request.user, teach_item=obj.related_video_page.teach_item)
             obj.video_page.youtube_movie_id = obj.youtube_movie_id
             obj.video_page.video_title = obj.video_title
             obj.video_page.youtube_channel = obj.youtube_channel
@@ -97,6 +99,7 @@ class CandidateVideoPageAdmin(ReverseModelAdmin):
             obj.video_page.video_duration = obj.video_duration
             obj.video_page.save()
 
+            obj.video_page_id = obj.video_page.id
             obj.state = core.models.CandidateVideoPage.STATE_PROMOTED
 
         return super(CandidateVideoPageAdmin, self).response_change(request, obj)
