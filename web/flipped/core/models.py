@@ -114,7 +114,6 @@ class VideoPage(models.Model):
 
     user = models.ForeignKey(AUTH_USER_MODEL)
     teach_item = models.ForeignKey(TeachItem, blank=True, null=True)
-    tags = models.ManyToManyField('Tag', related_name='videos', blank=True, null=True)
     category = models.CharField(max_length=40, choices=CATEGORY_CHOICES, default=LESSON)
 
     def __unicode__(self):
@@ -197,16 +196,6 @@ class RatingReview(Review):
 
 class TextualReview(Review):
     textual_review = models.CharField(max_length=500)
-
-
-class Tag(models.Model):
-    name = models.CharField(max_length=20, unique=True)
-
-    def get_video_count(self):
-        return self.videos.count()
-
-    def __unicode__(self):
-        return self.name
 
 
 class TopicSuggestion(models.Model):
