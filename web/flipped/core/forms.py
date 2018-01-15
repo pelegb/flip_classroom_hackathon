@@ -46,7 +46,6 @@ def validate_youtube(value):
 
 
 class VideoForm(forms.Form):
-
     edited_id = forms.IntegerField(widget=forms.HiddenInput(), initial=0)
     link = forms.URLField(label=_("link"),
                           widget=forms.TextInput(
@@ -64,11 +63,9 @@ class VideoForm(forms.Form):
                                  widget=forms.Select(attrs={'class': 'wideTextInput', 'required': True}), )
     item = forms.ModelChoiceField(widget=forms.HiddenInput(), queryset=models.TeachItem.objects.all(), required=True,
                                   label=_("item"))
-    # tags = forms.ModelMultipleChoiceField(queryset=models.Tag.objects.all(),required=False, label=_("tags"))
 
 
 class TopicSuggestForm(forms.Form):
-
     title = forms.CharField(label=_("title"), widget=forms.TextInput(attrs={'class': 'wideTextInput'}))
     email = forms.EmailField(label=_("email"), widget=forms.EmailInput(attrs={'class': 'wideTextInput'}),
                              required=False)

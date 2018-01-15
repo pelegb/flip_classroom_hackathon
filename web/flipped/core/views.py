@@ -91,7 +91,6 @@ def add_video(request, video_id=None):
             initial = dict()
             video = VideoPage.objects.get(id=video_id)
             initial['content'] = video.content
-            initial['tags'] = video.tags.all()
             initial['title'] = video.video_title
             initial['link'] = 'http://www.youtube.com/watch?v=%s' % video.youtube_movie_id
             initial['item'] = video.teach_item
@@ -119,9 +118,6 @@ def add_video(request, video_id=None):
             v.video_duration = youtube_info['contentDetails']['duration']
 
             v.save()
-            v.tags.clear()
-            # for t in form.cleaned_data['tags']:
-            # v.tags.add(t)
 
             v.teach_item.purge_video_count()
 
