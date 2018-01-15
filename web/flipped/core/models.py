@@ -144,7 +144,8 @@ class CandidateVideoPage(models.Model):
     REASONS = (RELATED_VIDEO,)
     STATE_CANDIDATE = 'candidate'
     STATE_PROMOTED = 'promoted'
-    STATES = (STATE_CANDIDATE, STATE_PROMOTED, 'irrelevant', 'review later')
+    STATE_IRRELEVANT = 'irrelevant'
+    STATES = (STATE_CANDIDATE, STATE_PROMOTED, STATE_IRRELEVANT, 'review later')
 
     youtube_movie_id = models.CharField(max_length=25, unique=True)
     youtube_channel = models.CharField(max_length=200)

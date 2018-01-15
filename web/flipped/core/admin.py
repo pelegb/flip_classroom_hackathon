@@ -80,6 +80,11 @@ class CandidateVideoPageAdmin(ReverseModelAdmin):
         'video_duration', 'video_subtitles', 'candidate_reason', 'related_video_page', 'video_page')
 
     exclude = ['youtube_movie_id']
+    actions = ['mark_irrelevant']
+
+    def mark_irrelevant(self, request, queryset):
+        queryset.exclude(state=core.models.CandidateVideoPage.STATE_PROMOTED).update(state=core.models.CandidateVideoPage.STATE_IRRELEVANT)
+    mark_irrelevant.short_description = "Mark selected candidates as irrelevant"
 
     def youtube_movie_id_html(self, instance):
         return format_html('<a href=https://www.youtube.com/watch?v={} target="_blank">{}</a>',
