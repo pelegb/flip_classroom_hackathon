@@ -1,25 +1,21 @@
 [[source]]
-
 url = "https://pypi.python.org/simple"
 verify_ssl = true
 name = "pypi"
 
 [packages]
-
-django = "<2"
-django-bootstrap3 = "*"
+Django = "<2"
+"django-bootstrap3" = "*"
 django-debug-toolbar = "*"
 django-extensions = "*"
-fabric = "*"
+Fabric = "*"
 newrelic = "*"
-progressbar2 = "*"
-psycopg2 = "*"
+"progressbar2" = "*"
+"psycopg2" = "*"
 requests = "*"
 
 [dev-packages]
-
 ipython = "*"
 
 [requires]
-
 python_version = "2.7"

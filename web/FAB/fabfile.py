@@ -116,8 +116,8 @@ def update_pip():
     """ updates/install all pip packages """
     sudo('pip install --upgrade pip')
     sudo('pip install setuptools --upgrade')
-    put('files/Pipefile', '/tmp/Pipfile')
-    put('files/Pipefile.lock', '/tmp/Pipfile.lock')
+    put('files/Pipfile', '/tmp/Pipfile')
+    put('files/Pipfile.lock', '/tmp/Pipfile.lock')
     with cd('/tmp'):
         sudo('pipenv install --deploy --system')
 
