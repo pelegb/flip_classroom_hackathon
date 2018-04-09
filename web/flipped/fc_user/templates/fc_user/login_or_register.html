@@ -1,5 +1,6 @@
 {% extends "common/base.html" %}
 {% block content %}
+{% load bootstrap3 %}
 {% load i18n %}
 
 <div class="container">
@@ -13,13 +14,12 @@
                         </div>
 
                         <div class="panel-body">
-                            <form class="form-horizontal" method="post" action="{% url 'fc_user:login' %}">
+                            <form class="form" method="post" action="{% url 'fc_user:login' %}">
                                 {% csrf_token %}
-                                {{ login_form.as_p }}
-                                <br>
-                                <p>
+                                {% bootstrap_form login_form %}
+                                {% buttons %}
                                     <input type="submit" value="{% trans 'Login' %}" class="btn btn-success"/>
-                                </p>
+                                {% endbuttons %}
                                 <input type="hidden" name="next" value="{{ next }}"/>
                             </form>
                         </div>
@@ -33,13 +33,12 @@
                         </div>
 
                         <div class="panel-body">
-                            <form class="form-horizontal" method="post" action="{% url 'fc_user:register' %}">
+                            <form class="form" method="post" action="{% url 'fc_user:register' %}">
                                 {% csrf_token %}
-                                {{ register_form.as_p }}
-                                <br>
-                                <p>
+                                {% bootstrap_form register_form %}
+                                {% buttons %}
                                     <input type="submit" value="{% trans 'Register' %}" class="btn btn-success"/>
-                                </p>
+                                {% endbuttons %}
                                 <input type="hidden" name="next" value="{{ next }}"/>
                             </form>
                         </div>

@@ -80,10 +80,6 @@ footer {
     padding-left: 15px;
 }
 
-.wysihtml5-sandbox {
-    direction:rtl;
-}
-
 .controls input {
 	height: 28px;
 }
@@ -109,3 +105,6 @@ footer {
     vertical-align: top;
 }
 
+.form-group.required .control-label:after {
+  content:"*";
+}

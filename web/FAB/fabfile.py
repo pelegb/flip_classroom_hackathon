@@ -34,6 +34,7 @@ def create_new():
     """ run all tasks to after new instance is created """
     update_host()
     update_apt()
+    install_pipenv()
     update_pip()
     update_git()
     update_newrelic_config()
@@ -79,6 +80,11 @@ def update_apt(package=None):
 
 
 @task
+def install_pipenv():
+    sudo('pip install pipenv')
+
+
+@task
 def update_git():
     """ clone/pull git repo """
     clone = not fabric.contrib.files.exists(env.repo_dir)
@@ -110,10 +116,10 @@ def update_pip():
     """ updates/install all pip packages """
     sudo('pip install --upgrade pip')
     sudo('pip install setuptools --upgrade')
-    put('files/requirements.txt', '/tmp/requirements.txt')
-    sudo('pip install -r /tmp/requirements.txt')
-    put('files/server_requirements.txt', '/tmp/server_requirements.txt')
-    sudo('pip install -r /tmp/server_requirements.txt')
+    put('files/Pipefile', '/tmp/Pipfile')
+    put('files/Pipefile.lock', '/tmp/Pipfile.lock')
+    with cd('/tmp'):
+        sudo('pipenv install --deploy --system')
 
 
 @task

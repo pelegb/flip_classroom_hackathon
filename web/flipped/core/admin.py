@@ -1,12 +1,11 @@
 import itertools
 import json
 
+import django
 from django.contrib import admin
-from django.db import models
 from django.db.models import Q
 from django.utils.html import format_html
 from django.utils.translation import ugettext_lazy as _
-from wysihtml5.widgets import Wysihtml5TextareaWidget
 
 import core.models
 from core.utils import get_jstree_data
@@ -15,22 +14,13 @@ from reverseadmin import ReverseModelAdmin
 
 class VideoPageAdmin(admin.ModelAdmin):
     list_display = ('id', 'video_title', 'youtube_movie_id')
-    formfield_overrides = {
-        models.TextField: {'widget': Wysihtml5TextareaWidget},
-    }
 
 
 class TeachItemAdmin(admin.ModelAdmin):
-    formfield_overrides = {
-        models.TextField: {'widget': Wysihtml5TextareaWidget},
-    }
     exclude = ('video_count_cache',)
 
 
 class TeachTopicAdmin(admin.ModelAdmin):
-    formfield_overrides = {
-        models.TextField: {'widget': Wysihtml5TextareaWidget},
-    }
     exclude = ('video_count_cache',)
 
 
@@ -84,6 +74,7 @@ class CandidateVideoPageAdmin(ReverseModelAdmin):
 
     def mark_irrelevant(self, request, queryset):
         queryset.exclude(state=core.models.CandidateVideoPage.STATE_PROMOTED).update(state=core.models.CandidateVideoPage.STATE_IRRELEVANT)
+
     mark_irrelevant.short_description = "Mark selected candidates as irrelevant"
 
     def youtube_movie_id_html(self, instance):
@@ -92,12 +83,20 @@ class CandidateVideoPageAdmin(ReverseModelAdmin):
 
     youtube_movie_id_html.short_description = 'Youtube movie id'
 
+    def save_related(self, request, form, formsets, change):
+        del formsets[0]
+        super(CandidateVideoPageAdmin, self).save_related(request, form, formsets, change)
+
     def response_change(self, request, obj):
         if obj.state != core.models.CandidateVideoPage.STATE_PROMOTED and "_promote" in request.POST:
             if not obj.video_page:
                 obj.video_page = core.models.VideoPage(user=request.user, teach_item=obj.related_video_page.teach_item)
+
+            obj.video_page.category = request.POST['form-0-category']
+            obj.video_page.teach_item_id = request.POST['form-0-teach_item']
+            obj.video_page.video_title = request.POST['form-0-video_title']
+
             obj.video_page.youtube_movie_id = obj.youtube_movie_id
-            obj.video_page.video_title = obj.video_title
             obj.video_page.youtube_channel = obj.youtube_channel
             obj.video_page.video_description = obj.video_description
             obj.video_page.video_upload_date = obj.video_upload_date
@@ -111,6 +110,8 @@ class CandidateVideoPageAdmin(ReverseModelAdmin):
             obj.video_page.delete()
             obj.video_page = None
 
+        obj.save()
+
         return super(CandidateVideoPageAdmin, self).response_change(request, obj)
 
     def change_view(self, request, object_id, form_url='', extra_context=None):
@@ -119,7 +120,7 @@ class CandidateVideoPageAdmin(ReverseModelAdmin):
         root_subtree = list(itertools.chain.from_iterable(map(lambda topic: topic.get_subtree(), root_topics)))
         root_topics.extend(root_subtree)
         extra_context['jstree_data'] = json.dumps(get_jstree_data(root_topics, None, opened=False, enable_items_only=True,
-                                      include_video_count=False))
+                                                                  include_video_count=False))
         return super(CandidateVideoPageAdmin, self).change_view(request, object_id, form_url, extra_context=extra_context)
 
 

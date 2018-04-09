@@ -1,4 +1,4 @@
-import floppyforms as forms
+from django import forms
 from django.contrib.auth.models import User
 from django.core.exceptions import ValidationError
 from django.utils.translation import ugettext_lazy as _
@@ -18,6 +18,6 @@ class RegisterForm(forms.Form):
     last_name = forms.CharField(max_length=30, required=True, label=_('last_name'))
 
 
-class AuthenticationForm(forms.Form, auth_forms.AuthenticationForm):
+class AuthenticationForm(auth_forms.AuthenticationForm):
     username = forms.CharField(max_length=30, required=True)
     password = forms.CharField(max_length=10, required=True, label=_('password'), widget=forms.PasswordInput)
