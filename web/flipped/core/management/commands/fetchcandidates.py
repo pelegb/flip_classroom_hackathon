@@ -15,7 +15,7 @@ class Command(BaseCommand):
     def handle(self, *args, **options):
         video_count = VideoPage.objects.count()
         with progressbar.ProgressBar(max_value=video_count) as bar:
-            for i, video in zip(range(video_count), VideoPage.objects.all()):
+            for i, video in zip(range(video_count), VideoPage.objects.order_by('-id').all()):
                 related_videos = request_youtube_related_videos(video.youtube_movie_id)
                 if 'items' in related_videos:
                     for related_video in related_videos['items']:
