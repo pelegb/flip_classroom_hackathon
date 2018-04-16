@@ -57,8 +57,9 @@ class VideoDurationListFilter(admin.SimpleListFilter):
 
 
 class CandidateVideoPageAdmin(ReverseModelAdmin):
-    list_display = ('video_title', 'state', 'video_duration', 'hebrew', 'hebrew_subtitles')
-    list_filter = ('state', VideoDurationListFilter, SubtitlesListFilter)
+    list_display = ('video_title', 'state', 'video_duration', 'related_teach_item', 'hebrew', 'hebrew_subtitles')
+    list_select_related = ('related_video_page', 'related_video_page__teach_item')
+    list_filter = ('state', VideoDurationListFilter, SubtitlesListFilter, 'related_video_page__teach_item')
 
     inline_type = 'stacked'
     inline_reverse = (
@@ -71,6 +72,10 @@ class CandidateVideoPageAdmin(ReverseModelAdmin):
 
     exclude = ['youtube_movie_id']
     actions = ['mark_irrelevant']
+
+    def related_teach_item(self, obj):
+        return obj.related_video_page.teach_item.title
+    related_teach_item.admin_order_field = 'related_video_page__teach_item__title'
 
     def mark_irrelevant(self, request, queryset):
         queryset.exclude(state=core.models.CandidateVideoPage.STATE_PROMOTED).update(state=core.models.CandidateVideoPage.STATE_IRRELEVANT)
