@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-08-28 19:01+0000\n"
+"POT-Creation-Date: 2018-05-14 18:46+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -58,47 +58,47 @@ msgstr "רוצה לעזור?"
 msgid "Open Class"
 msgstr "שיעור פתוח"
 
-#: common/templates/common/incl_top.html:84
+#: common/templates/common/incl_top.html:96
 msgid "Search box"
 msgstr "תיבת חיפוש"
 
-#: common/templates/common/incl_top.html:87
+#: common/templates/common/incl_top.html:99
 msgid "Search"
 msgstr "חפש"
 
-#: common/templates/common/incl_top.html:94
+#: common/templates/common/incl_top.html:106
 msgid "Syllabuses"
 msgstr "סילבוסים"
 
-#: common/templates/common/incl_top.html:96
+#: common/templates/common/incl_top.html:108
 msgid "Mathematics 5 units"
 msgstr "מתמטיקה 5 יחֿֿ\"ל"
 
-#: common/templates/common/incl_top.html:97
+#: common/templates/common/incl_top.html:109
 msgid "Mathematics 4 units"
 msgstr "מתמטיקה 4 יחֿֿ\"ל"
 
-#: common/templates/common/incl_top.html:98
+#: common/templates/common/incl_top.html:110
 msgid "Mathematics 3 units"
 msgstr "מתמטיקה 3 יחֿֿ\"ל"
 
-#: common/templates/common/incl_top.html:102
+#: common/templates/common/incl_top.html:114
 #: core/templates/core/user_view.html:14 core/templates/core/user_view.html:31
 msgid "upload video"
 msgstr "העלאת סרטון"
 
-#: common/templates/common/incl_top.html:108
-#: common/templates/common/incl_top.html:116
+#: common/templates/common/incl_top.html:120
+#: common/templates/common/incl_top.html:128
 #: common/templates/common/teacher.html:11
 #: common/templates/common/teacher.html:16 common/views.py:24
 msgid "Creators area"
 msgstr "אזור היוצרים"
 
-#: common/templates/common/incl_top.html:109
+#: common/templates/common/incl_top.html:121
 msgid "my videos"
 msgstr "הסרטונים שלי"
 
-#: common/templates/common/incl_top.html:110
+#: common/templates/common/incl_top.html:122
 msgid "log out"
 msgstr "התנתק"
 
@@ -113,24 +113,24 @@ msgstr "דף הבית"
 msgid "help"
 msgstr "עזרה"
 
-#: core/admin.py:32
+#: core/admin.py:28
 msgid "subtitles"
 msgstr "כתוביות"
 
-#: core/admin.py:45
+#: core/admin.py:41
 msgid "video duration"
 msgstr "משך"
 
-#: core/forms.py:33
+#: core/forms.py:34
 msgid "Invalid YouTube URL"
 msgstr "יש להזין כתובת יוטיוב תקינה"
 
-#: core/forms.py:38
+#: core/forms.py:39
 #, python-format
 msgid "Video could not be found on YouTube for ID: %(id)s"
 msgstr "לא נמצא סרטון יוטיוב עם מזהה: %(id)s"
 
-#: core/forms.py:43
+#: core/forms.py:44
 #, python-format
 msgid "Video already exists: %(url)s"
 msgstr "סרטון קיים: %(url)s"
@@ -139,7 +139,7 @@ msgstr "סרטון קיים: %(url)s"
 msgid "link"
 msgstr "קישור"
 
-#: core/forms.py:57 core/forms.py:72
+#: core/forms.py:57 core/forms.py:70
 msgid "title"
 msgstr "כותרת"
 
@@ -155,7 +155,7 @@ msgstr "סוג סרט"
 msgid "item"
 msgstr "נושא לימוד"
 
-#: core/forms.py:73 fc_user/forms.py:16
+#: core/forms.py:71 fc_user/forms.py:16
 msgid "email"
 msgstr "דואל"
 
@@ -163,6 +163,11 @@ msgstr "דואל"
 #, fuzzy
 msgid "_description"
 msgstr "אחר - סרטון רלוונטי ומעניין שאינו מתאים לאפשרויות שלעיל"
+
+#: core/reverseadmin.py:244
+#, python-format
+msgid "Add %s"
+msgstr ""
 
 #: core/templates/admin/core/candidatevideopage/submit_line.html:3
 msgid "Save"
@@ -188,12 +193,12 @@ msgstr "שמירה והוספת אחר"
 msgid "Save and continue editing"
 msgstr "שמירה והמשך עריכה"
 
-#: core/templates/core/add_video.html:19
+#: core/templates/core/add_video.html:22
 #, fuzzy
 msgid "Update"
 msgstr "עדכן"
 
-#: core/templates/core/add_video.html:19
+#: core/templates/core/add_video.html:22
 msgid "Add"
 msgstr "הוסף"
 
@@ -206,13 +211,18 @@ msgstr "מאת %(channel)s, הועלה ע\"י %(user_name)s"
 msgid "Be the first to upload a video"
 msgstr "רוצים להיות הראשונים? העלו סרטון"
 
-#: core/templates/core/search.html:12 core/views.py:199
+#: core/templates/core/search.html:12 core/views.py:195
 msgid "Search page"
 msgstr "דף חיפוש"
 
-#: core/templates/core/search.html:77 core/templates/core/topic_view.html:81
+#: core/templates/core/search.html:77 core/templates/core/topic_view.html:83
 msgid "more"
 msgstr "עוד"
+
+#: core/templates/core/topic_view.html:71
+#, python-format
+msgid "%(category)s by %(youtube_channel)s"
+msgstr "%(category)s מאת %(youtube_channel)s"
 
 #: core/templates/core/user_view.html:8
 msgid "hello"
@@ -244,24 +254,40 @@ msgstr ""
 msgid "edit"
 msgstr "ערוך"
 
-#: core/templates/core/video_detail.html:56
+#: core/templates/core/video_detail.html:46
+msgid "Help us improve our website"
+msgstr "עזרו לנו לצמוח"
+
+#: core/templates/core/video_detail.html:53
+msgid "Is this video suitable for this topic?"
+msgstr "האם גם הסרטון הזה מתאים לנושא?"
+
+#: core/templates/core/video_detail.html:55
+msgid "Yes"
+msgstr "כן"
+
+#: core/templates/core/video_detail.html:59
+msgid "No"
+msgstr "לא"
+
+#: core/templates/core/video_detail.html:77
 msgid "Previous"
 msgstr "הקודם:"
 
-#: core/templates/core/video_detail.html:62
+#: core/templates/core/video_detail.html:83
 msgid "More"
 msgstr "עוד:"
 
-#: core/templates/core/video_detail.html:68
+#: core/templates/core/video_detail.html:89
 msgid "Next"
 msgstr "הבא:"
 
-#: core/views.py:176
+#: core/views.py:172
 #, fuzzy
 msgid "_plural"
 msgstr "אחרים"
 
-#: core/views.py:196
+#: core/views.py:192
 #, python-format
 msgid "Results for %(q)s"
 msgstr "תוצאות עבור %(q)s"
@@ -289,7 +315,7 @@ msgid "last_name"
 msgstr "שם משפחה"
 
 #: fc_user/templates/fc_user/login.html:7
-#: fc_user/templates/fc_user/login_or_register.html:12
+#: fc_user/templates/fc_user/login_or_register.html:13
 msgid "Please login"
 msgstr "אנא התחבר"
 
@@ -306,7 +332,7 @@ msgstr "התחבר"
 msgid "Please register"
 msgstr "אנא הרשם"
 
-#: fc_user/templates/fc_user/login_or_register.html:41
+#: fc_user/templates/fc_user/login_or_register.html:40
 msgid "Register"
 msgstr "הרשם"
 
