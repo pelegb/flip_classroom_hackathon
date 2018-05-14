@@ -144,6 +144,10 @@ def topic_view(request, topic_id):
     item_children = TeachItem.objects.prefetch_related('videopage_set').filter(
         parent=topic)  # improve teach item children query
 
+    for child in item_children:
+        if child.entity_type == 'item' and child.video_count != child.videopage_set.count():
+            child.purge_video_count()
+
     children = sorted(list(topic_children) + list(item_children), key=lambda x: x.order_index)
     breadcrumbs = topic.get_ancestry()
     ancestors = breadcrumbs[:-1]
@@ -165,6 +169,10 @@ def item_view(request, item_id):
         raise Http404('No TeachItem matches the given query.')
 
     videos = VideoPage.objects.filter(teach_item=item).select_related('user')
+
+    if item.video_count != len(videos):
+        item.purge_video_count()
+
     videos_dict = defaultdict(list)
     for v in videos:
         videos_dict[v.category].append(v)
