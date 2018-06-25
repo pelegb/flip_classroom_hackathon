@@ -1,11 +1,11 @@
 from collections import defaultdict
 from common.utils import request_youtube_info
-from core.models import RatingReview
+from core.models import RatingReview, CandidateVideoPage
 from core.utils import get_jstree_data, get_video_structured_data, get_ancestors_structured_data, get_next_and_prev
 from django.contrib.auth.decorators import login_required
 from django.core.serializers.json import DjangoJSONEncoder
 from django.core.urlresolvers import reverse
-from django.http.response import HttpResponseRedirect, Http404
+from django.http.response import HttpResponseRedirect, Http404, HttpResponse
 from django.shortcuts import render, get_object_or_404
 from django.utils.translation import ugettext_lazy
 from models import TeachItem, TeachTopic, VideoPage, TopicSuggestion
@@ -50,8 +50,10 @@ def video_detail(request, video_id):
             ctx['rate_rel']['cur'] = ''
 
     structured_data = [get_video_structured_data(video),
-                       {'@type': 'BreadcrumbList', 'itemListElement': get_ancestors_structured_data(ancestors) + [{'@type': 'ListItem', 'position': len(ancestors)+1, 'item': {'@id': reverse('core:video_detail', args=(video.id,)), 'name': unicode(video)}}]}]
+                       {'@type': 'BreadcrumbList', 'itemListElement': get_ancestors_structured_data(ancestors) + [
+                           {'@type': 'ListItem', 'position': len(ancestors) + 1, 'item': {'@id': reverse('core:video_detail', args=(video.id,)), 'name': unicode(video)}}]}]
     ctx['ld_json'] = json.dumps(structured_data, cls=DjangoJSONEncoder)[1:-1]
+    ctx['candidate_video'] = video.candidate_videos.exclude(id__in=request.session.get('rated_candidates', [])).first()
     return render(request, 'core/video_detail.html', ctx)
 
 
@@ -80,6 +82,30 @@ def video_detail(request, video_id):
 #     except Exception, e:
 #         error_dict = dict(error=unicode(e))
 #         return HttpResponse(status=400, content=json.dumps(error_dict), content_type='application/json')
+
+
+def candidate_video_vote(request, candidate_video_id):
+    key = 'rated_candidates'
+    rated_candidates = request.session.get(key, [])
+    if candidate_video_id in rated_candidates:
+        return HttpResponse(status=403, content=ugettext_lazy("You've already rated this candidate video"))
+    try:
+        candidate_video = get_object_or_404(CandidateVideoPage, pk=candidate_video_id)
+        if request.method == 'POST':
+            vote = request.POST['vote']
+            if vote == 'up':
+                candidate_video.up_votes += 1
+                request.session[key] = rated_candidates + [candidate_video_id]
+            elif vote == 'down':
+                candidate_video.down_votes += 1
+                request.session[key] = rated_candidates + [candidate_video_id]
+            elif vote == 'view':
+                candidate_video.vote_views += 1
+            candidate_video.save()
+        return HttpResponse(status=201)
+    except Exception as e:
+        error_dict = dict(error=unicode(e))
+        return HttpResponse(status=400, content=json.dumps(error_dict), content_type='application/json')
 
 
 @login_required

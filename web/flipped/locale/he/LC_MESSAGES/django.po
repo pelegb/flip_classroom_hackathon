@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-05-14 18:46+0000\n"
+"POT-Creation-Date: 2018-06-25 19:19+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -211,7 +211,7 @@ msgstr "מאת %(channel)s, הועלה ע\"י %(user_name)s"
 msgid "Be the first to upload a video"
 msgstr "רוצים להיות הראשונים? העלו סרטון"
 
-#: core/templates/core/search.html:12 core/views.py:195
+#: core/templates/core/search.html:12 core/views.py:229
 msgid "Search page"
 msgstr "דף חיפוש"
 
@@ -254,40 +254,48 @@ msgstr ""
 msgid "edit"
 msgstr "ערוך"
 
-#: core/templates/core/video_detail.html:46
+#: core/templates/core/video_detail.html:47
 msgid "Help us improve our website"
 msgstr "עזרו לנו לצמוח"
 
-#: core/templates/core/video_detail.html:53
+#: core/templates/core/video_detail.html:55
 msgid "Is this video suitable for this topic?"
 msgstr "האם גם הסרטון הזה מתאים לנושא?"
 
-#: core/templates/core/video_detail.html:55
+#: core/templates/core/video_detail.html:57
 msgid "Yes"
 msgstr "כן"
 
-#: core/templates/core/video_detail.html:59
+#: core/templates/core/video_detail.html:61
 msgid "No"
 msgstr "לא"
 
-#: core/templates/core/video_detail.html:77
+#: core/templates/core/video_detail.html:66
+msgid "Thank you!"
+msgstr "תודה רבה!"
+
+#: core/templates/core/video_detail.html:84
 msgid "Previous"
 msgstr "הקודם:"
 
-#: core/templates/core/video_detail.html:83
+#: core/templates/core/video_detail.html:90
 msgid "More"
 msgstr "עוד:"
 
-#: core/templates/core/video_detail.html:89
+#: core/templates/core/video_detail.html:96
 msgid "Next"
 msgstr "הבא:"
 
-#: core/views.py:172
+#: core/views.py:91
+msgid "You've already rated this candidate video"
+msgstr ""
+
+#: core/views.py:206
 #, fuzzy
 msgid "_plural"
 msgstr "אחרים"
 
-#: core/views.py:192
+#: core/views.py:226
 #, python-format
 msgid "Results for %(q)s"
 msgstr "תוצאות עבור %(q)s"

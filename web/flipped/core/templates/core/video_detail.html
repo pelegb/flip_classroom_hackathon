@@ -41,6 +41,34 @@
                         frameborder="0" allowfullscreen class="embed-responsive-item"></iframe>
             </div>
         </div>
+        {% if candidate_video %}
+        <div class="col-md-4">
+            <div class="collapse top-buffer panel panel-primary" id="candidate-video-tab">
+                <div class="panel-heading"><h3 class="panel-title">{% trans 'Help us improve our website' %}</h3></div>
+                <div class="panel-body">
+                    <div class="embed-responsive embed-responsive-16by9">
+                        <iframe id="candidate-iframe"
+                                src="https://www.youtube.com/embed/{{ candidate_video.youtube_movie_id }}?hl=he&cc_load_policy=1&enablejsapi=1"
+                                frameborder="0" allowfullscreen class="embed-responsive-item"></iframe>
+                    </div>
+                    <div id="candidate-video-vote-buttons" class="collapse in">
+                        <h4>{% trans 'Is this video suitable for this topic?' %}</h4>
+                        <button type="button" id="yes-button" class="btn-lg btn-success" data-toggle="button" autocomplete="off">
+                            {% trans 'Yes' %}
+                            <span class="glyphicon glyphicon-thumbs-up" aria-hidden="true"></span>
+                        </button>
+                        <button type="button" id="no-button" class="btn-lg btn-warning" data-toggle="button" autocomplete="off">
+                            {% trans 'No' %}
+                            <span class="glyphicon glyphicon-thumbs-down" aria-hidden="true"></span>
+                        </button>
+                    </div>
+                    <div id="candidate-video-vote-thankyou" class="collapse">
+                        {% trans 'Thank you!' %}
+                    </div>
+                </div>
+            </div>
+        </div>
+        {% endif %}
     </div>
     <div class="row">
         <div class="col-md-8">
@@ -73,28 +101,41 @@
         </div>
     </div>
 </div>
-<script type="text/javascript">
-  var tag = document.createElement('script');
-  tag.id = 'iframe-demo';
-  tag.src = 'https://www.youtube.com/iframe_api';
-  var firstScriptTag = document.getElementsByTagName('script')[0];
-  firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
 
-  var player;
-  var prevPlayerPlaying = false;
-  function onYouTubeIframeAPIReady() {
+<script type="text/javascript">
+var tag = document.createElement('script');
+tag.id = 'iframe-demo';
+tag.src = 'https://www.youtube.com/iframe_api';
+var firstScriptTag = document.getElementsByTagName('script')[0];
+firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
+
+var player;
+
+function onYouTubeIframeAPIReady() {
     player = new YT.Player('youtube-iframe', {
         events: {
           'onStateChange': onPlayerStateChange
         }
     });
-  }
+}
 
-  function onPlayerStateChange(event) {
+var prevPlayerPlaying = false;
+var candidateVideoShown = false;
+function onPlayerStateChange(event) {
+    console.log(event.data);
+    console.log(candidateVideoShown);
     if (event.data == YT.PlayerState.ENDED) {
         ga('send', 'event', 'video.view', 'ended', player.getVideoData().video_id, {
             'transport': 'beacon'
         });
+        {% if candidate_video %}
+        if (!candidateVideoShown) {
+            $.post("{% url 'core:candidate_video_vote' candidate_video.id %}", { vote: "view" }).done(function(data) {
+                $('#candidate-video-tab').collapse('show');
+                candidateVideoShown = true;
+            });
+        }
+        {% endif %}
     } else if (event.data == YT.PlayerState.PLAYING) {
         ga('send', 'event', 'video.view', 'playing', player.getVideoData().video_id, {
             'transport': 'beacon'
@@ -106,26 +147,93 @@
         }
         prevPlayerPlaying = true;
     }
-  }
+    {% if candidate_video %}
+    else if ((event.data == YT.PlayerState.PAUSED) && (!candidateVideoShown)) {
+        $.post("{% url 'core:candidate_video_vote' candidate_video.id %}", { vote: "view" }).done(function(data) {
+            $('#candidate-video-tab').collapse('show');
+            candidateVideoShown = true;
+        });
+    }
+    {% endif %}
+}
+
 
 </script>
 
 <script type="text/javascript">
-    $("#previous-button").click(function() {
-        ga('send', 'event', 'video_page.navigation', 'previous', {
-            'transport': 'beacon'
-        });
+$("#previous-button").click(function() {
+    ga('send', 'event', 'video_page.navigation', 'previous', {
+        'transport': 'beacon'
     });
-    $("#more-button").click(function() {
-        ga('send', 'event', 'video_page.navigation', 'more', {
-            'transport': 'beacon'
-        });
+});
+$("#more-button").click(function() {
+    ga('send', 'event', 'video_page.navigation', 'more', {
+        'transport': 'beacon'
     });
-    $("#next-button").click(function() {
-        ga('send', 'event', 'video_page.navigation', 'next', {
-            'transport': 'beacon'
-        });
+});
+$("#next-button").click(function() {
+    ga('send', 'event', 'video_page.navigation', 'next', {
+        'transport': 'beacon'
     });
+});
+
 
 </script>
+
+{% if candidate_video %}
+<script type="text/javascript">
+$("#yes-button").click(function() {
+    $.post("{% url 'core:candidate_video_vote' candidate_video.id %}", { vote: "up" }).done(function(data) {
+        $("#yes-button").prop("disabled", true);
+        $("#no-button").prop("disabled", true);
+        voteThankYou();
+    });
+});
+
+$("#no-button").click(function() {
+    $.post("{% url 'core:candidate_video_vote' candidate_video.id %}", { vote: "down" }).done(function(data) {
+        $("#yes-button").prop("disabled", true);
+        $("#no-button").prop("disabled", true);
+        voteThankYou();
+    });
+});
+
+function voteThankYou() {
+    $('#candidate-video-vote-buttons').collapse('hide');
+    $('#candidate-video-vote-thankyou').collapse('show');
+}
+
+function csrfSafeMethod(method) {
+    // these HTTP methods do not require CSRF protection
+    return (/^(GET|HEAD|OPTIONS|TRACE)$/.test(method));
+}
+
+function getCookie(name) {
+    var cookieValue = null;
+    if (document.cookie && document.cookie !== '') {
+        var cookies = document.cookie.split(';');
+        for (var i = 0; i < cookies.length; i++) {
+            var cookie = jQuery.trim(cookies[i]);
+            // Does this cookie string begin with the name we want?
+            if (cookie.substring(0, name.length + 1) === (name + '=')) {
+                cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
+                break;
+            }
+        }
+    }
+    return cookieValue;
+}
+var csrftoken = getCookie('csrftoken');
+
+$.ajaxSetup({
+    beforeSend: function(xhr, settings) {
+        if (!csrfSafeMethod(settings.type) && !this.crossDomain) {
+            xhr.setRequestHeader("X-CSRFToken", csrftoken);
+        }
+    }
+});
+
+
+</script>
+{% endif %}
 {% endblock %}

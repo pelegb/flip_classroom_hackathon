@@ -163,6 +163,10 @@ class CandidateVideoPage(models.Model):
 
     state = models.CharField(max_length=40, choices=[(x, x) for x in STATES], default=STATE_CANDIDATE)
 
+    up_votes = models.IntegerField(default=0)
+    down_votes = models.IntegerField(default=0)
+    vote_views = models.IntegerField(default=0)
+
     def __unicode__(self):
         return self.video_title
 
