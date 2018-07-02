@@ -147,15 +147,17 @@ function onPlayerStateChange(event) {
         }
         prevPlayerPlaying = true;
     }
-    else if ((event.data == YT.PlayerState.PAUSED) && (!candidateVideoShown)) {
+    else if (event.data == YT.PlayerState.PAUSED) {
         ga('send', 'event', 'video.view', 'paused', player.getVideoData().video_id, {
             'transport': 'beacon'
         });
         {% if candidate_video %}
-        $.post("{% url 'core:candidate_video_vote' candidate_video.id %}", { vote: "view" }).done(function(data) {
-            $('#candidate-video-tab').collapse('show');
-            candidateVideoShown = true;
-        });
+        if (!candidateVideoShown) {
+            $.post("{% url 'core:candidate_video_vote' candidate_video.id %}", { vote: "view" }).done(function(data) {
+                $('#candidate-video-tab').collapse('show');
+                candidateVideoShown = true;
+            });
+        }
         {% endif %}
     }
 }
