@@ -57,7 +57,7 @@ class VideoDurationListFilter(admin.SimpleListFilter):
 
 
 class CandidateVideoPageAdmin(ReverseModelAdmin):
-    list_display = ('video_title', 'state', 'video_duration', 'related_teach_item', 'hebrew', 'hebrew_subtitles')
+    list_display = ('video_title', 'state', 'video_duration', 'related_teach_item', 'hebrew', 'hebrew_subtitles', 'vote_views', 'up_votes', 'down_votes')
     list_select_related = ('related_video_page', 'related_video_page__teach_item')
     list_filter = ('state', VideoDurationListFilter, SubtitlesListFilter, 'related_video_page__teach_item')
 
