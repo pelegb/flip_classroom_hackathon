@@ -1,4 +1,7 @@
+import logging
+
 from collections import defaultdict
+
 from common.utils import request_youtube_info
 from core.models import RatingReview, CandidateVideoPage
 from core.utils import get_jstree_data, get_video_structured_data, get_ancestors_structured_data, get_next_and_prev
@@ -14,6 +17,7 @@ import forms
 import itertools
 import json
 
+logger = logging.getLogger(__name__)
 
 def get_global_ratings(video):
     from django.db.models import Avg, Count
@@ -54,8 +58,8 @@ def video_detail(request, video_id):
                            {'@type': 'ListItem', 'position': len(ancestors) + 1, 'item': {'@id': reverse('core:video_detail', args=(video.id,)), 'name': unicode(video)}}]}]
     ctx['ld_json'] = json.dumps(structured_data, cls=DjangoJSONEncoder)[1:-1]
     ctx['candidate_video'] = video.candidate_videos.exclude(id__in=request.session.get('rated_candidates', [])).first()
-    print request.session.get('rated_candidates', [])
-    print ctx['candidate_video']
+    logger.debug(request.session.get('rated_candidates', []))
+    logger.debug(ctx['candidate_video'])
     return render(request, 'core/video_detail.html', ctx)
 
 
