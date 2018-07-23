@@ -61,6 +61,9 @@ def video_detail(request, video_id):
     if request.session.get('rated_candidates', False):
         candidate_videos_query = candidate_videos_query.exclude(id__in=request.session.get('rated_candidates'))
     ctx['candidate_video'] = candidate_videos_query.first()
+    logger.debug(candidate_videos_query.first().query)
+    logger.debug(request.session.get('rated_candidates'))
+    logger.debug(candidate_videos_query.first())
     return render(request, 'core/video_detail.html', ctx)
 
 
