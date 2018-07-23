@@ -54,6 +54,8 @@ def video_detail(request, video_id):
                            {'@type': 'ListItem', 'position': len(ancestors) + 1, 'item': {'@id': reverse('core:video_detail', args=(video.id,)), 'name': unicode(video)}}]}]
     ctx['ld_json'] = json.dumps(structured_data, cls=DjangoJSONEncoder)[1:-1]
     ctx['candidate_video'] = video.candidate_videos.exclude(id__in=request.session.get('rated_candidates', [])).first()
+    print request.session.get('rated_candidates', [])
+    print ctx['candidate_video']
     return render(request, 'core/video_detail.html', ctx)
 
 
