@@ -1,23 +1,24 @@
+import itertools
+import json
 import logging
 
 from collections import defaultdict
-
-from common.utils import request_youtube_info
-from core.models import RatingReview, CandidateVideoPage
-from core.utils import get_jstree_data, get_video_structured_data, get_ancestors_structured_data, get_next_and_prev
 from django.contrib.auth.decorators import login_required
 from django.core.serializers.json import DjangoJSONEncoder
 from django.core.urlresolvers import reverse
 from django.http.response import HttpResponseRedirect, Http404, HttpResponse
 from django.shortcuts import render, get_object_or_404
 from django.utils.translation import ugettext_lazy
-from models import TeachItem, TeachTopic, VideoPage, TopicSuggestion
+
 import common.utils
 import forms
-import itertools
-import json
+from common.utils import request_youtube_info
+from core.models import RatingReview, CandidateVideoPage
+from core.utils import get_jstree_data, get_video_structured_data, get_ancestors_structured_data, get_next_and_prev
+from models import TeachItem, TeachTopic, VideoPage, TopicSuggestion
 
 logger = logging.getLogger(__name__)
+
 
 def get_global_ratings(video):
     from django.db.models import Avg, Count
@@ -58,7 +59,7 @@ def video_detail(request, video_id):
                            {'@type': 'ListItem', 'position': len(ancestors) + 1, 'item': {'@id': reverse('core:video_detail', args=(video.id,)), 'name': unicode(video)}}]}]
     ctx['ld_json'] = json.dumps(structured_data, cls=DjangoJSONEncoder)[1:-1]
     candidate_videos_query = video.candidate_videos
-    logger.debug("Debug")
+    logger.error("Debug")
     if request.session.get('rated_candidates', False):
         logger.debug("add exclude")
         candidate_videos_query = candidate_videos_query.exclude(id__in=request.session.get('rated_candidates'))
