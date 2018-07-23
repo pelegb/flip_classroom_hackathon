@@ -59,6 +59,7 @@ def video_detail(request, video_id):
     ctx['ld_json'] = json.dumps(structured_data, cls=DjangoJSONEncoder)[1:-1]
     candidate_videos_query = video.candidate_videos
     if request.session.get('rated_candidates', False):
+        logger.debug("add exclude")
         candidate_videos_query = candidate_videos_query.exclude(id__in=request.session.get('rated_candidates'))
     ctx['candidate_video'] = candidate_videos_query.first()
     logger.debug(request.session.get('rated_candidates'))
