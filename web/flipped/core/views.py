@@ -59,13 +59,17 @@ def video_detail(request, video_id):
                            {'@type': 'ListItem', 'position': len(ancestors) + 1, 'item': {'@id': reverse('core:video_detail', args=(video.id,)), 'name': unicode(video)}}]}]
     ctx['ld_json'] = json.dumps(structured_data, cls=DjangoJSONEncoder)[1:-1]
     candidate_videos_query = video.candidate_videos
+    print "Debug"
     logger.error("Debug")
     if request.session.get('rated_candidates', False):
         logger.debug("add exclude")
+        print "add exclude"
         candidate_videos_query = candidate_videos_query.exclude(id__in=request.session.get('rated_candidates'))
     ctx['candidate_video'] = candidate_videos_query.first()
     logger.debug(request.session.get('rated_candidates'))
+    print request.session.get('rated_candidates')
     logger.debug(candidate_videos_query.first())
+    print candidate_videos_query.first()
     return render(request, 'core/video_detail.html', ctx)
 
 
