@@ -59,17 +59,9 @@ def video_detail(request, video_id):
                            {'@type': 'ListItem', 'position': len(ancestors) + 1, 'item': {'@id': reverse('core:video_detail', args=(video.id,)), 'name': unicode(video)}}]}]
     ctx['ld_json'] = json.dumps(structured_data, cls=DjangoJSONEncoder)[1:-1]
     candidate_videos_query = video.candidate_videos
-    print "Debug"
-    logger.error("Debug")
-    # if request.session.get('rated_candidates', False):
-    #     logger.debug("add exclude")
-    #     print "add exclude"
-    #     candidate_videos_query = candidate_videos_query.exclude(id__in=request.session.get('rated_candidates'))
+    if request.session.get('rated_candidates', False):
+        candidate_videos_query = candidate_videos_query.exclude(id__in=request.session.get('rated_candidates'))
     ctx['candidate_video'] = candidate_videos_query.first()
-    # logger.debug(request.session.get('rated_candidates'))
-    # print request.session.get('rated_candidates')
-    logger.debug(candidate_videos_query.first())
-    print candidate_videos_query.first()
     return render(request, 'core/video_detail.html', ctx)
 
 
@@ -101,20 +93,20 @@ def video_detail(request, video_id):
 
 
 def candidate_video_vote(request, candidate_video_id):
-    # key = 'rated_candidates'
-    # rated_candidates = request.session.get(key, [])
-    # if candidate_video_id in rated_candidates:
-    #     return HttpResponse(status=403, content=ugettext_lazy("You've already rated this candidate video"))
+    key = 'rated_candidates'
+    rated_candidates = request.session.get(key, [])
+    if candidate_video_id in rated_candidates:
+        return HttpResponse(status=403, content=ugettext_lazy("You've already rated this candidate video"))
     try:
         candidate_video = get_object_or_404(CandidateVideoPage, pk=candidate_video_id)
         if request.method == 'POST':
             vote = request.POST['vote']
             if vote == 'up':
                 candidate_video.up_votes += 1
-                # request.session[key] = rated_candidates + [candidate_video_id]
+                request.session[key] = rated_candidates + [candidate_video_id]
             elif vote == 'down':
                 candidate_video.down_votes += 1
-                # request.session[key] = rated_candidates + [candidate_video_id]
+                request.session[key] = rated_candidates + [candidate_video_id]
             elif vote == 'view':
                 candidate_video.vote_views += 1
             candidate_video.save()
