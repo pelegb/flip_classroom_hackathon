@@ -154,7 +154,7 @@ function onPlayerStateChange(event) {
         {% if candidate_video %}
         if (!candidateVideoShown) {
             $.post("{% url 'core:candidate_video_vote' candidate_video.id %}", { vote: "view" }).done(function(data) {
-                ga('send', 'event', 'candidate_video_vote.view', 'previous', {
+                ga('send', 'event', 'candidate_video_vote', 'view', {
                     'transport': 'beacon'
                 });
                 $('#candidate-video-tab').collapse('show');
@@ -204,7 +204,7 @@ $.ajaxSetup({
 
 $("#yes-button").click(function() {
     $.post("{% url 'core:candidate_video_vote' candidate_video.id %}", { vote: "up" }).done(function(data) {
-        ga('send', 'event', 'candidate_video_vote.yes', 'previous', {
+        ga('send', 'event', 'candidate_video_vote', 'yes', {
             'transport': 'beacon'
         });
         $("#yes-button").prop("disabled", true);
@@ -215,7 +215,7 @@ $("#yes-button").click(function() {
 
 $("#no-button").click(function() {
     $.post("{% url 'core:candidate_video_vote' candidate_video.id %}", { vote: "down" }).done(function(data) {
-        ga('send', 'event', 'candidate_video_vote.no', 'previous', {
+        ga('send', 'event', 'candidate_video_vote', 'no', {
             'transport': 'beacon'
         });
         $("#yes-button").prop("disabled", true);
