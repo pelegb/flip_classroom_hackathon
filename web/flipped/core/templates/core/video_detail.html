@@ -154,6 +154,9 @@ function onPlayerStateChange(event) {
         {% if candidate_video %}
         if (!candidateVideoShown) {
             $.post("{% url 'core:candidate_video_vote' candidate_video.id %}", { vote: "view" }).done(function(data) {
+                ga('send', 'event', 'candidate_video_vote.view', 'previous', {
+                    'transport': 'beacon'
+                });
                 $('#candidate-video-tab').collapse('show');
                 candidateVideoShown = true;
             });
@@ -201,6 +204,9 @@ $.ajaxSetup({
 
 $("#yes-button").click(function() {
     $.post("{% url 'core:candidate_video_vote' candidate_video.id %}", { vote: "up" }).done(function(data) {
+        ga('send', 'event', 'candidate_video_vote.yes', 'previous', {
+            'transport': 'beacon'
+        });
         $("#yes-button").prop("disabled", true);
         $("#no-button").prop("disabled", true);
         voteThankYou();
@@ -209,6 +215,9 @@ $("#yes-button").click(function() {
 
 $("#no-button").click(function() {
     $.post("{% url 'core:candidate_video_vote' candidate_video.id %}", { vote: "down" }).done(function(data) {
+        ga('send', 'event', 'candidate_video_vote.no', 'previous', {
+            'transport': 'beacon'
+        });
         $("#yes-button").prop("disabled", true);
         $("#no-button").prop("disabled", true);
         voteThankYou();
