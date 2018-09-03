@@ -58,7 +58,7 @@ def video_detail(request, video_id):
                        {'@type': 'BreadcrumbList', 'itemListElement': get_ancestors_structured_data(ancestors) + [
                            {'@type': 'ListItem', 'position': len(ancestors) + 1, 'item': {'@id': reverse('core:video_detail', args=(video.id,)), 'name': unicode(video)}}]}]
     ctx['ld_json'] = json.dumps(structured_data, cls=DjangoJSONEncoder)[1:-1]
-    candidate_videos_query = video.candidate_videos.filter(state=CandidateVideoPage.STATE_CANDIDATE)
+    candidate_videos_query = video.candidate_videos.filter(state=CandidateVideoPage.STATE_CANDIDATE).order_by('id')
     if request.session.get('rated_candidates', False):
         candidate_videos_query = candidate_videos_query.exclude(id__in=request.session.get('rated_candidates'))
     ctx['candidate_video'] = candidate_videos_query.first()
