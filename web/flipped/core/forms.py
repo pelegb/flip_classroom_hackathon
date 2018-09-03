@@ -59,7 +59,7 @@ class VideoForm(forms.Form):
                                                           'class': 'wideTextInput',
                                                           'required': True}))
 
-    content = forms.CharField(widget=forms.Textarea(attrs={'class': 'wideTextInput'}), label=_("content"))
+    content = forms.CharField(widget=forms.Textarea(attrs={'class': 'wideTextInput'}), label=_("content"), required=False)
     category = forms.ChoiceField(choices=VideoPage.CATEGORY_DESCRIPTION_CHOICES, required=True, label=_('category'),
                                  widget=forms.Select(attrs={'class': 'wideTextInput', 'required': True}), )
     item = forms.ModelChoiceField(widget=forms.HiddenInput(), queryset=models.TeachItem.objects.all(), required=True,
