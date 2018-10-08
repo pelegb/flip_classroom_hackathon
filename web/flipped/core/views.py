@@ -1,8 +1,8 @@
 import itertools
 import json
 import logging
-
 from collections import defaultdict
+
 from django.contrib.auth.decorators import login_required
 from django.core.serializers.json import DjangoJSONEncoder
 from django.core.urlresolvers import reverse
@@ -56,7 +56,8 @@ def video_detail(request, video_id):
 
     structured_data = [get_video_structured_data(video),
                        {'@type': 'BreadcrumbList', 'itemListElement': get_ancestors_structured_data(ancestors) + [
-                           {'@type': 'ListItem', 'position': len(ancestors) + 1, 'item': {'@id': reverse('core:video_detail', args=(video.id,)), 'name': unicode(video)}}]}]
+                           {'@type': 'ListItem', 'position': len(ancestors) + 1,
+                            'item': {'@id': reverse('core:video_detail', args=(video.id,)), 'name': unicode(video)}}]}]
     ctx['ld_json'] = json.dumps(structured_data, cls=DjangoJSONEncoder)[1:-1]
     candidate_videos_query = video.candidate_videos.filter(state=CandidateVideoPage.STATE_CANDIDATE).order_by('id')
     if request.session.get('rated_candidates', False):
@@ -118,19 +119,23 @@ def candidate_video_vote(request, candidate_video_id):
 
 @login_required
 def add_video(request, video_id=None):
+    selected_item_id = None
     if request.method == 'GET':
+        initial = {}
         if not video_id:
-            form = forms.VideoForm()
+            if 'teach_item_id' in request.GET:
+                selected_item_id = int(request.GET.get('teach_item_id'))
+                initial = {'item': TeachItem.objects.get(id=selected_item_id)}
         else:
-            initial = dict()
             video = VideoPage.objects.get(id=video_id)
-            initial['content'] = video.content
-            initial['title'] = video.video_title
-            initial['link'] = 'http://www.youtube.com/watch?v=%s' % video.youtube_movie_id
-            initial['item'] = video.teach_item
-            initial['edited_id'] = video.id
-            initial['category'] = video.category
-            form = forms.VideoForm(initial=initial)
+            selected_item_id = video.teach_item.id
+            initial = {'content': video.content,
+                       'title': video.video_title,
+                       'link': 'http://www.youtube.com/watch?v=%s' % video.youtube_movie_id,
+                       'item': video.teach_item,
+                       'edited_id': video.id,
+                       'category': video.category}
+        form = forms.VideoForm(initial=initial)
     elif request.method == 'POST':
         form = forms.VideoForm(request.POST)
         if form.is_valid():
@@ -162,7 +167,8 @@ def add_video(request, video_id=None):
     root_topics = list(TeachTopic.objects.root_topics(for_teacher=False))
     root_subtree = list(itertools.chain.from_iterable(map(lambda topic: topic.get_subtree(), root_topics)))
     root_topics.extend(root_subtree)
-    jstree_data = get_jstree_data(root_topics, None, opened=False, enable_items_only=True, include_video_count=False)
+    jstree_data = get_jstree_data(root_topics, None, opened=False, enable_items_only=True, include_video_count=False,
+                                  selected_item_id=selected_item_id)
     return render(request, 'core/add_video.html', dict(form=form, jstree_data=json.dumps(jstree_data)))
 
 
@@ -221,7 +227,8 @@ def item_view(request, item_id):
                        {'@type': 'BreadcrumbList', 'itemListElement': get_ancestors_structured_data(breadcrumbs)}]
     ld_json = json.dumps(structured_data, cls=DjangoJSONEncoder)[1:-1]
     return render(request, 'core/item_view.html',
-                  {'item': item, 'videos_list': videos_list, 'ancestors': ancestors, 'title': item.title, 'ld_json': ld_json})
+                  {'item': item, 'videos_list': videos_list, 'ancestors': ancestors, 'title': item.title, 'ld_json': ld_json,
+                   'teach_item_id': item.id})
 
 
 def search(request):
