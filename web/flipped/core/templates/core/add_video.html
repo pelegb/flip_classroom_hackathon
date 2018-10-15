@@ -12,7 +12,7 @@
         {% bootstrap_form form %}
         <div class="fieldWrapper">
             {{ form.item.label_tag }}
-            <input type="text" id="subtree_search" value="" class="input">
+            <input type="text" id="subtree_search" value="{{form.item.initial}}" class="input">
         </div>
         <div id="subtree">
         </div>
