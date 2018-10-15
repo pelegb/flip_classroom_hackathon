@@ -439,3 +439,12 @@ msgstr "אחר - סרטון רלוונטי ומעניין שאינו מתאים 
 
 msgid "OTHER_plural"
 msgstr "אחר"
+
+msgid "READING"
+msgstr "הקראה"
+
+msgid "READING_description"
+msgstr "הקראה או השמעה של טקסט"
+
+msgid "READING_plural"
+msgstr "הקראות"
