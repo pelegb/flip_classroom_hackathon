@@ -23,6 +23,10 @@
   })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
 
   ga('create', {% if debug %} 'UA-46460590-1' {% else %} 'UA-46460590-2' {% endif %}, 'the-openclass.org');
+  {% if ancestors %}
+    var page = "/{{ ancestors.0.id }}" + document.location.pathname;
+    ga('set', 'page', page);
+  {% endif %}
   ga('send', 'pageview');
 
   /**
