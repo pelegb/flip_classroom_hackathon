@@ -110,6 +110,8 @@ def candidate_video_vote(request, candidate_video_id):
                 request.session[key] = rated_candidates + [candidate_video_id]
             elif vote == 'view':
                 candidate_video.vote_views += 1
+            elif vote == 'playing':
+                candidate_video.playing_views += 1
             candidate_video.save()
         return HttpResponse(status=201)
     except Exception as e:

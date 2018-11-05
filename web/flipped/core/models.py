@@ -167,6 +167,7 @@ class CandidateVideoPage(models.Model):
     up_votes = models.IntegerField(default=0)
     down_votes = models.IntegerField(default=0)
     vote_views = models.IntegerField(default=0)
+    playing_views = models.IntegerField(default=0)
 
     def __unicode__(self):
         return self.video_title
