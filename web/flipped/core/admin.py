@@ -1,7 +1,6 @@
-import itertools
 import json
 
-import django
+import itertools
 from django.contrib import admin
 from django.db.models import Q
 from django.utils.html import format_html
@@ -57,7 +56,9 @@ class VideoDurationListFilter(admin.SimpleListFilter):
 
 
 class CandidateVideoPageAdmin(ReverseModelAdmin):
-    list_display = ('video_title', 'state', 'video_duration', 'related_teach_item', 'hebrew', 'hebrew_subtitles', 'vote_views', 'up_votes', 'down_votes', 'youtube_channel')
+    list_display = (
+        'video_title', 'state', 'video_duration', 'related_teach_item', 'hebrew', 'hebrew_subtitles', 'vote_views', 'playing_views', 'up_votes',
+        'down_votes', 'youtube_channel')
     list_select_related = ('related_video_page', 'related_video_page__teach_item')
     list_filter = ('state', VideoDurationListFilter, SubtitlesListFilter, 'related_video_page__teach_item')
 
@@ -75,6 +76,7 @@ class CandidateVideoPageAdmin(ReverseModelAdmin):
 
     def related_teach_item(self, obj):
         return obj.related_video_page.teach_item.title
+
     related_teach_item.admin_order_field = 'related_video_page__teach_item__title'
 
     def mark_irrelevant(self, request, queryset):
