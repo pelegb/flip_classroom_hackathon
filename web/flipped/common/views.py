@@ -1,5 +1,6 @@
 from django.shortcuts import render
 from django.utils.translation import ugettext as _
+
 import core.models
 
 
@@ -22,3 +23,8 @@ def teacher(request):
     parent_topics = core.models.TeachTopic.objects.root_topics(for_teacher=True) \
         .prefetch_related('teachtopic_set', 'teachitem_set').order_by('order_index')
     return render(request, 'common/teacher.html', {'topics': parent_topics, 'title': _('Creators area')})
+
+
+def syllabus(request):
+    feed = core.models.VideoPage.objects.filter(id__in=[2249,136,2496,1470,801,256,1144,234])
+    return render(request, 'common/syllabus_mock.html', {'feed': feed, 'title': _('Syllabus')})
