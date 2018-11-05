@@ -26,6 +26,9 @@
   {% if ancestors %}
     var page = "/{{ ancestors.0.id }}" + document.location.pathname;
     ga('set', 'page', page);
+  {% elif topic %}
+    var page = "/{{ topic.id }}" + document.location.pathname;
+    ga('set', 'page', page);
   {% endif %}
   ga('send', 'pageview');
 
