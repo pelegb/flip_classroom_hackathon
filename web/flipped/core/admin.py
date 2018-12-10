@@ -105,6 +105,7 @@ class CandidateVideoPageAdmin(ReverseModelAdmin):
 
             obj.video_page.youtube_movie_id = obj.youtube_movie_id
             obj.video_page.youtube_channel = obj.youtube_channel
+            obj.video_page.youtube_channel_id = obj.youtube_channel_id
             obj.video_page.video_description = obj.video_description
             obj.video_page.video_upload_date = obj.video_upload_date
             obj.video_page.video_duration = obj.video_duration

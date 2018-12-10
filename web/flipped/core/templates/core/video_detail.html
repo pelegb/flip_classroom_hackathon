@@ -26,7 +26,7 @@
         <div class="col-xs-12">
             <h1>{{ video.video_title }}</h1>
             <p>
-                {% blocktrans with channel=video.youtube_channel user_name=video.user.get_full_name day=video.upload_date.day month=video.upload_date.month|heb_month year=video.upload_date.year %}By {{channel}}, uploaded by {{ user_name }} on {{ day }} {{ month }} {{ year }}{% endblocktrans %}
+                {% blocktrans with channel=video.youtube_channel user_name=video.user.get_full_name day=video.upload_date.day month=video.upload_date.month|heb_month year=video.upload_date.year channel_id=video.youtube_channel_id %}By <a href="https://www.youtube.com/channel/{{channel_id}}">{{channel}}</a>, uploaded by {{ user_name }} on {{ day }} {{ month }} {{ year }}{% endblocktrans %}
                 {% if perms.core.change_videopage %}
                 (<a href="/core/edit-video/{{video.id}}/">{% trans 'edit' %}</a>)
                 {% endif %}

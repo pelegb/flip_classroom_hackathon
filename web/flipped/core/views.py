@@ -154,6 +154,7 @@ def add_video(request, video_id=None):
 
             youtube_info = request_youtube_info(video_id=v.youtube_movie_id, part='snippet,contentDetails')['items'][0]
             v.youtube_channel = youtube_info['snippet']['channelTitle']
+            v.youtube_channel_id = youtube_info['snippet']['channelId']
             v.video_description = youtube_info['snippet']['description'][:VideoPage.VIDEO_DESCRIPTION_LENGTH]
             v.video_upload_date = youtube_info['snippet']['publishedAt']
             v.video_duration = youtube_info['contentDetails']['duration']

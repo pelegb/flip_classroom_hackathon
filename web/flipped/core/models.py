@@ -105,6 +105,8 @@ class VideoPage(models.Model):
 
     youtube_movie_id = models.CharField(max_length=25)
     youtube_channel = models.CharField(max_length=200)
+    youtube_channel_id = models.CharField(max_length=25)
+
     upload_date = models.DateTimeField('date uploaded to our site', auto_now_add=True)
     content = models.TextField()
 
@@ -150,6 +152,7 @@ class CandidateVideoPage(models.Model):
 
     youtube_movie_id = models.CharField(max_length=25, unique=True)
     youtube_channel = models.CharField(max_length=200)
+    youtube_channel_id = models.CharField(max_length=25)
 
     video_title = models.CharField(max_length=VIDEO_TITLE_LENGTH)
     video_description = models.CharField(max_length=VIDEO_DESCRIPTION_LENGTH, null=True)

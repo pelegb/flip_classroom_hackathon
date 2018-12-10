@@ -45,6 +45,7 @@ class Command(BaseCommand):
         candidate = CandidateVideoPage(related_video_page=video)
         candidate.youtube_movie_id = related_video['id']['videoId']
         candidate.youtube_channel = related_video['snippet']['channelTitle']
+        candidate.youtube_channel_id = related_video['snippet']['channelId']
         candidate.video_title = related_video['snippet']['title'][:CandidateVideoPage.VIDEO_TITLE_LENGTH]
         candidate.video_description = related_video['snippet']['description'][:CandidateVideoPage.VIDEO_DESCRIPTION_LENGTH]
         candidate.video_upload_date = related_video['snippet']['publishedAt']
