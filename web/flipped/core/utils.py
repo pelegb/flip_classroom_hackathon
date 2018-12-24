@@ -22,9 +22,9 @@ def reverse_teach_entity(entity):
 
 def get_video_structured_data(video):
     return {'@type': 'VideoObject', 'name': video.video_title,
-            'thumbnailUrl': 'http://img.youtube.com/vi/%s/0.jpg' % video.youtube_movie_id,
+            'thumbnailUrl': 'https://img.youtube.com/vi/%s/0.jpg' % video.youtube_movie_id,
             'uploadDate': video.video_upload_date,
-            'embedUrl': 'http://www.youtube.com/embed/%s' % video.youtube_movie_id,
+            'embedUrl': 'https://www.youtube.com/embed/%s' % video.youtube_movie_id,
             'description': video.video_description,
             'duration': video.video_duration}
 

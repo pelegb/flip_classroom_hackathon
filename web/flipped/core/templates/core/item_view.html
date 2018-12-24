@@ -33,7 +33,7 @@
     {% for video in videos %}
         <div class="col-md-3 col-sm-4 col-xs-6">
             <a href="{% url 'core:video_detail' video.id %}">
-                <img src="http://img.youtube.com/vi/{{ video.youtube_movie_id }}/0.jpg" class="img-responsive">
+                <img src="https://img.youtube.com/vi/{{ video.youtube_movie_id }}/0.jpg" class="img-responsive">
                 {{ video }}</a>
                 {% blocktrans with channel=video.youtube_channel user_name=video.user.get_full_name %}By {{channel}}, uploaded by {{ user_name }}{% endblocktrans %} <br>
         </div>

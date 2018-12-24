@@ -133,7 +133,7 @@ def add_video(request, video_id=None):
             selected_item_id = video.teach_item.id
             initial = {'content': video.content,
                        'title': video.video_title,
-                       'link': 'http://www.youtube.com/watch?v=%s' % video.youtube_movie_id,
+                       'link': 'https://www.youtube.com/watch?v=%s' % video.youtube_movie_id,
                        'item': video.teach_item,
                        'edited_id': video.id,
                        'category': video.category}
