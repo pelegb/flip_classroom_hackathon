@@ -46,7 +46,7 @@
         {% for video in feed %}
         <div class="col-xs-6 col-md-2">
             <a href="{% url 'core:video_detail' video.id %}">
-                <img src="http://img.youtube.com/vi/{{ video.youtube_movie_id }}/0.jpg" class="img-responsive">
+                <img src="https://img.youtube.com/vi/{{ video.youtube_movie_id }}/0.jpg" class="img-responsive">
                 {{ video.video_title }}</a> <br>
             {% trans 'published' %} {{ video.upload_date | date:'j/n/y' }}
         </div>
@@ -72,7 +72,7 @@
             {% for video in feed %}
             <div class="span2">
                 <a href="{% url 'core:video_detail' video.id %}">
-                    <img src="http://img.youtube.com/vi/{{ video.youtube_movie_id }}/0.jpg" width="100%">
+                    <img src="https://img.youtube.com/vi/{{ video.youtube_movie_id }}/0.jpg" width="100%">
                     {{ video.video_title }}</a> <br>
                 {% trans 'published' %} {{ video.upload_date | date:'j/n/y' }}
             </div>
