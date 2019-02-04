@@ -47,6 +47,31 @@ $(function () {
     }, 250);
   });
 });
+</script>
+
+<script src="https://apis.google.com/js/api.js"></script>
+<script>
+function initClient() {
+  gapi.client.init({
+      'apiKey': '{{ google_api_key }}',
+      'discoveryDocs': ['https://www.googleapis.com/discovery/v1/apis/youtube/v3/rest']
+  });
+}
+
+gapi.load('client', initClient);
+
+$('#id_link').blur(function() {
+    var link = $('#id_link').val();
+    if (link) {
+        var u = new URL(link);
+        var params = new URLSearchParams(u.search);
+        var movieId = params.get('v');
+        var request = gapi.client.youtube.videos.list({'id': movieId, 'part': 'snippet'});
+        request.execute(function(response) {
+            $('#id_title').val(response.items[0].snippet.title);
+        });
+    }
+});
 
 </script>
 

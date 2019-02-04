@@ -15,6 +15,7 @@ import forms
 from common.utils import request_youtube_info
 from core.models import RatingReview, CandidateVideoPage
 from core.utils import get_jstree_data, get_video_structured_data, get_ancestors_structured_data, get_next_and_prev
+from flipped.settings import GOOGLE_API_KEY_FOR_CLIENT
 from models import TeachItem, TeachTopic, VideoPage, TopicSuggestion
 
 logger = logging.getLogger(__name__)
@@ -172,7 +173,7 @@ def add_video(request, video_id=None):
     root_topics.extend(root_subtree)
     jstree_data = get_jstree_data(root_topics, None, opened=False, enable_items_only=True, include_video_count=False,
                                   selected_item_id=selected_item_id)
-    return render(request, 'core/add_video.html', dict(form=form, jstree_data=json.dumps(jstree_data)))
+    return render(request, 'core/add_video.html', dict(form=form, jstree_data=json.dumps(jstree_data), google_api_key=GOOGLE_API_KEY_FOR_CLIENT))
 
 
 def topic_view(request, topic_id):
