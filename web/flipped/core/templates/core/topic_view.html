@@ -33,9 +33,9 @@
             <div class="panel panel-primary">
                 <div class="panel-heading">
                     <a href="{% url 'core:topic_view' child.id %}" class="bg-primary">
-                        <h3 class="panel-title">{{ child }}
-                            <div class="pull-left">{{child.video_count}} <span class="glyphicon glyphicon-film"
-                                                                               aria-hidden="true"></span></div>
+                        <h3 class="panel-title clearfix">{{ child }}
+                            <span class="pull-left">{{child.video_count}} <span class="glyphicon glyphicon-film"
+                                                                               aria-hidden="true"></span></span>
                         </h3>
                     </a>
                 </div>
