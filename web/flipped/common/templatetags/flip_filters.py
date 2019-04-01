@@ -55,7 +55,7 @@ def duration(duration_string):
         ret_val = ''
         for unit in ('hours', 'minutes', 'seconds'):
             if m.group(unit):
-                ret_val += m.group(unit)[:-1] + ':'
+                ret_val += m.group(unit)[:-1].rjust(2, '0') + ':'
             elif ret_val:
                 ret_val += '00:'
         return ret_val[:-1]
