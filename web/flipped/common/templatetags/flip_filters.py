@@ -57,7 +57,7 @@ def duration(duration_string):
             if m.group(unit):
                 ret_val += m.group(unit)[:-1] + ':'
             elif ret_val:
-                ret_val + '00:'
+                ret_val += '00:'
         return ret_val[:-1]
     else:
         return ''
