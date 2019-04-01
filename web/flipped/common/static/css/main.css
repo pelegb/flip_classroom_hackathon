@@ -108,3 +108,12 @@ footer {
 .form-group.required .control-label:after {
   content:"*";
 }
+
+.video-duration {
+    position: absolute;
+    top: 0px;
+    left: 15px;
+    background: black;
+    color: white;
+    padding: 0px 10px;
+}
