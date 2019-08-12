@@ -1,7 +1,7 @@
 {
     "_meta": {
         "hash": {
-            "sha256": "966edfbf8bd8c7d6929cac0debf6a5d4f883d4af93b9e7b761d012e0232c1de0"
+            "sha256": "70736a36e69630107b80e019c0f591e4448db67ceedc09cc374c8332db85b441"
         },
         "pipfile-spec": 6,
         "requires": {
@@ -178,10 +178,10 @@
         },
         "newrelic": {
             "hashes": [
-                "sha256:0685dea97cc7d3d15cd52779e13f8bc4aea3f67fd5bd5620873b48b55c935130"
+                "sha256:708ac6a75c76a59e3d6c0d714e2fbb1e4ec7d540f7d34bddd81e61bdb636e895"
             ],
             "index": "pypi",
-            "version": "==5.0.1.125"
+            "version": "==4.20.1.121"
         },
         "paramiko": {
             "hashes": [
