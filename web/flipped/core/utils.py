@@ -26,7 +26,7 @@ def get_video_structured_data(video):
             'thumbnailUrl': 'https://img.youtube.com/vi/%s/0.jpg' % video.youtube_movie_id,
             'uploadDate': video.video_upload_date,
             'embedUrl': 'https://www.youtube.com/embed/%s' % video.youtube_movie_id,
-            'description': video.video_description if video.video_description else video.video_title,
+            'description': video.video_description if video.video_description and video.video_description.strip() else video.video_title,
             'duration': video.video_duration}
 
 
