@@ -94,13 +94,16 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand" href="{% url 'common:home' %}"><img alt="The Open Classroom"
-                                                                        src="{% static 'img/logo-small-inverse.png' %}"></a>
+            <a class="navbar-brand" href="{% url 'common:home' %}">
+                <img alt="The Open Classroom" src="{% static 'img/logo-small-inverse.png' %}" style="display:inline-block; margin-top:-18px">
+                <span style="display:inline-block; line-height:23px">{% trans 'The Open Classroom' %}</span>
+            </a>
         </div>
+
 
         <!-- Collect the nav links, forms, and other content for toggling -->
         <div class="collapse navbar-collapse">
-            <form class="navbar-form navbar-right" role="search" id="search">
+            <form class="navbar-form navbar-right" role="search" id="search" style="margin-right:0px">
                 <div class="form-group">
                     <input type="text" class="form-control" placeholder="{% trans 'Search box' %}">
                 </div>

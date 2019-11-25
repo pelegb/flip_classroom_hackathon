@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-02-25 19:58+0000\n"
+"POT-Creation-Date: 2019-11-25 19:08+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -59,46 +59,50 @@ msgid "Open Class"
 msgstr "שיעור פתוח"
 
 #: common/templates/common/incl_top.html:105
+msgid "The Open Classroom"
+msgstr "שיעור<BR> פתוח"
+
+#: common/templates/common/incl_top.html:114
 msgid "Search box"
 msgstr "תיבת חיפוש"
 
-#: common/templates/common/incl_top.html:108
+#: common/templates/common/incl_top.html:117
 msgid "Search"
 msgstr "חפש"
 
-#: common/templates/common/incl_top.html:115
+#: common/templates/common/incl_top.html:124
 msgid "Syllabuses"
 msgstr "סילבוסים"
 
-#: common/templates/common/incl_top.html:117
+#: common/templates/common/incl_top.html:126
 msgid "Mathematics 5 units"
 msgstr "מתמטיקה 5 יחֿֿ\"ל"
 
-#: common/templates/common/incl_top.html:118
+#: common/templates/common/incl_top.html:127
 msgid "Mathematics 4 units"
 msgstr "מתמטיקה 4 יחֿֿ\"ל"
 
-#: common/templates/common/incl_top.html:119
+#: common/templates/common/incl_top.html:128
 msgid "Mathematics 3 units"
 msgstr "מתמטיקה 3 יחֿֿ\"ל"
 
-#: common/templates/common/incl_top.html:128
+#: common/templates/common/incl_top.html:137
 #: core/templates/core/user_view.html:14 core/templates/core/user_view.html:31
 msgid "upload video"
 msgstr "העלאת סרטון"
 
-#: common/templates/common/incl_top.html:134
-#: common/templates/common/incl_top.html:142
+#: common/templates/common/incl_top.html:143
+#: common/templates/common/incl_top.html:151
 #: common/templates/common/teacher.html:11
 #: common/templates/common/teacher.html:16 common/views.py:25
 msgid "Creators area"
 msgstr "אזור היוצרים"
 
-#: common/templates/common/incl_top.html:135
+#: common/templates/common/incl_top.html:144
 msgid "my videos"
 msgstr "הסרטונים שלי"
 
-#: common/templates/common/incl_top.html:136
+#: common/templates/common/incl_top.html:145
 msgid "log out"
 msgstr "התנתק"
 
@@ -107,7 +111,7 @@ msgid "John's syllabus"
 msgstr "הסרטונים הנבחרים של משה"
 
 #: common/templates/common/teacher.html:10 common/views.py:11
-#: core/templates/core/item_view.html:9 core/templates/core/search.html:11
+#: core/templates/core/item_view.html:10 core/templates/core/search.html:11
 #: core/templates/core/topic_view.html:11
 #: core/templates/core/video_detail.html:12
 msgid "Home"
@@ -129,41 +133,41 @@ msgstr "כתוביות"
 msgid "video duration"
 msgstr "משך"
 
-#: core/forms.py:34
+#: core/forms.py:30
 msgid "Invalid YouTube URL"
 msgstr "יש להזין כתובת יוטיוב תקינה"
 
-#: core/forms.py:39
+#: core/forms.py:35
 #, python-format
 msgid "Video could not be found on YouTube for ID: %(id)s"
 msgstr "לא נמצא סרטון יוטיוב עם מזהה: %(id)s"
 
-#: core/forms.py:44
+#: core/forms.py:40
 #, python-format
 msgid "Video already exists: %(url)s"
 msgstr "סרטון קיים: %(url)s"
 
-#: core/forms.py:51
+#: core/forms.py:47
 msgid "link"
 msgstr "קישור"
 
-#: core/forms.py:57 core/forms.py:70
+#: core/forms.py:53 core/forms.py:66
 msgid "title"
 msgstr "כותרת"
 
-#: core/forms.py:62
+#: core/forms.py:58
 msgid "content"
 msgstr "תוכן"
 
-#: core/forms.py:63
+#: core/forms.py:59
 msgid "category"
 msgstr "סוג סרט"
 
-#: core/forms.py:66
+#: core/forms.py:62
 msgid "item"
 msgstr "נושא לימוד"
 
-#: core/forms.py:71 fc_user/forms.py:16
+#: core/forms.py:67 fc_user/forms.py:16
 msgid "email"
 msgstr "דואל"
 
@@ -210,16 +214,16 @@ msgstr "עדכן"
 msgid "Add"
 msgstr "הוסף"
 
-#: core/templates/core/item_view.html:38
+#: core/templates/core/item_view.html:40
 #, python-format
 msgid "By %(channel)s, uploaded by %(user_name)s"
 msgstr "מאת %(channel)s, הועלה ע\"י %(user_name)s"
 
-#: core/templates/core/item_view.html:48
+#: core/templates/core/item_view.html:50
 msgid "Be the first to upload a video"
 msgstr "רוצים להיות הראשונים? העלו סרטון"
 
-#: core/templates/core/search.html:12 core/views.py:248
+#: core/templates/core/search.html:12 core/views.py:247
 msgid "Search page"
 msgstr "דף חיפוש"
 
@@ -297,16 +301,16 @@ msgstr "עוד:"
 msgid "Next"
 msgstr "הבא:"
 
-#: core/views.py:101
+#: core/views.py:100
 msgid "You've already rated this candidate video"
 msgstr ""
 
-#: core/views.py:224
+#: core/views.py:223
 #, fuzzy
 msgid "_plural"
 msgstr "אחרים"
 
-#: core/views.py:245
+#: core/views.py:244
 #, python-format
 msgid "Results for %(q)s"
 msgstr "תוצאות עבור %(q)s"
@@ -343,7 +347,7 @@ msgid "Your username and password didn't match. Please try again."
 msgstr "שם המשתמש או הסיסמה שגויים"
 
 #: fc_user/templates/fc_user/login.html:23
-#: fc_user/templates/fc_user/login_or_register.html:21 fc_user/views.py:32
+#: fc_user/templates/fc_user/login_or_register.html:21 fc_user/views.py:33
 msgid "Login"
 msgstr "התחבר"
 
